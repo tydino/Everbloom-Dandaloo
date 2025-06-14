@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "everbloom-dandaloo",
+	"version": "${version}",
+	"name": "Everbloom Dandaloo",
+	"description": "This is for the everbloom dandaloo series. this is what adds everything.",
+	"authors": [
+		"tydino101 on youtube, twitch, and scratch. tydino101msm new on scratch as main acount, and tydino on github"
+	],
+	"contact": {
+		"homepage": "https://sites.google.com/view/tydino101/home",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/everbloom-dandaloo/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"tydino.everbloom.EverbloomDandaloo"
+		],
+		"fabric-datagen": [
+			"tydino.everbloom.EverbloomDandalooDataGenerator"
+		],
+		"client": [
+			"tydino.everbloom.EverbloomDandalooClient"
+		]
+	},
+	"mixins": [
+		"everbloom-dandaloo.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
