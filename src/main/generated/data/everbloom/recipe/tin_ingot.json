@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "everbloom:tin_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "everbloom:tin_ingot"
+  }
+}

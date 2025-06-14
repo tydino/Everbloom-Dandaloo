@@ -8,6 +8,8 @@ import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.item.ModItemGroups;
 import tydino.everbloom.item.ModItems;
 
+
+//try and update as much as can be done to latest minecraft update.
 public class EverbloomDandaloo implements ModInitializer {
 	public static final String MOD_ID = "everbloom";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
