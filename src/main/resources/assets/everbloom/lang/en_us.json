@@ -1,0 +1,14 @@
+{
+  "item.everbloom.cooked_egg": "Cooked Egg",
+
+  "item.everbloom.dagger_stabber_meat": "Dagger Stabber Meat",
+  "item.everbloom.cooked_dagger_stabber_meat": "Cooked Dagger Stabber Meat",
+
+  "item.everbloom.raw_tin": "Raw Tin",
+  "item.everbloom.tin_ingot": "Tin Ingot",
+  "block.everbloom.tin_block": "Tin Block",
+  "block.everbloom.tin_ore": "Tin Ore",
+  "block.everbloom.deepslate_tin_ore": "Deepslate Tin Ore",
+
+  "itemgroup.everbloom.item_group": "Everbloom Items"
+}
