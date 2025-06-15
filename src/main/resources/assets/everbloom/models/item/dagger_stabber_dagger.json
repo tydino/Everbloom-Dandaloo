@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "everbloom-dandaloo:item/dagger-stabber-dagger_3d",
-		"particle": "everbloom-dandaloo:item/dagger-stabber-dagger_3d"
+		"0": "everbloom:item/dagger_stabber_dagger",
+		"particle": "everbloom:item/dagger_stabber_dagger"
 	},
 	"elements": [
 		{

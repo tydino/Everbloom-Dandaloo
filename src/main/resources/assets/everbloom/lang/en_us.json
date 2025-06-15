@@ -1,6 +1,10 @@
 {
+  "block.everbloom.griddle": "Griddle",
+  "block.everbloom.griddle_tier_one": "Griddle Tier One",
+
   "item.everbloom.cooked_egg": "Cooked Egg",
 
+  "item.everbloom.dagger_stabber_dagger": "Dagger Stabber Dagger",
   "item.everbloom.dagger_stabber_meat": "Dagger Stabber Meat",
   "item.everbloom.cooked_dagger_stabber_meat": "Cooked Dagger Stabber Meat",
 

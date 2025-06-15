@@ -8,8 +8,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
+import tydino.everbloom.block.custom.GriddleTierOne;
 
 public class ModBlocks {
+
+    //cooking blocks
+    public static final Block GRIDDLE_TIER_ONE = registerBlock("griddle_tier_one",
+            new GriddleTierOne(AbstractBlock.Settings.create().nonOpaque()));
+
     //ores
 
     //tin

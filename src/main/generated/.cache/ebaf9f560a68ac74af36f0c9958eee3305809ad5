@@ -1,4 +1,5 @@
-// 1.21	2025-06-14T15:41:49.5404093	Everbloom Dandaloo/Model Definitions
+// 1.21	2025-06-14T23:59:10.5799236	Everbloom Dandaloo/Model Definitions
+4f1d695adca20204b3b3df0c2ca71dc14897bc48 assets\everbloom\blockstates\griddle_tier_one.json
 d97e3104b5df2f030b7f6b1bb962fa6234032854 assets\everbloom\blockstates\tin_block.json
 9894e389bde826a3ca7aeac9e6b910bf4a58052e assets\everbloom\blockstates\deepslate_tin_ore.json
 eee36711b4c691984fb50998ab8c69eb67dea537 assets\everbloom\models\block\tin_block.json
@@ -9,6 +10,7 @@ b6a05befe6834dd3651fde64c943c5db27228a21 assets\everbloom\models\item\cooked_egg
 0c6e72380c6ccc6650adde4d1e74640211dea6ab assets\everbloom\models\block\deepslate_tin_ore.json
 99aae9deb242b89dfae78ac59b79e42fb017bfea assets\everbloom\models\item\cooked_dagger_stabber_meat.json
 5cf02f3a2ea2c9edd599f4d7effad97a7adbcc24 assets\everbloom\blockstates\tin_ore.json
+38629e05e1a61071dc173b964e3799f435c8f8f5 assets\everbloom\models\item\griddle_tier_one.json
 97279215d4ad71ca6b600a9a2afed0c92a5dfdbe assets\everbloom\models\item\tin_ingot.json
 55e4cf7f729ca34ad2ed5aa9eb5ed950289469cf assets\everbloom\models\item\dagger_stabber_meat.json
 c30349be44cc1f370f0485ce84119667cf2677ef assets\everbloom\models\item\tin_block.json

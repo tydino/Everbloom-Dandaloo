@@ -5,8 +5,11 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tydino.everbloom.block.ModBlocks;
+import tydino.everbloom.block.entity.ModBlockEntities;
 import tydino.everbloom.item.ModItemGroups;
 import tydino.everbloom.item.ModItems;
+import tydino.everbloom.recipe.ModRecipes;
+import tydino.everbloom.screen.ModScreenHandler;
 
 
 //try and update as much as can be done to latest minecraft update.
@@ -17,11 +20,15 @@ public class EverbloomDandaloo implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("applying everbloom dandaloo content to minecraft");
+		ModItemGroups.registerItemGroups();
 
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
 
-		ModItemGroups.registerItemGroups();
+		ModBlockEntities.registerBlockEntities();
+		ModScreenHandler.registerScreenHandlers();
+
+		ModRecipes.registerRecipes();
 	}
 }
 //Caused by: java.lang.IllegalStateException: This registry can't create intrusive holders error comes from an illegal register, try and find origin

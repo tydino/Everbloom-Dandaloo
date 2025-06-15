@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "everbloom-dandaloo:item/dagger-stabber-dagger"
+    "layer0": "everbloom:item/dagger_stabber_dagger_2d"
   }
 }

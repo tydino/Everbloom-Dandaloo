@@ -16,6 +16,8 @@ public class ModItems {
     //entities
 
     //dagger stabber
+    //figure out how to get the dagger to do dammage
+    public static final Item DAGGER_STABBER_DAGGER = registerItem("dagger_stabber_dagger", new Item(new Item.Settings().maxCount(1).maxDamage(6)));
     public static final Item DAGER_STABBER_MEAT = registerItem("dagger_stabber_meat", new Item(new Item.Settings()));
     public static final Item COOKED_DAGER_STABBER_MEAT = registerItem("cooked_dagger_stabber_meat", new Item(new Item.Settings().food(ModFoodComponents.CookedDaggerStabber)));
 

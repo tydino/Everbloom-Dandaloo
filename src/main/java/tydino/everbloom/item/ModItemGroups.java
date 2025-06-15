@@ -17,6 +17,9 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemgroup.everbloom.item_group"))
                     .entries((displayContext, entries) -> {
 
+                        //cooking
+                        entries.add(ModBlocks.GRIDDLE_TIER_ONE);
+
                         //food
 
                         //griddle
@@ -25,6 +28,7 @@ public class ModItemGroups {
                         //entities
 
                         //dagger stabber
+                        entries.add(ModItems.DAGGER_STABBER_DAGGER);
                         entries.add(ModItems.DAGER_STABBER_MEAT);
                         entries.add(ModItems.COOKED_DAGER_STABBER_MEAT);
 

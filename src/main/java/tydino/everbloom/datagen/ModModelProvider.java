@@ -15,6 +15,9 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        //cooking
+        blockStateModelGenerator.registerSimpleState(ModBlocks.GRIDDLE_TIER_ONE);
+
         //ores
 
         //tin
