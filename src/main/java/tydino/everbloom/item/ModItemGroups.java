@@ -27,6 +27,11 @@ public class ModItemGroups {
 
                         //entities
 
+                        //mallard
+                        entries.add(ModItems.MALLARD_EGG);
+                        entries.add(ModItems.MALLARD_MEAT);
+                        entries.add(ModItems.COOKED_MALLARD_MEAT);
+
                         //dagger stabber
                         entries.add(ModItems.DAGGER_STABBER_DAGGER);
                         entries.add(ModItems.DAGER_STABBER_MEAT);
