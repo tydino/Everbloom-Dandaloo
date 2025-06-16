@@ -1,10 +1,12 @@
 package tydino.everbloom.item;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
+import tydino.everbloom.entity.ModEntities;
 
 public class ModItems {
 
@@ -15,9 +17,13 @@ public class ModItems {
 
     //entities
 
+    //mallard
+    public static final Item MALLARD_EGG = registerItem("mallard_egg", new SpawnEggItem(ModEntities.MALLARD, 0xffffff, 0xffffff, new Item.Settings()));
+    public static final Item MALLARD_MEAT = registerItem("mallard_meat", new Item(new Item.Settings()));
+    public static final Item COOKED_MALLARD_MEAT = registerItem("cooked_mallard_meat", new Item(new Item.Settings().food(ModFoodComponents.CookedMallard)));
+
     //dagger stabber
-    //figure out how to get the dagger to do dammage
-    public static final Item DAGGER_STABBER_DAGGER = registerItem("dagger_stabber_dagger", new Item(new Item.Settings().maxCount(1).maxDamage(6)));
+    public static final Item DAGGER_STABBER_DAGGER = registerItem("dagger_stabber_dagger", new Item(new Item.Settings().maxCount(1).maxDamage(6)));//figure out how to get the dagger to do dammage
     public static final Item DAGER_STABBER_MEAT = registerItem("dagger_stabber_meat", new Item(new Item.Settings()));
     public static final Item COOKED_DAGER_STABBER_MEAT = registerItem("cooked_dagger_stabber_meat", new Item(new Item.Settings().food(ModFoodComponents.CookedDaggerStabber)));
 

@@ -37,6 +37,11 @@ public class ModModelProvider extends FabricModelProvider {
 
         //entities
 
+        //mallard
+        itemModelGenerator.register(ModItems.MALLARD_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MALLARD_MEAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_MALLARD_MEAT, Models.GENERATED);
+
         //dagger stabber
         itemModelGenerator.register(ModItems.DAGER_STABBER_MEAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_DAGER_STABBER_MEAT, Models.GENERATED);

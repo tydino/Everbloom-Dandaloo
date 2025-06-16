@@ -1,0 +1,9 @@
+{
+  "type": "everbloom:griddle",
+  "ingredient": {
+    "item": "everbloom:mallard_egg"
+  },
+  "result": {
+    "id": "everbloom:cooked_egg"
+  }
+}
