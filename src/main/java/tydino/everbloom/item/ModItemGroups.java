@@ -23,6 +23,7 @@ public class ModItemGroups {
                         //food
 
                         //pizzas
+                        entries.add(ModItems.PIZZA_UNCOOKED);
                         entries.add(ModItems.PIZZA_PLAIN);
 
                         //griddle

@@ -8,6 +8,7 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import tydino.everbloom.block.ModBlocks;
@@ -23,6 +24,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
+
+        //food
+        List<ItemConvertible> UNCOOKED_PIZZA = List.of(ModItems.PIZZA_UNCOOKED);
+        offerSmelting(exporter, UNCOOKED_PIZZA, RecipeCategory.FOOD, ModItems.PIZZA_PLAIN, 1f, 200, "pizza");
 
         //ore
 
