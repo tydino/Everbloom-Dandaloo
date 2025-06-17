@@ -26,10 +26,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     @Override
     public void generate(RecipeExporter exporter) {
 
-        //food
-        List<ItemConvertible> UNCOOKED_PIZZA = List.of(ModItems.PIZZA_UNCOOKED);
-        offerSmelting(exporter, UNCOOKED_PIZZA, RecipeCategory.FOOD, ModItems.PIZZA_PLAIN, 1f, 200, "pizza");
-
         //ore
 
         //tin
@@ -43,10 +39,30 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         OreBlockToIngot(ModItems.TIN_INGOT, ModBlocks.TIN_BLOCK, exporter);
 
+        //vanilla items
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SADDLE, 1)
+                .pattern(" l ")
+                .pattern("lil")
+                .input('l', Items.LEATHER)
+                .input('i', Items.IRON_INGOT)
+                .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.NAME_TAG, 1)
+                .pattern(" p")
+                .pattern("s ")
+                .input('p', Items.PAPER)
+                .input('s', Items.STRING)
+                .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
+                .offerTo(exporter);
+
         //custom items
 
         //metal sheet
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.METAL_SHEET)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.METAL_SHEET, 4)
                 .pattern("#%")
                 .pattern("%#")
                 .input('#', ModItems.TIN_INGOT)
@@ -56,7 +72,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         //metal bowl
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.METAL_BOWL)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.METAL_BOWL, 3)
                 .pattern("# #")
                 .pattern(" # ")
                 .input('#', ModItems.METAL_SHEET)
