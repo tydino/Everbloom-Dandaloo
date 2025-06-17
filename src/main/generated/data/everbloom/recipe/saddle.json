@@ -2,19 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "everbloom:tin_ingot"
-    },
-    "%": {
+    "i": {
       "item": "minecraft:iron_ingot"
+    },
+    "l": {
+      "item": "minecraft:leather"
     }
   },
   "pattern": [
-    "#%",
-    "%#"
+    " l ",
+    "lil"
   ],
   "result": {
-    "count": 4,
-    "id": "everbloom:metal_sheet"
+    "count": 1,
+    "id": "minecraft:saddle"
   }
 }
