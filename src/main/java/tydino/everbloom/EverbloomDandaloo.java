@@ -38,4 +38,3 @@ public class EverbloomDandaloo implements ModInitializer {
 		ModRecipes.registerRecipes();
 	}
 }
-//Caused by: java.lang.IllegalStateException: This registry can't create intrusive holders error comes from an illegal register, try and find origin
