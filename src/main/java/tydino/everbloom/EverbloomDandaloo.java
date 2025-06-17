@@ -11,6 +11,7 @@ import tydino.everbloom.item.ModItemGroups;
 import tydino.everbloom.item.ModItems;
 import tydino.everbloom.recipe.ModRecipes;
 import tydino.everbloom.screen.ModScreenHandler;
+import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //try and update as much as can be done to latest minecraft update.
@@ -30,6 +31,8 @@ public class EverbloomDandaloo implements ModInitializer {
 		ModWorldGeneration.generateWorldGen();
 
 		ModEntities.registerModEntities();
+
+		ModLootTableModifiers.modifyLootTables();
 
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandler.registerScreenHandlers();
