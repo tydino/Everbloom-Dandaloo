@@ -1,0 +1,9 @@
+{
+  "type": "everbloom:griddle",
+  "ingredient": {
+    "item": "everbloom:pizza_uncooked"
+  },
+  "result": {
+    "id": "everbloom:pizza_plain"
+  }
+}

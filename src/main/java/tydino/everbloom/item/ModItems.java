@@ -14,6 +14,7 @@ public class ModItems {
 
     //pizzas
     public static final Item PIZZA_PLAIN = registerItem("pizza_plain", new Item(new Item.Settings()));
+    public static final Item PIZZA_UNCOOKED = registerItem("pizza_uncooked", new Item(new Item.Settings()));
 
     //griddle
     public static final Item COOKED_EGG = registerItem("cooked_egg", new Item(new Item.Settings().food(ModFoodComponents.CookedEgg)));
