@@ -49,6 +49,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TIN_BLOCK);
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
+
+                        //custom objects
+
+                        //custom items
+                        entries.add(ModItems.METAL_SHEET);
+                        entries.add(ModItems.METAL_BOWL);
                     }).build());
 
     public static void registerItemGroups(){

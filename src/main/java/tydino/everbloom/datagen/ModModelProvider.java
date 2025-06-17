@@ -51,5 +51,11 @@ public class ModModelProvider extends FabricModelProvider {
         //tin
         itemModelGenerator.register(ModItems.RAWTIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
+
+        //custom objects
+
+        //custom items
+        itemModelGenerator.register(ModItems.METAL_SHEET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.METAL_BOWL, Models.GENERATED);
     }
 }

@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_coal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:coal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_metal_bowl": {
+      "conditions": {
+        "items": [
+          {
+            "items": "everbloom:metal_bowl"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_metal_sheet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "everbloom:metal_sheet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_red_concrete": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:red_concrete"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "everbloom:griddle_tier_one"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_red_concrete",
+      "has_metal_sheet",
+      "has_coal",
+      "has_metal_bowl"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "everbloom:griddle_tier_one"
+    ]
+  }
+}
