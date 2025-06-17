@@ -13,7 +13,6 @@ import tydino.everbloom.recipe.ModRecipes;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
-
 //try and update as much as can be done to latest minecraft update.
 public class EverbloomDandaloo implements ModInitializer {
 	public static final String MOD_ID = "everbloom";

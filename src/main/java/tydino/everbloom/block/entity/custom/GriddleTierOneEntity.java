@@ -26,7 +26,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.entity.ImplementedInventory;
 import tydino.everbloom.block.entity.ModBlockEntities;
-import tydino.everbloom.item.ModItems;
 import tydino.everbloom.recipe.GriddleRecipe;
 import tydino.everbloom.recipe.GriddleRecipeInput;
 import tydino.everbloom.recipe.ModRecipes;
