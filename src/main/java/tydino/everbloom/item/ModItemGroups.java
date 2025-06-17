@@ -22,6 +22,9 @@ public class ModItemGroups {
 
                         //food
 
+                        //pizzas
+                        entries.add(ModItems.PIZZA_PLAIN);
+
                         //griddle
                         entries.add(ModItems.COOKED_EGG);
 
