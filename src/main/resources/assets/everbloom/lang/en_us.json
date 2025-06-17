@@ -23,5 +23,8 @@
   "block.everbloom.tin_ore": "Tin Ore",
   "block.everbloom.deepslate_tin_ore": "Deepslate Tin Ore",
 
+  "item.everbloom.metal_sheet": "Metal Sheet",
+  "item.everbloom.metal_bowl": "Metal Bowl",
+
   "itemgroup.everbloom.item_group": "Everbloom Items"
 }

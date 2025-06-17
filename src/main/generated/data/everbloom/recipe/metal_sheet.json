@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "everbloom:tin_ingot"
+    },
+    "%": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "#%",
+    "%#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "everbloom:metal_sheet"
+  }
+}

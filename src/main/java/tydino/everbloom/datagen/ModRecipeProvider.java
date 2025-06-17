@@ -8,6 +8,7 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
@@ -41,6 +42,43 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerBlasting(exporter, TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 100, "tin_ingot");
 
         OreBlockToIngot(ModItems.TIN_INGOT, ModBlocks.TIN_BLOCK, exporter);
+
+        //custom items
+
+        //metal sheet
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.METAL_SHEET)
+                .pattern("#%")
+                .pattern("%#")
+                .input('#', ModItems.TIN_INGOT)
+                .input('%', Items.IRON_INGOT)
+                .criterion(hasItem(ModItems.TIN_INGOT), conditionsFromItem(ModItems.TIN_INGOT))
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter);
+
+        //metal bowl
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.METAL_BOWL)
+                .pattern("# #")
+                .pattern(" # ")
+                .input('#', ModItems.METAL_SHEET)
+                .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
+                .offerTo(exporter);
+
+        //cooking
+
+        //griddle tier one
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GRIDDLE_TIER_ONE)
+                .pattern("#S#")
+                .pattern("#C#")
+                .pattern("#B#")
+                .input('#', Items.RED_CONCRETE)
+                .input('S', ModItems.METAL_SHEET)
+                .input('C', Items.COAL)
+                .input('B', ModItems.METAL_BOWL)
+                .criterion(hasItem(Items.RED_CONCRETE), conditionsFromItem(Items.RED_CONCRETE))
+                .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
+                .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
+                .criterion(hasItem(ModItems.METAL_BOWL), conditionsFromItem(ModItems.METAL_BOWL))
+                .offerTo(exporter);
     }
 
     public void OreBlockToIngot(Item ingot, Block block, RecipeExporter exporter){

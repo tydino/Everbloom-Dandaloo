@@ -37,6 +37,12 @@ public class ModItems {
     public static Item RAWTIN = registerItem("raw_tin", new Item(new Item.Settings()));
     public static Item TIN_INGOT = registerItem("tin_ingot", new Item(new Item.Settings()));
 
+    //custom objects
+
+    //custom items
+    public static Item METAL_SHEET = registerItem("metal_sheet", new Item(new Item.Settings()));
+    public static Item METAL_BOWL = registerItem("metal_bowl", new Item(new Item.Settings()));
+
     //voids
 
     static Item registerItem(String name, Item item){
