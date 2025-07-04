@@ -9,7 +9,7 @@ import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.entity.custom.DaggerStabberEntity;
 
 public class DaggerStabberRenderer extends MobEntityRenderer<DaggerStabberEntity, DaggerStabberModel<DaggerStabberEntity>> {
-    private static final Identifier TEXTURE = Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dagger_stabber.png");
+    private static final Identifier TEXTURE = Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dagger-stabber.png");
 
     public DaggerStabberRenderer(EntityRendererFactory.Context context) {
         super(context, new DaggerStabberModel<>(context.getPart(DaggerStabberModel.DAGGER_STABBER)), 0.5f);

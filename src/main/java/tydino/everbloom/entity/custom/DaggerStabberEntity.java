@@ -1,10 +1,7 @@
 package tydino.everbloom.entity.custom;
 
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
-import net.minecraft.entity.EntityType;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -27,9 +24,9 @@ import net.minecraft.world.World;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.ai.DaggerStabberAttackGoal;
 import tydino.everbloom.item.ModItems;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;//solve issues
 
-public class DaggerStabberEntity  extends AnimalEntity {
+public class DaggerStabberEntity extends AnimalEntity {
     private static final TrackedData<Boolean> ATTACKING =
             DataTracker.registerData(DaggerStabberEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
@@ -41,7 +38,6 @@ public class DaggerStabberEntity  extends AnimalEntity {
 
     public DaggerStabberEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
-        this.setPathfindingPenalty(PathNodeType.WATER, 0.0F);
     }
 
     //animation code
@@ -99,9 +95,6 @@ public class DaggerStabberEntity  extends AnimalEntity {
         this.goalSelector.add(11, new LookAtEntityGoal(this, SkeletonEntity.class, 9.0F));
         this.goalSelector.add(12, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(13, new LookAroundGoal(this));
-
-
-
     }
 
     @Nullable

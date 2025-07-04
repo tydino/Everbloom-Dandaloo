@@ -23,7 +23,7 @@ public class ModEntities {
 
     //dagger stabber
     public static final EntityType<DaggerStabberEntity> DAGGER_STABBER = Registry.register(Registries.ENTITY_TYPE,
-            Identifier.of(EverbloomDandaloo.MOD_ID, "dagger_stabber"),
+            Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"),
             EntityType.Builder.create(DaggerStabberEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.375f, 1.75f).build());
 

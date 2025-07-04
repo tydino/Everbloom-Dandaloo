@@ -25,11 +25,13 @@ public class ModItems {
     public static final Item MALLARD_EGG = registerItem("mallard_egg", new SpawnEggItem(ModEntities.MALLARD, 0xffffff, 0xffffff, new Item.Settings()));
     public static final Item MALLARD_MEAT = registerItem("mallard_meat", new Item(new Item.Settings()));
     public static final Item COOKED_MALLARD_MEAT = registerItem("cooked_mallard_meat", new Item(new Item.Settings().food(ModFoodComponents.CookedMallard)));
+    public static final Item SPAWN_MALLARD_EGG = registerItem("spawn-mallard", new SpawnEggItem(ModEntities.MALLARD, 0xffffff, 0xffffff, new Item.Settings()));
 
     //dagger stabber
     public static final Item DAGGER_STABBER_DAGGER = registerItem("dagger_stabber_dagger", new Item(new Item.Settings().maxCount(1).maxDamage(6)));//figure out how to get the dagger to do dammage
     public static final Item DAGER_STABBER_MEAT = registerItem("dagger_stabber_meat", new Item(new Item.Settings()));
     public static final Item COOKED_DAGER_STABBER_MEAT = registerItem("cooked_dagger_stabber_meat", new Item(new Item.Settings().food(ModFoodComponents.CookedDaggerStabber)));
+    public static final Item SPAWN_DAGGER_STABBER = registerItem("spawn-dagger-stabber", new SpawnEggItem(ModEntities.DAGGER_STABBER, 0xffffff, 0xffffff, new Item.Settings()));
 
     //ores
 

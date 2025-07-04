@@ -57,5 +57,9 @@ public class ModModelProvider extends FabricModelProvider {
         //custom items
         itemModelGenerator.register(ModItems.METAL_SHEET, Models.GENERATED);
         itemModelGenerator.register(ModItems.METAL_BOWL, Models.GENERATED);
+
+        // spawn eggs
+        itemModelGenerator.register(ModItems.SPAWN_MALLARD_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SPAWN_DAGGER_STABBER, Models.GENERATED);
     }
 }

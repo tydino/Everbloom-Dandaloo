@@ -55,6 +55,10 @@ public class ModItemGroups {
                         //custom items
                         entries.add(ModItems.METAL_SHEET);
                         entries.add(ModItems.METAL_BOWL);
+
+                        //spawn eggs
+                        entries.add(ModItems.SPAWN_MALLARD_EGG);
+                        entries.add(ModItems.SPAWN_DAGGER_STABBER);
                     }).build());
 
     public static void registerItemGroups(){

@@ -12,7 +12,7 @@ import tydino.everbloom.entity.animation.ModAnimations;
 import tydino.everbloom.entity.custom.DaggerStabberEntity;
 
 public class DaggerStabberModel<T extends DaggerStabberEntity> extends SinglePartEntityModel<T> {
-	public static final EntityModelLayer DAGGER_STABBER = new EntityModelLayer(Identifier.of(EverbloomDandaloo.MOD_ID, "dagger_stabber"), "main");
+	public static final EntityModelLayer DAGGER_STABBER = new EntityModelLayer(Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"), "main");
 	private final ModelPart daggerStabber;
 	private final ModelPart head;
 
