@@ -41,6 +41,7 @@ public class MallardEntity extends AnimalEntity {
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(MallardEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private int eggLayTime;
 
     public MallardEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -58,12 +59,6 @@ public class MallardEntity extends AnimalEntity {
     }
 
     @Override
-    protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.02f);
-    }
-
-    @Override
     public void tick() {
         super.tick();
         if (this.getWorld().isClient()){
@@ -76,7 +71,6 @@ public class MallardEntity extends AnimalEntity {
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
             Items.CHICKEN, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.COOKED_CHICKEN
     );
-    public int eggLayTime = this.random.nextInt(6000) + 6000;
 
     @Override
     protected void initGoals(){
@@ -96,12 +90,12 @@ public class MallardEntity extends AnimalEntity {
     @Override
     public void tickMovement() {
         super.tickMovement();
-        if (!this.getWorld().isClient && this.isAlive() && !this.isBaby() && --this.eggLayTime <= 0) {
+        /*if (!this.getWorld().isClient && this.isAlive() && !this.isBaby() && --this.eggLayTime <= 0) {
             this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
             this.dropItem(ModItems.MALLARD_EGG);
             this.emitGameEvent(GameEvent.ENTITY_PLACE);
             this.eggLayTime = this.random.nextInt(6000) + 6000;
-        }
+        }*/ //figure out how to fix
     }
 
     @Override
@@ -126,7 +120,7 @@ public class MallardEntity extends AnimalEntity {
 
     @Nullable
     public MallardEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.MALLARD.create(world);
+        return ModEntities.MALLARD.create(world, SpawnReason.BREEDING);
     }
 
     @Override
@@ -153,8 +147,9 @@ public class MallardEntity extends AnimalEntity {
     public static DefaultAttributeContainer.Builder createMallardAttributes()
     {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 6)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, .25f);
+                .add(EntityAttributes.MAX_HEALTH, 6)
+                .add(EntityAttributes.MOVEMENT_SPEED, .25f)
+                .add(EntityAttributes.TEMPT_RANGE, 12);
     }
 
     //variant

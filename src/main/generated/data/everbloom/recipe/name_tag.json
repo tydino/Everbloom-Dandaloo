@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "p": {
-      "item": "minecraft:paper"
-    },
-    "s": {
-      "item": "minecraft:string"
-    }
+    "p": "minecraft:paper",
+    "s": "minecraft:string"
   },
   "pattern": [
     " p",

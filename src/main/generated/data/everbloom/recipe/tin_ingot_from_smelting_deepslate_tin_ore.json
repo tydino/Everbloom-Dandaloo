@@ -4,9 +4,7 @@
   "cookingtime": 200,
   "experience": 0.25,
   "group": "tin_ingot",
-  "ingredient": {
-    "item": "everbloom:deepslate_tin_ore"
-  },
+  "ingredient": "everbloom:deepslate_tin_ore",
   "result": {
     "id": "everbloom:tin_ingot"
   }

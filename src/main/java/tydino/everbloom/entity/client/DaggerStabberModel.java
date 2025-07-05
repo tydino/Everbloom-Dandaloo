@@ -2,8 +2,8 @@ package tydino.everbloom.entity.client;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
@@ -11,12 +11,13 @@ import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.entity.animation.ModAnimations;
 import tydino.everbloom.entity.custom.DaggerStabberEntity;
 
-public class DaggerStabberModel<T extends DaggerStabberEntity> extends SinglePartEntityModel<T> {
+public class DaggerStabberModel extends EntityModel<DaggerStabberRenderState> {
 	public static final EntityModelLayer DAGGER_STABBER = new EntityModelLayer(Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"), "main");
 	private final ModelPart daggerStabber;
 	private final ModelPart head;
 
 	public DaggerStabberModel(ModelPart root) {
+		super(root);
 		this.daggerStabber = root.getChild("daggerStabber");
 		this.head = daggerStabber.getChild("body").getChild("torso").getChild("neck").getChild("head");
 	}
@@ -59,13 +60,13 @@ public class DaggerStabberModel<T extends DaggerStabberEntity> extends SinglePar
 		return TexturedModelData.of(modelData, 48, 32);
 	}
 	@Override
-	public void setAngles(DaggerStabberEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.getPart().traverse().forEach(ModelPart::resetTransform);
-		this.setHeadAngles(netHeadYaw, headPitch);
+	public void setAngles(DaggerStabberRenderState state) {
+		super.setAngles(state);
+		this.setHeadAngles(state.yawDegrees, state.pitch);
 
-		this.animateMovement(ModAnimations.DAGGERSTABBER_ANIMATIONS.DAGGERSTABBER_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.updateAnimation(entity.idleAnimationState, ModAnimations.DAGGERSTABBER_ANIMATIONS.DAGGERSTABBER_IDLE, ageInTicks, 1f);
-		this.updateAnimation(entity.attackAnimationState, ModAnimations.DAGGERSTABBER_ANIMATIONS.DAGGERSTABBER_ATTACK, ageInTicks, 1f);
+		this.animateWalking(ModAnimations.DAGGERSTABBER_ANIMATIONS.DAGGERSTABBER_WALK, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
+		this.animate(state.idleAnimationState, ModAnimations.DAGGERSTABBER_ANIMATIONS.DAGGERSTABBER_IDLE, state.age, 1f);
+		this.animate(state.attackAnimationState, ModAnimations.DAGGERSTABBER_ANIMATIONS.DAGGERSTABBER_ATTACK, state.age, 1f);
 	}
 	private void setHeadAngles(float headYaw, float headPitch){
 		headYaw = MathHelper.clamp(headYaw, -30f, 30f);
@@ -73,15 +74,5 @@ public class DaggerStabberModel<T extends DaggerStabberEntity> extends SinglePar
 
 		this.head.yaw = headYaw * 0.017453292f;
 		this.head.pitch = headPitch * 0.017453292f;
-	}
-
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-		daggerStabber.render(matrices, vertexConsumer, light, overlay, color);
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return daggerStabber;
 	}
 }

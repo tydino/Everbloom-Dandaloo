@@ -2,8 +2,8 @@ package tydino.everbloom.entity.client;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
@@ -14,12 +14,13 @@ import tydino.everbloom.entity.custom.MallardEntity;
 // Made with Blockbench 4.12.4
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class MallardModel<T extends MallardEntity> extends SinglePartEntityModel<T> {
+public class MallardModel extends EntityModel<MallardRenderState> {
 	public static final EntityModelLayer MALLARD = new EntityModelLayer(Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"), "main");
 	private final ModelPart mallard;
 	private final ModelPart head;
 
 	public MallardModel(ModelPart root) {
+		super(root);
 		this.mallard = root.getChild("mallard");
 		this.head = mallard.getChild("body").getChild("torso").getChild("head");
 	}
@@ -52,12 +53,12 @@ public class MallardModel<T extends MallardEntity> extends SinglePartEntityModel
 		return TexturedModelData.of(modelData, 32, 32);
 	}
 	@Override
-	public void setAngles(MallardEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.getPart().traverse().forEach(ModelPart::resetTransform);
-		this.setHeadAngles(netHeadYaw, headPitch);
+	public void setAngles(MallardRenderState state) {
+		super.setAngles(state);
+		this.setHeadAngles(state.yawDegrees, state.pitch);
 
-		this.animateMovement(ModAnimations.MALLARD_ANIMATIONS.MALLARD_RUN, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.updateAnimation(entity.idleAnimationState, ModAnimations.MALLARD_ANIMATIONS.MALLARD_IDLE, ageInTicks, 1f);
+		this.animateWalking(ModAnimations.MALLARD_ANIMATIONS.MALLARD_RUN, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
+		this.animate(state.idleAnimationState, ModAnimations.MALLARD_ANIMATIONS.MALLARD_IDLE, state.age, 1f);
 	}
 	private void setHeadAngles(float headYaw, float headPitch){
 		headYaw = MathHelper.clamp(headYaw, -30f, 30f);
@@ -65,15 +66,5 @@ public class MallardModel<T extends MallardEntity> extends SinglePartEntityModel
 
 		this.head.yaw = headYaw * 0.017453292f;
 		this.head.pitch = headPitch * 0.017453292f;
-	}
-
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-		mallard.render(matrices, vertexConsumer, light, overlay, color);
-	}
-
-	@Override
-	public ModelPart getPart() {
-		return mallard;
 	}
 }

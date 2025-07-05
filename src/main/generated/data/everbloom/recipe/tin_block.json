@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "everbloom:tin_ingot"
-    }
+    "#": "everbloom:tin_ingot"
   },
   "pattern": [
     "###",

@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.state.EntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
@@ -13,7 +14,7 @@ import tydino.everbloom.entity.custom.MallardVariant;
 
 import java.util.Map;
 
-public class MallardRenderer extends MobEntityRenderer<MallardEntity, MallardModel<MallardEntity>> {
+public class MallardRenderer extends MobEntityRenderer<MallardEntity, MallardRenderState, MallardModel> {
     private static final Map<MallardVariant, Identifier> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(MallardVariant.class), map -> {
                 map.put(MallardVariant.MALE,
@@ -23,22 +24,35 @@ public class MallardRenderer extends MobEntityRenderer<MallardEntity, MallardMod
             });
 
     public MallardRenderer(EntityRendererFactory.Context context) {
-        super(context, new MallardModel<>(context.getPart(MallardModel.MALLARD)), 0.5f);
+        super(context, new MallardModel(context.getPart(MallardModel.MALLARD)), 0.5f);
     }
 
     @Override
-    public Identifier getTexture(MallardEntity entity) {
-        return LOCATION_BY_VARIANT.get(entity.getVariant());
+    public Identifier getTexture(MallardRenderState state) {
+        return LOCATION_BY_VARIANT.get(state.variant);
     }
 
     @Override
-    public void render(MallardEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i){
-        if(mobEntity.isBaby()){
+    public void render(MallardRenderState state, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i){
+        if(state.baby){
             matrixStack.scale(0.75f, 0.75f, 0.75f);
         }else{
             matrixStack.scale(1f,1f,1f);
         }
 
-        super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
+        super.render(state, matrixStack, vertexConsumerProvider, i);
+    }
+
+    @Override
+    public MallardRenderState createRenderState() {
+        return new MallardRenderState();
+    }
+
+
+    @Override
+    public void updateRenderState(MallardEntity livingEntity, MallardRenderState livingEntityRenderState, float f) {
+        super.updateRenderState(livingEntity, livingEntityRenderState, f);
+        livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
+        livingEntityRenderState.variant = livingEntity.getVariant();
     }
 }

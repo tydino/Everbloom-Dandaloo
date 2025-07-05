@@ -19,10 +19,12 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.core.jmx.Server;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.entity.ImplementedInventory;
 import tydino.everbloom.block.entity.ModBlockEntities;
@@ -152,7 +154,7 @@ public class GriddleTierOneEntity extends BlockEntity implements ExtendedScreenH
     }
 
     private Optional<RecipeEntry<GriddleRecipe>> getCurrentRecipe() {
-        return this.getWorld().getRecipeManager()
+        return ((ServerWorld) this.getWorld()).getRecipeManager()
                 .getFirstMatch(ModRecipes.GRIDDLE_TYPE, new GriddleRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
     }
 

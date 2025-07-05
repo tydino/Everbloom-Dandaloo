@@ -21,8 +21,8 @@ public class EverbloomREIClient implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry) {
-        registry.registerRecipeFiller(GriddleRecipe.class, ModRecipes.GRIDDLE_TYPE,
-                GriddleDisplay::new);
+        /*registry.registerRecipeFiller(GriddleRecipe.class, ModRecipes.GRIDDLE_TYPE,
+                GriddleDisplay::new);*/
     }
 
     @Override

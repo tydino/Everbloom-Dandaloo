@@ -14,18 +14,27 @@ import tydino.everbloom.entity.custom.MallardEntity;
 
 public class ModEntities {
 
+    //register keys for mobs
+
+    static final RegistryKey<EntityType<?>> MALLARD_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"));
+    static final RegistryKey<EntityType<?>> DAGGER_STABBER_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"));
+
+    //registering mobs
+
     //mallard
 
     public static final EntityType<MallardEntity> MALLARD = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"),
             EntityType.Builder.create(MallardEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.375f, 0.75f).build());//this sets hit box size
+                    .dimensions(0.375f, 0.75f).build(MALLARD_KEY));//this sets hit box size
 
     //dagger stabber
     public static final EntityType<DaggerStabberEntity> DAGGER_STABBER = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"),
             EntityType.Builder.create(DaggerStabberEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.375f, 1.75f).build());
+                    .dimensions(0.375f, 1.75f).build(DAGGER_STABBER_KEY));
 
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
