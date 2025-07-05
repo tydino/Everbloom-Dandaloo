@@ -3,10 +3,8 @@ package tydino.everbloom.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Block;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.RecipeGenerator;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.recipe.RecipeExporter;
+import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -42,16 +40,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 OreBlockToIngot(ModItems.TIN_INGOT, ModBlocks.TIN_BLOCK, exporter);
 
-                //vanilla items
-
-                createShaped(RecipeCategory.MISC, Items.SADDLE, 1)
-                        .pattern(" l ")
-                        .pattern("lil")
-                        .input('l', Items.LEATHER)
-                        .input('i', Items.IRON_INGOT)
-                        .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
-                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
-                        .offerTo(exporter);
+                //recipes for vanilla items
 
                 createShaped(RecipeCategory.MISC, Items.NAME_TAG, 1)
                         .pattern(" p")
