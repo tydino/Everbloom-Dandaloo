@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeGenerator;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
@@ -23,92 +24,103 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(RecipeExporter exporter) {
+    protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
+        return new RecipeGenerator(wrapperLookup, recipeExporter) {
+            @Override
+            public void generate() {
 
-        //ore
+                //ore
 
-        //tin
-        List<ItemConvertible> TIN_SMELTABLES = List.of(
-                ModItems.RAWTIN,
-                ModBlocks.TIN_ORE,
-                ModBlocks.DEEPSLATE_TIN_ORE
-        );
-        offerSmelting(exporter, TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 200, "tin_ingot");
-        offerBlasting(exporter, TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 100, "tin_ingot");
+                //tin
+                List<ItemConvertible> TIN_SMELTABLES = List.of(
+                        ModItems.RAWTIN,
+                        ModBlocks.TIN_ORE,
+                        ModBlocks.DEEPSLATE_TIN_ORE
+                );
+                offerSmelting(TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 200, "tin_ingot");
+                offerBlasting(TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 100, "tin_ingot");
 
-        OreBlockToIngot(ModItems.TIN_INGOT, ModBlocks.TIN_BLOCK, exporter);
+                OreBlockToIngot(ModItems.TIN_INGOT, ModBlocks.TIN_BLOCK, exporter);
 
-        //vanilla items
+                //vanilla items
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SADDLE, 1)
-                .pattern(" l ")
-                .pattern("lil")
-                .input('l', Items.LEATHER)
-                .input('i', Items.IRON_INGOT)
-                .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
-                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
-                .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.SADDLE, 1)
+                        .pattern(" l ")
+                        .pattern("lil")
+                        .input('l', Items.LEATHER)
+                        .input('i', Items.IRON_INGOT)
+                        .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.NAME_TAG, 1)
-                .pattern(" p")
-                .pattern("s ")
-                .input('p', Items.PAPER)
-                .input('s', Items.STRING)
-                .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
-                .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, Items.NAME_TAG, 1)
+                        .pattern(" p")
+                        .pattern("s ")
+                        .input('p', Items.PAPER)
+                        .input('s', Items.STRING)
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
+                        .offerTo(exporter);
 
-        //custom items
+                //custom items
 
-        //metal sheet
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.METAL_SHEET, 4)
-                .pattern("#%")
-                .pattern("%#")
-                .input('#', ModItems.TIN_INGOT)
-                .input('%', Items.IRON_INGOT)
-                .criterion(hasItem(ModItems.TIN_INGOT), conditionsFromItem(ModItems.TIN_INGOT))
-                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
-                .offerTo(exporter);
+                //metal sheet
+                createShaped(RecipeCategory.MISC, ModItems.METAL_SHEET, 4)
+                        .pattern("#%")
+                        .pattern("%#")
+                        .input('#', ModItems.TIN_INGOT)
+                        .input('%', Items.IRON_INGOT)
+                        .criterion(hasItem(ModItems.TIN_INGOT), conditionsFromItem(ModItems.TIN_INGOT))
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .offerTo(exporter);
 
-        //metal bowl
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.METAL_BOWL, 3)
-                .pattern("# #")
-                .pattern(" # ")
-                .input('#', ModItems.METAL_SHEET)
-                .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
-                .offerTo(exporter);
+                //metal bowl
+                createShaped(RecipeCategory.MISC, ModItems.METAL_BOWL, 3)
+                        .pattern("# #")
+                        .pattern(" # ")
+                        .input('#', ModItems.METAL_SHEET)
+                        .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
+                        .offerTo(exporter);
 
-        //cooking
+                //cooking
 
-        //griddle tier one
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GRIDDLE_TIER_ONE)
-                .pattern("#S#")
-                .pattern("#C#")
-                .pattern("#B#")
-                .input('#', Items.RED_CONCRETE)
-                .input('S', ModItems.METAL_SHEET)
-                .input('C', Items.COAL)
-                .input('B', ModItems.METAL_BOWL)
-                .criterion(hasItem(Items.RED_CONCRETE), conditionsFromItem(Items.RED_CONCRETE))
-                .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
-                .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
-                .criterion(hasItem(ModItems.METAL_BOWL), conditionsFromItem(ModItems.METAL_BOWL))
-                .offerTo(exporter);
+                //griddle tier one
+                createShaped(RecipeCategory.MISC, ModBlocks.GRIDDLE_TIER_ONE)
+                        .pattern("#S#")
+                        .pattern("#C#")
+                        .pattern("#B#")
+                        .input('#', Items.RED_CONCRETE)
+                        .input('S', ModItems.METAL_SHEET)
+                        .input('C', Items.COAL)
+                        .input('B', ModItems.METAL_BOWL)
+                        .criterion(hasItem(Items.RED_CONCRETE), conditionsFromItem(Items.RED_CONCRETE))
+                        .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
+                        .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
+                        .criterion(hasItem(ModItems.METAL_BOWL), conditionsFromItem(ModItems.METAL_BOWL))
+                        .offerTo(exporter);
+            }
+
+            public void OreBlockToIngot(Item ingot, Block block, RecipeExporter exporter) {
+
+                createShaped(RecipeCategory.MISC, block)
+                        .pattern("###")
+                        .pattern("###")
+                        .pattern("###")
+                        .input('#', ingot)
+                        .criterion(hasItem(ingot), conditionsFromItem(ingot))
+                        .offerTo(exporter);
+
+                createShapeless(RecipeCategory.MISC, ingot, 9)
+                        .input(block)
+                        .criterion(hasItem(block), conditionsFromItem(block))
+                        .offerTo(exporter);
+            }
+        };
     }
 
-    public void OreBlockToIngot(Item ingot, Block block, RecipeExporter exporter){
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, block)
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .input('#', ingot)
-                .criterion(hasItem(ingot), conditionsFromItem(ingot))
-                .offerTo(exporter);
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ingot, 9)
-                .input(block)
-                .criterion(hasItem(block), conditionsFromItem(block))
-                .offerTo(exporter);
+    @Override
+    public String getName() {
+        return "Everbloom Recipes";
     }
 }
+
