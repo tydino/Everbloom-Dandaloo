@@ -28,4 +28,3 @@ public class EverbloomDandalooDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 	}
 }
-//file incomplete use https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.21.X/blob/11-datagen/src/main/java/net/kaupenjoe/tutorialmod/TutorialModDataGenerator.java
