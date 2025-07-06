@@ -5,7 +5,7 @@ import tydino.everbloom.EverbloomDandaloo;
 public class ModWorldGeneration {
     public static void generateWorldGen(){
         EverbloomDandaloo.LOGGER.info("registering world generation");
-        //ModOreGeneration.generateOres();
+        ModOreGeneration.generateOres();
 
         //ModTreeGeneration.generateTrees();
 

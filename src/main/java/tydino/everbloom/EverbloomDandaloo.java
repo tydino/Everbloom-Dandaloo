@@ -14,7 +14,7 @@ import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
-//try and update as much as can be done to latest minecraft update.
+//https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.21.X/tree/62-Update1.21.4
 public class EverbloomDandaloo implements ModInitializer {
 	public static final String MOD_ID = "everbloom";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
