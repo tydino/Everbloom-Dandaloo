@@ -5,12 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tydino.everbloom.block.ModBlocks;
@@ -49,6 +44,7 @@ public class EverbloomDandaloo implements ModInitializer {
 		ModRecipes.registerRecipes();
 
 		//portals https://github.com/kyrptonaught/customportalapi?tab=readme-ov-file
+		//remember to use misode's dimension and biomejson builders!
 		LOGGER.info("registering everbloom's dimensions");
 		//aether /execute in everbloom:aether run tp @s 0 100 0
 		CustomPortalBuilder.beginPortal()

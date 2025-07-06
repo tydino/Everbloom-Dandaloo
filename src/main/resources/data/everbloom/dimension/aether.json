@@ -7,7 +7,7 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "minecraft:savanna_plateau",
+          "biome": "everbloom:aether_plains",
           "parameters": {
             "temperature": 0,
             "humidity": 1,
@@ -19,7 +19,7 @@
           }
         },
         {
-          "biome": "minecraft:jungle",
+          "biome": "everbloom:aether_jungle",
           "parameters": {
             "temperature": -1,
             "humidity": -1,
@@ -31,7 +31,7 @@
           }
         },
         {
-          "biome": "minecraft:desert",
+          "biome": "everbloom:aether_dessert",
           "parameters": {
             "temperature": 0,
             "humidity": -1,
