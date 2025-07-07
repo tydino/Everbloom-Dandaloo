@@ -9,14 +9,32 @@ import net.minecraft.util.Identifier;
 
 public class ModRecipes {
     //needs to be set manually in data.
+
+    //cooking
+
+    //griddle
     public static final RecipeSerializer<GriddleRecipe> GRIDDLE_SERIALIZER = Registry.register(
             Registries.RECIPE_SERIALIZER, Identifier.of(EverbloomDandaloo.MOD_ID, "griddle"),
             new GriddleRecipe.Serializer());
+
     public static final RecipeType<GriddleRecipe> GRIDDLE_TYPE = Registry.register(
             Registries.RECIPE_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "griddle"), new RecipeType<GriddleRecipe>() {
                 @Override
                 public String toString() {
                     return "griddle";
+                }
+            });
+
+    //frother
+    public static final RecipeSerializer<FrotherRecipe> FROTHER_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(EverbloomDandaloo.MOD_ID, "frother"),
+            new FrotherRecipe.Serializer());
+
+    public static final RecipeType<FrotherRecipe> FROTHER_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "frother"), new RecipeType<FrotherRecipe>() {
+                @Override
+                public String toString() {
+                    return "frother";
                 }
             });
 

@@ -17,6 +17,7 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         //cooking
         blockStateModelGenerator.registerSimpleState(ModBlocks.GRIDDLE_TIER_ONE);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.FROTHER);
 
         //ores
 

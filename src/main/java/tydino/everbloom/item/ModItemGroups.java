@@ -19,6 +19,7 @@ public class ModItemGroups {
 
                         //cooking
                         entries.add(ModBlocks.GRIDDLE_TIER_ONE);
+                        entries.add(ModBlocks.FROTHER);
 
                         //food
 

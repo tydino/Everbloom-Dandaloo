@@ -1,6 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	Everbloom Dandaloo/Everbloom Recipes
 b7f8e7ba82d01102d9341c87c891abc5f32d3166 data/everbloom/advancement/recipes/misc/alumium.json
 f29273f73a90cc768f414c97d0712120db4323d4 data/everbloom/advancement/recipes/misc/alumium_block.json
+843f5d01caee2f65c33bed9253b2a9eefe7be41c data/everbloom/advancement/recipes/misc/frother.json
 52b0bb86707d19d10eeeabfd7469ba0f9d99609b data/everbloom/advancement/recipes/misc/griddle_tier_one.json
 ded6baf0d3e4630d444707497f6d2a58b5aecb3f data/everbloom/advancement/recipes/misc/metal_bowl.json
 2773fbdad13f82d34a398323ea94c60da0bb9fea data/everbloom/advancement/recipes/misc/metal_sheet.json
@@ -22,6 +23,7 @@ e9a12334b8bc3eb52783e8e5de44b008c3e0629d data/everbloom/advancement/recipes/misc
 41490f8189030d4451021776768f1b892f82c368 data/everbloom/advancement/recipes/misc/tin_ingot_from_smelting_tin_ore.json
 047684345b31d09286d1cc9583ca104a355777fa data/everbloom/recipe/alumium.json
 e5241ce14d6e85b6264912388ae5a13b41abd9a3 data/everbloom/recipe/alumium_block.json
+ee23d3e79425ae3952932c8e779009c4b9a1de45 data/everbloom/recipe/frother.json
 052b645f511c872f03ac2b49374b5bc0523000b9 data/everbloom/recipe/griddle_tier_one.json
 196f0c10de01ef821b37369f318ad48fe99395bb data/everbloom/recipe/metal_bowl.json
 d180b586914efe348f9243ff97ceda79de406c83 data/everbloom/recipe/metal_sheet.json

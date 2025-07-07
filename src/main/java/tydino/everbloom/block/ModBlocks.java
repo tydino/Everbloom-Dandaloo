@@ -10,6 +10,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
+import tydino.everbloom.block.custom.Frother;
 import tydino.everbloom.block.custom.GriddleTierOne;
 
 import java.util.function.Function;
@@ -18,6 +19,8 @@ public class ModBlocks {
 
     //cooking blocks
     public static final Block GRIDDLE_TIER_ONE = registerBlock("griddle_tier_one", GriddleTierOne::new);
+
+    public static final Block FROTHER = registerBlock("frother", Frother::new);
 
     //ores
 

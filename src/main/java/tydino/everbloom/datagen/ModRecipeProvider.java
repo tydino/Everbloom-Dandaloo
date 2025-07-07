@@ -107,6 +107,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
                         .criterion(hasItem(ModItems.METAL_BOWL), conditionsFromItem(ModItems.METAL_BOWL))
                         .offerTo(exporter);
+
+                //frother
+                createShaped(RecipeCategory.MISC, ModBlocks.FROTHER)
+                        .pattern("lsl")
+                        .pattern("l l")
+                        .pattern("lSl")
+                        .input('l', Items.JUNGLE_LOG)
+                        .input('s', Items.STICK)
+                        .input('S', Items.JUNGLE_SLAB)
+                        .criterion(hasItem(Items.JUNGLE_LOG), conditionsFromItem(Items.JUNGLE_LOG))
+                        .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .criterion(hasItem(Items.JUNGLE_SLAB), conditionsFromItem(Items.JUNGLE_SLAB))
+                        .offerTo(exporter);
             }
 
             public void OreBlockToIngot(Item ingot, Block block, RecipeExporter exporter) {

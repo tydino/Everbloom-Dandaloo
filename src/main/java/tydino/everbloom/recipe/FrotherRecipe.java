@@ -12,7 +12,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public record GriddleRecipe(Ingredient inputItem, ItemStack output) implements Recipe<GriddleRecipeInput> {
+public record FrotherRecipe(Ingredient inputItem, ItemStack output) implements Recipe<FrotherRecipeInput> {
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.of();
         list.add(this.inputItem);
@@ -20,7 +20,7 @@ public record GriddleRecipe(Ingredient inputItem, ItemStack output) implements R
     }
 
     @Override
-    public boolean matches(GriddleRecipeInput input, World world) {
+    public boolean matches(FrotherRecipeInput input, World world) {
         if (world.isClient()) {
             return false;
         }
@@ -29,18 +29,18 @@ public record GriddleRecipe(Ingredient inputItem, ItemStack output) implements R
     }
 
     @Override
-    public ItemStack craft(GriddleRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
+    public ItemStack craft(FrotherRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
         return output.copy();
     }
 
     @Override
-    public RecipeSerializer<? extends Recipe<GriddleRecipeInput>> getSerializer() {
-        return ModRecipes.GRIDDLE_SERIALIZER;
+    public RecipeSerializer<? extends Recipe<FrotherRecipeInput>> getSerializer() {
+        return ModRecipes.FROTHER_SERIALIZER;
     }
 
     @Override
-    public RecipeType<? extends Recipe<GriddleRecipeInput>> getType() {
-        return ModRecipes.GRIDDLE_TYPE;
+    public RecipeType<? extends Recipe<FrotherRecipeInput>> getType() {
+        return ModRecipes.FROTHER_TYPE;
     }
 
     @Override
@@ -53,25 +53,25 @@ public record GriddleRecipe(Ingredient inputItem, ItemStack output) implements R
         return RecipeBookCategories.CRAFTING_MISC;
     }
 
-    public static class Serializer implements RecipeSerializer<GriddleRecipe> {
-        public static final MapCodec<GriddleRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                Ingredient.CODEC.fieldOf("ingredient").forGetter(GriddleRecipe::inputItem),
-                ItemStack.CODEC.fieldOf("result").forGetter(GriddleRecipe::output)
-        ).apply(inst, GriddleRecipe::new));
+    public static class Serializer implements RecipeSerializer<FrotherRecipe> {
+        public static final MapCodec<FrotherRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+                Ingredient.CODEC.fieldOf("ingredient").forGetter(FrotherRecipe::inputItem),
+                ItemStack.CODEC.fieldOf("result").forGetter(FrotherRecipe::output)
+        ).apply(inst, FrotherRecipe::new));
 
-        public static final PacketCodec<RegistryByteBuf, GriddleRecipe> STREAM_CODEC =
+        public static final PacketCodec<RegistryByteBuf, FrotherRecipe> STREAM_CODEC =
                 PacketCodec.tuple(
-                        Ingredient.PACKET_CODEC, GriddleRecipe::inputItem,
-                        ItemStack.PACKET_CODEC, GriddleRecipe::output,
-                        GriddleRecipe::new);
+                        Ingredient.PACKET_CODEC, FrotherRecipe::inputItem,
+                        ItemStack.PACKET_CODEC, FrotherRecipe::output,
+                        FrotherRecipe::new);
 
         @Override
-        public MapCodec<GriddleRecipe> codec() {
+        public MapCodec<FrotherRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public PacketCodec<RegistryByteBuf, GriddleRecipe> packetCodec() {
+        public PacketCodec<RegistryByteBuf, FrotherRecipe> packetCodec() {
             return STREAM_CODEC;
         }
     }

@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.client.*;
 import tydino.everbloom.screen.ModScreenHandler;
+import tydino.everbloom.screen.custom.FrotherScreen;
 import tydino.everbloom.screen.custom.GriddleTierOneScreen;
 
 public class EverbloomDandalooClient implements ClientModInitializer {
@@ -31,5 +32,6 @@ public class EverbloomDandalooClient implements ClientModInitializer {
 
         //cooking
         HandledScreens.register(ModScreenHandler.GRIDDLE_TIER_ONE_SCREEN_HANDLER_SCREEN_HANDLER, GriddleTierOneScreen::new);
+        HandledScreens.register(ModScreenHandler.FROTHER_SCREEN_HANDLER, FrotherScreen::new);
     }
 }
