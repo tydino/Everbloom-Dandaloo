@@ -42,14 +42,14 @@ public class DaggerStabberEntity extends AnimalEntity{
     //animation code
     private void setupAnimationStates(){
         if (this.idleAnimationTimeout<=0){
-            this.idleAnimationTimeout = this.random.nextInt(48)+80;
+            this.idleAnimationTimeout = 80;
             this.idleAnimationState.start(this.age);
         }else{
             --this.idleAnimationTimeout;
         }
 
         if(this.isAttacking() && attackAnimationTimeout <= 0){
-            attackAnimationTimeout = 40;
+            attackAnimationTimeout = 20;
             attackAnimationState.start(this.age);
         }else{
             --this.attackAnimationTimeout;

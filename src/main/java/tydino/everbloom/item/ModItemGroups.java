@@ -59,6 +59,7 @@ public class ModItemGroups {
                         //spawn eggs
                         entries.add(ModItems.SPAWN_MALLARD_EGG);
                         entries.add(ModItems.SPAWN_DAGGER_STABBER);
+                        entries.add(ModItems.SPAWN_TORTOISE);
                     }).build());
 
     public static void registerItemGroups(){

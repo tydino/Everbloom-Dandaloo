@@ -16,6 +16,7 @@ cf26cc3ef5789218d13085242251de08ef0734ef assets/everbloom/items/metal_sheet.json
 ff5b78203fcef705a36478d50e9508c318177a6e assets/everbloom/items/raw_tin.json
 b305a5c91bbd3fb0684e2c89266703bd74d6c7b2 assets/everbloom/items/spawn-dagger-stabber.json
 ce76b5234977cd5fb15ff9102e4271b8620c7a8b assets/everbloom/items/spawn-mallard.json
+a42e6706176bb3afacc93ff596572afe10108a5c assets/everbloom/items/spawn-tortoise.json
 e24fba22b9a6d5394468864bd13a27427e0eca75 assets/everbloom/items/tin_block.json
 09ae97c8c2eb835e828e468b0f6588da2512932b assets/everbloom/items/tin_ingot.json
 3612d74e8ddcebe0e508e232cb1e0e87ef6e5b6e assets/everbloom/items/tin_ore.json
@@ -33,4 +34,5 @@ b6a05befe6834dd3651fde64c943c5db27228a21 assets/everbloom/models/item/cooked_egg
 2c78da0ba14b7dfee21d82e92a3d6dc3e68196fc assets/everbloom/models/item/raw_tin.json
 350ea08083a5ea860350af4c76e53d3fc8a0a32a assets/everbloom/models/item/spawn-dagger-stabber.json
 4d710f00e084aa990993705b87081640765808dc assets/everbloom/models/item/spawn-mallard.json
+14fb2d3535af858190380d730b064d7effa4cd9a assets/everbloom/models/item/spawn-tortoise.json
 97279215d4ad71ca6b600a9a2afed0c92a5dfdbe assets/everbloom/models/item/tin_ingot.json

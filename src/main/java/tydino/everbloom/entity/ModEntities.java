@@ -1,6 +1,7 @@
 package tydino.everbloom.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
@@ -11,6 +12,7 @@ import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.MallardEntity;
+import tydino.everbloom.entity.custom.TortoiseEntity;
 
 public class ModEntities {
 
@@ -18,8 +20,12 @@ public class ModEntities {
 
     static final RegistryKey<EntityType<?>> MALLARD_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"));
+
     static final RegistryKey<EntityType<?>> DAGGER_STABBER_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"));
+
+    static final RegistryKey<EntityType<?>> TORTOISE_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "tortoise"));
 
     //registering mobs
 
@@ -36,6 +42,13 @@ public class ModEntities {
             EntityType.Builder.create(DaggerStabberEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.375f, 1.75f).build(DAGGER_STABBER_KEY));
 
+    //tortoise
+
+    public static final EntityType<TortoiseEntity> TORTOISE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "tortoise"),
+            EntityType.Builder.create(TortoiseEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.5f, 0.5f).build(TORTOISE_KEY));
+
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
 
@@ -46,6 +59,10 @@ public class ModEntities {
         //dagger stabber
 
         FabricDefaultAttributeRegistry.register(ModEntities.DAGGER_STABBER, DaggerStabberEntity.createStabberDaggerAttributes());
+
+        //tortoise
+
+        FabricDefaultAttributeRegistry.register(ModEntities.TORTOISE, TortoiseEntity.createTortoiseAttributes());
 
     }
 }

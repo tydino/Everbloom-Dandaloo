@@ -51,7 +51,7 @@ public class MallardEntity extends AnimalEntity {
     //animation code
     private void setupAnimationStates(){
         if (this.idleAnimationTimeout<=0){
-            this.idleAnimationTimeout = this.random.nextInt(48)+160;
+            this.idleAnimationTimeout = 160;
             this.idleAnimationState.start(this.age);
         }else{
             --this.idleAnimationTimeout;

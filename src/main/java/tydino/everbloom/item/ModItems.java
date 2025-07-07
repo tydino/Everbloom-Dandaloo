@@ -38,6 +38,9 @@ public class ModItems {
     public static final Item COOKED_DAGER_STABBER_MEAT = registerItem("cooked_dagger_stabber_meat", setting -> new Item(setting.food(ModFoodComponents.CookedDaggerStabber)));
     public static final Item SPAWN_DAGGER_STABBER = registerItem("spawn-dagger-stabber", setting -> new SpawnEggItem(ModEntities.DAGGER_STABBER, setting));
 
+    //tortoise
+    public static final Item SPAWN_TORTOISE = registerItem("spawn-tortoise", setting -> new SpawnEggItem(ModEntities.TORTOISE, setting));
+
     //ores
 
     //tin

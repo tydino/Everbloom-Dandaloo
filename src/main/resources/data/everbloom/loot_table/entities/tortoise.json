@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poppy",
+          "weight": 1,
+          "quality": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:short_grass",
+          "weight": 5,
+          "quality": 1,
+          "conditions": []
+        }
+      ],
+      "functions": [],
+      "conditions": []
+    }
+  ],
+  "random_sequence": "everbloom:entities/tortoise"
+}

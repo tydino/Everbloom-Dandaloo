@@ -5,10 +5,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.entity.client.DaggerStabberModel;
-import tydino.everbloom.entity.client.DaggerStabberRenderer;
-import tydino.everbloom.entity.client.MallardModel;
-import tydino.everbloom.entity.client.MallardRenderer;
+import tydino.everbloom.entity.client.*;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.screen.custom.GriddleTierOneScreen;
 
@@ -25,6 +22,10 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         //dagger stabber
         EntityModelLayerRegistry.registerModelLayer(DaggerStabberModel.DAGGER_STABBER, DaggerStabberModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.DAGGER_STABBER, DaggerStabberRenderer::new);
+
+        //tortoise
+        EntityModelLayerRegistry.registerModelLayer(TortoiseModel.TORTOISE, TortoiseModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.TORTOISE, TortoiseRenderer::new);
 
         //entities
 
