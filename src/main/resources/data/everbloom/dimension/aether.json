@@ -31,7 +31,7 @@
           }
         },
         {
-          "biome": "everbloom:aether_dessert",
+          "biome": "everbloom:aether_desert",
           "parameters": {
             "temperature": 0,
             "humidity": -1,

@@ -1,6 +1,6 @@
 {
   "type": "everbloom:griddle",
-  "ingredient": minecraft:egg",
+  "ingredient": "minecraft:egg",
   "result": {
     "id": "everbloom:cooked_egg"
   }

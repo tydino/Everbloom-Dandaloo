@@ -3,6 +3,7 @@
   "downfall": 0.0,
   "has_precipitation": false,
   "temperature_modifier": "none",
+  "top_material": "minecraft:sand",
   "creature_spawn_probability": 0.5,
   "effects": {
     "sky_color": 65535,
@@ -139,6 +140,7 @@
       "minecraft:spring_water"
     ],
     [
+      "minecraft:bamboo_light",
       "minecraft:flower_default",
       "minecraft:patch_grass_badlands",
       "minecraft:patch_dead_bush_2",
