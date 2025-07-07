@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "alumium",
+  "ingredient": "everbloom:raw_alumium",
+  "result": {
+    "id": "everbloom:tin_ingot"
+  }
+}

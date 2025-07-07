@@ -18,15 +18,20 @@ import java.util.List;
 
 public class ModPlacedFeatures {
 
+    public static final RegistryKey<PlacedFeature> ALUMIUM_ORE_PLACED_KEY = registerKey("alumium_ore_placed");
+
     public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
+        register(context, ALUMIUM_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.ALUMIUM_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(10,
+                        HeightRangePlacementModifier.trapezoid(YOffset.fixed(-100), YOffset.fixed(150))));
+
         register(context, TIN_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(14,
                         HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
-        //place more here
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

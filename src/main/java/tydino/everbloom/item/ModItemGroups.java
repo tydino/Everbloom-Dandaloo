@@ -43,12 +43,24 @@ public class ModItemGroups {
 
                         //ores
 
+                        //alumium
+                        entries.add(ModItems.RAW_ALUMIUM);
+                        entries.add(ModItems.ALUMIUM);
+                        entries.add(ModBlocks.ALUMIUM_BLOCK);
+                        entries.add(ModBlocks.ALUMIUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_ALUMIUM_ORE);
+
                         //tin
                         entries.add(ModItems.RAWTIN);
                         entries.add(ModItems.TIN_INGOT);
                         entries.add(ModBlocks.TIN_BLOCK);
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
+
+                        //alloys
+
+                        //bronze
+                        entries.add(ModItems.BRONZE);
 
                         //custom objects
 

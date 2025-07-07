@@ -2,10 +2,12 @@
   "block.everbloom.griddle": "Griddle",
   "block.everbloom.griddle_tier_one": "Griddle Tier One",
 
+
   "item.everbloom.cooked_egg": "Cooked Egg",
 
   "item.everbloom.pizza_uncooked": "Uncooked Pizza",
   "item.everbloom.pizza_plain": "Plain Pizza",
+
 
   "entity.everbloom.mallard": "Mallard",
   "item.everbloom.mallard_egg": "Mallard Egg",
@@ -23,11 +25,21 @@
   "item.everbloom.spawn-tortoise": "Tortoise Spawn Egg",
 
 
+  "item.everbloom.raw_alumium": "Raw Aluminum",
+  "item.everbloom.alumium": "Aluminum",
+  "block.everbloom.alumium_block": "Aluminum Block",
+  "block.everbloom.alumium_ore": "Aluminum Ore",
+  "block.everbloom.deepslate_alumium_ore": "Deepslate Aluminum Ore",
+
   "item.everbloom.raw_tin": "Raw Tin",
   "item.everbloom.tin_ingot": "Tin Ingot",
   "block.everbloom.tin_block": "Tin Block",
   "block.everbloom.tin_ore": "Tin Ore",
   "block.everbloom.deepslate_tin_ore": "Deepslate Tin Ore",
+
+
+  "item.everbloom.bronze": "Bronze",
+
 
   "item.everbloom.metal_sheet": "Metal Sheet",
   "item.everbloom.metal_bowl": "Metal Bowl",

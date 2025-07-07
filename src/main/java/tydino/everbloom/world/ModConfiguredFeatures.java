@@ -17,6 +17,8 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
 
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ALUMIUM_ORE_KEY = registerKey("alumium_ore");
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
@@ -29,10 +31,15 @@ public class ModConfiguredFeatures {
         RuleTest netherReplaceables = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
         RuleTest endReplaceables = new BlockMatchRuleTest(Blocks.END_STONE);
 
+        List<OreFeatureConfig.Target> alumiumOres =
+                List.of(OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.ALUMIUM_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.DEEPSLATE_ALUMIUM_ORE.getDefaultState()));
+
         List<OreFeatureConfig.Target> tinOres =
                 List.of(OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.TIN_ORE.getDefaultState()),
                         OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.DEEPSLATE_TIN_ORE.getDefaultState()));
 
+        register(context, ALUMIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(alumiumOres, 8));
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(tinOres, 12));
     }
 

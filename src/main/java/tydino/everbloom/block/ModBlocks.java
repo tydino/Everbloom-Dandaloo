@@ -21,6 +21,13 @@ public class ModBlocks {
 
     //ores
 
+    //alumium
+    public static Block ALUMIUM_BLOCK = registerBlock("alumium_block", properties -> new Block(properties.strength(2f).requiresTool()));
+
+    public static Block ALUMIUM_ORE = registerBlock("alumium_ore", properties -> new Block(properties.strength(2f).requiresTool()));
+
+    public static Block DEEPSLATE_ALUMIUM_ORE = registerBlock("deepslate_alumium_ore", properties -> new Block(properties.strength(2f).requiresTool()));
+
     //tin
     public static final Block TIN_BLOCK = registerBlock("tin_block", properties -> new Block(properties.strength(4f).requiresTool()));
 

@@ -31,6 +31,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         //ores
 
+        //alumium
+        addDrop(ModBlocks.ALUMIUM_BLOCK);
+
+        addDrop(ModBlocks.ALUMIUM_ORE, oreDrops(ModBlocks.ALUMIUM_ORE, ModItems.RAW_ALUMIUM));
+        addDrop(ModBlocks.DEEPSLATE_ALUMIUM_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_ALUMIUM_ORE, ModItems.RAW_ALUMIUM, 2, 4));
+
         //tin
         addDrop(ModBlocks.TIN_BLOCK);
 

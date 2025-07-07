@@ -56,3 +56,5 @@ public class EverbloomDandaloo implements ModInitializer {
 	}
 }
 //https://www.youtube.com/watch?v=5a4DAkWW3JQ try
+
+//https://www.google.com/search?q=how+doi+implement+the+bigger+crafting+tables+mod+into+my+fabric+mod+to+make+bigger+crafting&client=opera-gx&hs=3Va&sca_esv=8fe472cf0c0bad30&sxsrf=AE3TifNXq7OMM0FVsirq0LfBw6n0B_HrMg%3A1751912179084&ei=8w5saOH0BIHEp84P8Iy-uAs&ved=0ahUKEwihuvK4rauOAxUB4skDHXCGD7cQ4dUDCBE&uact=5&oq=how+doi+implement+the+bigger+crafting+tables+mod+into+my+fabric+mod+to+make+bigger+crafting&gs_lp=Egxnd3Mtd2l6LXNlcnAiW2hvdyBkb2kgaW1wbGVtZW50IHRoZSBiaWdnZXIgY3JhZnRpbmcgdGFibGVzIG1vZCBpbnRvIG15IGZhYnJpYyBtb2QgdG8gbWFrZSBiaWdnZXIgY3JhZnRpbmdIpRNQigpY7w9wAngBkAEAmAGLAaAB7AOqAQMwLjS4AQPIAQD4AQGYAgKgAg7CAgoQABiwAxjWBBhHmAMAiAYBkAYIkgcBMqAHogiyBwC4BwDCBwMyLTLIBws&sclient=gws-wiz-serp

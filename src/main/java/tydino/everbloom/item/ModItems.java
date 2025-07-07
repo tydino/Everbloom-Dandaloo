@@ -43,9 +43,18 @@ public class ModItems {
 
     //ores
 
+    //alumium
+    public static Item RAW_ALUMIUM = registerItem("raw_alumium", Item::new);
+    public static Item ALUMIUM = registerItem("alumium", Item::new);
+
     //tin
     public static Item RAWTIN = registerItem("raw_tin", Item::new);
     public static Item TIN_INGOT = registerItem("tin_ingot", Item::new);
+
+    //alloys
+
+    //bronze
+    public static Item BRONZE = registerItem("bronze", Item::new);//tin and copper being mixxed
 
     //custom objects
 

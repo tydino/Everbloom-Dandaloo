@@ -1,3 +1,4 @@
 // 1.21.4	-999999999-01-01T00:00:00	Everbloom Dandaloo/Tags for minecraft:block
-72bf730c7de18ba83ef3ff14af304a1bf9aa4490 data/minecraft/tags/block/mineable/pickaxe.json
+85a3afcf89cf4b76e62a80234e1fe22ede16530c data/minecraft/tags/block/mineable/pickaxe.json
+2d6a48d53694701c297dd5958543474bbf77b03d data/minecraft/tags/block/needs_diamond_tool.json
 71ce531f06196f14352ca2f4d4d09290d414692e data/minecraft/tags/block/needs_iron_tool.json

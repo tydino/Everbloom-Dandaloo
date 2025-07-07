@@ -29,6 +29,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 //ore
 
+                //alumium
+                List<ItemConvertible> ALUMIUM_SMELTABLES = List.of(
+                        ModItems.RAW_ALUMIUM,
+                        ModBlocks.ALUMIUM_ORE,
+                        ModBlocks.DEEPSLATE_ALUMIUM_ORE
+                );
+                offerSmelting(ALUMIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 200, "alumium");
+                offerBlasting(ALUMIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 100, "alumium");
+
+                OreBlockToIngot(ModItems.ALUMIUM, ModBlocks.ALUMIUM_BLOCK, exporter);
+
                 //tin
                 List<ItemConvertible> TIN_SMELTABLES = List.of(
                         ModItems.RAWTIN,
@@ -41,6 +52,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 OreBlockToIngot(ModItems.TIN_INGOT, ModBlocks.TIN_BLOCK, exporter);
 
                 //recipes for vanilla items
+
+                createShaped(RecipeCategory.MISC, Items.SADDLE, 1)
+                        .pattern(" l ")
+                        .pattern("lil")
+                        .input('l', Items.LEATHER)
+                        .input('i', Items.IRON_INGOT)
+                        .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
+                        .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                        .offerTo(exporter);
 
                 createShaped(RecipeCategory.MISC, Items.NAME_TAG, 1)
                         .pattern(" p")
