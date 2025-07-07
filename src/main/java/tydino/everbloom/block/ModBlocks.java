@@ -35,6 +35,11 @@ public class ModBlocks {
 
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", properties -> new Block(properties.strength(4f).requiresTool()));
 
+    //alloy
+
+    //bronze
+    public static final Block BRONZE_BLOCK = registerBlock("bronze_block", properties -> new Block(properties.strength(4f).requiresTool()));
+
     //voids
 
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {

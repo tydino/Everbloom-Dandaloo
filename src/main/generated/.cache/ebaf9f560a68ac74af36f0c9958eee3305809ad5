@@ -1,6 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	Everbloom Dandaloo/Model Definitions
 533e5aeb7fa0def707f030f8aa9161497b36582b assets/everbloom/blockstates/alumium_block.json
 713f4456961c8c848d17b3e48d08e18c30d5815f assets/everbloom/blockstates/alumium_ore.json
+82dcd05be329263c2cf93d6cecdf19aaa1da7d97 assets/everbloom/blockstates/bronze_block.json
 49d0353fe2389f86a4e2752d86000b83e9075fdd assets/everbloom/blockstates/deepslate_alumium_ore.json
 9894e389bde826a3ca7aeac9e6b910bf4a58052e assets/everbloom/blockstates/deepslate_tin_ore.json
 4f1d695adca20204b3b3df0c2ca71dc14897bc48 assets/everbloom/blockstates/griddle_tier_one.json
@@ -10,6 +11,7 @@ cc3c52d5c4f47a636851626e89f05a7a71d926b7 assets/everbloom/items/alumium.json
 8ec2aded75c1472d9fa59de3b7c9d07926c5dfb3 assets/everbloom/items/alumium_block.json
 62bb72fadf134efc4329490fb5ebb697a6f43349 assets/everbloom/items/alumium_ore.json
 17c1580719abd160b005b0915d43f5483a22cf03 assets/everbloom/items/bronze.json
+850b4ec4eb1c32a3e9176a4b8e82e135e4d7afa6 assets/everbloom/items/bronze_block.json
 410b2331613aee8622a95949c12d43448048f83b assets/everbloom/items/cooked_dagger_stabber_meat.json
 7c5a581a5494105bd3f0bcefcf877ee2a3b15f69 assets/everbloom/items/cooked_egg.json
 1b421fab7be82dd4991c87f2ea9f2f6a96b284cf assets/everbloom/items/cooked_mallard_meat.json
@@ -31,6 +33,7 @@ e24fba22b9a6d5394468864bd13a27427e0eca75 assets/everbloom/items/tin_block.json
 3612d74e8ddcebe0e508e232cb1e0e87ef6e5b6e assets/everbloom/items/tin_ore.json
 973627a204e8a9ba74e0be8e2c7f45dc4bcee286 assets/everbloom/models/block/alumium_block.json
 d7381eba778f421bfd4d0e7378d4cce17a99bbd9 assets/everbloom/models/block/alumium_ore.json
+2e41b952a28714ac2885da96e6784b0f8143e11a assets/everbloom/models/block/bronze_block.json
 567fb6755670112e42f858c1789a7b3350fd4349 assets/everbloom/models/block/deepslate_alumium_ore.json
 0c6e72380c6ccc6650adde4d1e74640211dea6ab assets/everbloom/models/block/deepslate_tin_ore.json
 eee36711b4c691984fb50998ab8c69eb67dea537 assets/everbloom/models/block/tin_block.json

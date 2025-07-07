@@ -30,6 +30,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
 
+        //alloys
+
+        //bronze
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRONZE_BLOCK);
     }
 
     @Override

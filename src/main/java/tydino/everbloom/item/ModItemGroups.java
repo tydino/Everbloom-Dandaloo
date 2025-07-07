@@ -61,6 +61,7 @@ public class ModItemGroups {
 
                         //bronze
                         entries.add(ModItems.BRONZE);
+                        entries.add(ModBlocks.BRONZE_BLOCK);
 
                         //custom objects
 
