@@ -12,10 +12,14 @@ import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.custom.Frother;
 import tydino.everbloom.block.custom.GriddleTierOne;
+import tydino.everbloom.block.custom.TortoiseEgg;
 
 import java.util.function.Function;
 
 public class ModBlocks {
+
+    //eggs
+    public static final Block TORTOISE_EGG = registerBlock("tortoise_egg", TortoiseEgg::new);
 
     //cooking blocks
     public static final Block GRIDDLE_TIER_ONE = registerBlock("griddle_tier_one", GriddleTierOne::new);

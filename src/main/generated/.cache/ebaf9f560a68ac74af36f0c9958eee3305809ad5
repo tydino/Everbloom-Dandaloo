@@ -8,6 +8,7 @@
 4f1d695adca20204b3b3df0c2ca71dc14897bc48 assets/everbloom/blockstates/griddle_tier_one.json
 d97e3104b5df2f030b7f6b1bb962fa6234032854 assets/everbloom/blockstates/tin_block.json
 5cf02f3a2ea2c9edd599f4d7effad97a7adbcc24 assets/everbloom/blockstates/tin_ore.json
+41fa8e0a3187e445b75f3dcee42e9d379902cfbe assets/everbloom/blockstates/tortoise_egg.json
 cc3c52d5c4f47a636851626e89f05a7a71d926b7 assets/everbloom/items/alumium.json
 8ec2aded75c1472d9fa59de3b7c9d07926c5dfb3 assets/everbloom/items/alumium_block.json
 62bb72fadf134efc4329490fb5ebb697a6f43349 assets/everbloom/items/alumium_ore.json
@@ -36,6 +37,7 @@ a42e6706176bb3afacc93ff596572afe10108a5c assets/everbloom/items/spawn-tortoise.j
 e24fba22b9a6d5394468864bd13a27427e0eca75 assets/everbloom/items/tin_block.json
 09ae97c8c2eb835e828e468b0f6588da2512932b assets/everbloom/items/tin_ingot.json
 3612d74e8ddcebe0e508e232cb1e0e87ef6e5b6e assets/everbloom/items/tin_ore.json
+fb997b044d32e2820871191100a4f580dacbe6a0 assets/everbloom/items/tortoise_egg.json
 973627a204e8a9ba74e0be8e2c7f45dc4bcee286 assets/everbloom/models/block/alumium_block.json
 d7381eba778f421bfd4d0e7378d4cce17a99bbd9 assets/everbloom/models/block/alumium_ore.json
 2e41b952a28714ac2885da96e6784b0f8143e11a assets/everbloom/models/block/bronze_block.json

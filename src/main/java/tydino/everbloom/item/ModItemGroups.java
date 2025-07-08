@@ -75,6 +75,10 @@ public class ModItemGroups {
                         entries.add(ModItems.METAL_SHEET);
                         entries.add(ModItems.METAL_BOWL);
 
+                        //eggs
+
+                        entries.add(ModBlocks.TORTOISE_EGG);
+
                         //spawn eggs
                         entries.add(ModItems.SPAWN_MALLARD_EGG);
                         entries.add(ModItems.SPAWN_DAGGER_STABBER);

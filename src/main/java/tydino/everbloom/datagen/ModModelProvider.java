@@ -15,6 +15,10 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+
+        //eggs
+        blockStateModelGenerator.registerSimpleState(ModBlocks.TORTOISE_EGG);
+
         //cooking
         blockStateModelGenerator.registerSimpleState(ModBlocks.GRIDDLE_TIER_ONE);
         blockStateModelGenerator.registerSimpleState(ModBlocks.FROTHER);
