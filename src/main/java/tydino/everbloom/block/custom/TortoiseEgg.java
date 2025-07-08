@@ -30,8 +30,8 @@ public class TortoiseEgg extends Block {
     public static final MapCodec<TortoiseEgg> CODEC = createCodec(TortoiseEgg::new);
     public static final int FINAL_HATCH_STAGE = 1;
     public static final IntProperty HATCH;
-    private static final int HATCHING_TIME = 1200;//set to 1200 when done testing
-    private static final int BOOSTED_HATCHING_TIME = 600; //set to 600 when done tetsing
+    private static final int HATCHING_TIME = 6000;
+    private static final int BOOSTED_HATCHING_TIME = 3000;
     private static final VoxelShape SHAPE = TortoiseEgg.createCuboidShape(6, 0, 6, 10, 7, 10);
 
     public MapCodec<TortoiseEgg> getCodec() {

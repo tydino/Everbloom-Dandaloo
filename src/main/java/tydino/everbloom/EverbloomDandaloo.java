@@ -18,6 +18,9 @@ import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
+//use the TurtleEntity class as reference to make the tortoise lay its egg.
+//add tomatoes
+
 //https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.21.X/tree/62-Update1.21.4
 public class EverbloomDandaloo implements ModInitializer {
 	public static final String MOD_ID = "everbloom";
