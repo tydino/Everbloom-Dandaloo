@@ -30,6 +30,11 @@ public class ModItemGroups {
                         //griddle
                         entries.add(ModItems.COOKED_EGG);
 
+                        //frother
+                        entries.add(ModItems.BUTTER);
+                        entries.add(ModItems.BUTTER_MELTED);
+                        entries.add(ModItems.CHEESE);
+
                         //entities
 
                         //mallard

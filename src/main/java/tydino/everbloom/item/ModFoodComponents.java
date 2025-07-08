@@ -8,7 +8,13 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 
 public class ModFoodComponents {
+    //food
+
+    //griddle
     public static final FoodComponent CookedEgg = new FoodComponent.Builder().nutrition(6).saturationModifier(0.5f).build();
+
+    //frother
+    public static final FoodComponent CHEESE = new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build();
 
     //mobs
     public static FoodComponent RawMallard = new FoodComponent.Builder().nutrition(3).saturationModifier(0.25f).build();

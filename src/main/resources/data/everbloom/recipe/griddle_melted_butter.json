@@ -1,0 +1,7 @@
+{
+  "type": "everbloom:griddle",
+  "ingredient": "everbloom:butter",
+  "result": {
+    "id": "everbloom:butter_melted"
+  }
+}

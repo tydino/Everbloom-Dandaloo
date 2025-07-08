@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_alumium_ore": {
+    "has_raw_alumium": {
       "conditions": {
         "items": [
           {
-            "items": "everbloom:alumium_ore"
+            "items": "everbloom:raw_alumium"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tin_ingot_from_smelting_alumium_ore"
+        "recipe": "minecraft:alumium_from_blasting_raw_alumium"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_alumium_ore"
+      "has_raw_alumium"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tin_ingot_from_smelting_alumium_ore"
+      "minecraft:alumium_from_blasting_raw_alumium"
     ]
   }
 }

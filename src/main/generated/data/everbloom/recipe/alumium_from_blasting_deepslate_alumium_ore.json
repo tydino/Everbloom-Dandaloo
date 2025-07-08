@@ -1,11 +1,11 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:blasting",
   "category": "misc",
-  "cookingtime": 200,
+  "cookingtime": 100,
   "experience": 0.25,
   "group": "alumium",
   "ingredient": "everbloom:deepslate_alumium_ore",
   "result": {
-    "id": "everbloom:tin_ingot"
+    "id": "everbloom:alumium"
   }
 }

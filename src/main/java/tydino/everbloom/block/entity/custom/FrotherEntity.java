@@ -118,7 +118,7 @@ public class FrotherEntity  extends BlockEntity implements ExtendedScreenHandler
 
     private void resetProgress() {
         this.progress = 0;
-        this.maxProgress = 1000;
+        this.maxProgress = 250;
     }
 
     private void craftItem() {

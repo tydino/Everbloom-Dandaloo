@@ -6,6 +6,6 @@
   "group": "alumium",
   "ingredient": "everbloom:raw_alumium",
   "result": {
-    "id": "everbloom:tin_ingot"
+    "id": "everbloom:alumium"
   }
 }

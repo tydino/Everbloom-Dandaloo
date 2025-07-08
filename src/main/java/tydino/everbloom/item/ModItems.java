@@ -1,6 +1,7 @@
 package tydino.everbloom.item;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.registry.Registries;
@@ -23,6 +24,11 @@ public class ModItems {
 
     //griddle
     public static final Item COOKED_EGG = registerItem("cooked_egg", setting -> new Item(setting.food(ModFoodComponents.CookedEgg)));
+
+    //frother
+    public static final Item BUTTER = registerItem("butter", Item::new);
+    public static final Item BUTTER_MELTED = registerItem("butter_melted", Item::new);
+    public static final Item CHEESE = registerItem("cheese", setting -> new Item(setting.food(ModFoodComponents.CHEESE)));
 
     //entities
 

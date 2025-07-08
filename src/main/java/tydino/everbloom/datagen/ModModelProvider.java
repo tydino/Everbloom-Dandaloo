@@ -45,6 +45,11 @@ public class ModModelProvider extends FabricModelProvider {
         //griddle
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);
 
+        //frother
+        itemModelGenerator.register(ModItems.BUTTER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BUTTER_MELTED, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHEESE, Models.GENERATED);
+
         //entities
 
         //mallard

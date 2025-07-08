@@ -35,8 +35,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         ModBlocks.ALUMIUM_ORE,
                         ModBlocks.DEEPSLATE_ALUMIUM_ORE
                 );
-                offerSmelting(ALUMIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 200, "alumium");
-                offerBlasting(ALUMIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT, 0.25f, 100, "alumium");
+                offerSmelting(ALUMIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ALUMIUM, 0.25f, 200, "alumium");
+                offerBlasting(ALUMIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ALUMIUM, 0.25f, 100, "alumium");
 
                 OreBlockToIngot(ModItems.ALUMIUM, ModBlocks.ALUMIUM_BLOCK, exporter);
 
