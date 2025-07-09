@@ -1,6 +1,7 @@
 package tydino.everbloom.world;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -10,6 +11,7 @@ import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 
@@ -17,15 +19,21 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
 
+    //ores
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> ALUMIUM_ORE_KEY = registerKey("alumium_ore");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
+
+    //bushes
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TOMATO_BUSH_KEY = registerKey("tomato_bush");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(EverbloomDandaloo.MOD_ID, name));
     }
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
+        //ores
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest netherReplaceables = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
@@ -41,6 +49,14 @@ public class ModConfiguredFeatures {
 
         register(context, ALUMIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(alumiumOres, 8));
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(tinOres, 12));
+
+        //bushes
+
+        register(context, TOMATO_BUSH_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.TOMATO_BUSH
+                                .getDefaultState().with(SweetBerryBushBlock.AGE, 3))),
+                        List.of(Blocks.GRASS_BLOCK)));
     }
 
     private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<ConfiguredFeature<?, ?>> context,

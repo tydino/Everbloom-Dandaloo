@@ -18,8 +18,6 @@ import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
-//add tomatoes
-
 //https://minecraftitemids.com/item/wheat
 //https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.21.X/tree/62-Update1.21.4
 public class EverbloomDandaloo implements ModInitializer {
