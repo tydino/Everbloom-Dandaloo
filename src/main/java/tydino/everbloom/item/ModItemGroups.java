@@ -34,6 +34,10 @@ public class ModItemGroups {
                         entries.add(ModItems.BUTTER);
                         entries.add(ModItems.BUTTER_MELTED);
                         entries.add(ModItems.CHEESE);
+                        entries.add(ModItems.FLOUR);
+
+                        //uncatagorized
+                        entries.add(ModItems.DOUGH);
 
                         //entities
 

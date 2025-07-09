@@ -120,6 +120,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                         .criterion(hasItem(Items.JUNGLE_SLAB), conditionsFromItem(Items.JUNGLE_SLAB))
                         .offerTo(exporter);
+
+                //food
+
+                createShaped(RecipeCategory.MISC, ModItems.DOUGH, 3)
+                        .pattern("fee")
+                        .pattern("fmm")
+                        .pattern("fhh")
+                        .input('f', ModItems.FLOUR)
+                        .input('e', Items.EGG)
+                        .input('m', Items.MILK_BUCKET)
+                        .input('h', Items.HONEY_BOTTLE)
+                        .criterion(hasItem(ModItems.FLOUR), conditionsFromItem(ModItems.FLOUR))
+                        .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
+                        .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                        .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                        .offerTo(exporter);
             }
 
             public void OreBlockToIngot(Item ingot, Block block, RecipeExporter exporter) {

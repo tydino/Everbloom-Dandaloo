@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "e": "minecraft:egg",
+    "f": "everbloom:flour",
+    "h": "minecraft:honey_bottle",
+    "m": "minecraft:milk_bucket"
+  },
+  "pattern": [
+    "fee",
+    "fmm",
+    "fhh"
+  ],
+  "result": {
+    "count": 3,
+    "id": "everbloom:dough"
+  }
+}

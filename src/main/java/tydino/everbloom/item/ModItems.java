@@ -29,6 +29,10 @@ public class ModItems {
     public static final Item BUTTER = registerItem("butter", Item::new);
     public static final Item BUTTER_MELTED = registerItem("butter_melted", Item::new);
     public static final Item CHEESE = registerItem("cheese", setting -> new Item(setting.food(ModFoodComponents.CHEESE)));
+    public static final Item FLOUR = registerItem("flour", Item::new);
+
+    //noncatagorized
+    public static final Item DOUGH = registerItem("dough", Item::new);
 
     //entities
 

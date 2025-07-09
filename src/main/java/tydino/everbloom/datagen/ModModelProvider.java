@@ -53,6 +53,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BUTTER, Models.GENERATED);
         itemModelGenerator.register(ModItems.BUTTER_MELTED, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHEESE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
+
+        //uncatagorized
+        itemModelGenerator.register(ModItems.DOUGH, Models.GENERATED);
 
         //entities
 
