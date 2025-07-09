@@ -19,6 +19,9 @@ public class ModFoodComponents {
     //frother
     public static final FoodComponent CHEESE = new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build();
 
+    //uncatagorized
+    public static final FoodComponent TOMATO_SAUCE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).build();
+
     //mobs
     public static FoodComponent RawMallard = new FoodComponent.Builder().nutrition(3).saturationModifier(0.25f).build();
     public static ConsumableComponent RawMallardEffect = ConsumableComponents.food()

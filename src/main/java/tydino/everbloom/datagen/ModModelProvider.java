@@ -60,6 +60,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         //uncatagorized
         itemModelGenerator.register(ModItems.DOUGH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TOMATO_SAUCE, Models.GENERATED);
 
         //entities
 

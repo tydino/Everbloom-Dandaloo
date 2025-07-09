@@ -41,6 +41,7 @@ e24fba22b9a6d5394468864bd13a27427e0eca75 assets/everbloom/items/tin_block.json
 09ae97c8c2eb835e828e468b0f6588da2512932b assets/everbloom/items/tin_ingot.json
 3612d74e8ddcebe0e508e232cb1e0e87ef6e5b6e assets/everbloom/items/tin_ore.json
 1d05215d4d7d8ea8460c383dee6bac6b95d60114 assets/everbloom/items/tomato.json
+7f24217952c5ba6989c55cf46d24dee6be3cf3d3 assets/everbloom/items/tomato_sauce.json
 fb997b044d32e2820871191100a4f580dacbe6a0 assets/everbloom/items/tortoise_egg.json
 973627a204e8a9ba74e0be8e2c7f45dc4bcee286 assets/everbloom/models/block/alumium_block.json
 d7381eba778f421bfd4d0e7378d4cce17a99bbd9 assets/everbloom/models/block/alumium_ore.json
@@ -75,3 +76,4 @@ e9c066158970ce2e62839ba349d54a052d81e9b4 assets/everbloom/models/item/raw_alumiu
 14fb2d3535af858190380d730b064d7effa4cd9a assets/everbloom/models/item/spawn-tortoise.json
 97279215d4ad71ca6b600a9a2afed0c92a5dfdbe assets/everbloom/models/item/tin_ingot.json
 484202fe2c47dd57c334998dd64db04ea6540761 assets/everbloom/models/item/tomato.json
+78334b341e26a8eab7eb1f14cfed7a0e1d791c55 assets/everbloom/models/item/tomato_sauce.json

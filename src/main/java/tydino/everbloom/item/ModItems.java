@@ -34,6 +34,7 @@ public class ModItems {
 
     //noncatagorized
     public static final Item DOUGH = registerItem("dough", Item::new);
+    public static final Item TOMATO_SAUCE = registerItem("tomato_sauce", setting -> new Item(setting.food(ModFoodComponents.TOMATO_SAUCE)));
 
     //entities
 

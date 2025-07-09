@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": "minecraft:glass_bottle",
+    "t": "everbloom:tomato"
+  },
+  "pattern": [
+    "t",
+    "b"
+  ],
+  "result": {
+    "count": 1,
+    "id": "everbloom:tomato_sauce"
+  }
+}

@@ -1,4 +1,5 @@
 // 1.21.4	-999999999-01-01T00:00:00	Everbloom Dandaloo/Everbloom Recipes
+51d03855cae2e3f9fd7fd2144dba4ba4a496d314 data/everbloom/advancement/recipes/food/tomato_sauce.json
 b7f8e7ba82d01102d9341c87c891abc5f32d3166 data/everbloom/advancement/recipes/misc/alumium.json
 f29273f73a90cc768f414c97d0712120db4323d4 data/everbloom/advancement/recipes/misc/alumium_block.json
 1a8a26ac0f9b90643839692c69107d6dc523b5ad data/everbloom/advancement/recipes/misc/alumium_from_blasting_alumium_ore.json
@@ -45,3 +46,4 @@ a55021b34f0cc7446223b975851e11f9657b8e91 data/everbloom/recipe/tin_ingot_from_bl
 87d51592736408268970019f9a216e8652701da6 data/everbloom/recipe/tin_ingot_from_smelting_deepslate_tin_ore.json
 2c75302c22257d0feb7f5e0a2e7f386308f6f595 data/everbloom/recipe/tin_ingot_from_smelting_raw_tin.json
 2d2c84d5d1a5af129581c12f1f051666788849b8 data/everbloom/recipe/tin_ingot_from_smelting_tin_ore.json
+7c6d8eb97801eec4cd29db13c8e58a669d5d6bd9 data/everbloom/recipe/tomato_sauce.json

@@ -136,6 +136,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
                         .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
                         .offerTo(exporter);
+
+                createShaped(RecipeCategory.FOOD, ModItems.TOMATO_SAUCE)
+                        .pattern("t")
+                        .pattern("b")
+                        .input('t', ModItems.TOMATO)
+                        .input('b', Items.GLASS_BOTTLE)
+                        .criterion(hasItem(ModItems.TOMATO), conditionsFromItem(ModItems.TOMATO))
+                        .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
+                        .offerTo(exporter);
             }
 
             public void OreBlockToIngot(Item ingot, Block block, RecipeExporter exporter) {

@@ -41,6 +41,7 @@ public class ModItemGroups {
 
                         //uncatagorized
                         entries.add(ModItems.DOUGH);
+                        entries.add(ModItems.TOMATO_SAUCE);
 
                         //entities
 
