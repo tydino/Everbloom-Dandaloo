@@ -32,7 +32,7 @@ public class FrotherScreen extends HandledScreen<FrotherScreenHandler> {
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if(handler.isCrafting()) {
             context.drawTexture(RenderLayer::getGuiTextured, ARROW_TEXTURE, x + 79, y + 31, 0, 0,
-                    handler.getScaledArrowProgress(), 24, 16, 24);
+                    16, handler.getScaledArrowProgress(), 16, 24);//width, height, texture width, texture height
         }
     }
 
