@@ -19,7 +19,8 @@ import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item
-//https://minecraftitemids.com/item/wheat
+//https://github.com/TechReborn/Energy use for energistic reference
+//use if stumped on energy https://youtu.be/N3Abbn9rV6M
 //https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.21.X/tree/62-Update1.21.4
 public class EverbloomDandaloo implements ModInitializer {
 	public static final String MOD_ID = "everbloom";
