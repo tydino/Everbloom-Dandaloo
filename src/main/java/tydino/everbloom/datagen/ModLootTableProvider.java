@@ -6,15 +6,19 @@ import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
+import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import tydino.everbloom.block.ModBlocks;
+import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
 import tydino.everbloom.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -26,6 +30,20 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
+
+        //crops
+        this.addDrop(ModBlocks.TOMATO_BUSH,
+                block -> this.applyExplosionDecay(
+                        block,LootTable.builder().pool(LootPool.builder().conditionally(
+                                                BlockStatePropertyLootCondition.builder(ModBlocks.TOMATO_BUSH).properties(StatePredicate.Builder.create().exactMatch(TomatoBushBlock.AGE, 3))
+                                        )
+                                        .with(ItemEntry.builder(ModItems.TOMATO))
+                                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 3.0F)))
+                        )/*.pool(LootPool.builder().conditionally(
+                                        BlockStatePropertyLootCondition.builder(ModBlocks.TOMATO_BUSH).properties(StatePredicate.Builder.create().exactMatch(TomatoBushBlock.AGE, 2))
+                                ).with(ItemEntry.builder(ModItems.TOMATO))
+                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))*/
+                                ));
 
         //eggs
         addDrop(ModBlocks.TORTOISE_EGG);

@@ -10,6 +10,9 @@ import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 public class ModFoodComponents {
     //food
 
+    //crops
+    public static FoodComponent TOMATO = new FoodComponent.Builder().nutrition(3).saturationModifier(0.25f).build();
+
     //griddle
     public static final FoodComponent CookedEgg = new FoodComponent.Builder().nutrition(6).saturationModifier(0.5f).build();
 

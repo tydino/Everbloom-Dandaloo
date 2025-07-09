@@ -6,6 +6,7 @@ import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
 import tydino.everbloom.block.ModBlocks;
+import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
 import tydino.everbloom.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -15,6 +16,10 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+
+        //crops
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TOMATO_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
+                TomatoBushBlock.AGE, 0, 1, 2, 3);
 
         //eggs
         blockStateModelGenerator.registerSimpleState(ModBlocks.TORTOISE_EGG);
@@ -43,8 +48,6 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-
-        //food
 
         //griddle
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);

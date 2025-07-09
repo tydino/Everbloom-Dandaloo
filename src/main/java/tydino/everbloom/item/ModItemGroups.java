@@ -23,6 +23,9 @@ public class ModItemGroups {
 
                         //food
 
+                        //crops
+                        entries.add(ModItems.TOMATO);
+
                         //pizzas
                         entries.add(ModItems.PIZZA_UNCOOKED);
                         entries.add(ModItems.PIZZA_PLAIN);

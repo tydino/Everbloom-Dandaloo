@@ -1,15 +1,13 @@
 package tydino.everbloom.item;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
+import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 
 import java.util.function.Function;
@@ -17,6 +15,9 @@ import java.util.function.Function;
 public class ModItems {
 
     //food
+
+    //crops
+    public static final Item TOMATO = registerItem("tomato", setting -> new BlockItem(ModBlocks.TOMATO_BUSH, setting.food(ModFoodComponents.TOMATO)));
 
     //pizzas
     public static final Item PIZZA_PLAIN = registerItem("pizza_plain", Item::new);

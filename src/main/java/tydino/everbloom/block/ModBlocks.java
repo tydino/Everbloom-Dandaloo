@@ -2,21 +2,30 @@ package tydino.everbloom.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.custom.Frother;
 import tydino.everbloom.block.custom.GriddleTierOne;
 import tydino.everbloom.block.custom.TortoiseEgg;
+import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
 
 import java.util.function.Function;
 
 public class ModBlocks {
+
+    //crops
+    public static final Block TOMATO_BUSH = registerBlockWithoutBlockItem("tomato_bush",
+            properties -> new TomatoBushBlock(properties.mapColor(MapColor.EMERALD_GREEN).ticksRandomly()
+                    .noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).pistonBehavior(PistonBehavior.DESTROY)));
 
     //eggs
     public static final Block TORTOISE_EGG = registerBlock("tortoise_egg", TortoiseEgg::new);
