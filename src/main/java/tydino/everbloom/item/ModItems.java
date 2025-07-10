@@ -14,6 +14,10 @@ import java.util.function.Function;
 
 public class ModItems {
 
+    //power
+
+    public static final Item POWER_METER = registerItem("power_meter", Item::new);
+
     //food
 
     //crops

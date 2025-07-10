@@ -93,6 +93,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_TORTOISE);
 
                         //power
+                        entries.add(ModItems.POWER_METER);
                         entries.add(ModBlocks.SOLAR_PANEL_TIER_ONE);
                     }).build());
 

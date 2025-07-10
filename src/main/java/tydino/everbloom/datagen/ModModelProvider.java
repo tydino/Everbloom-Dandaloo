@@ -25,7 +25,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(ModBlocks.TORTOISE_EGG);
 
         //cooking
-        //blockStateModelGenerator.registerSimpleState(ModBlocks.GRIDDLE_TIER_ONE); check the assets/blockstates folder and assets/items folder
+        //blockStateModelGenerator.registerSimpleState(ModBlocks.GRIDDLE_TIER_ONE); check the assets/blockstates folder the item is generate automatically after running datagen
         blockStateModelGenerator.registerSimpleState(ModBlocks.FROTHER);
 
         //ores
@@ -48,6 +48,9 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+
+        //power
+        itemModelGenerator.register(ModItems.POWER_METER, Models.GENERATED);
 
         //griddle
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);

@@ -31,8 +31,10 @@ d06136834e307fe61d528a6465a393640308ca1e assets/everbloom/items/frother.json
 c53bc7d2510b137a9d2d5cea5388e6cdd93ba924 assets/everbloom/items/mallard_meat.json
 5ee73ac2d7c5f48174be716228cebacbc116d33b assets/everbloom/items/metal_bowl.json
 cf26cc3ef5789218d13085242251de08ef0734ef assets/everbloom/items/metal_sheet.json
+de5748da694e2fea2fca229b5902bed9cc905605 assets/everbloom/items/power_meter.json
 8ec63295590a3dd138172e52710b3a20fc8d35fb assets/everbloom/items/raw_alumium.json
 ff5b78203fcef705a36478d50e9508c318177a6e assets/everbloom/items/raw_tin.json
+b7bd7ea9996a761165795b020c0bf7f67eb7d101 assets/everbloom/items/solar_panel_tier_one.json
 b305a5c91bbd3fb0684e2c89266703bd74d6c7b2 assets/everbloom/items/spawn-dagger-stabber.json
 ce76b5234977cd5fb15ff9102e4271b8620c7a8b assets/everbloom/items/spawn-mallard.json
 a42e6706176bb3afacc93ff596572afe10108a5c assets/everbloom/items/spawn-tortoise.json
@@ -68,6 +70,7 @@ b6a05befe6834dd3651fde64c943c5db27228a21 assets/everbloom/models/item/cooked_egg
 9ef9430d316016043d1214bca8df113ce3f53756 assets/everbloom/models/item/mallard_meat.json
 07217243fc1e889244bb2947ee54cd8b42d6a144 assets/everbloom/models/item/metal_bowl.json
 653e108e830b02822bc5800282095dbb1858ef8f assets/everbloom/models/item/metal_sheet.json
+3892efcf93c70bf5c3cbf8c4496e4ed1e74d9f3b assets/everbloom/models/item/power_meter.json
 e9c066158970ce2e62839ba349d54a052d81e9b4 assets/everbloom/models/item/raw_alumium.json
 2c78da0ba14b7dfee21d82e92a3d6dc3e68196fc assets/everbloom/models/item/raw_tin.json
 350ea08083a5ea860350af4c76e53d3fc8a0a32a assets/everbloom/models/item/spawn-dagger-stabber.json
