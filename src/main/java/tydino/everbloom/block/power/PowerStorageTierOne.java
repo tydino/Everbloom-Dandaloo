@@ -3,6 +3,8 @@ package tydino.everbloom.block.power;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -15,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.power.entity.PowerStorageTierOneEntity;
 import tydino.everbloom.block.power.entity.SolarPanelTierOneEntity;
 import tydino.everbloom.item.ModItems;
+import tydino.everbloom.utility.TickableBlockEntity;
 
 public class PowerStorageTierOne extends BlockWithEntity implements BlockEntityProvider {
 
@@ -53,5 +56,11 @@ public class PowerStorageTierOne extends BlockWithEntity implements BlockEntityP
         }
 
         return ActionResult.SUCCESS;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return TickableBlockEntity.getTicker(world);
     }
 }

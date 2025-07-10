@@ -8,8 +8,11 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import team.reborn.energy.api.EnergyStorage;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.entity.ModBlockEntities;
+import tydino.everbloom.block.power.entity.PowerStorageTierOneEntity;
+import tydino.everbloom.block.power.entity.SolarPanelTierOneEntity;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.item.ModItemGroups;
 import tydino.everbloom.item.ModItems;
@@ -56,6 +59,15 @@ public class EverbloomDandaloo implements ModInitializer {
 				.destDimID(Identifier.of("everbloom", "aether"))
 				.tintColor(0x02b3ff)
 				.registerPortal();
+
+		//power block initialization
+		LOGGER.info("registering powered blocks");
+
+		//solar panels
+		EnergyStorage.SIDED.registerForBlockEntity(SolarPanelTierOneEntity::getEnergyProvider, ModBlockEntities.SOLAR_PANEL_TIER_ONE_BE);
+
+		//power storages
+		EnergyStorage.SIDED.registerForBlockEntity(PowerStorageTierOneEntity::getEnergyProvider, ModBlockEntities.POWER_STORAGE_TIER_ONE_BE);
 	}
 }
 //https://www.youtube.com/watch?v=5a4DAkWW3JQ try

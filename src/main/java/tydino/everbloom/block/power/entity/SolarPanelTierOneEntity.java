@@ -36,7 +36,7 @@ public class SolarPanelTierOneEntity extends BlockEntity implements TickableBloc
             world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
     }
 
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(100_000, 100, 0) {
+    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(10_000, 0, 100) {
         @Override
         protected void onFinalCommit() {
             super.onFinalCommit();
