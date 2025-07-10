@@ -17,6 +17,9 @@ public class EverbloomDandalooClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
+        //power
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POWER_STORAGE_TIER_ONE, RenderLayer.getTranslucent());
+
         //crops
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATO_BUSH, RenderLayer.getCutout());

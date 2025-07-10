@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "everbloom:block/power_storage_tier_one"
+  }
+}

@@ -17,6 +17,9 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 
+        //power storages
+        blockStateModelGenerator.registerSimpleState(ModBlocks.POWER_STORAGE_TIER_ONE);
+
         //crops
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TOMATO_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
                 TomatoBushBlock.AGE, 0, 1, 2, 3);

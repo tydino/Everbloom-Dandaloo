@@ -19,6 +19,7 @@ import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.entity.ModBlockEntities;
+import tydino.everbloom.util.BlockCheckers;
 import tydino.everbloom.utility.TickableBlockEntity;
 
 public class SolarPanelTierOneEntity extends BlockEntity implements TickableBlockEntity {
@@ -35,7 +36,7 @@ public class SolarPanelTierOneEntity extends BlockEntity implements TickableBloc
             world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
     }
 
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(100_000, 0, 1_000) {
+    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(100_000, 100, 0) {
         @Override
         protected void onFinalCommit() {
             super.onFinalCommit();
@@ -46,27 +47,29 @@ public class SolarPanelTierOneEntity extends BlockEntity implements TickableBloc
 
     @Override
     public void tick() {
-        if(this.world == null || this.world.isClient)
-            return;
+        if(BlockCheckers.hasNoBlocksAbove(this.world,this.pos)) {//only for the solar panels
+            if (this.world == null || this.world.isClient)
+                return;
 
-        if(energyStorage.amount < energyStorage.getCapacity()) {
-            energyStorage.amount = MathHelper.clamp(energyStorage.amount + 1, 0, energyStorage.getCapacity());
-            update();
-        }
+            if (energyStorage.amount < energyStorage.getCapacity()) {
+                energyStorage.amount = MathHelper.clamp(energyStorage.amount + 1, 0, energyStorage.getCapacity());
+                update();
+            }
 
-        for (Direction direction : Direction.values()) {
-            EnergyStorage storage = EnergyStorage.SIDED.find(this.world, this.pos.offset(direction), direction.getOpposite());
-            if(storage != null && storage.supportsInsertion()) {
-                try(Transaction transaction = Transaction.openOuter()) {
-                    long insertable;
-                    try (Transaction simulateTransaction = transaction.openNested()) {
-                        insertable = storage.insert(Long.MAX_VALUE, simulateTransaction);
+            for (Direction direction : Direction.values()) {
+                EnergyStorage storage = EnergyStorage.SIDED.find(this.world, this.pos.offset(direction), direction.getOpposite());
+                if (storage != null && storage.supportsInsertion()) {
+                    try (Transaction transaction = Transaction.openOuter()) {
+                        long insertable;
+                        try (Transaction simulateTransaction = transaction.openNested()) {
+                            insertable = storage.insert(Long.MAX_VALUE, simulateTransaction);
+                        }
+
+                        long extracted = this.energyStorage.extract(insertable, transaction);
+                        long inserted = storage.insert(extracted, transaction);
+                        if (extracted == inserted)
+                            transaction.commit();
                     }
-
-                    long extracted = this.energyStorage.extract(insertable, transaction);
-                    long inserted = storage.insert(extracted, transaction);
-                    if (extracted == inserted)
-                        transaction.commit();
                 }
             }
         }

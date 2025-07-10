@@ -73,7 +73,7 @@ public class SolarPanelTierOne extends BlockWithEntity implements BlockEntityPro
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if(!world.isClient) {
             if(player.getMainHandStack().getItem().equals(ModItems.POWER_METER)) {
-                if (world.getBlockEntity(pos) instanceof SolarPanelTierOneEntity energyGenerator) {
+                if (world.getBlockEntity(pos) instanceof SolarPanelTierOneEntity energyGenerator) {//remember the entity
                     player.sendMessage(Text.literal("Energy: " + energyGenerator.getEnergyStorage().getAmount()), true);
                 }
             }
