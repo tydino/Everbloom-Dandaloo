@@ -51,6 +51,8 @@ public class GriddleTierOne extends BlockWithEntity implements BlockEntityProvid
         builder.add(HorizontalFacingBlock.FACING);
     }
 
+    //basics
+
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;

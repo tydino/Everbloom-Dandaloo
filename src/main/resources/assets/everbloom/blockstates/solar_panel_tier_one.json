@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "everbloom:block/solar_panel_tier_one" },
+    "facing=east":  { "model": "everbloom:block/solar_panel_tier_one", "y": 90 },
+    "facing=south": { "model": "everbloom:block/solar_panel_tier_one", "y": 180 },
+    "facing=west":  { "model": "everbloom:block/solar_panel_tier_one", "y": 270 }
+  }
+}

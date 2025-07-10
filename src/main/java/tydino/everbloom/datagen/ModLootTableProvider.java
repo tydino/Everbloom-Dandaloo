@@ -31,6 +31,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
 
+        //power
+
+        //solar panels
+        addDrop(ModBlocks.SOLAR_PANEL_TIER_ONE);
+
         //crops
         this.addDrop(ModBlocks.TOMATO_BUSH,
                 block -> this.applyExplosionDecay(

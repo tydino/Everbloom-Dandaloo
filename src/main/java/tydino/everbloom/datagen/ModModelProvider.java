@@ -25,7 +25,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(ModBlocks.TORTOISE_EGG);
 
         //cooking
-        //blockStateModelGenerator.registerSimpleState(ModBlocks.GRIDDLE_TIER_ONE); check the assets/blockstates folder
+        //blockStateModelGenerator.registerSimpleState(ModBlocks.GRIDDLE_TIER_ONE); check the assets/blockstates folder and assets/items folder
         blockStateModelGenerator.registerSimpleState(ModBlocks.FROTHER);
 
         //ores

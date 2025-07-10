@@ -91,6 +91,9 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_MALLARD_EGG);
                         entries.add(ModItems.SPAWN_DAGGER_STABBER);
                         entries.add(ModItems.SPAWN_TORTOISE);
+
+                        //power
+                        entries.add(ModBlocks.SOLAR_PANEL_TIER_ONE);
                     }).build());
 
     public static void registerItemGroups(){
