@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "everbloom:block/item_compressor",
-		"particle": "everbloom:block/item_compressor"
+		"0": "everbloom:block/item_compressor_tier_one",
+		"particle": "everbloom:block/item_compressor_tier_one"
 	},
 	"elements": [
 		{

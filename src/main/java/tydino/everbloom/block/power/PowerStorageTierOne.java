@@ -15,7 +15,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.power.entity.PowerStorageTierOneEntity;
-import tydino.everbloom.block.power.entity.SolarPanelTierOneEntity;
 import tydino.everbloom.item.ModItems;
 import tydino.everbloom.utility.TickableBlockEntity;
 
