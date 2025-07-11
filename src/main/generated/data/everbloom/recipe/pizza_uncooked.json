@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": "everbloom:cheese",
+    "d": "everbloom:pizza_dough",
+    "s": "everbloom:tomato_sauce"
+  },
+  "pattern": [
+    "c",
+    "s",
+    "d"
+  ],
+  "result": {
+    "count": 1,
+    "id": "everbloom:pizza_uncooked"
+  }
+}

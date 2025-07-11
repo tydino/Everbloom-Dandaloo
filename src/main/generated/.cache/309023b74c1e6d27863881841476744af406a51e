@@ -1,4 +1,5 @@
 // 1.21.4	-999999999-01-01T00:00:00	Everbloom Dandaloo/Everbloom Recipes
+0b5f7fa00c9152b53704c3e12b3ec32cf4f2b300 data/everbloom/advancement/recipes/food/pizza_uncooked.json
 51d03855cae2e3f9fd7fd2144dba4ba4a496d314 data/everbloom/advancement/recipes/food/tomato_sauce.json
 b7f8e7ba82d01102d9341c87c891abc5f32d3166 data/everbloom/advancement/recipes/misc/alumium.json
 f29273f73a90cc768f414c97d0712120db4323d4 data/everbloom/advancement/recipes/misc/alumium_block.json
@@ -37,6 +38,7 @@ ee23d3e79425ae3952932c8e779009c4b9a1de45 data/everbloom/recipe/frother.json
 196f0c10de01ef821b37369f318ad48fe99395bb data/everbloom/recipe/metal_bowl.json
 d180b586914efe348f9243ff97ceda79de406c83 data/everbloom/recipe/metal_sheet.json
 a7973f53feb2daf90403890fa7f226ecb00ee4c6 data/everbloom/recipe/name_tag.json
+6cf00d7cc11aa27bb49f3c8ebdf5197737272a24 data/everbloom/recipe/pizza_uncooked.json
 42f5274eec3ec031c979b067895a8a0f1328f2cb data/everbloom/recipe/saddle.json
 811ef1732a18680dd4536d09fd014e71761ce019 data/everbloom/recipe/tin_block.json
 810a4de0154f67f34b8a4139a85e22ebe52feb75 data/everbloom/recipe/tin_ingot.json

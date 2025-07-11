@@ -27,6 +27,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TOMATO);
 
                         //pizzas
+                        entries.add(ModItems.PIZZA_DOUGH);
                         entries.add(ModItems.PIZZA_UNCOOKED);
                         entries.add(ModItems.PIZZA_PLAIN);
 

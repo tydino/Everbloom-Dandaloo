@@ -2,6 +2,6 @@
   "type": "everbloom:item_compressor",
   "ingredient": "everbloom:dough",
   "result": {
-    "id": "everbloom:frother"
+    "id": "everbloom:pizza_dough"
   }
 }

@@ -24,6 +24,7 @@ public class ModItems {
     public static final Item TOMATO = registerItem("tomato", setting -> new BlockItem(ModBlocks.TOMATO_BUSH, setting.food(ModFoodComponents.TOMATO)));
 
     //pizzas
+    public static final Item PIZZA_DOUGH = registerItem("pizza_dough", Item::new);
     public static final Item PIZZA_PLAIN = registerItem("pizza_plain", Item::new);
     public static final Item PIZZA_UNCOOKED = registerItem("pizza_uncooked", Item::new);
 
