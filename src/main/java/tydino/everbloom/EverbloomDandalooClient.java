@@ -12,13 +12,17 @@ import tydino.everbloom.entity.client.*;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.screen.custom.FrotherScreen;
 import tydino.everbloom.screen.custom.GriddleTierOneScreen;
+import tydino.everbloom.screen.power.itemCompressor.ItemCompressorTierOneScreen;
 
 public class EverbloomDandalooClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
         //power
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POWER_STORAGE_TIER_ONE, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POWER_STORAGE_TIER_ONE, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ITEM_COMPRESSOR_TIER_ONE, RenderLayer.getCutout());
+        HandledScreens.register(ModScreenHandler.ITEM_COMPRESSOR_TIER_ONE_SCREEN_HANDLER, ItemCompressorTierOneScreen::new);
 
         //crops
 

@@ -33,11 +33,18 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         //power
 
+        //generators
+
         //solar panels
         addDrop(ModBlocks.SOLAR_PANEL_TIER_ONE);
 
+        //batteries
+
         //power storages
         addDrop(ModBlocks.POWER_STORAGE_TIER_ONE);
+
+        //power users
+        addDrop(ModBlocks.ITEM_COMPRESSOR_TIER_ONE);
 
         //crops
         this.addDrop(ModBlocks.TOMATO_BUSH,

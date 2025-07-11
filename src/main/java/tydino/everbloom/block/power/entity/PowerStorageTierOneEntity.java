@@ -22,7 +22,7 @@ public class PowerStorageTierOneEntity extends BlockEntity implements TickableBl
     }
 
     //power
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(10_000, 100, 100) {
+    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(10_000, 100, 10) {
         @Override
         protected void onFinalCommit() {
             super.onFinalCommit();
@@ -66,10 +66,10 @@ public class PowerStorageTierOneEntity extends BlockEntity implements TickableBl
         if (this.world == null || this.world.isClient)
             return;
 
-        if (energyStorage.amount < energyStorage.getCapacity()) {
+        /*if (energyStorage.amount < energyStorage.getCapacity()) {
             energyStorage.amount = MathHelper.clamp(energyStorage.amount + 1, 0, energyStorage.getCapacity());
             update();
-        }
+        }*/
 
         for (Direction direction : Direction.values()) {
             EnergyStorage storage = EnergyStorage.SIDED.find(this.world, this.pos.offset(direction), direction.getOpposite());

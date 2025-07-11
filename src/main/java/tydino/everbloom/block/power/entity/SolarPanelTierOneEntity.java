@@ -57,18 +57,20 @@ public class SolarPanelTierOneEntity extends BlockEntity implements TickableBloc
             }
 
             for (Direction direction : Direction.values()) {
-                EnergyStorage storage = EnergyStorage.SIDED.find(this.world, this.pos.offset(direction), direction.getOpposite());
-                if (storage != null && storage.supportsInsertion()) {
-                    try (Transaction transaction = Transaction.openOuter()) {
-                        long insertable;
-                        try (Transaction simulateTransaction = transaction.openNested()) {
-                            insertable = storage.insert(Long.MAX_VALUE, simulateTransaction);
-                        }
+                if (direction == Direction.DOWN) {
+                    EnergyStorage storage = EnergyStorage.SIDED.find(this.world, this.pos.offset(direction), direction.getOpposite());
+                    if (storage != null && storage.supportsInsertion()) {
+                        try (Transaction transaction = Transaction.openOuter()) {
+                            long insertable;
+                            try (Transaction simulateTransaction = transaction.openNested()) {
+                                insertable = storage.insert(Long.MAX_VALUE, simulateTransaction);
+                            }
 
-                        long extracted = this.energyStorage.extract(insertable, transaction);
-                        long inserted = storage.insert(extracted, transaction);
-                        if (extracted == inserted)
-                            transaction.commit();
+                            long extracted = this.energyStorage.extract(insertable, transaction);
+                            long inserted = storage.insert(extracted, transaction);
+                            if (extracted == inserted)
+                                transaction.commit();
+                        }
                     }
                 }
             }

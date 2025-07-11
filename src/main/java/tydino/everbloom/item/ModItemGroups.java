@@ -95,6 +95,8 @@ public class ModItemGroups {
                         //power
                         entries.add(ModItems.POWER_METER);
                         entries.add(ModBlocks.SOLAR_PANEL_TIER_ONE);
+                        entries.add(ModBlocks.POWER_STORAGE_TIER_ONE);
+                        entries.add(ModBlocks.ITEM_COMPRESSOR_TIER_ONE);
                     }).build());
 
     public static void registerItemGroups(){

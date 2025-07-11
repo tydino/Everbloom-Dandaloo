@@ -17,6 +17,7 @@ import tydino.everbloom.block.custom.Frother;
 import tydino.everbloom.block.custom.GriddleTierOne;
 import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
+import tydino.everbloom.block.power.ItemCompressorTierOne;
 import tydino.everbloom.block.power.PowerStorageTierOne;
 import tydino.everbloom.block.power.SolarPanelTierOne;
 
@@ -26,11 +27,20 @@ public class ModBlocks {
 
     //power
 
+    //generator
+
     //solar panels
     public static final Block SOLAR_PANEL_TIER_ONE = registerBlock("solar_panel_tier_one", SolarPanelTierOne::new);
 
+    //batteries
+
     //power storages
     public static final Block POWER_STORAGE_TIER_ONE = registerBlock("power_storage_tier_one", PowerStorageTierOne::new);
+
+    //power users
+
+    //item compressors
+    public static final Block ITEM_COMPRESSOR_TIER_ONE = registerBlock("item_compressor_tier_one", ItemCompressorTierOne::new);
 
     //crops
     public static final Block TOMATO_BUSH = registerBlockWithoutBlockItem("tomato_bush",

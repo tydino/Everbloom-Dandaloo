@@ -1,6 +1,7 @@
-package tydino.everbloom.block.entity.custom;
+package tydino.everbloom.block.power.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -8,6 +9,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
@@ -20,32 +22,37 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import team.reborn.energy.api.base.SimpleEnergyStorage;
+import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.entity.ImplementedInventory;
 import tydino.everbloom.block.entity.ModBlockEntities;
 import tydino.everbloom.recipe.*;
-import tydino.everbloom.screen.custom.FrotherScreenHandler;
+import tydino.everbloom.screen.power.itemCompressor.ItemCompressorTierOneScreenHandler;
+import tydino.everbloom.utility.TickableBlockEntity;
 
 import java.util.Optional;
 
-public class FrotherEntity  extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
-    final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
+public class ItemCompressorTierOneEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
+    final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
     static final int INPUT_SLOT = 0;
     static final int OUTPUT_SLOT = 1;
+    static final int INPUT_SLOT_TWO = 2;
 
     protected final PropertyDelegate propertyDelegate;
     int progress = 0;
-    int maxProgress = 250;
-    public FrotherEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.Frother_BE, pos, state);
+    int maxProgress = 1000;//1000 for tier 1, 750 for tier 2, 400 for tier 3 //also reset in 125//ever 100 is a second.
+    public ItemCompressorTierOneEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.ITEM_COMPRESSOR_TIER_ONE_BE, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 return switch (index){
-                    case 0 -> FrotherEntity.this.progress;
-                    case 1 -> FrotherEntity.this.maxProgress;
+                    case 0 -> ItemCompressorTierOneEntity.this.progress;
+                    case 1 -> ItemCompressorTierOneEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -53,8 +60,8 @@ public class FrotherEntity  extends BlockEntity implements ExtendedScreenHandler
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: FrotherEntity.this.progress = value;
-                    case 1: FrotherEntity.this.maxProgress = value;
+                    case 0: ItemCompressorTierOneEntity.this.progress = value;
+                    case 1: ItemCompressorTierOneEntity.this.maxProgress = value;
                 }
             }
 
@@ -77,33 +84,38 @@ public class FrotherEntity  extends BlockEntity implements ExtendedScreenHandler
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("block.everbloom.frother");
+        return Text.translatable("block.everbloom.item_compressor_tier_one");
     }
 
     @Override
     public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new FrotherScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
+        return new ItemCompressorTierOneScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
 
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
         Inventories.writeNbt(nbt, inventory, registryLookup);
-        nbt.putInt("frother.progress", progress);
-        nbt.putInt("frother.max_progress", maxProgress);
+        nbt.putLong("Energy", this.energyStorage.amount);
+        nbt.putInt("item_compressor_tier_one.progress", progress);
+        nbt.putInt("item_compressor_tier_one.max_progress", maxProgress);
     }
 
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         Inventories.readNbt(nbt, inventory, registryLookup);
-        progress = nbt.getInt("frother.progress");
-        maxProgress = nbt.getInt("frother.max_progress");
+        progress = nbt.getInt("item_compressor_tier_one.progress");
+        maxProgress = nbt.getInt("item_compressor_tier_one.max_progress");
+        if (nbt.contains("Energy", NbtElement.LONG_TYPE)) {
+            this.energyStorage.amount = nbt.getLong("Energy");
+        }
         super.readNbt(nbt, registryLookup);
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if(hasRecipe()) {
+        if(hasRecipe() && hasPower()) {
             increaseCraftingProgress();
+            extractEnergy();
             markDirty(world, pos, state);
 
             if(hasCraftingFinished()) {
@@ -115,13 +127,24 @@ public class FrotherEntity  extends BlockEntity implements ExtendedScreenHandler
         }
     }
 
+    private void extractEnergy() {
+        try(Transaction transaction = Transaction.openOuter()) {
+            this.energyStorage.extract(5, transaction);
+            transaction.commit();
+        }
+    }
+
+    private boolean hasPower() {
+        return this.energyStorage.amount >= 10;
+    }
+
     private void resetProgress() {
         this.progress = 0;
-        this.maxProgress = 250;
+        this.maxProgress = 1000;//set this
     }
 
     private void craftItem() {
-        Optional<RecipeEntry<FrotherRecipe>> recipe = getCurrentRecipe();
+        Optional<RecipeEntry<ItemCompressorRecipe>> recipe = getCurrentRecipe();
 
         ItemStack output = recipe.get().value().output();
         this.removeStack(INPUT_SLOT, 1);
@@ -138,7 +161,7 @@ public class FrotherEntity  extends BlockEntity implements ExtendedScreenHandler
     }
 
     private boolean hasRecipe() {
-        Optional<RecipeEntry<FrotherRecipe>> recipe = getCurrentRecipe();
+        Optional<RecipeEntry<ItemCompressorRecipe>> recipe = getCurrentRecipe();
         if(recipe.isEmpty()){
             return false;
         }
@@ -147,9 +170,9 @@ public class FrotherEntity  extends BlockEntity implements ExtendedScreenHandler
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
     }
 
-    private Optional<RecipeEntry<FrotherRecipe>> getCurrentRecipe() {
+    private Optional<RecipeEntry<ItemCompressorRecipe>> getCurrentRecipe() {
         return ((ServerWorld) this.getWorld()).getRecipeManager()
-                .getFirstMatch(ModRecipes.FROTHER_TYPE, new FrotherRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
+                .getFirstMatch(ModRecipes.ITEM_COMPRESSOR_TYPE, new ItemCompressorRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
@@ -172,5 +195,23 @@ public class FrotherEntity  extends BlockEntity implements ExtendedScreenHandler
     @Override
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
         return createNbt(registryLookup);
+    }
+
+    //power
+    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(10_000, 100, 100) {
+        @Override
+        protected void onFinalCommit() {
+            super.onFinalCommit();
+
+            markDirty();
+        }
+    };
+
+    public SimpleEnergyStorage getEnergyStorage() {
+        return this.energyStorage;
+    }
+
+    public SimpleEnergyStorage getEnergyProvider(Direction direction) {
+        return this.energyStorage;
     }
 }

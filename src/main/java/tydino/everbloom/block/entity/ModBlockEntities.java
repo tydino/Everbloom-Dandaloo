@@ -9,6 +9,7 @@ import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.entity.custom.FrotherEntity;
 import tydino.everbloom.block.entity.custom.GriddleTierOneEntity;
+import tydino.everbloom.block.power.entity.ItemCompressorTierOneEntity;
 import tydino.everbloom.block.power.entity.PowerStorageTierOneEntity;
 import tydino.everbloom.block.power.entity.SolarPanelTierOneEntity;
 
@@ -16,13 +17,23 @@ public class ModBlockEntities {
 
     //power
 
+    //generators
+
     //solar panels
     public static final BlockEntityType<SolarPanelTierOneEntity> SOLAR_PANEL_TIER_ONE_BE = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "solar_panel_tier_one_be"),
             FabricBlockEntityTypeBuilder.create(SolarPanelTierOneEntity::new, ModBlocks.SOLAR_PANEL_TIER_ONE).build());
 
+    //batteries
+
     //power storages
     public static final BlockEntityType<PowerStorageTierOneEntity> POWER_STORAGE_TIER_ONE_BE = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "power_storage_tier_one_be"),
             FabricBlockEntityTypeBuilder.create(PowerStorageTierOneEntity::new, ModBlocks.POWER_STORAGE_TIER_ONE).build());
+
+    //power users
+
+    //item compressors
+    public static final BlockEntityType<ItemCompressorTierOneEntity> ITEM_COMPRESSOR_TIER_ONE_BE = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "item_compressor_tier_one"),
+            FabricBlockEntityTypeBuilder.create(ItemCompressorTierOneEntity::new, ModBlocks.ITEM_COMPRESSOR_TIER_ONE).build());
 
     //cooking
     public static final BlockEntityType<GriddleTierOneEntity> GRIDDLE_TIER_ONE_BE = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "griddle_tier_one_be"),
