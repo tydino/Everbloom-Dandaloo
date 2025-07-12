@@ -55,6 +55,7 @@ public class ModModelProvider extends FabricModelProvider {
         //power
         itemModelGenerator.register(ModItems.POWER_METER, Models.GENERATED);
         itemModelGenerator.register(ModItems.CIRCUIT_BOARD_BLANK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CIRCUIT_BOARD_INSCRIBED, Models.GENERATED);
 
         //griddle
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);

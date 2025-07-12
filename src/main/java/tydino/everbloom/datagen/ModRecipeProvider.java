@@ -26,6 +26,45 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         return new RecipeGenerator(wrapperLookup, recipeExporter) {
             @Override
             public void generate() {
+                //glass
+                List<ItemConvertible> GLASS = List.of(
+                        Items.GLASS,
+                        Items.GRAY_STAINED_GLASS,
+                        Items.BLUE_STAINED_GLASS,
+                        Items.BLACK_STAINED_GLASS,
+                        Items.BROWN_STAINED_GLASS,
+                        Items.CYAN_STAINED_GLASS,
+                        Items.GREEN_STAINED_GLASS,
+                        Items.LIGHT_BLUE_STAINED_GLASS,
+                        Items.LIGHT_GRAY_STAINED_GLASS,
+                        Items.LIME_STAINED_GLASS,
+                        Items.MAGENTA_STAINED_GLASS,
+                        Items.ORANGE_STAINED_GLASS,
+                        Items.PINK_STAINED_GLASS,
+                        Items.PURPLE_STAINED_GLASS,
+                        Items.RED_STAINED_GLASS,
+                        Items.WHITE_STAINED_GLASS,
+                        Items.YELLOW_STAINED_GLASS
+                );
+                List<ItemConvertible> GLASS_PANES = List.of(
+                        Items.GLASS_PANE,
+                        Items.GRAY_STAINED_GLASS_PANE,
+                        Items.BLUE_STAINED_GLASS_PANE,
+                        Items.BLACK_STAINED_GLASS_PANE,
+                        Items.BROWN_STAINED_GLASS_PANE,
+                        Items.CYAN_STAINED_GLASS_PANE,
+                        Items.GREEN_STAINED_GLASS_PANE,
+                        Items.LIGHT_BLUE_STAINED_GLASS_PANE,
+                        Items.LIGHT_GRAY_STAINED_GLASS_PANE,
+                        Items.LIME_STAINED_GLASS_PANE,
+                        Items.MAGENTA_STAINED_GLASS_PANE,
+                        Items.ORANGE_STAINED_GLASS_PANE,
+                        Items.PINK_STAINED_GLASS_PANE,
+                        Items.PURPLE_STAINED_GLASS_PANE,
+                        Items.RED_STAINED_GLASS_PANE,
+                        Items.WHITE_STAINED_GLASS_PANE,
+                        Items.YELLOW_STAINED_GLASS_PANE
+                );
 
                 //ore
 
@@ -166,31 +205,35 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter);
 
                 //power
-                createShaped(RecipeCategory.REDSTONE, ModItems.CIRCUIT_BOARD_BLANK)
-                        .pattern("ggg")
-                        .pattern("brb")
-                        .pattern("ggg")
-                        .input('g', Items.LIME_STAINED_GLASS_PANE)
-                        .input('b', ModItems.BRONZE)
-                        .input('r', Items.REDSTONE)
-                        .criterion(hasItem(Items.LIME_STAINED_GLASS_PANE), conditionsFromItem(Items.LIME_STAINED_GLASS_PANE))
-                        .criterion(hasItem(ModItems.BRONZE), conditionsFromItem(ModItems.BRONZE))
-                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
-                        .offerTo(exporter);
+                for (ItemConvertible item : GLASS_PANES ) {
+                    createShaped(RecipeCategory.REDSTONE, ModItems.CIRCUIT_BOARD_BLANK)
+                            .pattern("ggg")
+                            .pattern("brb")
+                            .pattern("ggg")
+                            .input('g', item)
+                            .input('b', ModItems.BRONZE)
+                            .input('r', Items.REDSTONE)
+                            .criterion(hasItem(item), conditionsFromItem(item))
+                            .criterion(hasItem(ModItems.BRONZE), conditionsFromItem(ModItems.BRONZE))
+                            .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                            .offerTo(exporter, item + "_circuit_board_blank_recipe");
+                }
 
-                createShaped(RecipeCategory.REDSTONE, ModItems.POWER_METER)
-                        .pattern(" s ")
-                        .pattern("mgm")
-                        .pattern("mcm")
-                        .input('s', ModItems.TIN_STICK)
-                        .input('m', ModItems.METAL_SHEET)
-                        .input('g', Items.GLASS)
-                        .input('c', ModItems.CIRCUIT_BOARD_BLANK)
-                        .criterion(hasItem(ModItems.TIN_STICK), conditionsFromItem(ModItems.TIN_STICK))
-                        .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
-                        .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
-                        .criterion(hasItem(ModItems.CIRCUIT_BOARD_BLANK), conditionsFromItem(ModItems.CIRCUIT_BOARD_BLANK))
-                        .offerTo(exporter);
+                for (ItemConvertible item : GLASS) {
+                    createShaped(RecipeCategory.REDSTONE, ModItems.POWER_METER)
+                            .pattern(" s ")
+                            .pattern("mgm")
+                            .pattern("mcm")
+                            .input('s', ModItems.TIN_STICK)
+                            .input('m', ModItems.METAL_SHEET)
+                            .input('g', item)
+                            .input('c', ModItems.CIRCUIT_BOARD_INSCRIBED)
+                            .criterion(hasItem(ModItems.TIN_STICK), conditionsFromItem(ModItems.TIN_STICK))
+                            .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
+                            .criterion(hasItem(item), conditionsFromItem(item))
+                            .criterion(hasItem(ModItems.CIRCUIT_BOARD_INSCRIBED), conditionsFromItem(ModItems.CIRCUIT_BOARD_INSCRIBED))
+                            .offerTo(exporter, item + "_power_meter_recipe");
+                }
             }
 
             public void OreBlockToIngot(Item ingot, Block block, RecipeExporter exporter) {

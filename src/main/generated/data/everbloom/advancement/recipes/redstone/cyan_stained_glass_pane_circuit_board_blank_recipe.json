@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_lime_stained_glass_pane": {
+    "has_cyan_stained_glass_pane": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:lime_stained_glass_pane"
+            "items": "minecraft:cyan_stained_glass_pane"
           }
         ]
       },
@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "everbloom:circuit_board_blank"
+        "recipe": "minecraft:cyan_stained_glass_pane_circuit_board_blank_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,14 +41,14 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_lime_stained_glass_pane",
+      "has_cyan_stained_glass_pane",
       "has_bronze",
       "has_redstone"
     ]
   ],
   "rewards": {
     "recipes": [
-      "everbloom:circuit_board_blank"
+      "minecraft:cyan_stained_glass_pane_circuit_board_blank_recipe"
     ]
   }
 }

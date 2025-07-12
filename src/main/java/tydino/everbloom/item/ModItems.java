@@ -18,7 +18,9 @@ public class ModItems {
 
     public static final Item POWER_METER = registerItem("power_meter", Item::new);
 
+    //circuit boards
     public static final Item CIRCUIT_BOARD_BLANK = registerItem("circuit_board_blank", Item::new);
+    public static final Item CIRCUIT_BOARD_INSCRIBED = registerItem("circuit_board_inscribed", Item::new);
 
     //food
 

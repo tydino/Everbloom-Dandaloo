@@ -61,7 +61,8 @@
   "item.everbloom.metal_bowl": "Tin Bowl",
   "item.everbloom.tin_stick": "Tin Stick",
 
-  "item.everbloom.circuit_board_blank": "Tin Stick",
+  "item.everbloom.circuit_board_blank": "Blank Circuit Board",
+  "item.everbloom.circuit_board_inscribed": "Inscribed Circuit Board Tier One",
 
   "item.everbloom.power_meter": "Power Meter",
 

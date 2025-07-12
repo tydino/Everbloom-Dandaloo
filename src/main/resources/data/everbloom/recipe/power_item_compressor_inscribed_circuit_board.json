@@ -1,0 +1,7 @@
+{
+  "type": "everbloom:item_compressor",
+  "ingredient": "everbloom:circuit_board_blank",
+  "result": {
+    "id": "everbloom:circuit_board_inscribed"
+  }
+}
