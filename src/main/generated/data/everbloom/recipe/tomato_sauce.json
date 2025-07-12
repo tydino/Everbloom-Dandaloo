@@ -1,13 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "b": "minecraft:glass_bottle",
-    "t": "everbloom:tomato"
-  },
-  "pattern": [
-    "t",
-    "b"
+  "ingredients": [
+    "everbloom:tomato",
+    "minecraft:glass_bottle"
   ],
   "result": {
     "count": 1,

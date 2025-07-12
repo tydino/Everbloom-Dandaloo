@@ -1,16 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "e": "minecraft:egg",
-    "f": "everbloom:flour",
-    "h": "minecraft:honey_bottle",
-    "m": "minecraft:milk_bucket"
-  },
-  "pattern": [
-    "fee",
-    "fmm",
-    "fhh"
+  "ingredients": [
+    "everbloom:flour",
+    "everbloom:flour",
+    "everbloom:flour",
+    "minecraft:egg",
+    "minecraft:egg",
+    "minecraft:milk_bucket",
+    "minecraft:milk_bucket",
+    "minecraft:honey_bottle",
+    "minecraft:honey_bottle"
   ],
   "result": {
     "count": 3,

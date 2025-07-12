@@ -169,25 +169,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 //food
 
-                createShaped(RecipeCategory.MISC, ModItems.DOUGH, 3)
-                        .pattern("fee")
-                        .pattern("fmm")
-                        .pattern("fhh")
-                        .input('f', ModItems.FLOUR)
-                        .input('e', Items.EGG)
-                        .input('m', Items.MILK_BUCKET)
-                        .input('h', Items.HONEY_BOTTLE)
+                createShapeless(RecipeCategory.FOOD, ModItems.DOUGH, 3)
+                        .input(ModItems.FLOUR, 3)
+                        .input(Items.EGG, 2)
+                        .input(Items.MILK_BUCKET, 2)
+                        .input(Items.HONEY_BOTTLE, 2)
                         .criterion(hasItem(ModItems.FLOUR), conditionsFromItem(ModItems.FLOUR))
                         .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
                         .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
                         .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.FOOD, ModItems.TOMATO_SAUCE)
-                        .pattern("t")
-                        .pattern("b")
-                        .input('t', ModItems.TOMATO)
-                        .input('b', Items.GLASS_BOTTLE)
+                createShapeless(RecipeCategory.FOOD, ModItems.TOMATO_SAUCE)
+                        .input(ModItems.TOMATO)
+                        .input(Items.GLASS_BOTTLE)
                         .criterion(hasItem(ModItems.TOMATO), conditionsFromItem(ModItems.TOMATO))
                         .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
                         .offerTo(exporter);
