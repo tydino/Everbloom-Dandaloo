@@ -22,6 +22,11 @@ import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
+//todo:
+//add a craftable book(set) that can allow for easier implementation of how to get most things.
+//make a wire block.
+//make the power storage block actually store power when broken.
+
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item
 //https://github.com/TechReborn/Energy use for energistic reference
 //use if stumped on energy https://youtu.be/N3Abbn9rV6M
