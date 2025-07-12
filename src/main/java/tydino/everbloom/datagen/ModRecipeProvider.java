@@ -91,6 +91,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
                         .offerTo(exporter);
 
+                createShaped(RecipeCategory.MISC, ModItems.TIN_STICK, 4)
+                        .pattern("s")
+                        .pattern("s")
+                        .input('s', ModItems.TIN_INGOT)
+                        .criterion(hasItem(ModItems.TIN_INGOT), conditionsFromItem(ModItems.TIN_INGOT))
+                        .offerTo(exporter);
+
                 //cooking
 
                 //griddle tier one
@@ -156,6 +163,33 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.CHEESE), conditionsFromItem(ModItems.CHEESE))
                         .criterion(hasItem(ModItems.TOMATO_SAUCE), conditionsFromItem(ModItems.TOMATO_SAUCE))
                         .criterion(hasItem(ModItems.PIZZA_DOUGH), conditionsFromItem(ModItems.PIZZA_DOUGH))
+                        .offerTo(exporter);
+
+                //power
+                createShaped(RecipeCategory.REDSTONE, ModItems.CIRCUIT_BOARD_BLANK)
+                        .pattern("ggg")
+                        .pattern("brb")
+                        .pattern("ggg")
+                        .input('g', Items.LIME_STAINED_GLASS_PANE)
+                        .input('b', ModItems.BRONZE)
+                        .input('r', Items.REDSTONE)
+                        .criterion(hasItem(Items.LIME_STAINED_GLASS_PANE), conditionsFromItem(Items.LIME_STAINED_GLASS_PANE))
+                        .criterion(hasItem(ModItems.BRONZE), conditionsFromItem(ModItems.BRONZE))
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.REDSTONE, ModItems.POWER_METER)
+                        .pattern(" s ")
+                        .pattern("mgm")
+                        .pattern("mcm")
+                        .input('s', ModItems.TIN_STICK)
+                        .input('m', ModItems.METAL_SHEET)
+                        .input('g', Items.GLASS)
+                        .input('c', ModItems.CIRCUIT_BOARD_BLANK)
+                        .criterion(hasItem(ModItems.TIN_STICK), conditionsFromItem(ModItems.TIN_STICK))
+                        .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
+                        .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
+                        .criterion(hasItem(ModItems.CIRCUIT_BOARD_BLANK), conditionsFromItem(ModItems.CIRCUIT_BOARD_BLANK))
                         .offerTo(exporter);
             }
 
