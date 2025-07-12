@@ -15,7 +15,10 @@ public class ModModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {//ones that rotate see the commented griddle
+
+        //power hectogons
+        blockStateModelGenerator.registerSimpleState(ModBlocks.POWER_HECTOGON_TIER_ONE);
 
         //power storages
         blockStateModelGenerator.registerSimpleState(ModBlocks.POWER_STORAGE_TIER_ONE);

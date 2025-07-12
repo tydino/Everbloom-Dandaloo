@@ -33,6 +33,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         //power
 
+        //power hectogons
+        addDrop(ModBlocks.POWER_HECTOGON_TIER_ONE);
+
         //generators
 
         //solar panels

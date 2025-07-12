@@ -12,6 +12,7 @@ import team.reborn.energy.api.EnergyStorage;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.entity.ModBlockEntities;
 import tydino.everbloom.block.power.entity.ItemCompressorTierOneEntity;
+import tydino.everbloom.block.power.entity.PowerHectogonTierOneEntity;
 import tydino.everbloom.block.power.entity.PowerStorageTierOneEntity;
 import tydino.everbloom.block.power.entity.SolarPanelTierOneEntity;
 import tydino.everbloom.entity.ModEntities;
@@ -24,8 +25,9 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
-//make a wire block.
+//make the bronze alloy recipe shapeless
 //make the power storage block actually store power when broken.
+//make it so the power blocks are actually gettable in survival
 
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item
 //https://github.com/TechReborn/Energy use for energistic reference
@@ -68,6 +70,9 @@ public class EverbloomDandaloo implements ModInitializer {
 
 		//power block initialization
 		LOGGER.info("registering powered blocks");
+
+		//power hectogons
+		EnergyStorage.SIDED.registerForBlockEntity(PowerHectogonTierOneEntity::getEnergyProvider, ModBlockEntities.POWER_HECTOGON_TIER_ONE_BE);
 
 		//solar panels
 		EnergyStorage.SIDED.registerForBlockEntity(SolarPanelTierOneEntity::getEnergyProvider, ModBlockEntities.SOLAR_PANEL_TIER_ONE_BE);

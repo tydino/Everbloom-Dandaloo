@@ -10,12 +10,17 @@ import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.entity.custom.FrotherEntity;
 import tydino.everbloom.block.entity.custom.GriddleTierOneEntity;
 import tydino.everbloom.block.power.entity.ItemCompressorTierOneEntity;
+import tydino.everbloom.block.power.entity.PowerHectogonTierOneEntity;
 import tydino.everbloom.block.power.entity.PowerStorageTierOneEntity;
 import tydino.everbloom.block.power.entity.SolarPanelTierOneEntity;
 
 public class ModBlockEntities {
 
     //power
+
+    //wires
+    public static final BlockEntityType<PowerHectogonTierOneEntity> POWER_HECTOGON_TIER_ONE_BE = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "power_hectogon_tier_one_be"),
+            FabricBlockEntityTypeBuilder.create(PowerHectogonTierOneEntity::new, ModBlocks.POWER_HECTOGON_TIER_ONE).build());
 
     //generators
 

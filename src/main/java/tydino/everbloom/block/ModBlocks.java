@@ -18,14 +18,20 @@ import tydino.everbloom.block.custom.GriddleTierOne;
 import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
 import tydino.everbloom.block.power.ItemCompressorTierOne;
+import tydino.everbloom.block.power.PowerHectogonTierOne;
 import tydino.everbloom.block.power.PowerStorageTierOne;
 import tydino.everbloom.block.power.SolarPanelTierOne;
 
 import java.util.function.Function;
 
+//when making a block that isnt the full perimeter of the bottom or any sides; make one side or all one pixel smaller each and then it shouldnt be an x-ray
+
 public class ModBlocks {
 
     //power
+
+    //power hectogons
+    public static Block POWER_HECTOGON_TIER_ONE = registerBlock("power_hectogon_tier_one", PowerHectogonTierOne::new);
 
     //generator
 
