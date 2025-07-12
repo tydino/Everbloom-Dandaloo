@@ -18,6 +18,8 @@ public class ModItems {
 
     public static final Item POWER_METER = registerItem("power_meter", Item::new);
 
+    public static final Item CIRCUIT_BOARD_BLANK = registerItem("circuit_board_blank", Item::new);
+
     //food
 
     //crops
@@ -78,6 +80,7 @@ public class ModItems {
     //custom items
     public static Item METAL_SHEET = registerItem("metal_sheet", Item::new);
     public static Item METAL_BOWL = registerItem("metal_bowl", Item::new);
+    public static Item TIN_STICK = registerItem("tin_stick", Item::new);
 
     //voids
 

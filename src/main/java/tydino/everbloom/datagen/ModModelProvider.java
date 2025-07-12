@@ -54,6 +54,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         //power
         itemModelGenerator.register(ModItems.POWER_METER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CIRCUIT_BOARD_BLANK, Models.GENERATED);
 
         //griddle
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);
@@ -100,6 +101,7 @@ public class ModModelProvider extends FabricModelProvider {
         //custom items
         itemModelGenerator.register(ModItems.METAL_SHEET, Models.GENERATED);
         itemModelGenerator.register(ModItems.METAL_BOWL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TIN_STICK, Models.GENERATED);
 
         // spawn eggs
         itemModelGenerator.register(ModItems.SPAWN_MALLARD_EGG, Models.GENERATED);

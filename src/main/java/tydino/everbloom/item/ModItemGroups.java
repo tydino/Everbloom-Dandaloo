@@ -83,6 +83,7 @@ public class ModItemGroups {
                         //custom items
                         entries.add(ModItems.METAL_SHEET);
                         entries.add(ModItems.METAL_BOWL);
+                        entries.add(ModItems.TIN_STICK);
 
                         //eggs
 
@@ -95,6 +96,7 @@ public class ModItemGroups {
 
                         //power
                         entries.add(ModItems.POWER_METER);
+                        entries.add(ModItems.CIRCUIT_BOARD_BLANK);
                         entries.add(ModBlocks.SOLAR_PANEL_TIER_ONE);
                         entries.add(ModBlocks.POWER_STORAGE_TIER_ONE);
                         entries.add(ModBlocks.ITEM_COMPRESSOR_TIER_ONE);

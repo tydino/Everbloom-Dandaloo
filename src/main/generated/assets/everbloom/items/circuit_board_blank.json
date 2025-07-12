@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "everbloom:item/circuit_board_blank"
+  }
+}
