@@ -62,6 +62,9 @@ public class ModItems {
     //tortoise
     public static final Item SPAWN_TORTOISE = registerItem("spawn-tortoise", setting -> new SpawnEggItem(ModEntities.TORTOISE, setting));
 
+    //toad
+    public static final Item SPAWN_TOAD = registerItem("spawn-toad", setting -> new SpawnEggItem(ModEntities.TOAD, setting));
+
     //ores
 
     //alumium

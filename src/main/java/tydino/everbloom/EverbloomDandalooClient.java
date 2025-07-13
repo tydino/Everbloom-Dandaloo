@@ -42,6 +42,10 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(TortoiseModel.TORTOISE, TortoiseModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TORTOISE, TortoiseRenderer::new);
 
+        //toad
+        EntityModelLayerRegistry.registerModelLayer(ToadModel.TOAD, ToadModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.TOAD, ToadRenderer::new);
+
         //entities
 
         //cooking

@@ -132,5 +132,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SPAWN_MALLARD_EGG, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPAWN_DAGGER_STABBER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPAWN_TORTOISE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SPAWN_TOAD, Models.GENERATED);
     }
 }

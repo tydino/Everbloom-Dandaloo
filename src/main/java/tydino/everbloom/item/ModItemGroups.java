@@ -112,6 +112,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_MALLARD_EGG);
                         entries.add(ModItems.SPAWN_DAGGER_STABBER);
                         entries.add(ModItems.SPAWN_TORTOISE);
+                        entries.add(ModItems.SPAWN_TOAD);
 
                         //power
                         entries.add(ModItems.POWER_METER);

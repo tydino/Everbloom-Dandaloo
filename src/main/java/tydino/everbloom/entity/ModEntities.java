@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.MallardEntity;
+import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
 
 public class ModEntities {
@@ -26,6 +27,9 @@ public class ModEntities {
 
     static final RegistryKey<EntityType<?>> TORTOISE_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "tortoise"));
+
+    static final RegistryKey<EntityType<?>> TOAD_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "toad"));
 
     //registering mobs
 
@@ -49,6 +53,12 @@ public class ModEntities {
             EntityType.Builder.create(TortoiseEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.5f, 0.5f).build(TORTOISE_KEY));
 
+    //toad
+    public static final EntityType<ToadEntity> TOAD = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "toad"),
+            EntityType.Builder.create(ToadEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.625f, 0.5f).build(TOAD_KEY));
+
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
 
@@ -63,6 +73,10 @@ public class ModEntities {
         //tortoise
 
         FabricDefaultAttributeRegistry.register(ModEntities.TORTOISE, TortoiseEntity.createTortoiseAttributes());
+
+        //toad
+
+        FabricDefaultAttributeRegistry.register(ModEntities.TOAD, ToadEntity.createToadAttributes());
 
     }
 }

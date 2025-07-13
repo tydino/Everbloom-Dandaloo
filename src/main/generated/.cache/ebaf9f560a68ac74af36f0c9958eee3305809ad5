@@ -56,6 +56,7 @@ b7bd7ea9996a761165795b020c0bf7f67eb7d101 assets/everbloom/items/solar_panel_tier
 4f78f2d35f7d433f4ec5fadba49e71b57040f079 assets/everbloom/items/solar_sheet.json
 b305a5c91bbd3fb0684e2c89266703bd74d6c7b2 assets/everbloom/items/spawn-dagger-stabber.json
 ce76b5234977cd5fb15ff9102e4271b8620c7a8b assets/everbloom/items/spawn-mallard.json
+fb3517aaa17ecffc9d459129ca6a1a217d402dc4 assets/everbloom/items/spawn-toad.json
 a42e6706176bb3afacc93ff596572afe10108a5c assets/everbloom/items/spawn-tortoise.json
 e24fba22b9a6d5394468864bd13a27427e0eca75 assets/everbloom/items/tin_block.json
 09ae97c8c2eb835e828e468b0f6588da2512932b assets/everbloom/items/tin_ingot.json
@@ -108,6 +109,7 @@ aead6d68c824b8e778418b31b9d258b53f8cb388 assets/everbloom/models/item/silicon_co
 e72ea13c9097091176bfcb9ecde8690e620c9047 assets/everbloom/models/item/solar_sheet.json
 350ea08083a5ea860350af4c76e53d3fc8a0a32a assets/everbloom/models/item/spawn-dagger-stabber.json
 4d710f00e084aa990993705b87081640765808dc assets/everbloom/models/item/spawn-mallard.json
+cc9262157833cd0528f50e4c118c4c7bce29765f assets/everbloom/models/item/spawn-toad.json
 14fb2d3535af858190380d730b064d7effa4cd9a assets/everbloom/models/item/spawn-tortoise.json
 97279215d4ad71ca6b600a9a2afed0c92a5dfdbe assets/everbloom/models/item/tin_ingot.json
 334201c5d33aebc602b73a09c70e76608cff3843 assets/everbloom/models/item/tin_stick.json
