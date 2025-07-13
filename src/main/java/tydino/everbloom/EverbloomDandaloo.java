@@ -3,7 +3,10 @@ package tydino.everbloom;
 import net.fabricmc.api.ModInitializer;
 
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.BeehiveBlockEntity;
+import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
