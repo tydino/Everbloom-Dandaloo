@@ -21,7 +21,7 @@ public class ModOreGeneration {
                 BiomeSelectors.includeByKey(RegistryKey.of(RegistryKeys.BIOME, Identifier.of("everbloom", "aether_desert")))
         );
 
-        //overworld
+        //aether
         BiomeModifications.addFeature((BiomeSelectors.includeByKey(
                 RegistryKey.of(RegistryKeys.BIOME, Identifier.of("everbloom", "aether_jungle")),
                         RegistryKey.of(RegistryKeys.BIOME, Identifier.of("everbloom", "aether_plains")),
@@ -30,10 +30,20 @@ public class ModOreGeneration {
                 GenerationStep.Feature.UNDERGROUND_ORES,
                 ModPlacedFeatures.ALUMIUM_ORE_PLACED_KEY);
 
+        BiomeModifications.addFeature((BiomeSelectors.includeByKey(
+                        RegistryKey.of(RegistryKeys.BIOME, Identifier.of("everbloom", "aether_jungle")),
+                        RegistryKey.of(RegistryKeys.BIOME, Identifier.of("everbloom", "aether_plains")),
+                        RegistryKey.of(RegistryKeys.BIOME, Identifier.of("everbloom", "aether_desert"))
+                )),
+                GenerationStep.Feature.UNDERGROUND_ORES,
+                ModPlacedFeatures.SILICON_ORE_PLACED_KEY);
+
+        //overworld
+
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
                 ModPlacedFeatures.TIN_ORE_PLACED_KEY);
 
-        // Example for individual Bioms
+        // Example for individual Biomes
         // BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST, BiomeKeys.PLAINS),
         // GenerationStep.Feature.UNDERGROUND_ORES,
         //         ModPlacedFeatures.PINK_GARNET_ORE_PLACED_KEY);

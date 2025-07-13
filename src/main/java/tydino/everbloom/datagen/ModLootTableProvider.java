@@ -83,6 +83,14 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAWTIN));
         addDrop(ModBlocks.DEEPSLATE_TIN_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_TIN_ORE, ModItems.RAWTIN, 1, 3));
 
+        //silicon
+        addDrop(ModBlocks.SILICON_BLOCK);
+
+        addDrop(ModBlocks.SILICON_ORE, oreDrops(ModBlocks.SILICON_ORE, ModItems.RAW_SILICON));
+
+        //alloys
+        addDrop(ModBlocks.BRONZE_BLOCK);
+
     }
 
     public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {

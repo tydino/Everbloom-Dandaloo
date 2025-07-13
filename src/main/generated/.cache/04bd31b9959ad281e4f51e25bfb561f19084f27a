@@ -1,7 +1,9 @@
 // 1.21.4	-999999999-01-01T00:00:00	Everbloom Dandaloo/
 01621687f1ab79e25cee69472a6d4fd759e45864 data/everbloom/worldgen/configured_feature/alumium_ore.json
+3ced87ea2f40b24412342ea0101fe62e4aab343d data/everbloom/worldgen/configured_feature/silicon_ore.json
 ad51d241f90e9f772506b94575fe60228aa5e1d0 data/everbloom/worldgen/configured_feature/tin_ore.json
 bb6806cfc4a157b2e41fd912bf41d345f00ec03b data/everbloom/worldgen/configured_feature/tomato_bush.json
 964c77dff2f7f3a790b7a7ef47782af9a13d366d data/everbloom/worldgen/placed_feature/alumium_ore_placed.json
+2b16c44c9ce4ee100ce5aabd2e8067d88894dcf4 data/everbloom/worldgen/placed_feature/silicon_ore_placed.json
 fdc362ef2fb7fda1d3b525073580033dbb56f040 data/everbloom/worldgen/placed_feature/tin_ore_placed.json
 e63a60e7d22d6a6b764c41d056209db3611fbb2e data/everbloom/worldgen/placed_feature/tomato_bush_placed.json

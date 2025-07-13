@@ -19,6 +19,8 @@ public class ModPlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> TIN_ORE_PLACED_KEY = registerKey("tin_ore_placed");
 
+    public static final RegistryKey<PlacedFeature> SILICON_ORE_PLACED_KEY = registerKey("silicon_ore_placed");
+
     //bushes
 
     public static final RegistryKey<PlacedFeature> TOMATO_BUSH_PLACED_KEY = registerKey("tomato_bush_placed");
@@ -35,6 +37,10 @@ public class ModPlacedFeatures {
         register(context, TIN_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(14,
                         HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
+
+        register(context, SILICON_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SILICON_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(10,
+                        HeightRangePlacementModifier.trapezoid(YOffset.fixed(-100), YOffset.fixed(150))));
 
         //bushes
         register(context, TOMATO_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TOMATO_BUSH_KEY),

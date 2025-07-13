@@ -25,6 +25,9 @@ public class ModConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
 
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SILICON_ORE_KEY = registerKey("silicon_ore");
+
     //bushes
     public static final RegistryKey<ConfiguredFeature<?, ?>> TOMATO_BUSH_KEY = registerKey("tomato_bush");
 
@@ -47,8 +50,11 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.TIN_ORE.getDefaultState()),
                         OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.DEEPSLATE_TIN_ORE.getDefaultState()));
 
+        List<OreFeatureConfig.Target> siliconOre = List.of(OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.SILICON_ORE.getDefaultState()));
+
         register(context, ALUMIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(alumiumOres, 8));
         register(context, TIN_ORE_KEY, Feature.ORE, new OreFeatureConfig(tinOres, 12));
+        register(context, SILICON_ORE_KEY, Feature.ORE, new OreFeatureConfig(siliconOre, 8));
 
         //bushes
 

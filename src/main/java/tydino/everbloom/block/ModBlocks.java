@@ -77,6 +77,11 @@ public class ModBlocks {
 
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", properties -> new Block(properties.strength(4f).requiresTool()));
 
+    //silicon
+    public static final Block SILICON_BLOCK = registerBlock("silicon_block", properties -> new Block(properties.strength(6f).requiresTool()));
+
+    public static final Block SILICON_ORE = registerBlock("silicon_ore", properties -> new Block(properties.strength(4f).requiresTool()));
+
     //alloy
 
     //bronze

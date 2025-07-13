@@ -26,7 +26,7 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 //todo:
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
 //make the bronze alloy recipe shapeless
-//make the power storage block actually store power when broken.
+//make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
 //make it so the power blocks are actually gettable in survival
 
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item

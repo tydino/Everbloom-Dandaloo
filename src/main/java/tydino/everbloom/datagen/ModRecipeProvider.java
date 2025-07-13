@@ -90,6 +90,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 OreBlockToIngot(ModItems.TIN_INGOT, ModBlocks.TIN_BLOCK, exporter);
 
+                //silicon
+                List<ItemConvertible> SILICON_SMELTABLES = List.of(
+                        ModItems.RAW_SILICON,
+                        ModBlocks.SILICON_ORE
+                );
+                offerSmelting(SILICON_SMELTABLES, RecipeCategory.MISC, ModItems.SILICON, 0.5f, 200, "silicon");
+                offerBlasting(SILICON_SMELTABLES, RecipeCategory.MISC, ModItems.SILICON, 0.5f, 100, "silicon");
+
+                OreBlockToIngot(ModItems.SILICON, ModBlocks.SILICON_BLOCK, exporter);
+
+                //alloys
+                //alloy part is in data/recipe
+                OreBlockToIngot(ModItems.BRONZE, ModBlocks.BRONZE_BLOCK, exporter);
+
                 //recipes for vanilla items
 
                 createShaped(RecipeCategory.MISC, Items.SADDLE, 1)
@@ -112,6 +126,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 //custom items
 
+                //just tin
+
                 //metal sheet
                 createShaped(RecipeCategory.MISC, ModItems.METAL_SHEET, 4)
                         .pattern("#%")
@@ -130,11 +146,49 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
                         .offerTo(exporter);
 
+                //tin stick
                 createShaped(RecipeCategory.MISC, ModItems.TIN_STICK, 4)
                         .pattern("s")
                         .pattern("s")
                         .input('s', ModItems.TIN_INGOT)
                         .criterion(hasItem(ModItems.TIN_INGOT), conditionsFromItem(ModItems.TIN_INGOT))
+                        .offerTo(exporter);
+
+                //just silicon
+
+                //silicon conductor
+                createShaped(RecipeCategory.REDSTONE, ModItems.SILICON_CONDUCTOR, 2)
+                        .pattern("  s")
+                        .pattern(" r ")
+                        .pattern("s  ")
+                        .input('s', ModItems.SILICON)
+                        .input('r', Items.REDSTONE)
+                        .criterion(hasItem(ModItems.SILICON), conditionsFromItem(ModItems.SILICON))
+                        .offerTo(exporter);
+
+                //solar cell
+                createShapeless(RecipeCategory.REDSTONE, ModItems.SOLAR_CELL, 4)
+                        .input(ModItems.SILICON_CONDUCTOR, 2)
+                        .criterion(hasItem(ModItems.SILICON_CONDUCTOR), conditionsFromItem(ModItems.SILICON))
+                        .offerTo(exporter);
+
+                //solar sheet
+                createShaped(RecipeCategory.REDSTONE, ModItems.SOLAR_SHEET, 2)
+                        .pattern("sss")
+                        .input('s', ModItems.SOLAR_CELL)
+                        .criterion(hasItem(ModItems.SOLAR_CELL), conditionsFromItem(ModItems.SILICON_CONDUCTOR))
+                        .offerTo(exporter);
+
+                //just bronze
+
+                //bronze conductor
+                createShaped(RecipeCategory.REDSTONE, ModItems.BRONZE_CONDUCTOR, 2)
+                        .pattern("  b")
+                        .pattern(" r ")
+                        .pattern("b  ")
+                        .input('b', ModItems.BRONZE)
+                        .input('r', Items.REDSTONE)
+                        .criterion(hasItem(ModItems.BRONZE), conditionsFromItem(ModItems.BRONZE))
                         .offerTo(exporter);
 
                 //cooking

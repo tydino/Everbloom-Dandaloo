@@ -72,6 +72,9 @@ public class ModItems {
     public static Item RAWTIN = registerItem("raw_tin", Item::new);
     public static Item TIN_INGOT = registerItem("tin_ingot", Item::new);
 
+    public static Item SILICON = registerItem("silicon", Item::new);
+    public static Item RAW_SILICON = registerItem("raw_silicon", Item::new);
+
     //alloys
 
     //bronze
@@ -80,9 +83,19 @@ public class ModItems {
     //custom objects
 
     //custom items
+
+    //just tin
     public static Item METAL_SHEET = registerItem("metal_sheet", Item::new);
     public static Item METAL_BOWL = registerItem("metal_bowl", Item::new);
     public static Item TIN_STICK = registerItem("tin_stick", Item::new);
+
+    //just silicon
+    public static Item SILICON_CONDUCTOR = registerItem("silicon_conductor", Item::new);
+    public static Item SOLAR_CELL = registerItem("solar_cell", Item::new);
+    public static Item SOLAR_SHEET = registerItem("solar_sheet", Item::new);
+
+    //just bronze
+    public static Item BRONZE_CONDUCTOR = registerItem("bronze_conductor", Item::new);
 
     //voids
 

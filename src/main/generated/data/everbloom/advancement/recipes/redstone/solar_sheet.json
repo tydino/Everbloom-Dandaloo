@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_solar_cell": {
+      "conditions": {
+        "items": [
+          {
+            "items": "everbloom:silicon_conductor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "everbloom:solar_sheet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_solar_cell"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "everbloom:solar_sheet"
+    ]
+  }
+}

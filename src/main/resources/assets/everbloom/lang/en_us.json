@@ -52,6 +52,11 @@
   "block.everbloom.tin_ore": "Tin Ore",
   "block.everbloom.deepslate_tin_ore": "Deepslate Tin Ore",
 
+  "item.everbloom.raw_silicon": "Raw Silicon",
+  "item.everbloom.silicon": "Silicon",
+  "block.everbloom.silicon_ore": "Silicon Ore",
+  "block.everbloom.silicon_block": "Silicon Block",
+
 
   "item.everbloom.bronze": "Bronze",
   "block.everbloom.bronze_block": "Bronze Block",
@@ -61,12 +66,22 @@
   "item.everbloom.metal_bowl": "Tin Bowl",
   "item.everbloom.tin_stick": "Tin Stick",
 
+  "item.everbloom.silicon_conductor": "Silicon Conductor",
+  "item.everbloom.solar_cell": "Solar Cell",
+  "item.everbloom.solar_sheet": "Solar Sheet",
+
+  "item.everbloom.bronze_conductor": "Bronze Conductor",
+
   "item.everbloom.circuit_board_blank": "Blank Circuit Board",
   "item.everbloom.circuit_board_inscribed": "Inscribed Circuit Board Tier One",
 
   "item.everbloom.power_meter": "Power Meter",
 
-  "block.everbloom.solar_panel_tier_one": "Solar Panel Tier One",
+  "block.everbloom.power_meter": "Power Meter",
+
+  "block.everbloom.power_hectogon_tier_one": "Power Hectogon Tier One",
+
+  "block.everbloom.solar_panel_tie_one": "Solar Panel Tier One",
 
   "block.everbloom.power_storage_tier_one": "Power Storage Tier One",
 

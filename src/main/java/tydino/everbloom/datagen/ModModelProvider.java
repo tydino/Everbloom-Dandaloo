@@ -46,6 +46,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
 
+        //silicon
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILICON_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILICON_ORE);
+
         //alloys
 
         //bronze
@@ -95,6 +99,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAWTIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
 
+        //silicon
+        itemModelGenerator.register(ModItems.SILICON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_SILICON, Models.GENERATED);
+
         //alloys
 
         //bronze
@@ -103,9 +111,19 @@ public class ModModelProvider extends FabricModelProvider {
         //custom objects
 
         //custom items
+
+        //just tin
         itemModelGenerator.register(ModItems.METAL_SHEET, Models.GENERATED);
         itemModelGenerator.register(ModItems.METAL_BOWL, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_STICK, Models.GENERATED);
+
+        //just silicon
+        itemModelGenerator.register(ModItems.SILICON_CONDUCTOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOLAR_CELL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOLAR_SHEET, Models.GENERATED);
+
+        //just bronze
+        itemModelGenerator.register(ModItems.BRONZE_CONDUCTOR, Models.GENERATED);
 
         // spawn eggs
         itemModelGenerator.register(ModItems.SPAWN_MALLARD_EGG, Models.GENERATED);

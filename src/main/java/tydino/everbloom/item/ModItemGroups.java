@@ -25,6 +25,7 @@ public class ModItemGroups {
 
                         //crops
                         entries.add(ModItems.TOMATO);
+                        entries.add(ModItems.TOMATO_SAUCE);
 
                         //pizzas
                         entries.add(ModItems.PIZZA_DOUGH);
@@ -42,7 +43,6 @@ public class ModItemGroups {
 
                         //uncatagorized
                         entries.add(ModItems.DOUGH);
-                        entries.add(ModItems.TOMATO_SAUCE);
 
                         //entities
 
@@ -72,6 +72,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
 
+                        //silicon
+                        entries.add(ModItems.RAW_SILICON);
+                        entries.add(ModItems.SILICON);
+                        entries.add(ModBlocks.SILICON_BLOCK);
+                        entries.add(ModBlocks.SILICON_ORE);
+
                         //alloys
 
                         //bronze
@@ -81,9 +87,19 @@ public class ModItemGroups {
                         //custom objects
 
                         //custom items
+
+                        //just tin
                         entries.add(ModItems.METAL_SHEET);
                         entries.add(ModItems.METAL_BOWL);
                         entries.add(ModItems.TIN_STICK);
+
+                        //just silicon
+                        entries.add(ModItems.SILICON_CONDUCTOR);
+                        entries.add(ModItems.SOLAR_CELL);
+                        entries.add(ModItems.SOLAR_SHEET);
+
+                        //just bronze
+                        entries.add(ModItems.BRONZE_CONDUCTOR);
 
                         //eggs
 

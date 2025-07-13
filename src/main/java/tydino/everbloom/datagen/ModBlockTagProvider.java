@@ -26,6 +26,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TIN_ORE)
                 .add(ModBlocks.DEEPSLATE_TIN_ORE)
 
+                //silicon
+                .add(ModBlocks.SILICON_BLOCK)
+                .add(ModBlocks.SILICON_ORE)
+
                 //alloys
 
                 //bronze
@@ -42,6 +46,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 //alumium
                 .add(ModBlocks.DEEPSLATE_ALUMIUM_ORE)
                 .add(ModBlocks.ALUMIUM_ORE)
+                //silicon
+                .add(ModBlocks.SILICON_ORE)
         ;
     }
 }
