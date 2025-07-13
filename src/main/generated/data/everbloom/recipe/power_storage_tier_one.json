@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "b": "everbloom:bronze_conductor",
+    "c": "everbloom:silicon_conductor",
+    "s": "everbloom:metal_sheet"
+  },
+  "pattern": [
+    "sbs",
+    "bcb",
+    "sbs"
+  ],
+  "result": {
+    "count": 1,
+    "id": "everbloom:power_storage_tier_one"
+  }
+}

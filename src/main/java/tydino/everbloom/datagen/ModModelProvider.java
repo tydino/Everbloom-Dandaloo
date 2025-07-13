@@ -116,6 +116,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.METAL_SHEET, Models.GENERATED);
         itemModelGenerator.register(ModItems.METAL_BOWL, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_STICK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COMPRESSOR_BANK, Models.GENERATED);
 
         //just silicon
         itemModelGenerator.register(ModItems.SILICON_CONDUCTOR, Models.GENERATED);
@@ -124,6 +125,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         //just bronze
         itemModelGenerator.register(ModItems.BRONZE_CONDUCTOR, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.WIRE, Models.GENERATED);
 
         // spawn eggs
         itemModelGenerator.register(ModItems.SPAWN_MALLARD_EGG, Models.GENERATED);

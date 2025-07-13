@@ -92,6 +92,7 @@ public class ModItemGroups {
                         entries.add(ModItems.METAL_SHEET);
                         entries.add(ModItems.METAL_BOWL);
                         entries.add(ModItems.TIN_STICK);
+                        entries.add(ModItems.COMPRESSOR_BANK);
 
                         //just silicon
                         entries.add(ModItems.SILICON_CONDUCTOR);
@@ -100,6 +101,8 @@ public class ModItemGroups {
 
                         //just bronze
                         entries.add(ModItems.BRONZE_CONDUCTOR);
+
+                        entries.add(ModItems.WIRE);
 
                         //eggs
 

@@ -283,6 +283,70 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                             .criterion(hasItem(ModItems.CIRCUIT_BOARD_INSCRIBED), conditionsFromItem(ModItems.CIRCUIT_BOARD_INSCRIBED))
                             .offerTo(exporter, item + "_power_meter_recipe");
                 }
+
+                createShaped(RecipeCategory.REDSTONE, ModItems.WIRE)
+                        .pattern(" s ")
+                        .pattern("sbs")
+                        .pattern(" s ")
+                        .input('s', ModItems.SILICON)
+                        .input('b', ModItems.BRONZE)
+                        .criterion(hasItem(ModItems.SILICON), conditionsFromItem(ModItems.SILICON))
+                        .criterion(hasItem(ModItems.BRONZE), conditionsFromItem(ModItems.BRONZE))
+                        .offerTo(exporter);
+
+                //solar panels
+                createShaped(RecipeCategory.REDSTONE, ModBlocks.SOLAR_PANEL_TIER_ONE)
+                        .pattern("sss")
+                        .pattern(" t ")
+                        .pattern(" b ")
+                        .input('s', ModItems.SOLAR_SHEET)
+                        .input('t', ModItems.SILICON_CONDUCTOR)
+                        .input('b', ModBlocks.SILICON_BLOCK)
+                        .criterion(hasItem(ModItems.SOLAR_SHEET), conditionsFromItem(ModItems.SOLAR_SHEET))
+                        .offerTo(exporter);
+
+                //power hectogons
+                createShaped(RecipeCategory.REDSTONE, ModBlocks.POWER_HECTOGON_TIER_ONE)
+                        .pattern("wsw")
+                        .pattern("sws")
+                        .pattern("wsw")
+                        .input('s', ModItems.SILICON_CONDUCTOR)
+                        .input('w', ModItems.WIRE)
+                        .criterion(hasItem(ModItems.SILICON_CONDUCTOR), conditionsFromItem(ModItems.SILICON_CONDUCTOR))
+                        .criterion(hasItem(ModItems.WIRE), conditionsFromItem(ModItems.WIRE))
+                        .offerTo(exporter);
+
+                //power storaged
+                createShaped(RecipeCategory.REDSTONE, ModBlocks.POWER_STORAGE_TIER_ONE)
+                        .pattern("sbs")
+                        .pattern("bcb")
+                        .pattern("sbs")
+                        .input('s', ModItems.METAL_SHEET)
+                        .input('b', ModItems.BRONZE_CONDUCTOR)
+                        .input('c', ModItems.SILICON_CONDUCTOR)
+                        .criterion(hasItem(ModItems.SILICON_CONDUCTOR), conditionsFromItem(ModItems.SILICON_CONDUCTOR))
+                        .offerTo(exporter);
+
+                //item compressor
+                createShaped(RecipeCategory.REDSTONE, ModItems.COMPRESSOR_BANK)
+                        .pattern(" s ")
+                        .pattern(" s ")
+                        .pattern("mmm")
+                        .input('s', ModItems.TIN_STICK)
+                        .input('m', ModItems.METAL_SHEET)
+                        .criterion(hasItem(ModItems.TIN_STICK), conditionsFromItem(ModItems.TIN_STICK))
+                        .criterion(hasItem(ModItems.METAL_SHEET), conditionsFromItem(ModItems.METAL_SHEET))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.REDSTONE, ModBlocks.ITEM_COMPRESSOR_TIER_ONE)
+                        .pattern("mmm")
+                        .pattern("mcm")
+                        .pattern("mCm")
+                        .input('m', ModItems.METAL_SHEET)
+                        .input('c', ModItems.COMPRESSOR_BANK)
+                        .input('C', ModItems.CIRCUIT_BOARD_INSCRIBED)
+                        .criterion(hasItem(ModItems.COMPRESSOR_BANK), conditionsFromItem(ModItems.COMPRESSOR_BANK))
+                        .offerTo(exporter);
             }
 
             public void OreBlockToIngot(Item ingot, Block block, RecipeExporter exporter) {

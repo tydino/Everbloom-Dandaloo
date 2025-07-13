@@ -88,6 +88,7 @@ public class ModItems {
     public static Item METAL_SHEET = registerItem("metal_sheet", Item::new);
     public static Item METAL_BOWL = registerItem("metal_bowl", Item::new);
     public static Item TIN_STICK = registerItem("tin_stick", Item::new);
+    public static Item COMPRESSOR_BANK = registerItem("compressor_bank", Item::new);
 
     //just silicon
     public static Item SILICON_CONDUCTOR = registerItem("silicon_conductor", Item::new);
@@ -96,6 +97,10 @@ public class ModItems {
 
     //just bronze
     public static Item BRONZE_CONDUCTOR = registerItem("bronze_conductor", Item::new);
+
+    //combinations
+
+    public static Item WIRE = registerItem("wire", Item::new);
 
     //voids
 

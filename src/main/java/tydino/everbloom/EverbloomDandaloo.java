@@ -24,10 +24,9 @@ import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
+//add a burrowing mob that works like a bee (toad)
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
-//make the bronze alloy recipe shapeless
 //make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
-//make it so the power blocks are actually gettable in survival
 
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item
 //https://github.com/TechReborn/Energy use for energistic reference

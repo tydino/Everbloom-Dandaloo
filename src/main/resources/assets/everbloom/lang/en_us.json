@@ -65,12 +65,15 @@
   "item.everbloom.metal_sheet": "Tin Sheet",
   "item.everbloom.metal_bowl": "Tin Bowl",
   "item.everbloom.tin_stick": "Tin Stick",
+  "item.everbloom.compressor_bank": "Tin Stick",
 
   "item.everbloom.silicon_conductor": "Silicon Conductor",
   "item.everbloom.solar_cell": "Solar Cell",
   "item.everbloom.solar_sheet": "Solar Sheet",
 
   "item.everbloom.bronze_conductor": "Bronze Conductor",
+
+  "item.everbloom.wire": "Basic Wire",
 
   "item.everbloom.circuit_board_blank": "Blank Circuit Board",
   "item.everbloom.circuit_board_inscribed": "Inscribed Circuit Board Tier One",
