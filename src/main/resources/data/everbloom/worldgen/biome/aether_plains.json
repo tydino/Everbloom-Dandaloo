@@ -77,6 +77,12 @@
         "weight": 3,
         "minCount": 3,
         "maxCount": 6
+      },
+      {
+        "type": "everbloom:toad",
+        "weight": 3,
+        "minCount": 2,
+        "maxCount": 4
       }
     ]
   },
