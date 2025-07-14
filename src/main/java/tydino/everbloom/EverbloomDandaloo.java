@@ -68,6 +68,8 @@ public class EverbloomDandaloo implements ModInitializer {
 				.lightWithFluid(Fluids.WATER)
 				.destDimID(Identifier.of("everbloom", "aether"))
 				.tintColor(0x02b3ff)
+				.onlyLightInOverworld()
+				//.flatPortal() use for end portal like one
 				.registerPortal();
 
 		//power block initialization
