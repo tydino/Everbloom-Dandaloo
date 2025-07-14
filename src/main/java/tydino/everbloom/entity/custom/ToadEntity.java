@@ -1,9 +1,6 @@
 package tydino.everbloom.entity.custom;
 
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -13,6 +10,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.CamelEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -29,8 +27,13 @@ import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.item.ModItems;
 
 public class ToadEntity extends AnimalEntity {
+    public final AnimationState sleepingTransitionAnimationState = new AnimationState();
+    public final AnimationState sleepingAnimationState = new AnimationState();
+    public final AnimationState standingTransitionAnimationState = new AnimationState();
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+
+    public static final TrackedData<Long> LAST_POSE_TICK;
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(ToadEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -48,6 +51,43 @@ public class ToadEntity extends AnimalEntity {
         }else{
             --this.idleAnimationTimeout;
         }
+
+        if (this.shouldUpdateSittingAnimations()) {
+            this.standingTransitionAnimationState.stop();
+            if (this.shouldPlaySittingTransitionAnimation()) {
+                this.sleepingTransitionAnimationState.startIfNotRunning(this.age);
+                this.sleepingAnimationState.stop();
+            } else {
+                this.sleepingTransitionAnimationState.stop();
+                this.sleepingAnimationState.startIfNotRunning(this.age);
+            }
+        } else {
+            this.sleepingTransitionAnimationState.stop();
+            this.sleepingAnimationState.stop();
+            this.standingTransitionAnimationState.setRunning(this.isChangingPose() && this.getLastPoseTickDelta() >= 0L, this.age);
+        }
+    }
+
+    public boolean shouldUpdateSittingAnimations() {
+        return this.getLastPoseTickDelta() < 0L != this.isSitting();
+    }
+
+    private boolean shouldPlaySittingTransitionAnimation() {
+        return this.isSitting() && this.getLastPoseTickDelta() < 40L && this.getLastPoseTickDelta() >= 0L;
+    }
+
+    public boolean isSitting() {
+        return this.dataTracker.get(LAST_POSE_TICK) < 0L;
+    }
+
+
+    public long getLastPoseTickDelta() {
+        return this.getWorld().getTime() - Math.abs(this.dataTracker.get(LAST_POSE_TICK));
+    }
+
+    public boolean isChangingPose() {
+        long l = this.getLastPoseTickDelta();
+        return l < (long)(this.isSitting() ? 40 : 52);
     }
 
     @Override
@@ -88,12 +128,17 @@ public class ToadEntity extends AnimalEntity {
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
+        long l = nbt.getLong("LastPoseTick");
+        if (l < 0L) {
+            this.setPose(EntityPose.SITTING);
+        }
     }
 
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         nbt.putInt("Variant", this.getTypeVariant());
+        nbt.putLong("LastPoseTick", this.dataTracker.get(LAST_POSE_TICK));
     }
 
     public static DefaultAttributeContainer.Builder createToadAttributes()
@@ -109,6 +154,7 @@ public class ToadEntity extends AnimalEntity {
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
         builder.add(DATA_ID_TYPE_VARIANT, 0);
+        builder.add(LAST_POSE_TICK, 0L);
     }
 
     public ToadVariant getVariant() {
@@ -129,5 +175,9 @@ public class ToadEntity extends AnimalEntity {
         ToadVariant variant = Util.getRandom(ToadVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
+    }
+
+    static{
+        LAST_POSE_TICK = DataTracker.registerData(ToadEntity.class, TrackedDataHandlerRegistry.LONG);
     }
 }

@@ -16,10 +16,8 @@ import tydino.everbloom.entity.animation.ModAnimations;
 public class ToadModel extends EntityModel<ToadRenderState> {
 	public static final EntityModelLayer TOAD = new EntityModelLayer(Identifier.of(EverbloomDandaloo.MOD_ID, "toad"), "main");
 
-	private final ModelPart toad;
 	public ToadModel(ModelPart root) {
 		super(root);
-		this.toad = root.getChild("toad");
 	}
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
@@ -55,5 +53,8 @@ public class ToadModel extends EntityModel<ToadRenderState> {
 
 		this.animateWalking(ModAnimations.TOAD_ANIMATIONS.WALK, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
 		this.animate(state.idleAnimationState, ModAnimations.TOAD_ANIMATIONS.IDLE, state.age, 1f);
+		this.animate(state.sleepingTransitionAnimationState, ModAnimations.TOAD_ANIMATIONS.GOINGTOSLEEP, state.age, 1f);
+		this.animate(state.sleepingAnimationState, ModAnimations.TOAD_ANIMATIONS.ASLEEP, state.age, 1f);
+		this.animate(state.standingTransitionAnimationState, ModAnimations.TOAD_ANIMATIONS.WAKINGUP, state.age, 1f);
 	}
 }

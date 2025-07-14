@@ -52,6 +52,9 @@ public class ToadRenderer extends MobEntityRenderer<ToadEntity, ToadRenderState,
     public void updateRenderState(ToadEntity livingEntity, ToadRenderState livingEntityRenderState, float f) {
         super.updateRenderState(livingEntity, livingEntityRenderState, f);
         livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
+        livingEntityRenderState.sleepingTransitionAnimationState.copyFrom(livingEntity.sleepingTransitionAnimationState);
+        livingEntityRenderState.sleepingAnimationState.copyFrom(livingEntity.sleepingAnimationState);
+        livingEntityRenderState.standingTransitionAnimationState.copyFrom(livingEntity.standingTransitionAnimationState);
         livingEntityRenderState.variant = livingEntity.getVariant();
     }
 }

@@ -27,7 +27,7 @@ import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
-//add a burrowing mob that works like a bee (toad)
+//add a burrowing mob that works like a bees (toad) that drops slime
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
 //make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
 
