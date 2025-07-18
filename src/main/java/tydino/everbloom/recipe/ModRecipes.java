@@ -1,6 +1,5 @@
 package tydino.everbloom.recipe;
 
-import net.minecraft.item.Item;
 import tydino.everbloom.EverbloomDandaloo;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
@@ -21,6 +20,18 @@ public class ModRecipes {
                 @Override
                 public String toString() {
                     return "item_compressor";
+                }
+            });
+
+    public static final RecipeSerializer<GrinderRecipe> GRINDER_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(EverbloomDandaloo.MOD_ID, "grinder"),
+            new GrinderRecipe.Serializer());
+
+    public static final RecipeType<GrinderRecipe> GRINDER_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "grinder"), new RecipeType<GrinderRecipe>() {
+                @Override
+                public String toString() {
+                    return "v";
                 }
             });
 

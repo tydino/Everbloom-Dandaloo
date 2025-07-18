@@ -17,10 +17,7 @@ import tydino.everbloom.block.custom.Frother;
 import tydino.everbloom.block.custom.GriddleTierOne;
 import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
-import tydino.everbloom.block.power.ItemCompressorTierOne;
-import tydino.everbloom.block.power.PowerHectogonTierOne;
-import tydino.everbloom.block.power.PowerStorageTierOne;
-import tydino.everbloom.block.power.SolarPanelTierOne;
+import tydino.everbloom.block.power.*;
 
 import java.util.function.Function;
 
@@ -47,6 +44,9 @@ public class ModBlocks {
 
     //item compressors
     public static final Block ITEM_COMPRESSOR_TIER_ONE = registerBlock("item_compressor_tier_one", ItemCompressorTierOne::new);
+
+    //grinder
+    public static final Block GRINDER = registerBlock("grinder", Grinder::new);
 
     //crops
     public static final Block TOMATO_BUSH = registerBlockWithoutBlockItem("tomato_bush",

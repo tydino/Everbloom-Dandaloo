@@ -9,10 +9,7 @@ import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.entity.custom.FrotherEntity;
 import tydino.everbloom.block.entity.custom.GriddleTierOneEntity;
-import tydino.everbloom.block.power.entity.ItemCompressorTierOneEntity;
-import tydino.everbloom.block.power.entity.PowerHectogonTierOneEntity;
-import tydino.everbloom.block.power.entity.PowerStorageTierOneEntity;
-import tydino.everbloom.block.power.entity.SolarPanelTierOneEntity;
+import tydino.everbloom.block.power.entity.*;
 
 public class ModBlockEntities {
 
@@ -33,6 +30,10 @@ public class ModBlockEntities {
     //power storages
     public static final BlockEntityType<PowerStorageTierOneEntity> POWER_STORAGE_TIER_ONE_BE = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "power_storage_tier_one_be"),
             FabricBlockEntityTypeBuilder.create(PowerStorageTierOneEntity::new, ModBlocks.POWER_STORAGE_TIER_ONE).build());
+
+    //grinder
+    public static final BlockEntityType<GrinderEntity> GRINDER_BE = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "grinder_be"),
+            FabricBlockEntityTypeBuilder.create(GrinderEntity::new, ModBlocks.GRINDER).build());
 
     //power users
 

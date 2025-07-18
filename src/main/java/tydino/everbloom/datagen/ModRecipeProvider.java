@@ -234,13 +234,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
                         .offerTo(exporter);
 
-                createShapeless(RecipeCategory.FOOD, ModItems.TOMATO_SAUCE)
-                        .input(ModItems.TOMATO)
-                        .input(Items.GLASS_BOTTLE)
-                        .criterion(hasItem(ModItems.TOMATO), conditionsFromItem(ModItems.TOMATO))
-                        .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
-                        .offerTo(exporter);
-
                 createShaped(RecipeCategory.FOOD, ModItems.PIZZA_UNCOOKED)
                         .pattern("c")
                         .pattern("s")

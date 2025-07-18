@@ -14,10 +14,7 @@ import org.slf4j.LoggerFactory;
 import team.reborn.energy.api.EnergyStorage;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.entity.ModBlockEntities;
-import tydino.everbloom.block.power.entity.ItemCompressorTierOneEntity;
-import tydino.everbloom.block.power.entity.PowerHectogonTierOneEntity;
-import tydino.everbloom.block.power.entity.PowerStorageTierOneEntity;
-import tydino.everbloom.block.power.entity.SolarPanelTierOneEntity;
+import tydino.everbloom.block.power.entity.*;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.item.ModItemGroups;
 import tydino.everbloom.item.ModItems;
@@ -89,6 +86,7 @@ public class EverbloomDandaloo implements ModInitializer {
 
 		//power users
 		EnergyStorage.SIDED.registerForBlockEntity(ItemCompressorTierOneEntity::getEnergyProvider, ModBlockEntities.ITEM_COMPRESSOR_TIER_ONE_BE);
+		EnergyStorage.SIDED.registerForBlockEntity(GrinderEntity::getEnergyProvider, ModBlockEntities.GRINDER_BE);
 	}
 }
 //https://www.youtube.com/watch?v=5a4DAkWW3JQ try

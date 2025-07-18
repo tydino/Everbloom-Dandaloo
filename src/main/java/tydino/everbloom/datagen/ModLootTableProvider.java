@@ -48,6 +48,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         //power users
         addDrop(ModBlocks.ITEM_COMPRESSOR_TIER_ONE);
+        addDrop(ModBlocks.GRINDER);
 
         //crops
         this.addDrop(ModBlocks.TOMATO_BUSH,

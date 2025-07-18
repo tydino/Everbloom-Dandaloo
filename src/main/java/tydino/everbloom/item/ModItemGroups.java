@@ -122,6 +122,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SOLAR_PANEL_TIER_ONE);
                         entries.add(ModBlocks.POWER_STORAGE_TIER_ONE);
                         entries.add(ModBlocks.ITEM_COMPRESSOR_TIER_ONE);
+                        entries.add(ModBlocks.GRINDER);
                     }).build());
 
     public static void registerItemGroups(){
