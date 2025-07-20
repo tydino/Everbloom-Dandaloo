@@ -30,6 +30,9 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 //meganeura note: all dinosaurs including meganeura will have 2 versions, docile and damaging. remember to make both
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
 //make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
+//use this open source mod to make a hideable block set simmilar to carpentersblocks https://github.com/LoremVIpsum/OpenSimpleFrames/tree/main
+
+
 
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item
 //https://github.com/TechReborn/Energy use for energistic reference
