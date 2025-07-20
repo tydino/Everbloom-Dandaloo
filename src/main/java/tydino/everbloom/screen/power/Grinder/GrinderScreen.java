@@ -10,7 +10,7 @@ import tydino.everbloom.EverbloomDandaloo;
 
 public class GrinderScreen extends HandledScreen<GrinderScreenHandler> {
     static final Identifier GUI_TEXTURE =
-            Identifier.of(EverbloomDandaloo.MOD_ID, "textures/gui/item_compressor_tier_one/item_compressor_tier_one.png");
+            Identifier.of(EverbloomDandaloo.MOD_ID, "textures/gui/grinder/grinder.png");
     static final Identifier ARROW_TEXTURE =
             Identifier.of(EverbloomDandaloo.MOD_ID, "textures/gui/arrow_progress_top_bottom.png");
 

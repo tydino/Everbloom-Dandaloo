@@ -12,10 +12,11 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public record GrinderRecipe(Ingredient inputItem, ItemStack output) implements Recipe<GrinderRecipeInput> {
+public record GrinderRecipe(Ingredient inputItem, Ingredient inputItem2, ItemStack output) implements Recipe<GrinderRecipeInput> {
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.of();
         list.add(this.inputItem);
+        list.add(this.inputItem2);
         return list;
     }
 
@@ -25,7 +26,7 @@ public record GrinderRecipe(Ingredient inputItem, ItemStack output) implements R
             return false;
         }
 
-        return inputItem.test(input.getStackInSlot(0));
+        return inputItem.test(input.getStackInSlot(0)) && inputItem2.test(input.getStackInSlot(1));
     }
 
     @Override
@@ -56,12 +57,14 @@ public record GrinderRecipe(Ingredient inputItem, ItemStack output) implements R
     public static class Serializer implements RecipeSerializer<GrinderRecipe> {
         public static final MapCodec<GrinderRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.CODEC.fieldOf("ingredient").forGetter(GrinderRecipe::inputItem),
+                Ingredient.CODEC.fieldOf("output").forGetter(GrinderRecipe::inputItem2),
                 ItemStack.CODEC.fieldOf("result").forGetter(GrinderRecipe::output)
         ).apply(inst, GrinderRecipe::new));
 
         public static final PacketCodec<RegistryByteBuf, GrinderRecipe> STREAM_CODEC =
                 PacketCodec.tuple(
                         Ingredient.PACKET_CODEC, GrinderRecipe::inputItem,
+                        Ingredient.PACKET_CODEC, GrinderRecipe::inputItem2,
                         ItemStack.PACKET_CODEC, GrinderRecipe::output,
                         GrinderRecipe::new);
 

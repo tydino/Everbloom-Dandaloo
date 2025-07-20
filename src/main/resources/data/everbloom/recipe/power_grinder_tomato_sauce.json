@@ -1,6 +1,7 @@
 {
   "type": "everbloom:grinder",
   "ingredient": "everbloom:tomato",
+  "output": "minecraft:glass_bottle",
   "result": {
     "id": "everbloom:tomato_sauce"
   }

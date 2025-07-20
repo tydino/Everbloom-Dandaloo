@@ -148,6 +148,7 @@ public class GrinderEntity extends BlockEntity implements ExtendedScreenHandlerF
 
         ItemStack output = recipe.get().value().output();
         this.removeStack(INPUT_SLOT, 1);
+        this.removeStack(INPUT_SLOT_TWO, 1);
         this.setStack(OUTPUT_SLOT, new ItemStack(output.getItem(),
                 this.getStack(OUTPUT_SLOT).getCount() + output.getCount()));
     }
@@ -172,7 +173,7 @@ public class GrinderEntity extends BlockEntity implements ExtendedScreenHandlerF
 
     private Optional<RecipeEntry<GrinderRecipe>> getCurrentRecipe() {
         return ((ServerWorld) this.getWorld()).getRecipeManager()
-                .getFirstMatch(ModRecipes.GRINDER_TYPE, new GrinderRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
+                .getFirstMatch(ModRecipes.GRINDER_TYPE, new GrinderRecipeInput(inventory.get(INPUT_SLOT), inventory.get(INPUT_SLOT_TWO)), this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

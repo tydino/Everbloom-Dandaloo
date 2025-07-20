@@ -31,6 +31,7 @@ public class GrinderScreenHandler extends ScreenHandler {
 
         this.addSlot(new Slot(inventory, 0, 79, 12));
         this.addSlot(new Slot(inventory, 1, 79, 58));
+        this.addSlot(new Slot(inventory, 2, 42, 58));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
