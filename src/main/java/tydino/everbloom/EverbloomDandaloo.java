@@ -24,7 +24,6 @@ import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
-//get a use for secondary input slots
 //add a burrowing mob that works like a bees (toad) that drops slime
 // meganeura and way to get it
 //meganeura note: all dinosaurs including meganeura will have 2 versions, docile and damaging. remember to make both
