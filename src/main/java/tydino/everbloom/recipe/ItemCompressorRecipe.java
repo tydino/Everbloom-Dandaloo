@@ -12,10 +12,11 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public record ItemCompressorRecipe(Ingredient inputItem, ItemStack output) implements Recipe<ItemCompressorRecipeInput> {
+public record ItemCompressorRecipe(Ingredient inputItem, Ingredient inputItem2, ItemStack output) implements Recipe<ItemCompressorRecipeInput> {
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.of();
         list.add(this.inputItem);
+        list.add(this.inputItem2);
         return list;
     }
 
@@ -25,7 +26,7 @@ public record ItemCompressorRecipe(Ingredient inputItem, ItemStack output) imple
             return false;
         }
 
-        return inputItem.test(input.getStackInSlot(0));
+        return inputItem.test(input.getStackInSlot(0)) && inputItem2.test(input.getStackInSlot(1));
     }
 
     @Override
@@ -56,12 +57,14 @@ public record ItemCompressorRecipe(Ingredient inputItem, ItemStack output) imple
     public static class Serializer implements RecipeSerializer<ItemCompressorRecipe> {
         public static final MapCodec<ItemCompressorRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.CODEC.fieldOf("ingredient").forGetter(ItemCompressorRecipe::inputItem),
+                Ingredient.CODEC.fieldOf("pressure").forGetter(ItemCompressorRecipe::inputItem2),
                 ItemStack.CODEC.fieldOf("result").forGetter(ItemCompressorRecipe::output)
         ).apply(inst, ItemCompressorRecipe::new));
 
         public static final PacketCodec<RegistryByteBuf, ItemCompressorRecipe> STREAM_CODEC =
                 PacketCodec.tuple(
                         Ingredient.PACKET_CODEC, ItemCompressorRecipe::inputItem,
+                        Ingredient.PACKET_CODEC, ItemCompressorRecipe::inputItem2,
                         ItemStack.PACKET_CODEC, ItemCompressorRecipe::output,
                         ItemCompressorRecipe::new);
 

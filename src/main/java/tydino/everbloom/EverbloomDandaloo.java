@@ -24,13 +24,14 @@ import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
-//get a item grinder working
+//get a use for secondary input slots
 //add a burrowing mob that works like a bees (toad) that drops slime
-// megaeura and way to get it
+// meganeura and way to get it
 //meganeura note: all dinosaurs including meganeura will have 2 versions, docile and damaging. remember to make both
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
 //make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
 //use this open source mod to make a hideable block set simmilar to carpentersblocks https://github.com/LoremVIpsum/OpenSimpleFrames/tree/main
+//adjust item compressor recipes to be more propper instead of using just tin sheets to match the items used in it
 
 
 
@@ -63,7 +64,7 @@ public class EverbloomDandaloo implements ModInitializer {
 		ModRecipes.registerRecipes();
 
 		//portals https://github.com/kyrptonaught/customportalapi?tab=readme-ov-file
-		//remember to use misode's dimension and biomejson builders!
+		//remember to use misode's dimension and biome.json builders!
 		LOGGER.info("registering everbloom's dimensions");
 		//aether /execute in everbloom:aether run tp @s 0 100 0
 		CustomPortalBuilder.beginPortal()

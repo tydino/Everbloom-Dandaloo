@@ -172,7 +172,7 @@ public class ItemCompressorTierOneEntity extends BlockEntity implements Extended
 
     private Optional<RecipeEntry<ItemCompressorRecipe>> getCurrentRecipe() {
         return ((ServerWorld) this.getWorld()).getRecipeManager()
-                .getFirstMatch(ModRecipes.ITEM_COMPRESSOR_TYPE, new ItemCompressorRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
+                .getFirstMatch(ModRecipes.ITEM_COMPRESSOR_TYPE, new ItemCompressorRecipeInput(inventory.get(INPUT_SLOT), inventory.get(INPUT_SLOT_TWO)), this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

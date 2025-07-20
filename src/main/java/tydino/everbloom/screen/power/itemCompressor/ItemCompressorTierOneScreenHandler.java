@@ -29,9 +29,9 @@ public class ItemCompressorTierOneScreenHandler extends ScreenHandler {
         this.blockEntity = ((ItemCompressorTierOneEntity) blockEntity);
         this.propertyDelegate = arrayPropertyDelegate;
 
-        this.addSlot(new Slot(inventory, 0, 79, 12));
-        this.addSlot(new Slot(inventory, 1, 79, 58));
-        this.addSlot(new Slot(inventory, 2, 44, 12));
+        this.addSlot(new Slot(inventory, 0, 79, 12));//input
+        this.addSlot(new Slot(inventory, 1, 79, 58));//output
+        this.addSlot(new Slot(inventory, 2, 44, 12));//pressure
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
