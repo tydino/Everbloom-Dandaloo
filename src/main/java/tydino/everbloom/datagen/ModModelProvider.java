@@ -2,10 +2,10 @@ package tydino.everbloom.datagen;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Models;
+import net.minecraft.client.data.*;
+import net.minecraft.util.Identifier;
 import tydino.everbloom.block.ModBlocks;
+import tydino.everbloom.block.custom.ToadBurrow;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
 import tydino.everbloom.item.ModItems;
 
@@ -29,6 +29,12 @@ public class ModModelProvider extends FabricModelProvider {
 
         //eggs
         blockStateModelGenerator.registerSimpleState(ModBlocks.TORTOISE_EGG);
+
+        //animal blocks
+        Identifier ToadBurrow_empty = TexturedModel.CUBE_ALL.upload(ModBlocks.TOAD_BURROW, blockStateModelGenerator.modelCollector);
+        Identifier ToadBurrow_filled = blockStateModelGenerator.createSubModel(ModBlocks.TOAD_BURROW, "_filled", Models.CUBE_ALL, TextureMap::all);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.TOAD_BURROW)
+                .coordinate(BlockStateModelGenerator.createBooleanModelMap(ToadBurrow.FILLED, ToadBurrow_filled, ToadBurrow_empty)));
 
         //cooking
         //blockStateModelGenerator.registerSimpleState(ModBlocks.GRIDDLE_TIER_ONE); check the assets/blockstates folder the item is generate automatically after running datagen

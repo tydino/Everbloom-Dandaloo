@@ -34,6 +34,7 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 
 
 
+//for building it https://www.google.com/search?client=opera&q=in+fabricmc+how+to+get+the+mod+im+making+to+be+a+jar&sourceid=opera&ie=UTF-8&oe=UTF-8
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item
 //https://github.com/TechReborn/Energy use for energistic reference
 //use if stumped on energy https://youtu.be/N3Abbn9rV6M

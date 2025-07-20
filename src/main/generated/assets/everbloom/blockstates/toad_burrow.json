@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "filled=false": {
+      "model": "everbloom:block/toad_burrow"
+    },
+    "filled=true": {
+      "model": "everbloom:block/toad_burrow_filled"
+    }
+  }
+}

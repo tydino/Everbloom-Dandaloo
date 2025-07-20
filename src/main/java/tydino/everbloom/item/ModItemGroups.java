@@ -56,6 +56,9 @@ public class ModItemGroups {
                         entries.add(ModItems.DAGER_STABBER_MEAT);
                         entries.add(ModItems.COOKED_DAGER_STABBER_MEAT);
 
+                        //animal blocks
+                        entries.add(ModBlocks.TOAD_BURROW);
+
                         //ores
 
                         //alumium

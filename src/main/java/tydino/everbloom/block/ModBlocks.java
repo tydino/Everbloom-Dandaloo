@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.custom.Frother;
 import tydino.everbloom.block.custom.GriddleTierOne;
+import tydino.everbloom.block.custom.ToadBurrow;
 import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
 import tydino.everbloom.block.power.*;
@@ -24,6 +25,9 @@ import java.util.function.Function;
 //when making a block that isnt the full perimeter of the bottom or any sides; make one side or all one pixel smaller each and then it shouldnt be an x-ray
 
 public class ModBlocks {
+
+    //animals
+    public static final Block TOAD_BURROW = registerBlock("toad_burrow", ToadBurrow::new);
 
     //power
 
