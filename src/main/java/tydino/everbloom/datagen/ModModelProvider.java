@@ -139,5 +139,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SPAWN_DAGGER_STABBER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPAWN_TORTOISE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPAWN_TOAD, Models.GENERATED);
+        //dinosaurs
+
+        //insectoids
+        itemModelGenerator.register(ModItems.SPAWN_MEGANEURA, Models.GENERATED);
     }
 }

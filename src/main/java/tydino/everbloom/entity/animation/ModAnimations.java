@@ -4,10 +4,16 @@ import tydino.everbloom.entity.animation.animations.DaggerStabberAnimations;
 import tydino.everbloom.entity.animation.animations.MallardAnimations;
 import tydino.everbloom.entity.animation.animations.ToadAnimations;
 import tydino.everbloom.entity.animation.animations.TortoiseAnimations;
+import tydino.everbloom.entity.animation.animations.dinosaur.insectoids.MeganeuraAnimations;
 
 public class ModAnimations {
     public static MallardAnimations MALLARD_ANIMATIONS;
     public static DaggerStabberAnimations DAGGERSTABBER_ANIMATIONS;
     public static TortoiseAnimations TORTOISE_ANIMATIONS;
     public static ToadAnimations TOAD_ANIMATIONS;
+
+    //dinosaurs
+
+    //insectoids
+    public static MeganeuraAnimations MEGANEURA_ANIMATIONS;
 }

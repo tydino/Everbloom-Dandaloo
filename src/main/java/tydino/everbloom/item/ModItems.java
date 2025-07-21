@@ -65,6 +65,11 @@ public class ModItems {
     //toad
     public static final Item SPAWN_TOAD = registerItem("spawn-toad", setting -> new SpawnEggItem(ModEntities.TOAD, setting));
 
+    //dinosaurs
+
+    //insectoids
+    public static final Item SPAWN_MEGANEURA = registerItem("spawn-meganeura", setting -> new SpawnEggItem(ModEntities.MEGANEURA, setting));
+
     //ores
 
     //alumium

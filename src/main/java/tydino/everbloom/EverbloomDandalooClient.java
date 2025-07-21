@@ -9,6 +9,8 @@ import net.minecraft.client.render.RenderLayer;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.client.*;
+import tydino.everbloom.entity.client.dinosaurs.insectoids.MeganeuraModel;
+import tydino.everbloom.entity.client.dinosaurs.insectoids.MeganeuraRenderer;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.screen.custom.FrotherScreen;
 import tydino.everbloom.screen.custom.GriddleTierOneScreen;
@@ -48,6 +50,14 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         //toad
         EntityModelLayerRegistry.registerModelLayer(ToadModel.TOAD, ToadModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TOAD, ToadRenderer::new);
+
+        //dinosaurs
+
+        //insectoids
+
+        //meganeura
+        EntityModelLayerRegistry.registerModelLayer(MeganeuraModel.MEGANEURA, MeganeuraModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.MEGANEURA, MeganeuraRenderer::new);
 
         //entities
 

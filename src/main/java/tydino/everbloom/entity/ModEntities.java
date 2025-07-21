@@ -14,6 +14,7 @@ import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
 
 public class ModEntities {
 
@@ -30,6 +31,12 @@ public class ModEntities {
 
     static final RegistryKey<EntityType<?>> TOAD_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "toad"));
+
+    //dinosaurs
+
+    //insectoids
+    static final RegistryKey<EntityType<?>> MEGANEURA_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "meganeura"));
 
     //registering mobs
 
@@ -59,6 +66,16 @@ public class ModEntities {
             EntityType.Builder.create(ToadEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.625f, 0.5f).build(TOAD_KEY));
 
+    //dinosaurs
+
+    //insectoids
+
+    //meganeura
+    public static final EntityType<MeganeuraEntity> MEGANEURA = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "meganeura"),
+            EntityType.Builder.create(MeganeuraEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.25f, 0.25f).build(MEGANEURA_KEY));
+
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
 
@@ -77,6 +94,13 @@ public class ModEntities {
         //toad
 
         FabricDefaultAttributeRegistry.register(ModEntities.TOAD, ToadEntity.createToadAttributes());
+
+        //dinosaurs
+
+        //insectoids
+
+        //meganeura
+        FabricDefaultAttributeRegistry.register(ModEntities.MEGANEURA, MeganeuraEntity.createMeganeuraAttributes());
 
     }
 }
