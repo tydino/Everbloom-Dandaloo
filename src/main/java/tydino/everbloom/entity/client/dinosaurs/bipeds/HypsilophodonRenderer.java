@@ -60,7 +60,7 @@ public class HypsilophodonRenderer extends MobEntityRenderer<HypsilophodonEntity
     @Override
     public void updateRenderState(HypsilophodonEntity livingEntity, HypsilophodonRenderState livingEntityRenderState, float f) {
         super.updateRenderState(livingEntity, livingEntityRenderState, f);
-        /*livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
+        livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);/*
         livingEntityRenderState.runAnimationState.copyFrom(livingEntity.runAnimationState);
         livingEntityRenderState.sitAnimationState.copyFrom(livingEntity.sitAnimationState);
         livingEntityRenderState.sittingdownAnimationState.copyFrom(livingEntity.sittingdownAnimationState);

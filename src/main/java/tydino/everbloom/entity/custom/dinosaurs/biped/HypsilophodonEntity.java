@@ -24,6 +24,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -60,6 +61,32 @@ public class HypsilophodonEntity extends TameableEntity {
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, -1.0F);
         this.setPathfindingPenalty(PathNodeType.DANGER_POWDER_SNOW, -1.0F);
     }
+    //animation code
+    public final AnimationState idleAnimationState = new AnimationState();
+    private int idleAnimationTimeout = 0;
+
+    private void setupAnimationStates(){
+        if (this.idleAnimationTimeout<=0){
+            this.idleAnimationTimeout = 160;//animation time in seconds *20
+            this.idleAnimationState.start(this.age);
+        }else{
+            --this.idleAnimationTimeout;
+        }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.getWorld().isClient()){
+            setupAnimationStates();
+        }
+    }
+
+    protected boolean isInDanger() {
+        return this.getRecentDamageSource() != null;
+    }
+
+    //operation code
 
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
             Items.ACACIA_LEAVES, Items.AZALEA_LEAVES, Items.OAK_LEAVES, Items.BIRCH_LEAVES, Items.DARK_OAK_LEAVES, Items.CHERRY_LEAVES, Items.FLOWERING_AZALEA_LEAVES, Items.PALE_OAK_LEAVES, Items.MANGROVE_LEAVES, Items.SPRUCE_LEAVES, Items.JUNGLE_LEAVES, Items.WHEAT, Items.BEETROOT, Items.POTATO, Items.BAKED_POTATO, Items.BREAD
@@ -138,7 +165,7 @@ public class HypsilophodonEntity extends TameableEntity {
     {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 20)
-                .add(EntityAttributes.MOVEMENT_SPEED, .1f)
+                .add(EntityAttributes.MOVEMENT_SPEED, .2f)
                 .add(EntityAttributes.TEMPT_RANGE, 15);
 
     }

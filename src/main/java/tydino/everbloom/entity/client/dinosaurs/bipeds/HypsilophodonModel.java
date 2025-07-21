@@ -82,7 +82,7 @@ public class HypsilophodonModel extends EntityModel<HypsilophodonRenderState> {
 		headYaw = MathHelper.clamp(headYaw, -30f, 30f);
 		headPitch = MathHelper.clamp(headPitch, -25f, 45f);
 
-		this.head.yaw = (headYaw * 0.017453292f);
-		this.head.pitch = headPitch * 0.017453292f;
+		this.head.yaw = headYaw * 0.017453292f;
+		this.head.pitch = (headPitch+45f) * 0.017453292f;//this makes the head face forward
 	}
 }
