@@ -25,8 +25,8 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
 //add a burrowing mob that works like a bees (toad) that drops slime
-// meganeura and way to get it
-//meganeura note: all dinosaurs including meganeura will have 2 versions, docile and damaging. remember to make both
+// the way to get the dinosaurs
+//add rubber trees
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
 //make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
 //use this open source mod to make a hideable block set simmilar to carpentersblocks https://github.com/LoremVIpsum/OpenSimpleFrames/tree/main
