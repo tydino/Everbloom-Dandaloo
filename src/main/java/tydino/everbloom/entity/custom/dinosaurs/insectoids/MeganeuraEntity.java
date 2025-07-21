@@ -1,5 +1,7 @@
 package tydino.everbloom.entity.custom.dinosaurs.insectoids;
 
+import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.block.TurtleEggBlock;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.AboveGroundTargeting;
 import net.minecraft.entity.ai.NoPenaltySolidTargeting;
@@ -15,24 +17,35 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
+import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 
 import java.util.EnumSet;
 
 public class MeganeuraEntity extends AnimalEntity implements Flutterer {
+
+    public static final TrackedData<Boolean> HAS_EGG =
+            DataTracker.registerData(MeganeuraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    public static final TrackedData<Boolean> EggLaying =
+            DataTracker.registerData(MeganeuraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    int eggLayingCounter;
+
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(MeganeuraEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
@@ -79,7 +92,8 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
     public void initGoals(){
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5));
-        this.goalSelector.add(3, new AnimalMateGoal(this, 1.0F));
+        this.goalSelector.add(3, new MateGoal(this, 1.0F));
+        this.goalSelector.add(3, new LayEggGoal(this, 1.0F));
         this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
         this.goalSelector.add(6, new FlyGoal(this, 1.0));
@@ -145,18 +159,22 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
+        this.setHasEgg(nbt.getBoolean("HasEgg"));
     }
 
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         nbt.putInt("Variant", this.getTypeVariant());
+        nbt.putBoolean("HasEgg", this.hasEgg());
     }
 
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
         builder.add(DATA_ID_TYPE_VARIANT, 0);
+        builder.add(HAS_EGG, false);
+        builder.add(EggLaying, false);
     }
 
     public MeganeuraVariant getVariant() {
@@ -177,5 +195,99 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
         MeganeuraVariant variant = Util.getRandom(MeganeuraVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
+    }
+
+    //egg
+
+    public boolean hasEgg() {
+        return (Boolean)this.dataTracker.get(HAS_EGG);
+    }
+
+    void setHasEgg(boolean hasEgg) {
+        this.dataTracker.set(HAS_EGG, hasEgg);
+    }
+
+    public boolean isDiggingSand() {
+        return (Boolean)this.dataTracker.get(EggLaying);
+    }
+
+    void setDiggingSand(boolean diggingSand) {
+        this.eggLayingCounter = diggingSand ? 1 : 0;
+        this.dataTracker.set(EggLaying, diggingSand);
+    }
+
+    static class MateGoal extends AnimalMateGoal {
+        private final MeganeuraEntity entity;
+
+        MateGoal(MeganeuraEntity entity, double speed) {
+            super(entity, speed);
+            this.entity = entity;
+        }
+
+        public boolean canStart() {
+            return super.canStart() && !this.entity.hasEgg();
+        }
+
+        protected void breed() {
+            ServerPlayerEntity serverPlayerEntity = this.animal.getLovingPlayer();
+            if (serverPlayerEntity == null && this.mate.getLovingPlayer() != null) {
+                serverPlayerEntity = this.mate.getLovingPlayer();
+            }
+
+            if (serverPlayerEntity != null) {
+                serverPlayerEntity.incrementStat(Stats.ANIMALS_BRED);
+                Criteria.BRED_ANIMALS.trigger(serverPlayerEntity, this.animal, this.mate, (PassiveEntity)null);
+            }
+
+            this.entity.setHasEgg(true);
+            this.animal.setBreedingAge(6000);
+            this.mate.setBreedingAge(6000);
+            this.animal.resetLoveTicks();
+            this.mate.resetLoveTicks();
+            Random random = this.animal.getRandom();
+            if (castToServerWorld(this.world).getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
+                this.world.spawnEntity(new ExperienceOrbEntity(this.world, this.animal.getX(), this.animal.getY(), this.animal.getZ(), random.nextInt(7) + 1));
+            }
+
+        }
+    }
+
+    static class LayEggGoal extends MoveToTargetPosGoal {
+        private final MeganeuraEntity entity;
+
+        LayEggGoal(MeganeuraEntity entity, double speed) {
+            super(entity, speed, 16);
+            this.entity = entity;
+        }
+
+        public boolean canStart() {
+            return this.entity.hasEgg();
+        }
+
+        public void tick() {
+            super.tick();
+            BlockPos blockPos = this.entity.getBlockPos();
+            if (canStart()) {
+                if (this.entity.eggLayingCounter < 1) {
+                    this.entity.setDiggingSand(true);
+                } else if (this.entity.eggLayingCounter > this.getTickCount(600)) {
+                    World world = this.entity.getWorld();
+                    world.playSound((PlayerEntity)null, blockPos, SoundEvents.ENTITY_TURTLE_LAY_EGG, SoundCategory.BLOCKS, 0.3F, 0.9F + world.random.nextFloat() * 0.2F);
+                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.MEGANEURA_EGG.getDefaultState());
+                    this.entity.setHasEgg(false);
+                    this.entity.setDiggingSand(false);
+                    this.entity.setLoveTicks(600);
+                }
+
+                if (this.entity.isDiggingSand()) {
+                    ++this.entity.eggLayingCounter;
+                }
+            }
+
+        }
+
+        protected boolean isTargetPos(WorldView world, BlockPos pos) {
+            return world.isAir(pos.up()) && TurtleEggBlock.isSand(world, pos);
+        }
     }
 }

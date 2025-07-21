@@ -66,6 +66,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         //eggs
         addDrop(ModBlocks.TORTOISE_EGG);
+        addDrop(ModBlocks.MEGANEURA_EGG);
 
         //cooking
         addDrop(ModBlocks.GRIDDLE_TIER_ONE);

@@ -1,11 +1,12 @@
-package tydino.everbloom.block.custom;
+package tydino.everbloom.block.dinosaurs.insectoids;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.*;
-import net.minecraft.entity.EntityType;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.passive.SnifferEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
@@ -23,10 +24,12 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.TortoiseEntity;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
 
-public class TortoiseEgg extends Block {
+public class MeganeuraEgg extends Block {
     public static final MapCodec<TortoiseEgg> CODEC = createCodec(TortoiseEgg::new);
     public static final IntProperty HATCH;
     private static final int HATCHING_TIME = 6000;
@@ -37,7 +40,7 @@ public class TortoiseEgg extends Block {
         return CODEC;
     }
 
-    public TortoiseEgg(AbstractBlock.Settings settings) {
+    public MeganeuraEgg(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(HATCH, 0));
     }
@@ -65,12 +68,12 @@ public class TortoiseEgg extends Block {
         } else {
             world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_SNIFFER_EGG_HATCH, SoundCategory.BLOCKS, 0.7F, 0.9F + random.nextFloat() * 0.2F);
             world.breakBlock(pos, false);
-            TortoiseEntity tortoiseEntity = (TortoiseEntity) ModEntities.TORTOISE.create(world, SpawnReason.BREEDING);
-            if (tortoiseEntity != null) {
+            MeganeuraEntity baby = (MeganeuraEntity) ModEntities.MEGANEURA.create(world, SpawnReason.BREEDING);
+            if (baby != null) {
                 Vec3d vec3d = pos.toCenterPos();
-                tortoiseEntity.setBaby(true);
-                tortoiseEntity.refreshPositionAndAngles(vec3d.getX(), vec3d.getY(), vec3d.getZ(), MathHelper.wrapDegrees(world.random.nextFloat() * 360.0F), 0.0F);
-                world.spawnEntity(tortoiseEntity);
+                baby.setBaby(true);
+                baby.refreshPositionAndAngles(vec3d.getX(), vec3d.getY(), vec3d.getZ(), MathHelper.wrapDegrees(world.random.nextFloat() * 360.0F), 0.0F);
+                world.spawnEntity(baby);
             }
 
         }
