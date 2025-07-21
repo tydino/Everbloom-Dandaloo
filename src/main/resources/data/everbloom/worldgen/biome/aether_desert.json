@@ -84,10 +84,10 @@
         "maxCount": 3
       },
       {
-        "type": "minecraft:camel",
-        "weight": 6,
+        "type": "everbloom:aggressive_meganeura",
+        "weight": 1,
         "minCount": 1,
-        "maxCount": 3
+        "maxCount": 2
       }
     ]
   },
