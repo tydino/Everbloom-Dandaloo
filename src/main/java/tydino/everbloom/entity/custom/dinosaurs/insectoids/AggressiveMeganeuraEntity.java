@@ -4,9 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.goal.ActiveTargetGoal;
-import net.minecraft.entity.ai.goal.FlyGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
@@ -26,10 +24,12 @@ public class AggressiveMeganeuraEntity extends MeganeuraEntity {
     }
 
     @Override
-    public void initGoals() {
+    public void initGoals() {//as this is a overide all previous incarnations are overidden
         this.targetSelector.add(1, new ActiveTargetGoal(this, PlayerEntity.class, true));
         this.goalSelector.add(1, new AttackGoal((double)1.2F, false));
         this.goalSelector.add(2, new FlyGoal(this, 1.0));
+        this.goalSelector.add(3, new FollowParentGoal(this, 1.25F));
+        this.goalSelector.add(4, new LookAroundGoal(this));
     }
 
     class AttackGoal extends MeleeAttackGoal {
