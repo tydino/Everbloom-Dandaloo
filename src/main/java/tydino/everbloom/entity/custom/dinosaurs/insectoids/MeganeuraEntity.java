@@ -97,6 +97,8 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
         this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
         this.goalSelector.add(6, new FlyGoal(this, 1.0));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
     }
 
     public boolean isInAir() {
