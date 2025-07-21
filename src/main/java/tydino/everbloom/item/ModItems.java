@@ -69,6 +69,7 @@ public class ModItems {
 
     //insectoids
     public static final Item SPAWN_MEGANEURA = registerItem("spawn-meganeura", setting -> new SpawnEggItem(ModEntities.MEGANEURA, setting));
+    public static final Item SPAWN_AGGRESSIVE_MEGANEURA = registerItem("spawn-aggressive_meganeura", setting -> new SpawnEggItem(ModEntities.AGGRESSIVE_MEGANEURA, setting));
 
     //ores
 

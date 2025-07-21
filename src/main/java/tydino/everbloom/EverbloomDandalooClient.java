@@ -58,6 +58,7 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         //meganeura
         EntityModelLayerRegistry.registerModelLayer(MeganeuraModel.MEGANEURA, MeganeuraModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.MEGANEURA, MeganeuraRenderer::new);
+        EntityRendererRegistry.register(ModEntities.AGGRESSIVE_MEGANEURA, MeganeuraRenderer::new);
 
         //entities
 

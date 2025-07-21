@@ -44,7 +44,9 @@
   "block.everbloom.toad_burrow": "Toad Burrow",
 
   "entity.everbloom.meganeura": "Meganeura",
+  "entity.everbloom.aggressive_meganeura": "Meganeura",
   "item.everbloom.spawn-meganeura": "Meganeura Spawn Egg",
+  "item.everbloom.spawn-aggressive_meganeura": "Aggressive Meganeura Spawn Egg",
 
 
   "item.everbloom.raw_alumium": "Raw Aluminum",

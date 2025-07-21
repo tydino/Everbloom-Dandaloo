@@ -14,6 +14,7 @@ import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.AggressiveMeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
 
 public class ModEntities {
@@ -37,6 +38,8 @@ public class ModEntities {
     //insectoids
     static final RegistryKey<EntityType<?>> MEGANEURA_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "meganeura"));
+    static final RegistryKey<EntityType<?>> MEGANEURA_AGGRESSIVE_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "aggressive_meganeura"));
 
     //registering mobs
 
@@ -75,6 +78,10 @@ public class ModEntities {
             Identifier.of(EverbloomDandaloo.MOD_ID, "meganeura"),
             EntityType.Builder.create(MeganeuraEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.25f, 0.25f).build(MEGANEURA_KEY));
+    public static final EntityType<AggressiveMeganeuraEntity> AGGRESSIVE_MEGANEURA = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "aggressive_meganeura"),
+            EntityType.Builder.create(AggressiveMeganeuraEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.25f, 0.25f).build(MEGANEURA_AGGRESSIVE_KEY));
 
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
@@ -101,6 +108,7 @@ public class ModEntities {
 
         //meganeura
         FabricDefaultAttributeRegistry.register(ModEntities.MEGANEURA, MeganeuraEntity.createMeganeuraAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.AGGRESSIVE_MEGANEURA, AggressiveMeganeuraEntity.createMeganeuraAttributes());
 
     }
 }

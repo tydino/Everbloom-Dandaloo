@@ -143,5 +143,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         //insectoids
         itemModelGenerator.register(ModItems.SPAWN_MEGANEURA, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SPAWN_AGGRESSIVE_MEGANEURA, Models.GENERATED);
     }
 }

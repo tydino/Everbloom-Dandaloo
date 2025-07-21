@@ -118,6 +118,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_TOAD);
                         //dinosaur spawn eggs
                         entries.add(ModItems.SPAWN_MEGANEURA);
+                        entries.add(ModItems.SPAWN_AGGRESSIVE_MEGANEURA);
 
                         //power
                         entries.add(ModItems.POWER_METER);
