@@ -33,7 +33,7 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 //adjust item compressor recipes to be more propper instead of using just tin sheets to match the items used in it
 
 
-
+//#riplex
 //for building it https://www.google.com/search?client=opera&q=in+fabricmc+how+to+get+the+mod+im+making+to+be+a+jar&sourceid=opera&ie=UTF-8&oe=UTF-8
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item
 //https://github.com/TechReborn/Energy use for energistic reference
