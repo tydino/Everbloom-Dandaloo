@@ -1,14 +1,13 @@
-package tydino.everbloom.entity.custom.dinosaurs.insectoids;
+package tydino.everbloom.entity.custom.dinosaurs.biped;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.TurtleEggBlock;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.EnchantmentEffectComponentTypes;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.AboveGroundTargeting;
-import net.minecraft.entity.ai.NoPenaltySolidTargeting;
-import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.ai.pathing.BirdNavigation;
-import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -16,8 +15,11 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.DyeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -27,118 +29,104 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.DyeColor;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
+import tydino.everbloom.item.ModItems;
 
-import java.util.EnumSet;
-
-public class MeganeuraEntity extends AnimalEntity implements Flutterer {
+public class HypsilophodonEntity extends TameableEntity {
 
     public static final TrackedData<Boolean> HAS_EGG =
-            DataTracker.registerData(MeganeuraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> EggLaying =
-            DataTracker.registerData(MeganeuraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     int eggLayingCounter;
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
-            DataTracker.registerData(MeganeuraEntity.class, TrackedDataHandlerRegistry.INTEGER);
+            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
-
-    //animation code
-    private void setupAnimationStates(){
-        if (this.idleAnimationTimeout<=0){
-            this.idleAnimationTimeout = 40; //20*seconds at end
-            this.idleAnimationState.start(this.age);
-        }else{
-            --this.idleAnimationTimeout;
-        }
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        if (this.getWorld().isClient()){
-            setupAnimationStates();
-        }
-    }
-
-    //operation code
-
-    public MeganeuraEntity(EntityType<? extends MeganeuraEntity> entityType, World world){
+    public HypsilophodonEntity(EntityType<? extends HypsilophodonEntity> entityType, World world) {
         super(entityType, world);
-        this.moveControl = new FlightMoveControl(this, 20, true);
+        this.setTamed(false, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, -1.0F);
-        this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
-        this.setPathfindingPenalty(PathNodeType.WATER_BORDER, 16.0F);
-    }
-
-    public float getPathfindingFavor(BlockPos pos, WorldView world) {
-        return world.getBlockState(pos).isAir() ? 10.0F : 0.0F;
+        this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, -1.0F);
+        this.setPathfindingPenalty(PathNodeType.DANGER_POWDER_SNOW, -1.0F);
     }
 
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
-            Items.CHICKEN, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.COOKED_CHICKEN
+            Items.ACACIA_LEAVES, Items.AZALEA_LEAVES, Items.OAK_LEAVES, Items.BIRCH_LEAVES, Items.DARK_OAK_LEAVES, Items.CHERRY_LEAVES, Items.FLOWERING_AZALEA_LEAVES, Items.PALE_OAK_LEAVES, Items.MANGROVE_LEAVES, Items.SPRUCE_LEAVES, Items.JUNGLE_LEAVES, Items.WHEAT, Items.BEETROOT, Items.POTATO, Items.BAKED_POTATO, Items.BREAD
     );
 
     @Override
-    public void initGoals(){
+    protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5));
+        this.goalSelector.add(2, new EscapeDangerGoal(this, 2.0f));
+        this.goalSelector.add(3, new SitGoal(this));
+        this.goalSelector.add(4, new FollowOwnerGoal(this, (double)1.0F, 10.0F, 2.0F));
         this.goalSelector.add(3, new MateGoal(this, 1.0F));
         this.goalSelector.add(3, new LayEggGoal(this, 1.0F));
         this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
-        this.goalSelector.add(6, new FlyGoal(this, 1.0));
-        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
-        this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(5, new WanderAroundFarGoal(this, (double)1.0F));
+        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(7, new LookAroundGoal(this));
+        this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
+
     }
 
-    public boolean isInAir() {
-        return !this.isOnGround();
-    }
-
-    protected EntityNavigation createNavigation(World world) {
-        BirdNavigation birdNavigation = new BirdNavigation(this, world);
-        birdNavigation.setCanPathThroughDoors(true);
-        birdNavigation.setCanSwim(true);
-        return birdNavigation;
-    }
-
-    @Override
-    public void travel(Vec3d movementInput) {
-        if (this.isLogicalSideForUpdatingMovement()) {
-            if (this.isTouchingWater()) {
-                this.updateVelocity(0.02F, movementInput);
-                this.move(MovementType.SELF, this.getVelocity());
-                this.setVelocity(this.getVelocity().multiply((double)0.8F));
-            } else if (this.isInLava()) {
-                this.updateVelocity(0.02F, movementInput);
-                this.move(MovementType.SELF, this.getVelocity());
-                this.setVelocity(this.getVelocity().multiply((double)0.5F));
-            } else {
-                this.updateVelocity(this.getMovementSpeed(), movementInput);
-                this.move(MovementType.SELF, this.getVelocity());
-                this.setVelocity(this.getVelocity().multiply((double)0.91F));
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        Item item = itemStack.getItem();
+        if (this.isTamed()) {
+            if (this.isBreedingItem(itemStack) && this.getHealth() < this.getMaxHealth()) {
+                this.eat(player, hand, itemStack);
+                FoodComponent foodComponent = (FoodComponent)itemStack.get(DataComponentTypes.FOOD);
+                float f = foodComponent != null ? (float)foodComponent.nutrition() : 1.0F;
+                this.heal(2.0F * f);
+                return ActionResult.SUCCESS;
+            }else {
+                ActionResult actionResult = super.interactMob(player, hand);
+                if (!actionResult.isAccepted() && this.isOwner(player)) {
+                    this.setSitting(!this.isSitting());
+                    this.jumping = false;
+                    this.navigation.stop();
+                    return ActionResult.SUCCESS.noIncrementStat();
+                } else {
+                    return actionResult;
+                }
             }
+        }else if (!this.getWorld().isClient && itemStack.isOf(ModItems.SILVER_SCARAB)) {
+            itemStack.decrementUnlessCreative(1, player);
+            this.tryTame(player);
+            return ActionResult.SUCCESS_SERVER;
         }
+        return super.interactMob(player, hand);
     }
 
-    @Override
-    public boolean isFlappingWings() {
-        return !this.isOnGround();
+    private void tryTame(PlayerEntity player) {
+        if (this.random.nextInt(3) == 0) {
+            this.setOwner(player);
+            this.navigation.stop();
+            this.setTarget((LivingEntity)null);
+            this.setSitting(true);
+            this.getWorld().sendEntityStatus(this, (byte)7);
+        } else {
+            this.getWorld().sendEntityStatus(this, (byte)6);
+        }
+
     }
 
     @Nullable
-    public MeganeuraEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.MEGANEURA.create(world, SpawnReason.BREEDING);
+    public HypsilophodonEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
+        return ModEntities.HYPSILOPHODON.create(world, SpawnReason.BREEDING);
     }
 
     @Override
@@ -146,13 +134,12 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
         return BREEDING_INGREDIENT.test(stack);
     }
 
-    public static DefaultAttributeContainer.Builder createMeganeuraAttributes()
+    public static DefaultAttributeContainer.Builder createHypsilophodonAttributes()
     {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.MAX_HEALTH, 25)
-                .add(EntityAttributes.MOVEMENT_SPEED, .25f)
-                .add(EntityAttributes.FLYING_SPEED, .25f)
-                .add(EntityAttributes.TEMPT_RANGE, 20);
+                .add(EntityAttributes.MAX_HEALTH, 20)
+                .add(EntityAttributes.MOVEMENT_SPEED, .1f)
+                .add(EntityAttributes.TEMPT_RANGE, 15);
 
     }
 
@@ -179,22 +166,22 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
         builder.add(EggLaying, false);
     }
 
-    public MeganeuraVariant getVariant() {
-        return MeganeuraVariant.byId(this.getTypeVariant() & 255);
+    public HypsilophodonVariant getVariant() {
+        return HypsilophodonVariant.byId(this.getTypeVariant() & 255);
     }
 
     private int getTypeVariant() {
         return this.dataTracker.get(DATA_ID_TYPE_VARIANT);
     }
 
-    private void setVariant(MeganeuraVariant variant) {
+    private void setVariant(HypsilophodonVariant variant) {
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason,
                                  @Nullable EntityData entityData) {
-        MeganeuraVariant variant = Util.getRandom(MeganeuraVariant.values(), this.random);
+        HypsilophodonVariant variant = Util.getRandom(HypsilophodonVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
     }
@@ -219,9 +206,9 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
     }
 
     static class MateGoal extends AnimalMateGoal {
-        private final MeganeuraEntity entity;
+        private final HypsilophodonEntity entity;
 
-        MateGoal(MeganeuraEntity entity, double speed) {
+        MateGoal(HypsilophodonEntity entity, double speed) {
             super(entity, speed);
             this.entity = entity;
         }
@@ -255,9 +242,9 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
     }
 
     static class LayEggGoal extends MoveToTargetPosGoal {
-        private final MeganeuraEntity entity;
+        private final HypsilophodonEntity entity;
 
-        LayEggGoal(MeganeuraEntity entity, double speed) {
+        LayEggGoal(HypsilophodonEntity entity, double speed) {
             super(entity, speed, 16);
             this.entity = entity;
         }
@@ -272,10 +259,10 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
             if (canStart()) {
                 if (this.entity.eggLayingCounter < 1) {
                     this.entity.setDiggingSand(true);
-                } else if (this.entity.eggLayingCounter > this.getTickCount(600)) {
+                } else if (this.entity.eggLayingCounter > this.getTickCount(400)) {//takes about 4 seconds to lay an egg
                     World world = this.entity.getWorld();
                     world.playSound((PlayerEntity)null, blockPos, SoundEvents.ENTITY_TURTLE_LAY_EGG, SoundCategory.BLOCKS, 0.3F, 0.9F + world.random.nextFloat() * 0.2F);
-                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.MEGANEURA_EGG.getDefaultState());
+                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.MEGANEURA_EGG/*put hypsilophodon egg here*/.getDefaultState());
                     this.entity.setHasEgg(false);
                     this.entity.setDiggingSand(false);
                     this.entity.setLoveTicks(600);

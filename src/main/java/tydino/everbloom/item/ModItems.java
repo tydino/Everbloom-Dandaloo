@@ -67,9 +67,15 @@ public class ModItems {
 
     //dinosaurs
 
+    //scarabs
+    public static final Item SILVER_SCARAB = registerItem("silver_scarab", Item::new);
+
     //insectoids
     public static final Item SPAWN_MEGANEURA = registerItem("spawn-meganeura", setting -> new SpawnEggItem(ModEntities.MEGANEURA, setting));
     public static final Item SPAWN_AGGRESSIVE_MEGANEURA = registerItem("spawn-aggressive_meganeura", setting -> new SpawnEggItem(ModEntities.AGGRESSIVE_MEGANEURA, setting));
+
+    //bipeds
+    public static final Item SPAWN_HYPSILOPHODON = registerItem("spawn-hypsilophodon", setting -> new SpawnEggItem(ModEntities.HYPSILOPHODON, setting));
 
     //ores
 

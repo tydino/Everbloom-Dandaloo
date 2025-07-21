@@ -27,6 +27,7 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 //add a burrowing mob that works like a bees (toad) that drops slime
 // the way to get the dinosaurs
 //add rubber trees
+//make the scarabs (used for dinosaur breeding)
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
 //make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
 //use this open source mod to make a hideable block set simmilar to carpentersblocks https://github.com/LoremVIpsum/OpenSimpleFrames/tree/main

@@ -4,6 +4,7 @@ import tydino.everbloom.entity.animation.animations.DaggerStabberAnimations;
 import tydino.everbloom.entity.animation.animations.MallardAnimations;
 import tydino.everbloom.entity.animation.animations.ToadAnimations;
 import tydino.everbloom.entity.animation.animations.TortoiseAnimations;
+import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.HypsilophodonAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.insectoids.MeganeuraAnimations;
 
 public class ModAnimations {
@@ -16,4 +17,7 @@ public class ModAnimations {
 
     //insectoids
     public static MeganeuraAnimations MEGANEURA_ANIMATIONS;
+
+    //bipeds
+    public static HypsilophodonAnimations HYPSILOPHODON_ANIMATIONS;
 }

@@ -14,6 +14,7 @@ import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.AggressiveMeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
 
@@ -36,12 +37,20 @@ public class ModEntities {
     //dinosaurs
 
     //insectoids
+
+    //meganeura
     static final RegistryKey<EntityType<?>> MEGANEURA_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "meganeura"));
     static final RegistryKey<EntityType<?>> MEGANEURA_AGGRESSIVE_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "aggressive_meganeura"));
 
-    //registering mobs
+    //bipeds
+
+    //hypsilophodon
+    static final RegistryKey<EntityType<?>> HYPSILOPHODON_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "hypsilophodon"));
+
+    ///registering mobs         /*       stop        here      */
 
     //mallard
 
@@ -83,6 +92,14 @@ public class ModEntities {
             EntityType.Builder.create(AggressiveMeganeuraEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.25f, 0.25f).build(MEGANEURA_AGGRESSIVE_KEY));
 
+    //bipeds
+
+    //hypsilophodon
+    public static final EntityType<HypsilophodonEntity> HYPSILOPHODON = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "hypsilophodon"),
+            EntityType.Builder.create(HypsilophodonEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.5f, 0.65f).build(HYPSILOPHODON_KEY));
+
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
 
@@ -110,5 +127,9 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(ModEntities.MEGANEURA, MeganeuraEntity.createMeganeuraAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.AGGRESSIVE_MEGANEURA, AggressiveMeganeuraEntity.createMeganeuraAttributes());
 
+        //bipeds
+
+        //hypsilophodon
+        FabricDefaultAttributeRegistry.register(ModEntities.HYPSILOPHODON, HypsilophodonEntity.createHypsilophodonAttributes());
     }
 }

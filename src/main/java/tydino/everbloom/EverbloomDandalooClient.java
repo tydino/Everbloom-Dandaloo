@@ -9,6 +9,8 @@ import net.minecraft.client.render.RenderLayer;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.client.*;
+import tydino.everbloom.entity.client.dinosaurs.bipeds.HypsilophodonModel;
+import tydino.everbloom.entity.client.dinosaurs.bipeds.HypsilophodonRenderer;
 import tydino.everbloom.entity.client.dinosaurs.insectoids.MeganeuraModel;
 import tydino.everbloom.entity.client.dinosaurs.insectoids.MeganeuraRenderer;
 import tydino.everbloom.screen.ModScreenHandler;
@@ -59,6 +61,12 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MeganeuraModel.MEGANEURA, MeganeuraModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.MEGANEURA, MeganeuraRenderer::new);
         EntityRendererRegistry.register(ModEntities.AGGRESSIVE_MEGANEURA, MeganeuraRenderer::new);
+
+        //bipeds
+
+        //hypsilophodon
+        EntityModelLayerRegistry.registerModelLayer(HypsilophodonModel.HYPSILOPHODON, HypsilophodonModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.HYPSILOPHODON, HypsilophodonRenderer::new);
 
         //entities
 

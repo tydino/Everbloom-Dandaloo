@@ -118,7 +118,10 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_TORTOISE);
                         entries.add(ModItems.SPAWN_TOAD);
                         //dinosaur spawn eggs
+                        //docile
                         entries.add(ModItems.SPAWN_MEGANEURA);
+                        entries.add(ModItems.SPAWN_HYPSILOPHODON);
+                        //nondocile
                         entries.add(ModItems.SPAWN_AGGRESSIVE_MEGANEURA);
 
                         //power
