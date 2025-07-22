@@ -1,4 +1,4 @@
-package tydino.everbloom.block.dinosaurs.insectoids;
+package tydino.everbloom.block.dinosaurs.bipeds;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.AbstractBlock;
@@ -25,20 +25,20 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
 
-public class MeganeuraEgg extends Block {
-    public static final MapCodec<MeganeuraEgg> CODEC = createCodec(MeganeuraEgg::new);
+public class CompsognathusEgg extends Block {
+    public static final MapCodec<CompsognathusEgg> CODEC = createCodec(CompsognathusEgg::new);
     public static final IntProperty HATCH;
-    private static final int HATCHING_TIME = 6000;
-    private static final int BOOSTED_HATCHING_TIME = 3000;
-    private static final VoxelShape SHAPE = MeganeuraEgg.createCuboidShape(6, 0, 6, 10, 7, 10);
+    private static final int HATCHING_TIME = 2500;
+    private static final int BOOSTED_HATCHING_TIME = 2000;
+    private static final VoxelShape SHAPE = CompsognathusEgg.createCuboidShape(7, 0, 7, 9, 5, 9);
 
-    public MapCodec<MeganeuraEgg> getCodec() {
+    public MapCodec<CompsognathusEgg> getCodec() {
         return CODEC;
     }
 
-    public MeganeuraEgg(AbstractBlock.Settings settings) {
+    public CompsognathusEgg(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(HATCH, 0));
     }
@@ -66,7 +66,7 @@ public class MeganeuraEgg extends Block {
         } else {
             world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_SNIFFER_EGG_HATCH, SoundCategory.BLOCKS, 0.7F, 0.9F + random.nextFloat() * 0.2F);
             world.breakBlock(pos, false);
-            MeganeuraEntity baby = (MeganeuraEntity) ModEntities.MEGANEURA.create(world, SpawnReason.BREEDING);
+            CompsognathusEntity baby = (CompsognathusEntity) ModEntities.COMPSOGNATHUS.create(world, SpawnReason.BREEDING);
             if (baby != null) {
                 Vec3d vec3d = pos.toCenterPos();
                 baby.setBaby(true);

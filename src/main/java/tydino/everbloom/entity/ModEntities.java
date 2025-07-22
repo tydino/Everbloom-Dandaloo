@@ -13,6 +13,7 @@ import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.NontamableHypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveMeganeuraEntity;
@@ -51,6 +52,10 @@ public class ModEntities {
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "hypsilophodon"));
     static final RegistryKey<EntityType<?>> HYPSILOPHODON_UNTAMABLE_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "hypsilophodon_untamable"));
+
+    //compsognathus
+    static final RegistryKey<EntityType<?>> COMPSOGNATHUS_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "compsognathus"));
 
     ///registering mobs         /*       stop        here      */
 
@@ -106,6 +111,12 @@ public class ModEntities {
             EntityType.Builder.create(NontamableHypsilophodonEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.5f, 0.65f).build(HYPSILOPHODON_UNTAMABLE_KEY));
 
+    //compsognathus
+    public static EntityType<CompsognathusEntity> COMPSOGNATHUS = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "compsognathus"),
+            EntityType.Builder.create(CompsognathusEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.25f, 0.5f).build(COMPSOGNATHUS_KEY));
+
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
 
@@ -135,8 +146,11 @@ public class ModEntities {
 
         //bipeds
 
-        //hypsilophodon
+        //hypsilophodon (set to gold scarab where noted once added)
         FabricDefaultAttributeRegistry.register(ModEntities.HYPSILOPHODON, HypsilophodonEntity.createHypsilophodonAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.HYPSILOPHODON_UNTAMABLE, NontamableHypsilophodonEntity.createHypsilophodonAttributes());
+
+        //compsognathus
+        FabricDefaultAttributeRegistry.register(ModEntities.COMPSOGNATHUS, CompsognathusEntity.createCompsognathusAttributes());
     }
 }

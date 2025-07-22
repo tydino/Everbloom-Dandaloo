@@ -24,18 +24,17 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 
 public class HypsilophodonEgg extends Block {
-    public static final MapCodec<TortoiseEgg> CODEC = createCodec(TortoiseEgg::new);
+    public static final MapCodec<HypsilophodonEgg> CODEC = createCodec(HypsilophodonEgg::new);
     public static final IntProperty HATCH;
     private static final int HATCHING_TIME = 3000;
     private static final int BOOSTED_HATCHING_TIME = 2000;
-    private static final VoxelShape SHAPE = TortoiseEgg.createCuboidShape(6, 0, 6, 10, 5, 10);
+    private static final VoxelShape SHAPE = HypsilophodonEgg.createCuboidShape(6, 0, 6, 10, 5, 10);
 
-    public MapCodec<TortoiseEgg> getCodec() {
+    public MapCodec<HypsilophodonEgg> getCodec() {
         return CODEC;
     }
 
