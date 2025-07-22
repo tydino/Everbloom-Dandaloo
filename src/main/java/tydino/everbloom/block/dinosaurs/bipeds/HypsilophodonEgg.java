@@ -34,7 +34,7 @@ public class HypsilophodonEgg extends Block {
     public static final IntProperty HATCH;
     private static final int HATCHING_TIME = 3000;
     private static final int BOOSTED_HATCHING_TIME = 2000;
-    private static final VoxelShape SHAPE = TortoiseEgg.createCuboidShape(6, 0, 6, 10, 7, 10);
+    private static final VoxelShape SHAPE = TortoiseEgg.createCuboidShape(6, 0, 6, 10, 5, 10);
 
     public MapCodec<TortoiseEgg> getCodec() {
         return CODEC;
