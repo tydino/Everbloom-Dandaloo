@@ -1,10 +1,11 @@
-package tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon;
+package tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.AnimalMateGoal;
+import net.minecraft.entity.ai.goal.MoveToTargetPosGoal;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -34,28 +35,30 @@ import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonVariant;
 import tydino.everbloom.item.ModItems;
 
-public class HypsilophodonEntity extends TameableEntity {
-
+public class CompsognathusEntity extends TameableEntity {
     public static final TrackedData<Boolean> HAS_EGG =
-            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+            DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> EggLaying =
-            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+            DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> SITTING =
-            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+            DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     int eggLayingCounter;
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
-            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
+            DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    public HypsilophodonEntity(EntityType<? extends HypsilophodonEntity> entityType, World world) {
+    public CompsognathusEntity(EntityType<? extends CompsognathusEntity> entityType, World world) {
         super(entityType, world);
         this.setTamed(false, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, -1.0F);
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, -1.0F);
         this.setPathfindingPenalty(PathNodeType.DANGER_POWDER_SNOW, -1.0F);
     }
+
     //animation code
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
@@ -170,26 +173,14 @@ public class HypsilophodonEntity extends TameableEntity {
         return hurtTime > 0;
     }
 
-    //operation code
-
+    //operational code
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
-            Items.ACACIA_LEAVES, Items.AZALEA_LEAVES, Items.OAK_LEAVES, Items.BIRCH_LEAVES, Items.DARK_OAK_LEAVES, Items.CHERRY_LEAVES, Items.FLOWERING_AZALEA_LEAVES, Items.PALE_OAK_LEAVES, Items.MANGROVE_LEAVES, Items.SPRUCE_LEAVES, Items.JUNGLE_LEAVES, Items.WHEAT, Items.BEETROOT, Items.POTATO, Items.BAKED_POTATO, Items.BREAD
+            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT
     );
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
-        this.goalSelector.add(3, new SitGoal(this));
-        this.goalSelector.add(4, new FollowOwnerGoal(this, (double)1.0F, 10.0F, 2.0F));
-        this.goalSelector.add(3, new MateGoal(this, 1.0F));
-        this.goalSelector.add(3, new LayEggGoal(this, 1.0F));
-        this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
-        this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, (double)1.0F));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(7, new LookAroundGoal(this));
-
+        super.initGoals()//add goals
     }
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
@@ -214,7 +205,7 @@ public class HypsilophodonEntity extends TameableEntity {
                     return actionResult;
                 }
             }
-        }else if (!this.getWorld().isClient && itemStack.isOf(ModItems.SILVER_SCARAB)) {//set to gold scarab as it comes from cretaceous
+        }else if (!this.getWorld().isClient && itemStack.isOf(ModItems.SILVER_SCARAB)) {
             itemStack.decrementUnlessCreative(1, player);
             this.tryTame(player);
             return ActionResult.SUCCESS_SERVER;
@@ -237,8 +228,8 @@ public class HypsilophodonEntity extends TameableEntity {
     }
 
     @Nullable
-    public HypsilophodonEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.HYPSILOPHODON.create(world, SpawnReason.BREEDING);
+    public CompsognathusEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
+        return ModEntities.COMPSOGNATHUS.create(world, SpawnReason.BREEDING);
     }
 
     @Override
@@ -246,10 +237,10 @@ public class HypsilophodonEntity extends TameableEntity {
         return BREEDING_INGREDIENT.test(stack);
     }
 
-    public static DefaultAttributeContainer.Builder createHypsilophodonAttributes()
+    public static DefaultAttributeContainer.Builder createCompsognathusAttributes()
     {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.MAX_HEALTH, 20)
+                .add(EntityAttributes.MAX_HEALTH, 15)
                 .add(EntityAttributes.MOVEMENT_SPEED, .2f)
                 .add(EntityAttributes.TEMPT_RANGE, 15);
 
@@ -289,22 +280,22 @@ public class HypsilophodonEntity extends TameableEntity {
         builder.add(SITTING, false);
     }
 
-    public HypsilophodonVariant getVariant() {
-        return HypsilophodonVariant.byId(this.getTypeVariant() & 255);
+    public CompsognathusVariant getVariant() {
+        return CompsognathusVariant.byId(this.getTypeVariant() & 255);
     }
 
     private int getTypeVariant() {
         return this.dataTracker.get(DATA_ID_TYPE_VARIANT);
     }
 
-    private void setVariant(HypsilophodonVariant variant) {
+    private void setVariant(CompsognathusVariant variant) {
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason,
                                  @Nullable EntityData entityData) {
-        HypsilophodonVariant variant = Util.getRandom(HypsilophodonVariant.values(), this.random);
+        CompsognathusVariant variant = Util.getRandom(CompsognathusVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
     }
@@ -329,9 +320,9 @@ public class HypsilophodonEntity extends TameableEntity {
     }
 
     static class MateGoal extends AnimalMateGoal {
-        private final HypsilophodonEntity entity;
+        private final CompsognathusEntity entity;
 
-        MateGoal(HypsilophodonEntity entity, double speed) {
+        MateGoal(CompsognathusEntity entity, double speed) {
             super(entity, speed);
             this.entity = entity;
         }
@@ -365,9 +356,9 @@ public class HypsilophodonEntity extends TameableEntity {
     }
 
     static class LayEggGoal extends MoveToTargetPosGoal {
-        private final HypsilophodonEntity entity;
+        private final CompsognathusEntity entity;
 
-        LayEggGoal(HypsilophodonEntity entity, double speed) {
+        LayEggGoal(CompsognathusEntity entity, double speed) {
             super(entity, speed, 16);
             this.entity = entity;
         }
@@ -385,7 +376,7 @@ public class HypsilophodonEntity extends TameableEntity {
                 } else if (this.entity.eggLayingCounter > this.getTickCount(400)) {//takes about 4 seconds to lay an egg
                     World world = this.entity.getWorld();
                     world.playSound((PlayerEntity)null, blockPos, SoundEvents.ENTITY_TURTLE_LAY_EGG, SoundCategory.BLOCKS, 0.3F, 0.9F + world.random.nextFloat() * 0.2F);
-                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.HYPSILOPHODON_EGG.getDefaultState());
+                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.COMPSOGNATHUS_EGG.getDefaultState());
                     this.entity.setHasEgg(false);
                     this.entity.setDiggingSand(false);
                     this.entity.setLoveTicks(600);
