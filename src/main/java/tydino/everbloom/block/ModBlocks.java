@@ -18,6 +18,7 @@ import tydino.everbloom.block.custom.GriddleTierOne;
 import tydino.everbloom.block.custom.ToadBurrow;
 import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
+import tydino.everbloom.block.dinosaurs.bipeds.HypsilophodonEgg;
 import tydino.everbloom.block.dinosaurs.insectoids.MeganeuraEgg;
 import tydino.everbloom.block.power.*;
 
@@ -64,6 +65,9 @@ public class ModBlocks {
 
     //insectoids
     public static final Block MEGANEURA_EGG = registerBlock("meganeura_egg", MeganeuraEgg::new);
+
+    //bipeds
+    public static final Block HYPSILOPHODON_EGG = registerBlock("hypsilophodon_egg", HypsilophodonEgg::new);
 
     //cooking blocks
     public static final Block GRIDDLE_TIER_ONE = registerBlock("griddle_tier_one", GriddleTierOne::new);

@@ -25,7 +25,8 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
 //add a burrowing mob that works like a bees (toad) that drops slime
-// the way to get the dinosaurs
+//make the way to get the dinosaurs
+//add full scarab list for taming dinos (bronze, silver(has item just needs mob), and gold beatles)
 //add rubber trees
 //make the scarabs (used for dinosaur breeding)
 //add a craftable book(set) that can allow for easier implementation of how to get most things.

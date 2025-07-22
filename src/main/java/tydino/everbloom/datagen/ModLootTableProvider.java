@@ -58,7 +58,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                         )
                                         .with(ItemEntry.builder(ModItems.TOMATO))
                                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 3.0F)))
-                        )/*.pool(LootPool.builder().conditionally(
+                        )/*.pool(LootPool.builder().conditionally( //age 2 collectability
                                         BlockStatePropertyLootCondition.builder(ModBlocks.TOMATO_BUSH).properties(StatePredicate.Builder.create().exactMatch(TomatoBushBlock.AGE, 2))
                                 ).with(ItemEntry.builder(ModItems.TOMATO))
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))*/
@@ -67,6 +67,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         //eggs
         addDrop(ModBlocks.TORTOISE_EGG);
         addDrop(ModBlocks.MEGANEURA_EGG);
+        addDrop(ModBlocks.HYPSILOPHODON_EGG);
 
         //cooking
         addDrop(ModBlocks.GRIDDLE_TIER_ONE);

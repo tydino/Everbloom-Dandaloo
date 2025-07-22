@@ -111,6 +111,7 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.TORTOISE_EGG);
                         entries.add(ModBlocks.MEGANEURA_EGG);
+                        entries.add(ModBlocks.HYPSILOPHODON_EGG);
 
                         //spawn eggs
                         entries.add(ModItems.SPAWN_MALLARD_EGG);

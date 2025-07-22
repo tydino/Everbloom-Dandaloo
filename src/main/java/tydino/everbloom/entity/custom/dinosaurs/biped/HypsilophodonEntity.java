@@ -402,7 +402,7 @@ public class HypsilophodonEntity extends TameableEntity {
                 } else if (this.entity.eggLayingCounter > this.getTickCount(400)) {//takes about 4 seconds to lay an egg
                     World world = this.entity.getWorld();
                     world.playSound((PlayerEntity)null, blockPos, SoundEvents.ENTITY_TURTLE_LAY_EGG, SoundCategory.BLOCKS, 0.3F, 0.9F + world.random.nextFloat() * 0.2F);
-                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.MEGANEURA_EGG/*put hypsilophodon egg here*/.getDefaultState());
+                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.HYPSILOPHODON_EGG.getDefaultState());
                     this.entity.setHasEgg(false);
                     this.entity.setDiggingSand(false);
                     this.entity.setLoveTicks(600);
