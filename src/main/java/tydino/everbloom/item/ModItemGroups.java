@@ -123,6 +123,10 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_HYPSILOPHODON);
                         //nondocile
                         entries.add(ModItems.SPAWN_AGGRESSIVE_MEGANEURA);
+                        entries.add(ModItems.SPAWN_UNTAMABLE_HYPSILOPHODON);
+
+                        //scarabs
+                        entries.add(ModItems.SILVER_SCARAB);
 
                         //power
                         entries.add(ModItems.POWER_METER);

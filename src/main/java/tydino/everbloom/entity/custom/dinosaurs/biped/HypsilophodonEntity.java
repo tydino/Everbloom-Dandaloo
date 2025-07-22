@@ -108,6 +108,8 @@ public class HypsilophodonEntity extends TameableEntity {
                 this.runAnimationTimeout = 20;//animation time in seconds *20
                 this.runAnimationState.start(this.age);
                 this.idleAnimationState.stop();
+                this.setSitting(false);
+                this.setSittingDown(false);
             } else {
                 --this.runAnimationTimeout;
             }
@@ -203,7 +205,6 @@ public class HypsilophodonEntity extends TameableEntity {
         this.goalSelector.add(5, new WanderAroundFarGoal(this, (double)1.0F));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
-        this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
 
     }
 
@@ -220,6 +221,7 @@ public class HypsilophodonEntity extends TameableEntity {
             }else {
                 ActionResult actionResult = super.interactMob(player, hand);
                 if (!actionResult.isAccepted() && this.isOwner(player)) {
+                    this.setSitting(!isSittingDownNow());
                     this.setSittingDown(!isSittingDownNow());
                     this.jumping = false;
                     this.navigation.stop();
@@ -230,6 +232,8 @@ public class HypsilophodonEntity extends TameableEntity {
             }
         }else if (!this.getWorld().isClient && itemStack.isOf(ModItems.SILVER_SCARAB)) {
             itemStack.decrementUnlessCreative(1, player);
+            this.setSitting(true);
+            this.setSittingDown(true);
             this.tryTame(player);
             return ActionResult.SUCCESS_SERVER;
         }

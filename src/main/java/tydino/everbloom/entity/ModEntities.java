@@ -1,7 +1,6 @@
 package tydino.everbloom.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
@@ -15,6 +14,7 @@ import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.HypsilophodonEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.NontamableHypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.AggressiveMeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
 
@@ -49,6 +49,8 @@ public class ModEntities {
     //hypsilophodon
     static final RegistryKey<EntityType<?>> HYPSILOPHODON_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "hypsilophodon"));
+    static final RegistryKey<EntityType<?>> HYPSILOPHODON_UNTAMABLE_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "hypsilophodon_untamable"));
 
     ///registering mobs         /*       stop        here      */
 
@@ -99,6 +101,10 @@ public class ModEntities {
             Identifier.of(EverbloomDandaloo.MOD_ID, "hypsilophodon"),
             EntityType.Builder.create(HypsilophodonEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.5f, 0.65f).build(HYPSILOPHODON_KEY));
+    public static final EntityType<NontamableHypsilophodonEntity> HYPSILOPHODON_UNTAMABLE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "hypsilophodon_untamable"),
+            EntityType.Builder.create(NontamableHypsilophodonEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.5f, 0.65f).build(HYPSILOPHODON_UNTAMABLE_KEY));
 
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
@@ -131,5 +137,6 @@ public class ModEntities {
 
         //hypsilophodon
         FabricDefaultAttributeRegistry.register(ModEntities.HYPSILOPHODON, HypsilophodonEntity.createHypsilophodonAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.HYPSILOPHODON_UNTAMABLE, NontamableHypsilophodonEntity.createHypsilophodonAttributes());
     }
 }

@@ -67,6 +67,7 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         //hypsilophodon
         EntityModelLayerRegistry.registerModelLayer(HypsilophodonModel.HYPSILOPHODON, HypsilophodonModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.HYPSILOPHODON, HypsilophodonRenderer::new);
+        EntityRendererRegistry.register(ModEntities.HYPSILOPHODON_UNTAMABLE, HypsilophodonRenderer::new);
 
         //entities
 
