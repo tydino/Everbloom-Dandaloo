@@ -7,14 +7,17 @@ import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.NoPenaltyTargeting;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,6 +27,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.DamageTypeTags;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -35,6 +40,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
@@ -43,11 +49,16 @@ import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
 import tydino.everbloom.item.ModItems;
 
+import java.util.EnumSet;
+import java.util.function.Function;
+
 public class HypsilophodonEntity extends TameableEntity {
 
     public static final TrackedData<Boolean> HAS_EGG =
             DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> EggLaying =
+            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    public static final TrackedData<Boolean> SITTING =
             DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     int eggLayingCounter;
 
@@ -65,12 +76,99 @@ public class HypsilophodonEntity extends TameableEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    private void setupAnimationStates(){
-        if (this.idleAnimationTimeout<=0){
-            this.idleAnimationTimeout = 160;//animation time in seconds *20
-            this.idleAnimationState.start(this.age);
-        }else{
-            --this.idleAnimationTimeout;
+    boolean isIdle(){
+        return !isSitting() && !isInDanger();
+    }
+
+    public final AnimationState runAnimationState = new AnimationState();
+    private int runAnimationTimeout = 0;
+
+    public final AnimationState sitAnimationState = new AnimationState();
+    private int sitAnimationTimeout = 0;
+    boolean properlySitting;
+    public final AnimationState sittingdownAnimationState = new AnimationState();
+    private int sittingAnimationTimeout = 0;
+    boolean isSittingDown;
+    public final AnimationState standingupAnimationState = new AnimationState();
+    private int standingAnimationTimeout = 0;
+    boolean isStandingUp;
+
+    private void setupAnimationStates() {
+        if (isIdle()) {
+            if (this.idleAnimationTimeout <= 0) {
+                this.idleAnimationTimeout = 160;//animation time in seconds *20
+                this.idleAnimationState.start(this.age);
+                this.runAnimationState.stop();
+            } else {
+                --this.idleAnimationTimeout;
+            }
+        }
+        if (isInDanger()) {
+            if (this.runAnimationTimeout <= 0) {
+                this.runAnimationTimeout = 20;//animation time in seconds *20
+                this.runAnimationState.start(this.age);
+                this.idleAnimationState.stop();
+            } else {
+                --this.runAnimationTimeout;
+            }
+        }
+        setUpSitting();
+        if (properlySitting) {
+            if (this.sitAnimationTimeout <= 0) {
+                this.sitAnimationTimeout = 40;//animation time in seconds *20
+                this.sitAnimationState.start(this.age);
+                this.sittingdownAnimationState.stop();
+            } else {
+                --this.sitAnimationTimeout;
+            }
+        }
+        if (isSittingDown) {
+            if (this.sittingAnimationTimeout <= 0) {
+                this.sittingAnimationTimeout = 21;//animation time in seconds *20
+                this.sittingdownAnimationState.start(this.age);
+                this.idleAnimationState.stop();
+            } else {
+                --this.sittingAnimationTimeout;
+            }
+        }
+        if (isStandingUp) {
+            if (this.standingAnimationTimeout <= 0) {
+                this.standingAnimationTimeout = 21;//animation time in seconds *20
+                this.standingupAnimationState.start(this.age);
+                this.sitAnimationState.stop();
+                this.idleAnimationState.stop();
+            } else {
+                --this.standingAnimationTimeout;
+            }
+        }
+
+    }
+
+    void setUpSitting(){
+        if(!properlySitting && !isSittingDown && !isStandingUp && isSittingDownNow()){
+            isSittingDown = true;
+            sittingAnimationTimeout = 0;
+        } else if(!properlySitting && isSittingDown && !isStandingUp && isSittingDownNow()){
+            if(sittingAnimationTimeout == 1){
+                sittingAnimationTimeout = 0;
+                sitAnimationTimeout = 0;
+                isSittingDown = false;
+                properlySitting = true;
+            }
+        }else if(properlySitting && !isSittingDown && !isStandingUp && !isSittingDownNow()){
+            standingAnimationTimeout = 0;
+            sitAnimationTimeout = 0;
+            properlySitting = false;
+            isStandingUp = true;
+        }
+
+        if(isStandingUp && standingAnimationTimeout == 1){
+            isStandingUp = false;
+            properlySitting = false;
+            isSittingDown = false;
+            standingAnimationTimeout =0;
+            sitAnimationTimeout = 0;
+            sittingAnimationTimeout = 0;
         }
     }
 
@@ -83,7 +181,7 @@ public class HypsilophodonEntity extends TameableEntity {
     }
 
     protected boolean isInDanger() {
-        return this.getRecentDamageSource() != null;
+        return hurtTime > 0;
     }
 
     //operation code
@@ -95,7 +193,7 @@ public class HypsilophodonEntity extends TameableEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new EscapeDangerGoal(this, 2.0f));
+        this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new FollowOwnerGoal(this, (double)1.0F, 10.0F, 2.0F));
         this.goalSelector.add(3, new MateGoal(this, 1.0F));
@@ -122,7 +220,7 @@ public class HypsilophodonEntity extends TameableEntity {
             }else {
                 ActionResult actionResult = super.interactMob(player, hand);
                 if (!actionResult.isAccepted() && this.isOwner(player)) {
-                    this.setSitting(!this.isSitting());
+                    this.setSittingDown(!isSittingDownNow());
                     this.jumping = false;
                     this.navigation.stop();
                     return ActionResult.SUCCESS.noIncrementStat();
@@ -143,7 +241,7 @@ public class HypsilophodonEntity extends TameableEntity {
             this.setOwner(player);
             this.navigation.stop();
             this.setTarget((LivingEntity)null);
-            this.setSitting(true);
+            this.setSittingDown(true);
             this.getWorld().sendEntityStatus(this, (byte)7);
         } else {
             this.getWorld().sendEntityStatus(this, (byte)6);
@@ -176,6 +274,7 @@ public class HypsilophodonEntity extends TameableEntity {
         super.readCustomDataFromNbt(nbt);
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
         this.setHasEgg(nbt.getBoolean("HasEgg"));
+        this.setSittingDown(nbt.getBoolean("Sitting"));
     }
 
     @Override
@@ -183,6 +282,15 @@ public class HypsilophodonEntity extends TameableEntity {
         super.writeCustomDataToNbt(nbt);
         nbt.putInt("Variant", this.getTypeVariant());
         nbt.putBoolean("HasEgg", this.hasEgg());
+        nbt.putBoolean("Sitting", this.isSittingDownNow());
+    }
+
+    void setSittingDown(boolean sitting) {
+        this.dataTracker.set(SITTING, sitting);
+    }
+
+    public boolean isSittingDownNow() {
+        return (Boolean)this.dataTracker.get(SITTING);
     }
 
     @Override
@@ -191,6 +299,7 @@ public class HypsilophodonEntity extends TameableEntity {
         builder.add(DATA_ID_TYPE_VARIANT, 0);
         builder.add(HAS_EGG, false);
         builder.add(EggLaying, false);
+        builder.add(SITTING, false);
     }
 
     public HypsilophodonVariant getVariant() {

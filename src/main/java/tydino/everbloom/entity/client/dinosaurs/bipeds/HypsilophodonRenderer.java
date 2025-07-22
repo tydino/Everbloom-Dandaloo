@@ -25,7 +25,7 @@ public class HypsilophodonRenderer extends MobEntityRenderer<HypsilophodonEntity
                 map.put(HypsilophodonVariant.DRY,
                         Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dinosaurs/hypsilophodon/hypsilophodon_dry.png"));
                 map.put(HypsilophodonVariant.LEAF,
-                        Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dinosaurs/hypsilophodon/hypsilophodon_leaf.png"));
+                        Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dinosaurs/hypsilophodon/hypsilophodon_leafy.png"));
                 map.put(HypsilophodonVariant.LIGHT,
                         Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dinosaurs/hypsilophodon/hypsilophodon_light.png"));
                 map.put(HypsilophodonVariant.SKY,
@@ -60,11 +60,11 @@ public class HypsilophodonRenderer extends MobEntityRenderer<HypsilophodonEntity
     @Override
     public void updateRenderState(HypsilophodonEntity livingEntity, HypsilophodonRenderState livingEntityRenderState, float f) {
         super.updateRenderState(livingEntity, livingEntityRenderState, f);
-        livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);/*
+        livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
         livingEntityRenderState.runAnimationState.copyFrom(livingEntity.runAnimationState);
         livingEntityRenderState.sitAnimationState.copyFrom(livingEntity.sitAnimationState);
         livingEntityRenderState.sittingdownAnimationState.copyFrom(livingEntity.sittingdownAnimationState);
-        livingEntityRenderState.standingupAnimationState.copyFrom(livingEntity.standingupAnimationState);*/
+        livingEntityRenderState.standingupAnimationState.copyFrom(livingEntity.standingupAnimationState);
         livingEntityRenderState.variant = livingEntity.getVariant();
     }
 }

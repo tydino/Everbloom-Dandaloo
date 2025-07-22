@@ -150,8 +150,8 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
     {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 25)
-                .add(EntityAttributes.MOVEMENT_SPEED, .25f)
-                .add(EntityAttributes.FLYING_SPEED, .25f)
+                .add(EntityAttributes.MOVEMENT_SPEED, .2f)
+                .add(EntityAttributes.FLYING_SPEED, .2f)
                 .add(EntityAttributes.TEMPT_RANGE, 20);
 
     }
