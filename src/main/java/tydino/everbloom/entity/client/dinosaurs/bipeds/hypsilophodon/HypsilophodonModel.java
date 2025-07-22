@@ -1,4 +1,4 @@
-package tydino.everbloom.entity.client.dinosaurs.bipeds;
+package tydino.everbloom.entity.client.dinosaurs.bipeds.hypsilophodon;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.EntityModel;
@@ -7,7 +7,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.entity.animation.ModAnimations;
-import tydino.everbloom.entity.client.dinosaurs.bipeds.HypsilophodonRenderState;
 
 // Made with Blockbench 4.12.5
 // Exported for Minecraft version 1.17+ for Yarn

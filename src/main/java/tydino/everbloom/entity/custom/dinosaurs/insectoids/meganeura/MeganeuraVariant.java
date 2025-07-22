@@ -1,6 +1,4 @@
-package tydino.everbloom.entity.custom.dinosaurs.insectoids;
-
-import tydino.everbloom.entity.custom.MallardVariant;
+package tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura;
 
 import java.util.Arrays;
 import java.util.Comparator;

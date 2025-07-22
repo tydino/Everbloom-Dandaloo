@@ -1,10 +1,7 @@
-package tydino.everbloom.entity.custom.dinosaurs.insectoids;
+package tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura;
 
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.TurtleEggBlock;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.AboveGroundTargeting;
-import net.minecraft.entity.ai.NoPenaltySolidTargeting;
 import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.BirdNavigation;
@@ -35,8 +32,6 @@ import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
-
-import java.util.EnumSet;
 
 public class MeganeuraEntity extends AnimalEntity implements Flutterer {
 

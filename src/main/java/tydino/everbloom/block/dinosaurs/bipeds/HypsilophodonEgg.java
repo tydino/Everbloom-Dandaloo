@@ -26,8 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.entity.custom.dinosaurs.biped.HypsilophodonEntity;
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 
 public class HypsilophodonEgg extends Block {
     public static final MapCodec<TortoiseEgg> CODEC = createCodec(TortoiseEgg::new);

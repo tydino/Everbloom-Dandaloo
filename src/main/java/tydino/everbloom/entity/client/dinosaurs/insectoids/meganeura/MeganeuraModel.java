@@ -1,9 +1,8 @@
-package tydino.everbloom.entity.client.dinosaurs.insectoids;
+package tydino.everbloom.entity.client.dinosaurs.insectoids.meganeura;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.entity.AnimationState;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import tydino.everbloom.EverbloomDandaloo;

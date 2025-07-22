@@ -1,4 +1,4 @@
-package tydino.everbloom.entity.client.dinosaurs.insectoids;
+package tydino.everbloom.entity.client.dinosaurs.insectoids.meganeura;
 
 import com.google.common.collect.Maps;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -8,10 +8,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.client.MallardModel;
-import tydino.everbloom.entity.client.MallardRenderState;
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraVariant;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraVariant;
 
 import java.util.Map;
 

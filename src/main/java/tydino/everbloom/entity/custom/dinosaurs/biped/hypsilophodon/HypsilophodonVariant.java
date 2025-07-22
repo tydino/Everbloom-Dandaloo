@@ -1,6 +1,4 @@
-package tydino.everbloom.entity.custom.dinosaurs.biped;
-
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraVariant;
+package tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon;
 
 import java.util.Arrays;
 import java.util.Comparator;

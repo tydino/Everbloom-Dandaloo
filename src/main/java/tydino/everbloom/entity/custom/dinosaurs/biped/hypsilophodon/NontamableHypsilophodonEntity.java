@@ -1,4 +1,4 @@
-package tydino.everbloom.entity.custom.dinosaurs.biped;
+package tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;

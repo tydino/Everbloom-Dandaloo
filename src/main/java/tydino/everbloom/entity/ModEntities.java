@@ -13,10 +13,10 @@ import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
-import tydino.everbloom.entity.custom.dinosaurs.biped.HypsilophodonEntity;
-import tydino.everbloom.entity.custom.dinosaurs.biped.NontamableHypsilophodonEntity;
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.AggressiveMeganeuraEntity;
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.NontamableHypsilophodonEntity;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveMeganeuraEntity;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
 
 public class ModEntities {
 

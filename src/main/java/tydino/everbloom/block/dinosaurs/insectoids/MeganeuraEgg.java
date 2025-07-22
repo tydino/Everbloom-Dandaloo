@@ -26,8 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.entity.custom.TortoiseEntity;
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.MeganeuraEntity;
+import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
 
 public class MeganeuraEgg extends Block {
     public static final MapCodec<TortoiseEgg> CODEC = createCodec(TortoiseEgg::new);
