@@ -78,6 +78,8 @@ public class ModItems {
     public static final Item SPAWN_HYPSILOPHODON = registerItem("spawn-hypsilophodon", setting -> new SpawnEggItem(ModEntities.HYPSILOPHODON, setting));
     public static final Item SPAWN_UNTAMABLE_HYPSILOPHODON = registerItem("spawn-untamable_hypsilophodon", setting -> new SpawnEggItem(ModEntities.HYPSILOPHODON_UNTAMABLE, setting));
 
+    public static final Item SPAWN_COPSOGNATHUS = registerItem("spawn-copsognathus", setting -> new SpawnEggItem(ModEntities.COMPSOGNATHUS, setting));
+
     //ores
 
     //alumium

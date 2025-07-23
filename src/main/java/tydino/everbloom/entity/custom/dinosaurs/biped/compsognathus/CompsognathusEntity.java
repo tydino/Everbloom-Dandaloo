@@ -4,23 +4,24 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.AnimalMateGoal;
-import net.minecraft.entity.ai.goal.MoveToTargetPosGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.AbstractSkeletonEntity;
+import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -28,18 +29,21 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TimeHelper;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
-import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonVariant;
 import tydino.everbloom.item.ModItems;
 
-public class CompsognathusEntity extends TameableEntity {
+import java.util.UUID;
+
+public class CompsognathusEntity extends TameableEntity implements Angerable {
     public static final TrackedData<Boolean> HAS_EGG =
             DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> EggLaying =
@@ -47,6 +51,11 @@ public class CompsognathusEntity extends TameableEntity {
     public static final TrackedData<Boolean> SITTING =
             DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     int eggLayingCounter;
+
+    private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(WolfEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
+    @Nullable
+    private UUID angryAt;
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -180,7 +189,24 @@ public class CompsognathusEntity extends TameableEntity {
 
     @Override
     protected void initGoals() {
-        super.initGoals()//add goals
+        this.goalSelector.add(1, new SwimGoal(this));
+        this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
+        this.goalSelector.add(3, new SitGoal(this));
+        this.goalSelector.add(4, new MateGoal(this, 1.0F));
+        this.goalSelector.add(5, new LayEggGoal(this, 1.0F));
+        this.goalSelector.add(6, new PounceAtTargetGoal(this, 0.4F));
+        this.goalSelector.add(7, new MeleeAttackGoal(this, (double)1.0F, true));
+        this.goalSelector.add(8, new FollowOwnerGoal(this, (double)1.0F, 10.0F, 2.0F));
+        this.goalSelector.add(9, new AnimalMateGoal(this, (double)1.0F));
+        this.goalSelector.add(10, new WanderAroundFarGoal(this, (double)1.0F));
+        this.goalSelector.add(12, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(12, new LookAroundGoal(this));
+        this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
+        this.targetSelector.add(2, new AttackWithOwnerGoal(this));
+        this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
+        this.targetSelector.add(4, new ActiveTargetGoal(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
+        this.targetSelector.add(7, new ActiveTargetGoal(this, HypsilophodonEntity.class, true));
+        this.targetSelector.add(8, new UniversalAngerGoal(this, true));
     }
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
@@ -205,7 +231,7 @@ public class CompsognathusEntity extends TameableEntity {
                     return actionResult;
                 }
             }
-        }else if (!this.getWorld().isClient && itemStack.isOf(ModItems.SILVER_SCARAB)) {
+        }else if (!this.getWorld().isClient && itemStack.isOf(ModItems.SILVER_SCARAB) && !this.hasAngerTime()) {
             itemStack.decrementUnlessCreative(1, player);
             this.tryTame(player);
             return ActionResult.SUCCESS_SERVER;
@@ -225,6 +251,27 @@ public class CompsognathusEntity extends TameableEntity {
             this.getWorld().sendEntityStatus(this, (byte)6);
         }
 
+    }
+
+    public int getAngerTime() {
+        return (Integer)this.dataTracker.get(ANGER_TIME);
+    }
+
+    public void setAngerTime(int angerTime) {
+        this.dataTracker.set(ANGER_TIME, angerTime);
+    }
+
+    public void chooseRandomAngerTime() {
+        this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
+    }
+
+    @Nullable
+    public UUID getAngryAt() {
+        return this.angryAt;
+    }
+
+    public void setAngryAt(@Nullable UUID angryAt) {
+        this.angryAt = angryAt;
     }
 
     @Nullable
@@ -253,6 +300,7 @@ public class CompsognathusEntity extends TameableEntity {
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
         this.setHasEgg(nbt.getBoolean("HasEgg"));
         this.setSittingDown(nbt.getBoolean("Sitting"));
+        this.readAngerFromNbt(this.getWorld(), nbt);
     }
 
     @Override
@@ -261,6 +309,14 @@ public class CompsognathusEntity extends TameableEntity {
         nbt.putInt("Variant", this.getTypeVariant());
         nbt.putBoolean("HasEgg", this.hasEgg());
         nbt.putBoolean("Sitting", this.isSittingDownNow());
+        this.writeAngerToNbt(nbt);
+    }
+
+    @Override
+    public void tickMovement() {
+        if (!this.getWorld().isClient) {
+            this.tickAngerLogic((ServerWorld)this.getWorld(), true);
+        }
     }
 
     void setSittingDown(boolean sitting) {
@@ -278,6 +334,7 @@ public class CompsognathusEntity extends TameableEntity {
         builder.add(HAS_EGG, false);
         builder.add(EggLaying, false);
         builder.add(SITTING, false);
+        builder.add(ANGER_TIME, 0);
     }
 
     public CompsognathusVariant getVariant() {

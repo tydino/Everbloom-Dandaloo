@@ -123,6 +123,7 @@ public class ModItemGroups {
                         //docile
                         entries.add(ModItems.SPAWN_MEGANEURA);
                         entries.add(ModItems.SPAWN_HYPSILOPHODON);
+                        entries.add(ModItems.SPAWN_COPSOGNATHUS);
                         //nondocile
                         entries.add(ModItems.SPAWN_AGGRESSIVE_MEGANEURA);
                         entries.add(ModItems.SPAWN_UNTAMABLE_HYPSILOPHODON);
