@@ -16,6 +16,7 @@ import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.NontamableCompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.NontamableHypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveMeganeuraEntity;
@@ -63,6 +64,8 @@ public class ModEntities {
     //compsognathus
     static final RegistryKey<EntityType<?>> COMPSOGNATHUS_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "compsognathus"));
+    static final RegistryKey<EntityType<?>> COMPSOGNATHUS_UNTAMABLE_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "compsognathus_untamable"));
 
     ///registering mobs         /*       stop        here      */
 
@@ -123,6 +126,10 @@ public class ModEntities {
             Identifier.of(EverbloomDandaloo.MOD_ID, "compsognathus"),
             EntityType.Builder.create(CompsognathusEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.25f, 0.5f).build(COMPSOGNATHUS_KEY));
+    public static final EntityType<NontamableCompsognathusEntity> COMPSOGNATHUS_UNTAMABLE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "compsognathus_untamable"),
+            EntityType.Builder.create(NontamableCompsognathusEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.5f, 0.65f).build(COMPSOGNATHUS_UNTAMABLE_KEY));
 
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
@@ -159,5 +166,6 @@ public class ModEntities {
 
         //compsognathus
         FabricDefaultAttributeRegistry.register(ModEntities.COMPSOGNATHUS, CompsognathusEntity.createCompsognathusAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.COMPSOGNATHUS_UNTAMABLE, NontamableCompsognathusEntity.createCompsognathusAttributes());
     }
 }

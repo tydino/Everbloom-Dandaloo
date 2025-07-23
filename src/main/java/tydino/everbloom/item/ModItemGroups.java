@@ -127,6 +127,7 @@ public class ModItemGroups {
                         //nondocile
                         entries.add(ModItems.SPAWN_AGGRESSIVE_MEGANEURA);
                         entries.add(ModItems.SPAWN_UNTAMABLE_HYPSILOPHODON);
+                        entries.add(ModItems.SPAWN_UNTAMABLE_COPSOGNATHUS);
 
                         //scarabs
                         entries.add(ModItems.SILVER_SCARAB);

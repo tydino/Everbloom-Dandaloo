@@ -74,6 +74,7 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         //compsognathus
         EntityModelLayerRegistry.registerModelLayer(CompsognathusModel.COMPSOGNATHUS, CompsognathusModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.COMPSOGNATHUS, CompsognathusRenderer::new);
+        EntityRendererRegistry.register(ModEntities.COMPSOGNATHUS_UNTAMABLE, CompsognathusRenderer::new);
 
         //entities
 

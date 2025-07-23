@@ -5,10 +5,13 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class NontamableHypsilophodonEntity extends HypsilophodonEntity{
     public NontamableHypsilophodonEntity(EntityType<? extends HypsilophodonEntity> entityType, World world) {
@@ -29,8 +32,13 @@ public class NontamableHypsilophodonEntity extends HypsilophodonEntity{
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 20)
                 .add(EntityAttributes.MOVEMENT_SPEED, .2f)
-                .add(EntityAttributes.TEMPT_RANGE, 15);
+                .add(EntityAttributes.TEMPT_RANGE, 0);
 
+    }
+
+    @Override
+    public @Nullable HypsilophodonEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
+        return null;
     }
 
     @Override
