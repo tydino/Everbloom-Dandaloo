@@ -32,7 +32,7 @@ public class CompsognathusEgg extends Block {
     public static final IntProperty HATCH;
     private static final int HATCHING_TIME = 2500;
     private static final int BOOSTED_HATCHING_TIME = 2000;
-    private static final VoxelShape SHAPE = CompsognathusEgg.createCuboidShape(7, 0, 7, 9, 5, 9);
+    private static final VoxelShape SHAPE = CompsognathusEgg.createCuboidShape(7, 0, 7, 9, 3, 9);
 
     public MapCodec<CompsognathusEgg> getCodec() {
         return CODEC;

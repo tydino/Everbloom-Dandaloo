@@ -52,7 +52,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
             DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     int eggLayingCounter;
 
-    private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(WolfEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
     @Nullable
     private UUID angryAt;
@@ -184,12 +184,12 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
 
     //operational code
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
-            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT
+            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT, ModItems.MALLARD_MEAT, ModItems.COOKED_MALLARD_MEAT, ModItems.DAGER_STABBER_MEAT, ModItems.COOKED_DAGER_STABBER_MEAT
     );
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new SwimGoal(this));
+        /*this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new MateGoal(this, 1.0F));
@@ -197,16 +197,16 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
         this.goalSelector.add(6, new PounceAtTargetGoal(this, 0.4F));
         this.goalSelector.add(7, new MeleeAttackGoal(this, (double)1.0F, true));
         this.goalSelector.add(8, new FollowOwnerGoal(this, (double)1.0F, 10.0F, 2.0F));
-        this.goalSelector.add(9, new AnimalMateGoal(this, (double)1.0F));
-        this.goalSelector.add(10, new WanderAroundFarGoal(this, (double)1.0F));
+        this.goalSelector.add(9, new AnimalMateGoal(this, (double)1.0F));*/
+        this.goalSelector.add(1, new WanderAroundFarGoal(this, (double)1.0F));/*
         this.goalSelector.add(12, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(12, new LookAroundGoal(this));
         this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new AttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
         this.targetSelector.add(4, new ActiveTargetGoal(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
-        this.targetSelector.add(7, new ActiveTargetGoal(this, HypsilophodonEntity.class, true));
-        this.targetSelector.add(8, new UniversalAngerGoal(this, true));
+        this.targetSelector.add(5, new ActiveTargetGoal(this, HypsilophodonEntity.class, true));
+        this.targetSelector.add(6, new UniversalAngerGoal(this, true));*/
     }
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
@@ -288,7 +288,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
     {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 15)
-                .add(EntityAttributes.MOVEMENT_SPEED, .2f)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.2f)
                 .add(EntityAttributes.TEMPT_RANGE, 15);
 
     }

@@ -3,6 +3,8 @@ package tydino.everbloom.entity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -18,8 +20,13 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.Hypsilophodo
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.NontamableHypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveMeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
+import tydino.everbloom.item.ModItems;
 
 public class ModEntities {
+
+    /*public static final Ingredient CARNIVOROUS_BASIC = Ingredient.ofItems(
+            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT, ModItems.MALLARD_MEAT, ModItems.COOKED_MALLARD_MEAT, ModItems.DAGER_STABBER_MEAT, ModItems.COOKED_DAGER_STABBER_MEAT
+    );*/
 
     //register keys for mobs
 

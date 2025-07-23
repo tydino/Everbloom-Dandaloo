@@ -186,9 +186,9 @@ public class HypsilophodonEntity extends TameableEntity {
         this.goalSelector.add(3, new LayEggGoal(this, 1.0F));
         this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, (double)1.0F));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(7, new LookAroundGoal(this));
+        this.goalSelector.add(6, new WanderAroundFarGoal(this, (double)1.0F));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
 
     }
 
