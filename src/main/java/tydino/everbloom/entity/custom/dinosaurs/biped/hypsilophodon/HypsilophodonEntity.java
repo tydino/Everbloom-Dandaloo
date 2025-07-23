@@ -337,7 +337,7 @@ public class HypsilophodonEntity extends TameableEntity {
         }
 
         public boolean canStart() {
-            return super.canStart() && !this.entity.hasEgg();
+            return super.canStart() && !this.entity.hasEgg() && entity.isTamed();
         }
 
         protected void breed() {

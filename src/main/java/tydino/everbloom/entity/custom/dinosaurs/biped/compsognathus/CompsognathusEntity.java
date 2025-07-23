@@ -189,24 +189,23 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
 
     @Override
     protected void initGoals() {
-        /*this.goalSelector.add(1, new SwimGoal(this));
+        this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new MateGoal(this, 1.0F));
         this.goalSelector.add(5, new LayEggGoal(this, 1.0F));
-        this.goalSelector.add(6, new PounceAtTargetGoal(this, 0.4F));
-        this.goalSelector.add(7, new MeleeAttackGoal(this, (double)1.0F, true));
-        this.goalSelector.add(8, new FollowOwnerGoal(this, (double)1.0F, 10.0F, 2.0F));
-        this.goalSelector.add(9, new AnimalMateGoal(this, (double)1.0F));*/
-        this.goalSelector.add(1, new WanderAroundFarGoal(this, (double)1.0F));/*
-        this.goalSelector.add(12, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(12, new LookAroundGoal(this));
+        this.goalSelector.add(6, new MeleeAttackGoal(this, 1.0F, true));
+        this.goalSelector.add(7, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
+        this.goalSelector.add(8, new AnimalMateGoal(this, 1.0F));
+        this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
+        this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(11, new LookAroundGoal(this));
         this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new AttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
         this.targetSelector.add(4, new ActiveTargetGoal(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
         this.targetSelector.add(5, new ActiveTargetGoal(this, HypsilophodonEntity.class, true));
-        this.targetSelector.add(6, new UniversalAngerGoal(this, true));*/
+        this.targetSelector.add(6, new UniversalAngerGoal(this, true));
     }
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
@@ -215,7 +214,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
         if (this.isTamed()) {
             if (this.isBreedingItem(itemStack) && this.getHealth() < this.getMaxHealth()) {
                 this.eat(player, hand, itemStack);
-                FoodComponent foodComponent = (FoodComponent)itemStack.get(DataComponentTypes.FOOD);
+                FoodComponent foodComponent = itemStack.get(DataComponentTypes.FOOD);
                 float f = foodComponent != null ? (float)foodComponent.nutrition() : 1.0F;
                 this.heal(2.0F * f);
                 return ActionResult.SUCCESS;
@@ -243,7 +242,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
         if (this.random.nextInt(3) == 0) {
             this.setOwner(player);
             this.navigation.stop();
-            this.setTarget((LivingEntity)null);
+            this.setTarget(null);
             this.setSitting(true);
             this.setSittingDown(true);
             this.getWorld().sendEntityStatus(this, (byte)7);
@@ -254,7 +253,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
     }
 
     public int getAngerTime() {
-        return (Integer)this.dataTracker.get(ANGER_TIME);
+        return this.dataTracker.get(ANGER_TIME);
     }
 
     public void setAngerTime(int angerTime) {
@@ -289,6 +288,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 15)
                 .add(EntityAttributes.MOVEMENT_SPEED, 0.2f)
+                .add(EntityAttributes.ATTACK_DAMAGE, 2)
                 .add(EntityAttributes.TEMPT_RANGE, 15);
 
     }
@@ -314,6 +314,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
 
     @Override
     public void tickMovement() {
+        super.tickMovement();//is needed or mob doesnt move at all
         if (!this.getWorld().isClient) {
             this.tickAngerLogic((ServerWorld)this.getWorld(), true);
         }
@@ -324,7 +325,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
     }
 
     public boolean isSittingDownNow() {
-        return (Boolean)this.dataTracker.get(SITTING);
+        return this.dataTracker.get(SITTING);
     }
 
     @Override
@@ -360,7 +361,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
     //egg
 
     public boolean hasEgg() {
-        return (Boolean)this.dataTracker.get(HAS_EGG);
+        return this.dataTracker.get(HAS_EGG);
     }
 
     void setHasEgg(boolean hasEgg) {
@@ -368,7 +369,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
     }
 
     public boolean isDiggingSand() {
-        return (Boolean)this.dataTracker.get(EggLaying);
+        return this.dataTracker.get(EggLaying);
     }
 
     void setDiggingSand(boolean diggingSand) {
@@ -385,7 +386,7 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
         }
 
         public boolean canStart() {
-            return super.canStart() && !this.entity.hasEgg();
+            return super.canStart() && !this.entity.hasEgg() && entity.isTamed();
         }
 
         protected void breed() {
