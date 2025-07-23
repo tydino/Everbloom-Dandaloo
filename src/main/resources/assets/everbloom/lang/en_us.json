@@ -58,7 +58,8 @@
 
   "entity.everbloom.compsognathus": "Compsognathus",
   "entity.everbloom.compsognathus_untamable": "Compsognathus",
-  "item.everbloom.spawn-untamable_compsognathus": "Compsognathus Spawn Egg",
+  "item.everbloom.spawn-compsognathus": "Compsognathus Spawn Egg",
+  "item.everbloom.spawn-untamable_compsognathus": "Untamable Compsognathus Spawn Egg",
 
 
   "item.everbloom.silver_scarab": "Silver Scarab",

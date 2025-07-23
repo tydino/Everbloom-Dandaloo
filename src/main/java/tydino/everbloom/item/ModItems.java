@@ -78,8 +78,8 @@ public class ModItems {
     public static final Item SPAWN_HYPSILOPHODON = registerItem("spawn-hypsilophodon", setting -> new SpawnEggItem(ModEntities.HYPSILOPHODON, setting));
     public static final Item SPAWN_UNTAMABLE_HYPSILOPHODON = registerItem("spawn-untamable_hypsilophodon", setting -> new SpawnEggItem(ModEntities.HYPSILOPHODON_UNTAMABLE, setting));
 
-    public static final Item SPAWN_COPSOGNATHUS = registerItem("spawn-copsognathus", setting -> new SpawnEggItem(ModEntities.COMPSOGNATHUS, setting));
-    public static final Item SPAWN_UNTAMABLE_COPSOGNATHUS = registerItem("spawn-untamable_copsognathus", setting -> new SpawnEggItem(ModEntities.COMPSOGNATHUS_UNTAMABLE, setting));
+    public static final Item SPAWN_COPSOGNATHUS = registerItem("spawn-compsognathus", setting -> new SpawnEggItem(ModEntities.COMPSOGNATHUS, setting));
+    public static final Item SPAWN_UNTAMABLE_COPSOGNATHUS = registerItem("spawn-untamable_compsognathus", setting -> new SpawnEggItem(ModEntities.COMPSOGNATHUS_UNTAMABLE, setting));
 
     //ores
 
