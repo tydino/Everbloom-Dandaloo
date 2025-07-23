@@ -27,7 +27,7 @@ public class CompsognathusRenderer extends MobEntityRenderer<CompsognathusEntity
             });
 
     public CompsognathusRenderer(EntityRendererFactory.Context context) {
-        super(context, new CompsognathusModel(context.getPart(CompsognathusModel.COMPSOGNATHUS)), 0.5f);
+        super(context, new CompsognathusModel(context.getPart(CompsognathusModel.COMPSOGNATHUS)), 0.25f);//shadow is set by f
     }
 
     @Override

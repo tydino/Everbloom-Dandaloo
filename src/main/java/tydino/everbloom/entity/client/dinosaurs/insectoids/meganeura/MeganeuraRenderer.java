@@ -25,7 +25,7 @@ public class MeganeuraRenderer extends MobEntityRenderer<MeganeuraEntity, Megane
             });
 
     public MeganeuraRenderer(EntityRendererFactory.Context context) {
-        super(context, new MeganeuraModel(context.getPart(MeganeuraModel.MEGANEURA)), 0.5f);
+        super(context, new MeganeuraModel(context.getPart(MeganeuraModel.MEGANEURA)), 0.25f);// shoadow size set in f
     }
 
     @Override

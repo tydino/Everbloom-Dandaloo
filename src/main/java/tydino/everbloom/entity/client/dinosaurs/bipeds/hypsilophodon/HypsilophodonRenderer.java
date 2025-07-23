@@ -29,7 +29,7 @@ public class HypsilophodonRenderer extends MobEntityRenderer<HypsilophodonEntity
             });
 
     public HypsilophodonRenderer(EntityRendererFactory.Context context) {
-        super(context, new HypsilophodonModel(context.getPart(HypsilophodonModel.HYPSILOPHODON)), 0.5f);
+        super(context, new HypsilophodonModel(context.getPart(HypsilophodonModel.HYPSILOPHODON)), 0.25f);//shadow size set as f
     }
 
     @Override

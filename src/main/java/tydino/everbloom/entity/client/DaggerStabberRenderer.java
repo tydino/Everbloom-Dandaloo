@@ -12,7 +12,7 @@ public class DaggerStabberRenderer extends MobEntityRenderer<DaggerStabberEntity
     private static final Identifier TEXTURE = Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dagger-stabber.png");
 
     public DaggerStabberRenderer(EntityRendererFactory.Context context) {
-        super(context, new DaggerStabberModel(context.getPart(DaggerStabberModel.DAGGER_STABBER)), 0.5f);
+        super(context, new DaggerStabberModel(context.getPart(DaggerStabberModel.DAGGER_STABBER)), 0.45f);//shadow size is set by f
     }
 
     @Override
