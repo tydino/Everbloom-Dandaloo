@@ -40,6 +40,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
+import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
@@ -48,6 +49,7 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.Hypsilophodo
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
 import tydino.everbloom.item.ModItems;
 
+import java.util.EnumSet;
 import java.util.UUID;
 
 public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
@@ -207,9 +209,9 @@ public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
         return hurtTime > 0 && !IsGliding();
     }
 
-    public boolean IsGliding() {
-        return !this.isOnGround() && this.getVelocity().y < -0.1;
-    }
+    public Boolean IsGliding() {
+        return !this.isOnGround() && this.getY() > 1.5D;
+    };
 
     //operational code
 
@@ -234,6 +236,7 @@ public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
+        this.goalSelector.add(1, new FlyForwardWhenAirborneGoal(this));
         this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new MateGoal(this, 1.0F));
@@ -331,7 +334,7 @@ public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
     {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 15)
-                .add(EntityAttributes.MOVEMENT_SPEED, 0.2f)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.15f)
                 .add(EntityAttributes.ATTACK_DAMAGE, 5)
                 .add(EntityAttributes.TEMPT_RANGE, 15);
 
@@ -363,9 +366,11 @@ public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
             this.tickAngerLogic((ServerWorld)this.getWorld(), true);
         }
 
-        if (this.isGliding()) { //is how it glides
-            Vec3d velocity = this.getVelocity();
-            this.setVelocity(velocity.x, -0.1, velocity.z);
+        if (this.IsGliding()) {
+            Vec3d currentVelocity = this.getVelocity();
+
+            double upwardForce = -0.25D;
+            this.setVelocity(currentVelocity.x, upwardForce, currentVelocity.z);
         }
     }
 
@@ -498,6 +503,29 @@ public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
 
         protected boolean isTargetPos(WorldView world, BlockPos pos) {
             return world.isAir(pos.up());
+        }
+    }
+
+    public class FlyForwardWhenAirborneGoal extends Goal {
+        private final ArchaeopteryxEntity mob;
+
+        public FlyForwardWhenAirborneGoal(ArchaeopteryxEntity mob) {
+            this.mob = mob;
+            this.setControls(EnumSet.of(Goal.Control.MOVE)); // Indicate that this goal controls movement.
+        }
+
+        @Override
+        public boolean canStart() {
+            return !this.mob.isOnGround() && this.mob.getY() > 1.5D; // Check if airborne and above 1 block.
+        }
+
+        @Override
+        public void tick() {
+            // Calculate the forward direction based on mob's rotation.
+            Vec3d forwardVector = Vec3d.fromPolar(0, this.mob.getYaw());
+
+            // Apply a forward force (adjust the multiplier as needed).
+            this.mob.addVelocity(forwardVector.multiply(0.1));
         }
     }
 }
