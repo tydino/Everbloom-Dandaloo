@@ -81,6 +81,7 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         //archaeopteryx
         EntityModelLayerRegistry.registerModelLayer(ArchaeopteryxModel.ARCHAEOPTERYX, ArchaeopteryxModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX, ArchaeopteryxRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX_UNTAMABLE, ArchaeopteryxRenderer::new);
 
         //entities
 

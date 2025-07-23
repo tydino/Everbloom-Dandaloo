@@ -196,7 +196,6 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
         this.goalSelector.add(5, new LayEggGoal(this, 1.0F));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.0F, true));
         this.goalSelector.add(7, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
-        this.goalSelector.add(8, new AnimalMateGoal(this, 1.0F));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(11, new LookAroundGoal(this));

@@ -81,6 +81,9 @@ public class ModItems {
     public static final Item SPAWN_COPSOGNATHUS = registerItem("spawn-compsognathus", setting -> new SpawnEggItem(ModEntities.COMPSOGNATHUS, setting));
     public static final Item SPAWN_UNTAMABLE_COPSOGNATHUS = registerItem("spawn-untamable_compsognathus", setting -> new SpawnEggItem(ModEntities.COMPSOGNATHUS_UNTAMABLE, setting));
 
+    public static final Item SPAWN_ARCHAEOPTRYX = registerItem("spawn-archaeopteryx", setting -> new SpawnEggItem(ModEntities.ARCHAEOPTERYX, setting));
+    public static final Item SPAWN_UNTAMABLE_ARCHAEOPTRYX = registerItem("spawn-untamable_archaeopteryx", setting -> new SpawnEggItem(ModEntities.ARCHAEOPTERYX_UNTAMABLE, setting));
+
     //ores
 
     //alumium

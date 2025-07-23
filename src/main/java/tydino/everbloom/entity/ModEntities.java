@@ -16,6 +16,7 @@ import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.archaeopteryx.ArchaeopteryxEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.archaeopteryx.NontamableArchaeoptryxEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.NontamableCompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
@@ -71,6 +72,8 @@ public class ModEntities {
     //archaeopteryx
     static final RegistryKey<EntityType<?>> ARCHAEOPTERYX_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "archaeopteryx"));
+    static final RegistryKey<EntityType<?>> ARCHAEOPTERYX_UNTAMABLE_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "archaeopteryx_untamable"));
 
     ///registering mobs         /*       stop        here      */
 
@@ -142,6 +145,11 @@ public class ModEntities {
             EntityType.Builder.create(ArchaeopteryxEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.25f, 0.5f).build(ARCHAEOPTERYX_KEY));
 
+    public static EntityType<NontamableArchaeoptryxEntity> ARCHAEOPTERYX_UNTAMABLE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "archaeopteryx_untamable"),
+            EntityType.Builder.create(NontamableArchaeoptryxEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.25f, 0.5f).build(ARCHAEOPTERYX_UNTAMABLE_KEY));
+
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
 
@@ -181,5 +189,6 @@ public class ModEntities {
 
         //archaeopteryx
         FabricDefaultAttributeRegistry.register(ModEntities.ARCHAEOPTERYX, ArchaeopteryxEntity.createArchaeopteryxAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.ARCHAEOPTERYX_UNTAMABLE, NontamableArchaeoptryxEntity.createArchaeoptryxAttributes());
     }
 }

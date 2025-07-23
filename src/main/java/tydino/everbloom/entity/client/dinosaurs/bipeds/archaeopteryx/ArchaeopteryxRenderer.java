@@ -17,7 +17,7 @@ public class ArchaeopteryxRenderer extends MobEntityRenderer<ArchaeopteryxEntity
     private static final Map<ArchaeopteryxVariant, Identifier> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(ArchaeopteryxVariant.class), map -> {
                 map.put(ArchaeopteryxVariant.BLACKBERRY,
-                        Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dinosaurs/archaeopteryx/archaeopteryx_blueberry.png"));
+                        Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dinosaurs/archaeopteryx/archaeopteryx_blackberry.png"));
                 map.put(ArchaeopteryxVariant.BLUEBERRY,
                         Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dinosaurs/archaeopteryx/archaeopteryx_blueberry.png"));
                 map.put(ArchaeopteryxVariant.LEAF,

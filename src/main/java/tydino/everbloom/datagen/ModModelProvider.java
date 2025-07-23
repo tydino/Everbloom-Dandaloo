@@ -156,6 +156,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SPAWN_COPSOGNATHUS, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPAWN_UNTAMABLE_COPSOGNATHUS, Models.GENERATED);
 
+        //archaeopteryx
+        itemModelGenerator.register(ModItems.SPAWN_ARCHAEOPTRYX, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SPAWN_UNTAMABLE_ARCHAEOPTRYX, Models.GENERATED);
+
         //scarabs
         itemModelGenerator.register(ModItems.SILVER_SCARAB, Models.GENERATED);
     }

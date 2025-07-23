@@ -7,6 +7,8 @@
   "block.everbloom.tortoise_egg": "Turtle Egg",
   "block.everbloom.meganeura_egg": "Meaneura Egg",
   "block.everbloom.hypsilophodon_egg": "Hypsilophodon Egg",
+  "block.everbloom.compsognathus_egg": "Compsognathus Egg",
+  "block.everbloom.archaeopteryx_egg": "Archaeopteryx Egg",
 
   "item.everbloom.cooked_egg": "Cooked Egg",
 
@@ -60,6 +62,11 @@
   "entity.everbloom.compsognathus_untamable": "Compsognathus",
   "item.everbloom.spawn-compsognathus": "Compsognathus Spawn Egg",
   "item.everbloom.spawn-untamable_compsognathus": "Untamable Compsognathus Spawn Egg",
+
+  "entity.everbloom.archaeopteryx": "Archaeopteryx",
+  "entity.everbloom.archaeopteryx_untamable": "Archaeopteryx",
+  "item.everbloom.spawn-archaeopteryx": "Archaeopteryx Spawn Egg",
+  "item.everbloom.spawn-untamable_archaeopteryx": "Untamable Archaeopteryx Spawn Egg",
 
 
   "item.everbloom.silver_scarab": "Silver Scarab",

@@ -243,7 +243,6 @@ public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
         this.goalSelector.add(5, new LayEggGoal(this, 1.0F));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.0F, true));
         this.goalSelector.add(7, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
-        this.goalSelector.add(8, new AnimalMateGoal(this, 1.0F));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(11, new LookAroundGoal(this));
@@ -333,7 +332,7 @@ public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
     public static DefaultAttributeContainer.Builder createArchaeopteryxAttributes()
     {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.MAX_HEALTH, 15)
+                .add(EntityAttributes.MAX_HEALTH, 20)
                 .add(EntityAttributes.MOVEMENT_SPEED, 0.15f)
                 .add(EntityAttributes.ATTACK_DAMAGE, 5)
                 .add(EntityAttributes.TEMPT_RANGE, 15);
