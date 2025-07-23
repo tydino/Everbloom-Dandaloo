@@ -1,6 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	Everbloom Dandaloo/Model Definitions
 533e5aeb7fa0def707f030f8aa9161497b36582b assets/everbloom/blockstates/alumium_block.json
 713f4456961c8c848d17b3e48d08e18c30d5815f assets/everbloom/blockstates/alumium_ore.json
+3a9ba6c3b39a696fd86f90a750d3b6bf1ccb51cb assets/everbloom/blockstates/archaeopteryx_egg.json
 82dcd05be329263c2cf93d6cecdf19aaa1da7d97 assets/everbloom/blockstates/bronze_block.json
 6b184ce1302469531e5dca3a693f866f0f2b4dd2 assets/everbloom/blockstates/compsognathus_egg.json
 49d0353fe2389f86a4e2752d86000b83e9075fdd assets/everbloom/blockstates/deepslate_alumium_ore.json
@@ -20,6 +21,7 @@ d97e3104b5df2f030b7f6b1bb962fa6234032854 assets/everbloom/blockstates/tin_block.
 cc3c52d5c4f47a636851626e89f05a7a71d926b7 assets/everbloom/items/alumium.json
 8ec2aded75c1472d9fa59de3b7c9d07926c5dfb3 assets/everbloom/items/alumium_block.json
 62bb72fadf134efc4329490fb5ebb697a6f43349 assets/everbloom/items/alumium_ore.json
+b79cf93576aa6d4698f072f31a27383869329e3b assets/everbloom/items/archaeopteryx_egg.json
 17c1580719abd160b005b0915d43f5483a22cf03 assets/everbloom/items/bronze.json
 850b4ec4eb1c32a3e9176a4b8e82e135e4d7afa6 assets/everbloom/items/bronze_block.json
 ad6468fcd8df9f171dcf25c3eacab4da1482f327 assets/everbloom/items/bronze_conductor.json

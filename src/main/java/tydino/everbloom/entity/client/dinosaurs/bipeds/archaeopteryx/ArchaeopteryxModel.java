@@ -25,7 +25,7 @@ public class ArchaeopteryxModel extends EntityModel<ArchaeopteryxRenderState> {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData archaeopteryx = modelPartData.addChild("archaeopteryx", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+		ModelPartData archaeopteryx = modelPartData.addChild("archaeopteryx", ModelPartBuilder.create(), ModelTransform.of(0.0F, 24.0F, 0.0F, 0.0F, 3.1416F, 0.0F));
 
 		ModelPartData body = archaeopteryx.addChild("body", ModelPartBuilder.create().uv(4, 12).cuboid(-1.0F, -2.0F, -1.0F, 2.0F, 2.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -3.0F, 0.0F));
 
@@ -38,15 +38,15 @@ public class ArchaeopteryxModel extends EntityModel<ArchaeopteryxRenderState> {
 		ModelPartData tailbase = body.addChild("tailbase", ModelPartBuilder.create().uv(5, 9).cuboid(-1.0F, -0.5F, -2.0F, 2.0F, 1.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -1.5F, -1.0F));
 
 		ModelPartData tailmid = tailbase.addChild("tailmid", ModelPartBuilder.create().uv(6, 6).cuboid(-0.5F, -0.5F, -2.0F, 1.0F, 1.0F, 2.0F, new Dilation(0.0F))
-		.uv(5, 4).cuboid(-1.0F, 0.0F, -2.0F, 2.0F, 0.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, -2.0F));
+				.uv(5, 4).cuboid(-1.0F, 0.0F, -2.0F, 2.0F, 0.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, -2.0F));
 
 		ModelPartData tailtip = tailmid.addChild("tailtip", ModelPartBuilder.create().uv(1, 0).cuboid(-2.0F, 0.0F, -4.0F, 4.0F, 0.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, -2.0F));
 
 		ModelPartData leftarm = body.addChild("leftarm", ModelPartBuilder.create().uv(3, 19).cuboid(-1.0F, 0.0F, 0.0F, 1.0F, 3.0F, 1.0F, new Dilation(0.0F))
-		.uv(0, 15).cuboid(-0.5F, 0.0F, -2.0F, 0.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, -1.0F, 1.0F, 0.5236F, 0.0F, 0.0F));
+				.uv(0, 15).cuboid(-0.5F, 0.0F, -2.0F, 0.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, -1.0F, 1.0F, 0.5236F, 0.0F, 0.0F));
 
 		ModelPartData rightarm = body.addChild("rightarm", ModelPartBuilder.create().uv(11, 19).cuboid(0.0F, 0.0F, 0.0F, 1.0F, 3.0F, 1.0F, new Dilation(0.0F))
-		.uv(14, 15).cuboid(0.5F, 0.0F, -2.0F, 0.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(1.0F, -1.0F, 1.0F, 0.5236F, 0.0F, 0.0F));
+				.uv(14, 15).cuboid(0.5F, 0.0F, -2.0F, 0.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(1.0F, -1.0F, 1.0F, 0.5236F, 0.0F, 0.0F));
 
 		ModelPartData leftfoot = archaeopteryx.addChild("leftfoot", ModelPartBuilder.create().uv(2, 6).cuboid(-0.5F, -0.05F, 0.0F, 1.0F, 0.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-1.5F, 0.0F, -1.0F));
 

@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "archaeopteryx_egg",
-		"particle": "archaeopteryx_egg"
+		"0": "everbloom:block/archaeopteryx_egg",
+		"particle": "everbloom:block/archaeopteryx_egg"
 	},
 	"elements": [
 		{
@@ -19,6 +19,5 @@
 				"down": {"uv": [9, 3, 6, 6], "texture": "#0"}
 			}
 		}
-	],
-	"display": {}
+	]
 }

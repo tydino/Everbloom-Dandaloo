@@ -63,9 +63,9 @@ public class CompsognathusEntity extends TameableEntity implements Angerable {
     public CompsognathusEntity(EntityType<? extends CompsognathusEntity> entityType, World world) {
         super(entityType, world);
         this.setTamed(false, false);
-        this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, -1.0F);
-        this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, -1.0F);
-        this.setPathfindingPenalty(PathNodeType.DANGER_POWDER_SNOW, -1.0F);
+        this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 10.0F);
+        this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, 10.0F);
+        this.setPathfindingPenalty(PathNodeType.DANGER_POWDER_SNOW, 10.0F);
     }
 
     //animation code

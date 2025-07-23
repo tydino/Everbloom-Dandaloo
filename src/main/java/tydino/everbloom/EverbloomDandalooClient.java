@@ -9,6 +9,8 @@ import net.minecraft.client.render.RenderLayer;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.client.*;
+import tydino.everbloom.entity.client.dinosaurs.bipeds.archaeopteryx.ArchaeopteryxModel;
+import tydino.everbloom.entity.client.dinosaurs.bipeds.archaeopteryx.ArchaeopteryxRenderer;
 import tydino.everbloom.entity.client.dinosaurs.bipeds.compsognathus.CompsognathusModel;
 import tydino.everbloom.entity.client.dinosaurs.bipeds.compsognathus.CompsognathusRenderer;
 import tydino.everbloom.entity.client.dinosaurs.bipeds.hypsilophodon.HypsilophodonModel;
@@ -75,6 +77,10 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(CompsognathusModel.COMPSOGNATHUS, CompsognathusModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.COMPSOGNATHUS, CompsognathusRenderer::new);
         EntityRendererRegistry.register(ModEntities.COMPSOGNATHUS_UNTAMABLE, CompsognathusRenderer::new);
+
+        //archaeopteryx
+        EntityModelLayerRegistry.registerModelLayer(ArchaeopteryxModel.ARCHAEOPTERYX, ArchaeopteryxModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX, ArchaeopteryxRenderer::new);
 
         //entities
 

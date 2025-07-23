@@ -32,6 +32,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(ModBlocks.MEGANEURA_EGG);
         blockStateModelGenerator.registerSimpleState(ModBlocks.HYPSILOPHODON_EGG);
         blockStateModelGenerator.registerSimpleState(ModBlocks.COMPSOGNATHUS_EGG);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.ARCHAEOPTERYX_EGG);
 
         //animal blocks
         Identifier ToadBurrow_empty = TexturedModel.CUBE_ALL.upload(ModBlocks.TOAD_BURROW, blockStateModelGenerator.modelCollector);
