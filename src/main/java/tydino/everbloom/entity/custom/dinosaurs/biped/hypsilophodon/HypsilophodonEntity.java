@@ -34,9 +34,10 @@ import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.item.ModItems;
 
-public class HypsilophodonEntity extends TameableEntity {
+public class HypsilophodonEntity extends TamableDinosaurEntity {
 
     public static final TrackedData<Boolean> HAS_EGG =
             DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.BOOLEAN);

@@ -43,6 +43,7 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusVariant;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
@@ -52,7 +53,7 @@ import tydino.everbloom.item.ModItems;
 import java.util.EnumSet;
 import java.util.UUID;
 
-public class ArchaeopteryxEntity  extends TameableEntity implements Angerable {
+public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Angerable {
     public static final TrackedData<Boolean> HAS_EGG =
             DataTracker.registerData(ArchaeopteryxEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> EggLaying =
