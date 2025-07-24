@@ -40,18 +40,13 @@ import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
+import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
+import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurMateGoal;
 import tydino.everbloom.item.ModItems;
 
 import java.util.UUID;
 
 public class CompsognathusEntity extends TamableDinosaurEntity implements Angerable {
-    public static final TrackedData<Boolean> HAS_EGG =
-            DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    public static final TrackedData<Boolean> EggLaying =
-            DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    public static final TrackedData<Boolean> SITTING =
-            DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    int eggLayingCounter;
 
     private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
@@ -62,7 +57,7 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
             DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public CompsognathusEntity(EntityType<? extends CompsognathusEntity> entityType, World world) {
-        super(entityType, world);
+        super(entityType, world, ModItems.SILVER_SCARAB);
         this.setTamed(false, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 10.0F);
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, 10.0F);
@@ -193,8 +188,8 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
         this.goalSelector.add(3, new SitGoal(this));
-        this.goalSelector.add(4, new MateGoal(this, 1.0F));
-        this.goalSelector.add(5, new LayEggGoal(this, 1.0F));
+        this.goalSelector.add(4, new TamableDinosaurMateGoal(this, 1.0F));
+        this.goalSelector.add(5, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.COMPSOGNATHUS_EGG, 400));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.0F, true));
         this.goalSelector.add(7, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
@@ -206,50 +201,6 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
         this.targetSelector.add(4, new ActiveTargetGoal(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
         this.targetSelector.add(5, new ActiveTargetGoal(this, HypsilophodonEntity.class, true));
         this.targetSelector.add(6, new UniversalAngerGoal(this, true));
-    }
-
-    public ActionResult interactMob(PlayerEntity player, Hand hand) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        Item item = itemStack.getItem();
-        if (this.isTamed()) {
-            if (this.isBreedingItem(itemStack) && this.getHealth() < this.getMaxHealth()) {
-                this.eat(player, hand, itemStack);
-                FoodComponent foodComponent = itemStack.get(DataComponentTypes.FOOD);
-                float f = foodComponent != null ? (float)foodComponent.nutrition() : 1.0F;
-                this.heal(2.0F * f);
-                return ActionResult.SUCCESS;
-            }else {
-                ActionResult actionResult = super.interactMob(player, hand);
-                if (!actionResult.isAccepted() && this.isOwner(player)) {
-                    this.setSitting(!isSittingDownNow());
-                    this.setSittingDown(!isSittingDownNow());
-                    this.jumping = false;
-                    this.navigation.stop();
-                    return ActionResult.SUCCESS.noIncrementStat();
-                } else {
-                    return actionResult;
-                }
-            }
-        }else if (!this.getWorld().isClient && itemStack.isOf(ModItems.SILVER_SCARAB) && !this.hasAngerTime()) {
-            itemStack.decrementUnlessCreative(1, player);
-            this.tryTame(player);
-            return ActionResult.SUCCESS_SERVER;
-        }
-        return super.interactMob(player, hand);
-    }
-
-    private void tryTame(PlayerEntity player) {
-        if (this.random.nextInt(3) == 0) {
-            this.setOwner(player);
-            this.navigation.stop();
-            this.setTarget(null);
-            this.setSitting(true);
-            this.setSittingDown(true);
-            this.getWorld().sendEntityStatus(this, (byte)7);
-        } else {
-            this.getWorld().sendEntityStatus(this, (byte)6);
-        }
-
     }
 
     public int getAngerTime() {
@@ -298,8 +249,6 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
-        this.setHasEgg(nbt.getBoolean("HasEgg"));
-        this.setSittingDown(nbt.getBoolean("Sitting"));
         this.readAngerFromNbt(this.getWorld(), nbt);
     }
 
@@ -307,8 +256,6 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         nbt.putInt("Variant", this.getTypeVariant());
-        nbt.putBoolean("HasEgg", this.hasEgg());
-        nbt.putBoolean("Sitting", this.isSittingDownNow());
         this.writeAngerToNbt(nbt);
     }
 
@@ -320,21 +267,10 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
         }
     }
 
-    void setSittingDown(boolean sitting) {
-        this.dataTracker.set(SITTING, sitting);
-    }
-
-    public boolean isSittingDownNow() {
-        return this.dataTracker.get(SITTING);
-    }
-
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
         builder.add(DATA_ID_TYPE_VARIANT, 0);
-        builder.add(HAS_EGG, false);
-        builder.add(EggLaying, false);
-        builder.add(SITTING, false);
         builder.add(ANGER_TIME, 0);
     }
 
@@ -356,99 +292,5 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
         CompsognathusVariant variant = Util.getRandom(CompsognathusVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
-    }
-
-    //egg
-
-    public boolean hasEgg() {
-        return this.dataTracker.get(HAS_EGG);
-    }
-
-    void setHasEgg(boolean hasEgg) {
-        this.dataTracker.set(HAS_EGG, hasEgg);
-    }
-
-    public boolean isDiggingSand() {
-        return this.dataTracker.get(EggLaying);
-    }
-
-    void setDiggingSand(boolean diggingSand) {
-        this.eggLayingCounter = diggingSand ? 1 : 0;
-        this.dataTracker.set(EggLaying, diggingSand);
-    }
-
-    static class MateGoal extends AnimalMateGoal {
-        private final CompsognathusEntity entity;
-
-        MateGoal(CompsognathusEntity entity, double speed) {
-            super(entity, speed);
-            this.entity = entity;
-        }
-
-        public boolean canStart() {
-            return super.canStart() && !this.entity.hasEgg() && entity.isTamed();
-        }
-
-        protected void breed() {
-            ServerPlayerEntity serverPlayerEntity = this.animal.getLovingPlayer();
-            if (serverPlayerEntity == null && this.mate.getLovingPlayer() != null) {
-                serverPlayerEntity = this.mate.getLovingPlayer();
-            }
-
-            if (serverPlayerEntity != null) {
-                serverPlayerEntity.incrementStat(Stats.ANIMALS_BRED);
-                Criteria.BRED_ANIMALS.trigger(serverPlayerEntity, this.animal, this.mate, (PassiveEntity)null);
-            }
-
-            this.entity.setHasEgg(true);
-            this.animal.setBreedingAge(6000);
-            this.mate.setBreedingAge(6000);
-            this.animal.resetLoveTicks();
-            this.mate.resetLoveTicks();
-            Random random = this.animal.getRandom();
-            if (castToServerWorld(this.world).getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
-                this.world.spawnEntity(new ExperienceOrbEntity(this.world, this.animal.getX(), this.animal.getY(), this.animal.getZ(), random.nextInt(7) + 1));
-            }
-
-        }
-    }
-
-    static class LayEggGoal extends MoveToTargetPosGoal {
-        private final CompsognathusEntity entity;
-
-        LayEggGoal(CompsognathusEntity entity, double speed) {
-            super(entity, speed, 16);
-            this.entity = entity;
-        }
-
-        public boolean canStart() {
-            return this.entity.hasEgg();
-        }
-
-        public void tick() {
-            super.tick();
-            BlockPos blockPos = this.entity.getBlockPos();
-            if (canStart()) {
-                if (this.entity.eggLayingCounter < 1) {
-                    this.entity.setDiggingSand(true);
-                } else if (this.entity.eggLayingCounter > this.getTickCount(400)) {//takes about 4 seconds to lay an egg
-                    World world = this.entity.getWorld();
-                    world.playSound((PlayerEntity)null, blockPos, SoundEvents.ENTITY_TURTLE_LAY_EGG, SoundCategory.BLOCKS, 0.3F, 0.9F + world.random.nextFloat() * 0.2F);
-                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.COMPSOGNATHUS_EGG.getDefaultState());
-                    this.entity.setHasEgg(false);
-                    this.entity.setDiggingSand(false);
-                    this.entity.setLoveTicks(600);
-                }
-
-                if (this.entity.isDiggingSand()) {
-                    ++this.entity.eggLayingCounter;
-                }
-            }
-
-        }
-
-        protected boolean isTargetPos(WorldView world, BlockPos pos) {
-            return world.isAir(pos.up());
-        }
     }
 }
