@@ -143,7 +143,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
                 --this.sitAnimationTimeout;
             }
         }
-        if (isSittingDown) {
+        if (isSittingDown && isSittingDownNow()) {
             if (this.sittingAnimationTimeout <= 0) {
                 this.sittingAnimationTimeout = 21;//animation time in seconds *20
                 this.sittingdownAnimationState.start(this.age);
@@ -151,6 +151,9 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
             } else {
                 --this.sittingAnimationTimeout;
             }
+        }else{
+            sittingdownAnimationState.stop();
+            sittingAnimationTimeout = 0;
         }
         if (isStandingUp) {
             if (this.standingAnimationTimeout <= 0) {

@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
@@ -26,9 +27,13 @@ public class TamableDinosaurEntity extends TameableEntity {
             DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> EggLaying =
             DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    public int eggLayingCounter;
     public static final TrackedData<Boolean> SITTING =
             DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    public int eggLayingCounter;
+    public static final TrackedData<Boolean> FOLLOWING =
+            DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    public static final TrackedData<Boolean> WANDERING =
+            DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     public Item Scarab;
 
@@ -50,16 +55,43 @@ public class TamableDinosaurEntity extends TameableEntity {
             }else {
                 ActionResult actionResult = super.interactMob(player, hand);
                 if (!actionResult.isAccepted() && this.isOwner(player)) {
-                    this.setSitting(!isSittingDownNow());
-                    this.setSittingDown(!isSittingDownNow());
-                    this.jumping = false;
-                    this.navigation.stop();
-                    return ActionResult.SUCCESS.noIncrementStat();
-                } else {
-                    return actionResult;
+                    if(isFollowing()) {
+                        this.setSitting(true);
+                        this.setSittingDown(true);
+                        this.setFollowing(false);
+                        this.setWandering(false);
+                        this.jumping = false;
+                        this.navigation.stop();
+                        player.sendMessage(Text.of("Sitting"), true);
+
+                        return ActionResult.SUCCESS.noIncrementStat();
+                    }else if(isSittingDownNow()){
+                        this.setSitting(false);
+                        this.setSittingDown(false);
+                        this.setFollowing(false);
+                        this.setWandering(true);
+                        this.jumping = false;
+                        this.navigation.stop();
+                        player.sendMessage(Text.of("Wandering"), true);
+
+                        return ActionResult.SUCCESS.noIncrementStat();
+                    }else if(isWandering()){
+                        this.setSitting(false);
+                        this.setSittingDown(false);
+                        this.setFollowing(true);
+                        this.setWandering(false);
+                        this.jumping = false;
+                        this.navigation.stop();
+                        player.sendMessage(Text.of("Following"), true);
+
+                        return ActionResult.SUCCESS.noIncrementStat();
+                    }
+                }
+                else {
+                    return ActionResult.FAIL;
                 }
             }
-        }else if (!this.getWorld().isClient && itemStack.isOf(Scarab)) {//set to gold scarab as it comes from cretaceous
+        }else if (!this.getWorld().isClient && itemStack.isOf(Scarab)) {
             itemStack.decrementUnlessCreative(1, player);
             this.tryTame(player);
             return ActionResult.SUCCESS_SERVER;
@@ -87,6 +119,8 @@ public class TamableDinosaurEntity extends TameableEntity {
         super.readCustomDataFromNbt(nbt);
         this.setHasEgg(nbt.getBoolean("HasEgg"));
         this.setSittingDown(nbt.getBoolean("Sitting"));
+        this.setWandering(nbt.getBoolean("Wandering"));
+        this.setFollowing(nbt.getBoolean("Following"));
     }
 
     @Override
@@ -94,6 +128,8 @@ public class TamableDinosaurEntity extends TameableEntity {
         super.writeCustomDataToNbt(nbt);
         nbt.putBoolean("HasEgg", this.hasEgg());
         nbt.putBoolean("Sitting", this.isSittingDownNow());
+        nbt.putBoolean("Wandering", this.isWandering());
+        nbt.putBoolean("Following", this.isFollowing());
     }
 
     public void setSittingDown(boolean sitting) {
@@ -104,12 +140,22 @@ public class TamableDinosaurEntity extends TameableEntity {
         return (Boolean)this.dataTracker.get(SITTING);
     }
 
+    public void setWandering(boolean wandering){this.dataTracker.set(WANDERING, wandering);}
+
+    public boolean isWandering(){return (Boolean)this.dataTracker.get(WANDERING);}
+
+    public void setFollowing(boolean following){this.dataTracker.set(FOLLOWING, following);}
+
+    public boolean isFollowing(){return (Boolean)this.dataTracker.get(FOLLOWING);}
+
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
         builder.add(HAS_EGG, false);
         builder.add(EggLaying, false);
         builder.add(SITTING, false);
+        builder.add(FOLLOWING, false);
+        builder.add(WANDERING, true);
     }
 
     public boolean hasEgg() {

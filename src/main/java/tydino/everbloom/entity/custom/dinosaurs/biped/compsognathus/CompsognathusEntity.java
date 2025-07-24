@@ -116,7 +116,7 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
                 --this.sitAnimationTimeout;
             }
         }
-        if (isSittingDown) {
+        if (isSittingDown && isSittingDownNow()) {
             if (this.sittingAnimationTimeout <= 0) {
                 this.sittingAnimationTimeout = 21;//animation time in seconds *20
                 this.sittingdownAnimationState.start(this.age);
@@ -124,6 +124,9 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
             } else {
                 --this.sittingAnimationTimeout;
             }
+        }else{
+            this.sittingdownAnimationState.stop();
+            sittingAnimationTimeout = 0;
         }
         if (isStandingUp) {
             if (this.standingAnimationTimeout <= 0) {

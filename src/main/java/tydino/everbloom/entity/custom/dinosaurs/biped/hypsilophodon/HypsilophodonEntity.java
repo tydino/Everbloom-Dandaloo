@@ -93,7 +93,7 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
                 --this.sitAnimationTimeout;
             }
         }
-        if (isSittingDown) {
+        if (isSittingDown && isSittingDownNow()) {
             if (this.sittingAnimationTimeout <= 0) {
                 this.sittingAnimationTimeout = 21;//animation time in seconds *20
                 this.sittingdownAnimationState.start(this.age);
@@ -101,6 +101,9 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
             } else {
                 --this.sittingAnimationTimeout;
             }
+        }else{
+            this.sittingdownAnimationState.stop();
+            sittingAnimationTimeout = 0;
         }
         if (isStandingUp) {
             if (this.standingAnimationTimeout <= 0) {
