@@ -208,7 +208,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
     }
 
     public Boolean IsGliding() {
-        return this.getY() > 1.5D;
+        return !this.isOnGround();
     };
 
     //operational code
