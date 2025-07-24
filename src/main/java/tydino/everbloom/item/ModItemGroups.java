@@ -126,6 +126,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_HYPSILOPHODON);
                         entries.add(ModItems.SPAWN_COPSOGNATHUS);
                         entries.add(ModItems.SPAWN_ARCHAEOPTRYX);
+                        entries.add(ModItems.SPAWN_PARASAUROLOPHUS);
                         //nondocile
                         entries.add(ModItems.SPAWN_AGGRESSIVE_MEGANEURA);
                         entries.add(ModItems.SPAWN_UNTAMABLE_HYPSILOPHODON);

@@ -17,6 +17,8 @@ import tydino.everbloom.entity.client.dinosaurs.bipeds.hypsilophodon.Hypsilophod
 import tydino.everbloom.entity.client.dinosaurs.bipeds.hypsilophodon.HypsilophodonRenderer;
 import tydino.everbloom.entity.client.dinosaurs.insectoids.meganeura.MeganeuraModel;
 import tydino.everbloom.entity.client.dinosaurs.insectoids.meganeura.MeganeuraRenderer;
+import tydino.everbloom.entity.client.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusModel;
+import tydino.everbloom.entity.client.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusRenderer;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.screen.custom.FrotherScreen;
 import tydino.everbloom.screen.custom.GriddleTierOneScreen;
@@ -82,6 +84,10 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ArchaeopteryxModel.ARCHAEOPTERYX, ArchaeopteryxModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX, ArchaeopteryxRenderer::new);
         EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX_UNTAMABLE, ArchaeopteryxRenderer::new);
+
+        //quadrepeds
+        EntityModelLayerRegistry.registerModelLayer(ParasaurolophusModel.PARASAUROLOPHUS, ParasaurolophusModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.PARASAUROLOPHUS, ParasaurolophusRenderer::new);
 
         //entities
 

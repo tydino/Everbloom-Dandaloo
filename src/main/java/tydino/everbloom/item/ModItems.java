@@ -84,6 +84,9 @@ public class ModItems {
     public static final Item SPAWN_ARCHAEOPTRYX = registerItem("spawn-archaeopteryx", setting -> new SpawnEggItem(ModEntities.ARCHAEOPTERYX, setting));
     public static final Item SPAWN_UNTAMABLE_ARCHAEOPTRYX = registerItem("spawn-untamable_archaeopteryx", setting -> new SpawnEggItem(ModEntities.ARCHAEOPTERYX_UNTAMABLE, setting));
 
+    //quadrepeds
+    public static final Item SPAWN_PARASAUROLOPHUS = registerItem("spawn-parasaurolophus", setting -> new SpawnEggItem(ModEntities.PARASAUROLOPHUS, setting));
+
     //ores
 
     //alumium

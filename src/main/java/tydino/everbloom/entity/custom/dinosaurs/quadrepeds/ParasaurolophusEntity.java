@@ -1,8 +1,10 @@
-package tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon;
+package tydino.everbloom.entity.custom.dinosaurs.quadrepeds;
 
-import net.minecraft.entity.*;
+import net.minecraft.entity.AnimationState;
+import net.minecraft.entity.EntityData;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -10,41 +12,41 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurMateGoal;
 import tydino.everbloom.item.ModItems;
 
-public class HypsilophodonEntity extends TamableDinosaurEntity {
+public class ParasaurolophusEntity extends TamableDinosaurEntity {
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
-            DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
+            DataTracker.registerData(ParasaurolophusEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    public HypsilophodonEntity(EntityType<? extends HypsilophodonEntity> entityType, World world) {
-        super(entityType, world, ModItems.SILVER_SCARAB);///set to gold as it is from cretaceous
+    public ParasaurolophusEntity(EntityType<? extends ParasaurolophusEntity> entityType, World world) {
+        super(entityType, world, ModItems.SILVER_SCARAB);///switch to gold for cretaceous
         this.setTamed(false, false);
-        this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 10.0F);
-        this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, 15.0F);
-        this.setPathfindingPenalty(PathNodeType.DANGER_POWDER_SNOW, 10.0F);
     }
     //animation code
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+
+    public final AnimationState eatAnimationState = new AnimationState();
 
     boolean isIdle(){
         return !isSitting() && !isInDanger();
@@ -172,7 +174,7 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new TamableDinosaurFollowingGoal(this, (double)1.0F, 10.0F, 2.0F));
         this.goalSelector.add(3, new TamableDinosaurMateGoal(this, 1.0F));
-        this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.HYPSILOPHODON_EGG, 400));
+        ///this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.PARASAUROLOPHUS_EGG, 400));//needs done
         this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
         this.goalSelector.add(6, new WanderAroundFarGoal(this, (double)1.0F));
@@ -182,8 +184,8 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
     }
 
     @Nullable
-    public HypsilophodonEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.HYPSILOPHODON.create(world, SpawnReason.BREEDING);
+    public ParasaurolophusEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
+        return ModEntities.PARASAUROLOPHUS.create(world, SpawnReason.BREEDING);
     }
 
     @Override
@@ -191,12 +193,12 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
         return BREEDING_INGREDIENT.test(stack);
     }
 
-    public static DefaultAttributeContainer.Builder createHypsilophodonAttributes()
+    public static DefaultAttributeContainer.Builder createParasaurolophusAttributes()
     {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.MAX_HEALTH, 20)
-                .add(EntityAttributes.MOVEMENT_SPEED, .2f)
-                .add(EntityAttributes.TEMPT_RANGE, 15);
+                .add(EntityAttributes.MAX_HEALTH, 100)
+                .add(EntityAttributes.MOVEMENT_SPEED, .3f)
+                .add(EntityAttributes.TEMPT_RANGE, 20);
 
     }
 
@@ -219,22 +221,22 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
         builder.add(DATA_ID_TYPE_VARIANT, 0);
     }
 
-    public HypsilophodonVariant getVariant() {
-        return HypsilophodonVariant.byId(this.getTypeVariant() & 255);
+    public ParasaurolophusVariant getVariant() {
+        return ParasaurolophusVariant.byId(this.getTypeVariant() & 255);
     }
 
     private int getTypeVariant() {
         return this.dataTracker.get(DATA_ID_TYPE_VARIANT);
     }
 
-    private void setVariant(HypsilophodonVariant variant) {
+    private void setVariant(ParasaurolophusVariant variant) {
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason,
                                  @Nullable EntityData entityData) {
-        HypsilophodonVariant variant = Util.getRandom(HypsilophodonVariant.values(), this.random);
+        ParasaurolophusVariant variant = Util.getRandom(ParasaurolophusVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
     }

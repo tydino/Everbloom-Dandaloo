@@ -23,6 +23,7 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.Hypsilophodo
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.NontamableHypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveMeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
+import tydino.everbloom.entity.custom.dinosaurs.quadrepeds.ParasaurolophusEntity;
 import tydino.everbloom.item.ModItems;
 
 public class ModEntities {
@@ -74,6 +75,10 @@ public class ModEntities {
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "archaeopteryx"));
     static final RegistryKey<EntityType<?>> ARCHAEOPTERYX_UNTAMABLE_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "archaeopteryx_untamable"));
+
+    //quadrepeds
+    static final RegistryKey<EntityType<?>> PARASAUROLOPHUS_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "parasaurolophus"));
 
     ///registering mobs         /*       stop        here      */
 
@@ -150,6 +155,14 @@ public class ModEntities {
             EntityType.Builder.create(NontamableArchaeoptryxEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.25f, 0.5f).build(ARCHAEOPTERYX_UNTAMABLE_KEY));
 
+    //quadreped
+
+    //parasaurolophus
+    public static EntityType<ParasaurolophusEntity> PARASAUROLOPHUS = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "parasaurolophus"),
+            EntityType.Builder.create(ParasaurolophusEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(2f, 3f).build(PARASAUROLOPHUS_KEY));
+
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
 
@@ -190,5 +203,10 @@ public class ModEntities {
         //archaeopteryx
         FabricDefaultAttributeRegistry.register(ModEntities.ARCHAEOPTERYX, ArchaeopteryxEntity.createArchaeopteryxAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.ARCHAEOPTERYX_UNTAMABLE, NontamableArchaeoptryxEntity.createArchaeoptryxAttributes());
+
+        //quadrepeds
+
+        //parasaurolophus
+        FabricDefaultAttributeRegistry.register(ModEntities.PARASAUROLOPHUS, ParasaurolophusEntity.createParasaurolophusAttributes());
     }
 }

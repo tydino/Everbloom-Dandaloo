@@ -29,7 +29,7 @@ public class ArchaeopteryxRenderer extends MobEntityRenderer<ArchaeopteryxEntity
             });
 
     public ArchaeopteryxRenderer(EntityRendererFactory.Context context) {
-        super(context, new ArchaeopteryxModel(context.getPart(ArchaeopteryxModel.ARCHAEOPTERYX)), 0.5f);//shadow is set by f
+        super(context, new ArchaeopteryxModel(context.getPart(ArchaeopteryxModel.ARCHAEOPTERYX)), 0.25f);//shadow is set by f
 
     }
     @Override
