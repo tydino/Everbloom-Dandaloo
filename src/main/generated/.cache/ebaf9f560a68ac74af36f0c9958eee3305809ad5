@@ -9,6 +9,7 @@
 727c4381dc2794ec97dae16767b5d5f037ad68b1 assets/everbloom/blockstates/frother.json
 86478a76f3a4ca2a834761f853cd3f6ebb3673a9 assets/everbloom/blockstates/hypsilophodon_egg.json
 06f4d27c5526f79c601a12263280ce2ec1e29bb2 assets/everbloom/blockstates/meganeura_egg.json
+928cc55717811c9913db815efa936c93e7e0edda assets/everbloom/blockstates/parasaurolophus_egg.json
 5cdfc18306c6e0165066d3a9a3b50d4f0d437eb8 assets/everbloom/blockstates/power_hectogon_tier_one.json
 9c7d96ac3d3c43930c125ae91fba36e1f39d8f96 assets/everbloom/blockstates/power_storage_tier_one.json
 8e9a593f7b52bc648cb9586541a3c413e5e25798 assets/everbloom/blockstates/silicon_block.json
@@ -50,6 +51,7 @@ c53bc7d2510b137a9d2d5cea5388e6cdd93ba924 assets/everbloom/items/mallard_meat.jso
 20571e32b20cd16a8b29e5bfdd5feecbf6215e58 assets/everbloom/items/meganeura_egg.json
 5ee73ac2d7c5f48174be716228cebacbc116d33b assets/everbloom/items/metal_bowl.json
 cf26cc3ef5789218d13085242251de08ef0734ef assets/everbloom/items/metal_sheet.json
+21d69ed983de72bf61fb93ef132002f72d5df072 assets/everbloom/items/parasaurolophus_egg.json
 9aed07b12331cd85c9f6fd1cd1eade2935f60467 assets/everbloom/items/pizza_dough.json
 bac42fe5fe606a49241667e0cbdfea194ce22010 assets/everbloom/items/power_hectogon_tier_one.json
 de5748da694e2fea2fca229b5902bed9cc905605 assets/everbloom/items/power_meter.json
@@ -72,6 +74,7 @@ b305a5c91bbd3fb0684e2c89266703bd74d6c7b2 assets/everbloom/items/spawn-dagger-sta
 805f069299b379fe5002cc129ef65260c20d7284 assets/everbloom/items/spawn-hypsilophodon.json
 ce76b5234977cd5fb15ff9102e4271b8620c7a8b assets/everbloom/items/spawn-mallard.json
 a9da40552fa6f413aea77264fd7a2bb337abf6c3 assets/everbloom/items/spawn-meganeura.json
+1db8afcc953d3035053e10275bbb79235cbad80f assets/everbloom/items/spawn-parasaurolophus.json
 fb3517aaa17ecffc9d459129ca6a1a217d402dc4 assets/everbloom/items/spawn-toad.json
 a42e6706176bb3afacc93ff596572afe10108a5c assets/everbloom/items/spawn-tortoise.json
 66cbf5fe3de0d7595edfd892a6be249623da8293 assets/everbloom/items/spawn-untamable_archaeopteryx.json
@@ -137,6 +140,7 @@ c32f2553ccbfb50f21b70301053422cf4e24a3b0 assets/everbloom/models/item/spawn-comp
 c5154a86b7acd237b15be16dbbd23afc902f3c60 assets/everbloom/models/item/spawn-hypsilophodon.json
 4d710f00e084aa990993705b87081640765808dc assets/everbloom/models/item/spawn-mallard.json
 74d8f0b07b0c019c9ad5c3897623b8029bdab321 assets/everbloom/models/item/spawn-meganeura.json
+f8e198f6897dfcdbc8a3f9b344ac9d12731a9209 assets/everbloom/models/item/spawn-parasaurolophus.json
 cc9262157833cd0528f50e4c118c4c7bce29765f assets/everbloom/models/item/spawn-toad.json
 14fb2d3535af858190380d730b064d7effa4cd9a assets/everbloom/models/item/spawn-tortoise.json
 90a27b9ae2b8aeb32d36823f6a7e2ebd4c28a9d3 assets/everbloom/models/item/spawn-untamable_archaeopteryx.json

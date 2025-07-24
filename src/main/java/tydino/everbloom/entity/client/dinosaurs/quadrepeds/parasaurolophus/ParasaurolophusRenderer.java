@@ -27,7 +27,7 @@ public class ParasaurolophusRenderer extends MobEntityRenderer<ParasaurolophusEn
             });
 
     public ParasaurolophusRenderer(EntityRendererFactory.Context context) {
-        super(context, new ParasaurolophusModel(context.getPart(ParasaurolophusModel.PARASAUROLOPHUS)), 0.25f);//shadow size set as f
+        super(context, new ParasaurolophusModel(context.getPart(ParasaurolophusModel.PARASAUROLOPHUS)), 2f);//shadow size set as f
     }
 
     @Override

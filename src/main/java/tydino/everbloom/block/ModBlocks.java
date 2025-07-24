@@ -22,6 +22,7 @@ import tydino.everbloom.block.dinosaurs.bipeds.ArchaeopteryxEgg;
 import tydino.everbloom.block.dinosaurs.bipeds.CompsognathusEgg;
 import tydino.everbloom.block.dinosaurs.bipeds.HypsilophodonEgg;
 import tydino.everbloom.block.dinosaurs.insectoids.MeganeuraEgg;
+import tydino.everbloom.block.dinosaurs.quadrepeds.ParasaurolophusEgg;
 import tydino.everbloom.block.power.*;
 
 import java.util.function.Function;
@@ -74,6 +75,9 @@ public class ModBlocks {
     public static final Block COMPSOGNATHUS_EGG = registerBlock("compsognathus_egg", CompsognathusEgg::new);
 
     public static final Block ARCHAEOPTERYX_EGG = registerBlock("archaeopteryx_egg", ArchaeopteryxEgg::new);
+
+    //quadrepeds
+    public static final Block PARASAUROLOPHUS_EGG = registerBlock("parasaurolophus_egg", ParasaurolophusEgg::new);
 
     //cooking blocks
     public static final Block GRIDDLE_TIER_ONE = registerBlock("griddle_tier_one", GriddleTierOne::new);
