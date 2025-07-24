@@ -40,8 +40,7 @@ import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
-import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
-import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurMateGoal;
+import tydino.everbloom.entity.custom.dinosaurs.goals.*;
 import tydino.everbloom.item.ModItems;
 
 import java.util.UUID;
@@ -194,12 +193,12 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
         this.goalSelector.add(4, new TamableDinosaurMateGoal(this, 1.0F));
         this.goalSelector.add(5, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.COMPSOGNATHUS_EGG, 400));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.0F, true));
-        this.goalSelector.add(7, new FollowOwnerGoal(this, 1.0F, 10.0F, 2.0F));
+        this.goalSelector.add(7, new TamableDinosaurFollowingGoal(this, 1.0F, 10.0F, 2.0F));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(11, new LookAroundGoal(this));
-        this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
-        this.targetSelector.add(2, new AttackWithOwnerGoal(this));
+        this.targetSelector.add(1, new TamableDinosaurTrackOwnerAttackerGoal(this));
+        this.targetSelector.add(2, new TamableDinosaurAttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
         this.targetSelector.add(4, new ActiveTargetGoal(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
         this.targetSelector.add(5, new ActiveTargetGoal(this, HypsilophodonEntity.class, true));

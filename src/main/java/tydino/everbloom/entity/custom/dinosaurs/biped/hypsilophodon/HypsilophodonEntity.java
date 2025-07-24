@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
+import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurMateGoal;
 import tydino.everbloom.item.ModItems;
@@ -169,7 +170,7 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
         this.goalSelector.add(3, new SitGoal(this));
-        this.goalSelector.add(4, new FollowOwnerGoal(this, (double)1.0F, 10.0F, 2.0F));
+        this.goalSelector.add(4, new TamableDinosaurFollowingGoal(this, (double)1.0F, 10.0F, 2.0F));
         this.goalSelector.add(3, new TamableDinosaurMateGoal(this, 1.0F));
         this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.HYPSILOPHODON_EGG, 400));
         this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
