@@ -1,10 +1,11 @@
 package tydino.everbloom.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -15,6 +16,7 @@ import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.MallardEntity;
 import tydino.everbloom.entity.custom.ToadEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
+import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.archaeopteryx.ArchaeopteryxEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.archaeopteryx.NontamableArchaeoptryxEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
@@ -23,8 +25,8 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.Hypsilophodo
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.NontamableHypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveMeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
-import tydino.everbloom.entity.custom.dinosaurs.quadrepeds.ParasaurolophusEntity;
-import tydino.everbloom.item.ModItems;
+import tydino.everbloom.entity.custom.dinosaurs.quadrepeds.parasaurolophus.NontamableParasaurolophusEntity;
+import tydino.everbloom.entity.custom.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusEntity;
 
 public class ModEntities {
 
@@ -33,18 +35,6 @@ public class ModEntities {
     );*/
 
     //register keys for mobs
-
-    static final RegistryKey<EntityType<?>> MALLARD_KEY =
-            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"));
-
-    static final RegistryKey<EntityType<?>> DAGGER_STABBER_KEY =
-            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"));
-
-    static final RegistryKey<EntityType<?>> TORTOISE_KEY =
-            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "tortoise"));
-
-    static final RegistryKey<EntityType<?>> TOAD_KEY =
-            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "toad"));
 
     //dinosaurs
 
@@ -79,6 +69,8 @@ public class ModEntities {
     //quadrepeds
     static final RegistryKey<EntityType<?>> PARASAUROLOPHUS_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "parasaurolophus"));
+    static final RegistryKey<EntityType<?>> PARASAUROLOPHUS_UNTAMABLE_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "parasaurolophus_untamable"));
 
     ///registering mobs         /*       stop        here      */
 
@@ -87,26 +79,34 @@ public class ModEntities {
     public static final EntityType<MallardEntity> MALLARD = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"),
             EntityType.Builder.create(MallardEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.375f, 0.75f).build(MALLARD_KEY));//this sets hit box size
+                    .dimensions(0.375f, 0.75f).build(//this sets hit box size
+                            RegistryKey.of(RegistryKeys.ENTITY_TYPE,
+                                    Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"))));
 
     //dagger stabber
     public static final EntityType<DaggerStabberEntity> DAGGER_STABBER = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"),
             EntityType.Builder.create(DaggerStabberEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.375f, 1.75f).build(DAGGER_STABBER_KEY));
+                    .dimensions(0.375f, 1.75f).build(
+                            RegistryKey.of(RegistryKeys.ENTITY_TYPE,
+                                    Identifier.of(EverbloomDandaloo.MOD_ID, "dagger-stabber"))));
 
     //tortoise
 
     public static final EntityType<TortoiseEntity> TORTOISE = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(EverbloomDandaloo.MOD_ID, "tortoise"),
             EntityType.Builder.create(TortoiseEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.5f, 0.5f).build(TORTOISE_KEY));
+                    .dimensions(0.5f, 0.5f).build(RegistryKey.of(
+                            RegistryKeys.ENTITY_TYPE,
+                            Identifier.of(EverbloomDandaloo.MOD_ID, "tortoise"))));
 
     //toad
     public static final EntityType<ToadEntity> TOAD = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(EverbloomDandaloo.MOD_ID, "toad"),
             EntityType.Builder.create(ToadEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.625f, 0.5f).build(TOAD_KEY));
+                    .dimensions(0.625f, 0.5f).build(
+                            RegistryKey.of(RegistryKeys.ENTITY_TYPE,
+                                    Identifier.of(EverbloomDandaloo.MOD_ID, "toad"))));
 
     //dinosaurs
 
@@ -162,6 +162,10 @@ public class ModEntities {
             Identifier.of(EverbloomDandaloo.MOD_ID, "parasaurolophus"),
             EntityType.Builder.create(ParasaurolophusEntity::new, SpawnGroup.CREATURE)
                     .dimensions(2f, 3f).build(PARASAUROLOPHUS_KEY));
+    public static EntityType<NontamableParasaurolophusEntity> PARASAUROLOPHUS_UNTAMABLE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "parasaurolophus_untamable"),
+            EntityType.Builder.create(NontamableParasaurolophusEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(2f, 3f).build(PARASAUROLOPHUS_UNTAMABLE_KEY));
 
     public static void registerModEntities() {
         EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
@@ -208,5 +212,6 @@ public class ModEntities {
 
         //parasaurolophus
         FabricDefaultAttributeRegistry.register(ModEntities.PARASAUROLOPHUS, ParasaurolophusEntity.createParasaurolophusAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.PARASAUROLOPHUS_UNTAMABLE, NontamableParasaurolophusEntity.createParasaurolophusAttributes());
     }
 }

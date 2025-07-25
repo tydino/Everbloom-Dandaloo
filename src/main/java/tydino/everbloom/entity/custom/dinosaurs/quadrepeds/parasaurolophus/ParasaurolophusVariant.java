@@ -1,4 +1,4 @@
-package tydino.everbloom.entity.custom.dinosaurs.quadrepeds;
+package tydino.everbloom.entity.custom.dinosaurs.quadrepeds.parasaurolophus;
 
 import java.util.Arrays;
 import java.util.Comparator;

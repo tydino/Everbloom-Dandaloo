@@ -88,6 +88,7 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         //quadrepeds
         EntityModelLayerRegistry.registerModelLayer(ParasaurolophusModel.PARASAUROLOPHUS, ParasaurolophusModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.PARASAUROLOPHUS, ParasaurolophusRenderer::new);
+        EntityRendererRegistry.register(ModEntities.PARASAUROLOPHUS_UNTAMABLE, ParasaurolophusRenderer::new);
 
         //entities
 

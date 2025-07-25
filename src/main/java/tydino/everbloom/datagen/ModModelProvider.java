@@ -162,6 +162,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         //quadrepeds
         itemModelGenerator.register(ModItems.SPAWN_PARASAUROLOPHUS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SPAWN_UNTAMABLE_PARASAUROLOPHUS, Models.GENERATED);
 
         //scarabs
         itemModelGenerator.register(ModItems.SILVER_SCARAB, Models.GENERATED);

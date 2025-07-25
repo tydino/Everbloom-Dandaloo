@@ -86,6 +86,7 @@ public class ModItems {
 
     //quadrepeds
     public static final Item SPAWN_PARASAUROLOPHUS = registerItem("spawn-parasaurolophus", setting -> new SpawnEggItem(ModEntities.PARASAUROLOPHUS, setting));
+    public static final Item SPAWN_UNTAMABLE_PARASAUROLOPHUS = registerItem("spawn-untamable_parasaurolophus", setting -> new SpawnEggItem(ModEntities.PARASAUROLOPHUS_UNTAMABLE, setting));
 
     //ores
 

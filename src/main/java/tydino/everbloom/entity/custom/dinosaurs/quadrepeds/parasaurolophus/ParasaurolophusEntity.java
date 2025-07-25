@@ -1,4 +1,4 @@
-package tydino.everbloom.entity.custom.dinosaurs.quadrepeds;
+package tydino.everbloom.entity.custom.dinosaurs.quadrepeds.parasaurolophus;
 
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityData;
@@ -12,7 +12,6 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -27,7 +26,6 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
-import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurMateGoal;

@@ -133,6 +133,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_UNTAMABLE_HYPSILOPHODON);
                         entries.add(ModItems.SPAWN_UNTAMABLE_COPSOGNATHUS);
                         entries.add(ModItems.SPAWN_UNTAMABLE_ARCHAEOPTRYX);
+                        entries.add(ModItems.SPAWN_UNTAMABLE_PARASAUROLOPHUS);
 
                         //scarabs
                         entries.add(ModItems.SILVER_SCARAB);
