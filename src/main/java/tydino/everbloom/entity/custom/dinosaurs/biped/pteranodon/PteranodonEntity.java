@@ -1,0 +1,225 @@
+package tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon;
+
+import net.minecraft.entity.AnimationState;
+import net.minecraft.entity.EntityData;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Util;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+import tydino.everbloom.block.ModBlocks;
+import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
+import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
+import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
+import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurMateGoal;
+import tydino.everbloom.item.ModItems;
+
+public class PteranodonEntity extends TamableDinosaurEntity {
+    private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
+            DataTracker.registerData(PteranodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
+
+    protected PteranodonEntity(EntityType<? extends PteranodonEntity> entityType, World world) {
+        super(entityType, world, ModItems.SILVER_SCARAB);
+        this.setTamed(false, false);
+    }
+
+    //animation code
+    public final AnimationState idleAnimationState = new AnimationState();
+    private int idleAnimationTimeout = 0;
+
+    boolean isIdle(){
+        return !isSitting() /*&& !isInDanger()replace with is flying*/;
+    }
+
+    public final AnimationState flyAnimationState = new AnimationState();
+    private int flyAnimationTimeout = 0;
+
+    public final AnimationState sitAnimationState = new AnimationState();
+    private int sitAnimationTimeout = 0;
+    boolean properlySitting;
+    public final AnimationState sittingdownAnimationState = new AnimationState();
+    private int sittingAnimationTimeout = 0;
+    boolean isSittingDown;
+    public final AnimationState standingupAnimationState = new AnimationState();
+    private int standingAnimationTimeout = 0;
+    boolean isStandingUp;
+
+    private void setupAnimationStates() {
+        if (isIdle()) {
+            if (this.idleAnimationTimeout <= 0) {
+                this.idleAnimationTimeout = 160;//animation time in seconds *20
+                this.idleAnimationState.start(this.age);
+                this.flyAnimationState.stop();
+            } else {
+                --this.idleAnimationTimeout;
+            }
+        }
+
+        setUpSitting();
+        if (properlySitting) {
+            if (this.sitAnimationTimeout <= 0) {
+                this.sitAnimationTimeout = 40;//animation time in seconds *20
+                this.sitAnimationState.start(this.age);
+                this.sittingdownAnimationState.stop();
+            } else {
+                --this.sitAnimationTimeout;
+            }
+        }
+        if (isSittingDown && isSittingDownNow()) {
+            if (this.sittingAnimationTimeout <= 0) {
+                this.sittingAnimationTimeout = 11;//animation time in seconds *20
+                this.sittingdownAnimationState.start(this.age);
+                this.idleAnimationState.stop();
+            } else {
+                --this.sittingAnimationTimeout;
+            }
+        }else{
+            this.sittingdownAnimationState.stop();
+            sittingAnimationTimeout = 0;
+        }
+        if (isStandingUp) {
+            if (this.standingAnimationTimeout <= 0) {
+                this.standingAnimationTimeout = 11;//animation time in seconds *20
+                this.standingupAnimationState.start(this.age);
+                this.sitAnimationState.stop();
+                this.idleAnimationState.stop();
+            } else {
+                --this.standingAnimationTimeout;
+            }
+        }
+
+    }
+
+    void setUpSitting(){
+        if(!properlySitting && !isSittingDown && !isStandingUp && isSittingDownNow()){
+            isSittingDown = true;
+            sittingAnimationTimeout = 0;
+        } else if(!properlySitting && isSittingDown && !isStandingUp && isSittingDownNow()){
+            if(sittingAnimationTimeout == 1){
+                sittingAnimationTimeout = 0;
+                sitAnimationTimeout = 0;
+                isSittingDown = false;
+                properlySitting = true;
+            }
+        }else if(properlySitting && !isSittingDown && !isStandingUp && !isSittingDownNow()){
+            standingAnimationTimeout = 0;
+            sitAnimationTimeout = 0;
+            properlySitting = false;
+            isStandingUp = true;
+        }
+
+        if(isStandingUp && standingAnimationTimeout == 1){
+            isStandingUp = false;
+            properlySitting = false;
+            isSittingDown = false;
+            standingAnimationTimeout =0;
+            sitAnimationTimeout = 0;
+            sittingAnimationTimeout = 0;
+        }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.getWorld().isClient()){
+            setupAnimationStates();
+        }
+    }
+
+    //operation code
+
+    private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
+            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT, ModItems.MALLARD_MEAT, ModItems.COOKED_MALLARD_MEAT, ModItems.DAGER_STABBER_MEAT, ModItems.COOKED_DAGER_STABBER_MEAT
+    );
+
+    @Override
+    protected void initGoals() {
+        this.goalSelector.add(1, new SwimGoal(this));
+        this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
+        this.goalSelector.add(3, new SitGoal(this));
+        this.goalSelector.add(4, new TamableDinosaurFollowingGoal(this, (double)1.0F, 10.0F, 2.0F));
+        this.goalSelector.add(3, new TamableDinosaurMateGoal(this, 1.0F));
+        this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.PTERADON_EGG, 400));
+        this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
+        this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
+        this.goalSelector.add(6, new WanderAroundFarGoal(this, (double)1.0F));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
+
+    }
+
+    @Nullable
+    public PteranodonEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
+        return ModEntities.PTERANODON.create(world, SpawnReason.BREEDING);
+    }
+
+    @Override
+    public boolean isBreedingItem(ItemStack stack) {
+        return BREEDING_INGREDIENT.test(stack);
+    }
+
+    public static DefaultAttributeContainer.Builder createPteradonAttributes()
+    {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.MAX_HEALTH, 20)
+                .add(EntityAttributes.MOVEMENT_SPEED, .25f)
+                .add(EntityAttributes.TEMPT_RANGE, 15);
+
+    }
+
+    //variant
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
+    }
+
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.putInt("Variant", this.getTypeVariant());
+    }
+
+    @Override
+    protected void initDataTracker(DataTracker.Builder builder) {
+        super.initDataTracker(builder);
+        builder.add(DATA_ID_TYPE_VARIANT, 0);
+    }
+
+    public PteranodonVariant getVariant() {
+        return PteranodonVariant.byId(this.getTypeVariant() & 255);
+    }
+
+    private int getTypeVariant() {
+        return this.dataTracker.get(DATA_ID_TYPE_VARIANT);
+    }
+
+    private void setVariant(PteranodonVariant variant) {
+        this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
+    }
+
+    @Override
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason,
+                                 @Nullable EntityData entityData) {
+        PteranodonVariant variant = Util.getRandom(PteranodonVariant.values(), this.random);
+        setVariant(variant);
+        return super.initialize(world, difficulty, spawnReason, entityData);
+    }
+}

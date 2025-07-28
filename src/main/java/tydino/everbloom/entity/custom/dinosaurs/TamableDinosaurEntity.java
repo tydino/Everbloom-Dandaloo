@@ -23,6 +23,8 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.Hypsilophodo
 import tydino.everbloom.item.ModItems;
 
 public class TamableDinosaurEntity extends TameableEntity {
+    public boolean isEating;
+
     public static final TrackedData<Boolean> HAS_EGG =
             DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     public static final TrackedData<Boolean> EggLaying =
@@ -47,6 +49,7 @@ public class TamableDinosaurEntity extends TameableEntity {
         Item item = itemStack.getItem();
         if (this.isTamed()) {
             if (this.isBreedingItem(itemStack) && this.getHealth() < this.getMaxHealth()) {
+                setEating(true);
                 this.eat(player, hand, itemStack);
                 FoodComponent foodComponent = (FoodComponent)itemStack.get(DataComponentTypes.FOOD);
                 float f = foodComponent != null ? (float)foodComponent.nutrition() : 1.0F;
@@ -156,6 +159,14 @@ public class TamableDinosaurEntity extends TameableEntity {
         builder.add(SITTING, false);
         builder.add(FOLLOWING, false);
         builder.add(WANDERING, true);
+    }
+
+    public boolean IsEating() {
+        return this.isEating;
+    }
+
+    public void setEating(boolean eating){
+        this.isEating = eating;
     }
 
     public boolean hasEgg() {

@@ -24,11 +24,11 @@ import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
+//give parasaurolophus and pteranodon eating animations properly.
 //add a burrowing mob that works like a bees (toad) that drops slime
 //make the way to get the dinosaurs
 //add full scarab list for taming dinos (bronze, silver(has item just needs mob), and gold beatles)
 //add rubber trees
-//make the scarabs (used for dinosaur taming)
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
 //make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
 //use this open source mod to make a hideable block set simmilar to carpentersblocks https://github.com/LoremVIpsum/OpenSimpleFrames/tree/main

@@ -7,6 +7,7 @@ import tydino.everbloom.entity.animation.animations.TortoiseAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.ArchaeopteryxAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.CompsognathusAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.HypsilophodonAnimations;
+import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.PteranodonAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.insectoids.MeganeuraAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.quadrepeds.ParasaurolophusAnimations;
 
@@ -25,6 +26,8 @@ public class ModAnimations {
     public static HypsilophodonAnimations HYPSILOPHODON_ANIMATIONS;
     public static CompsognathusAnimations COMPSOGNATHUS_ANIMATIONS;
     public static ArchaeopteryxAnimations ARCHAEOPTERYX_ANIMATIONS;
+
+    public static PteranodonAnimations PTERANODON_ANIMATIONS;
 
     //quadrepeds
     public static ParasaurolophusAnimations PARASAUROLOPHUS_ANIMATIONS;
