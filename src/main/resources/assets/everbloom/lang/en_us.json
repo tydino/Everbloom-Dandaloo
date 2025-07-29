@@ -9,7 +9,8 @@
   "block.everbloom.hypsilophodon_egg": "Hypsilophodon Egg",
   "block.everbloom.compsognathus_egg": "Compsognathus Egg",
   "block.everbloom.archaeopteryx_egg": "Archaeopteryx Egg",
-  "block.everbloom.parasaurolophus_egg": "Archaeopteryx Egg",
+  "block.everbloom.pteranodon_egg": "Pteranodon Egg",
+  "block.everbloom.parasaurolophus_egg": "Parasaurolophus Egg",
 
   "item.everbloom.cooked_egg": "Cooked Egg",
 
@@ -68,6 +69,9 @@
   "entity.everbloom.archaeopteryx_untamable": "Archaeopteryx",
   "item.everbloom.spawn-archaeopteryx": "Archaeopteryx Spawn Egg",
   "item.everbloom.spawn-untamable_archaeopteryx": "Untamable Archaeopteryx Spawn Egg",
+
+  "entity.everbloom.pteranodon": "Pteranodon",
+  "item.everbloom.spawn-pteranodon": "Pteranodon Spawn Egg",
 
 
   "entity.everbloom.parasaurolophus": "Parasaurolophus",

@@ -12,7 +12,9 @@ import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -23,6 +25,15 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.Hypsilophodo
 import tydino.everbloom.item.ModItems;
 
 public class TamableDinosaurEntity extends TameableEntity {
+
+    public static final Ingredient CARNIVORE = Ingredient.ofItems(
+            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT, ModItems.MALLARD_MEAT, ModItems.COOKED_MALLARD_MEAT, ModItems.DAGER_STABBER_MEAT, ModItems.COOKED_DAGER_STABBER_MEAT
+    );
+
+    public static final Ingredient HERBIVORE = Ingredient.ofItems(
+            Items.ACACIA_LEAVES, Items.AZALEA_LEAVES, Items.OAK_LEAVES, Items.BIRCH_LEAVES, Items.DARK_OAK_LEAVES, Items.CHERRY_LEAVES, Items.FLOWERING_AZALEA_LEAVES, Items.PALE_OAK_LEAVES, Items.MANGROVE_LEAVES, Items.SPRUCE_LEAVES, Items.JUNGLE_LEAVES, Items.WHEAT, Items.BEETROOT, Items.POTATO, Items.BAKED_POTATO, Items.BREAD
+    );
+
     public boolean isEating;
 
     public static final TrackedData<Boolean> HAS_EGG =

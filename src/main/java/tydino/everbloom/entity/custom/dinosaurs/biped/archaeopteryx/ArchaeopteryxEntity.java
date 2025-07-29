@@ -227,10 +227,6 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
         return super.isInvulnerableTo(world, source);
     }
 
-    private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
-            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT, ModItems.MALLARD_MEAT, ModItems.COOKED_MALLARD_MEAT, ModItems.DAGER_STABBER_MEAT, ModItems.COOKED_DAGER_STABBER_MEAT
-    );
-
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
@@ -240,6 +236,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
         this.goalSelector.add(4, new TamableDinosaurMateGoal(this, 1.0F));
         this.goalSelector.add(5, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.ARCHAEOPTERYX_EGG, 600));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.0F, true));
+        this.goalSelector.add(7, new TemptGoal(this, 1.05f, CARNIVORE, false));
         this.goalSelector.add(7, new TamableDinosaurFollowingGoal(this, 1.0F, 10.0F, 2.0F));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
@@ -280,7 +277,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return BREEDING_INGREDIENT.test(stack);
+        return CARNIVORE.test(stack);
     }
 
     public static DefaultAttributeContainer.Builder createArchaeopteryxAttributes()

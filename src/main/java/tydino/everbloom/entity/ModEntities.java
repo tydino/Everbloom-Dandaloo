@@ -23,6 +23,7 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.Compsognathu
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.NontamableCompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.NontamableHypsilophodonEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon.PteranodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveMeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.quadrepeds.parasaurolophus.NontamableParasaurolophusEntity;
@@ -65,6 +66,10 @@ public class ModEntities {
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "archaeopteryx"));
     static final RegistryKey<EntityType<?>> ARCHAEOPTERYX_UNTAMABLE_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "archaeopteryx_untamable"));
+
+    //pteranodon
+    static final RegistryKey<EntityType<?>> PTERANODON_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "pteranodon"));
 
     //quadrepeds
     static final RegistryKey<EntityType<?>> PARASAUROLOPHUS_KEY =
@@ -155,6 +160,12 @@ public class ModEntities {
             EntityType.Builder.create(NontamableArchaeoptryxEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.25f, 0.5f).build(ARCHAEOPTERYX_UNTAMABLE_KEY));
 
+    //pteranodon
+    public static EntityType<PteranodonEntity> PTERANODON = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "pteranodon"),
+            EntityType.Builder.create(PteranodonEntity::new, SpawnGroup.CREATURE)
+                    .dimensions(0.5f, 0.75f).build(PTERANODON_KEY));
+
     //quadreped
 
     //parasaurolophus
@@ -207,6 +218,9 @@ public class ModEntities {
         //archaeopteryx
         FabricDefaultAttributeRegistry.register(ModEntities.ARCHAEOPTERYX, ArchaeopteryxEntity.createArchaeopteryxAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.ARCHAEOPTERYX_UNTAMABLE, NontamableArchaeoptryxEntity.createArchaeoptryxAttributes());
+
+        //pteranodon
+        FabricDefaultAttributeRegistry.register(ModEntities.PTERANODON, PteranodonEntity.createPteradonAttributes());
 
         //quadrepeds
 

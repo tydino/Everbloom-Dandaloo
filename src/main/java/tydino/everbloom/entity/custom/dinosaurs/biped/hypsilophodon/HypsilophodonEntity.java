@@ -161,10 +161,6 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
 
     //operation code
 
-    private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
-            Items.ACACIA_LEAVES, Items.AZALEA_LEAVES, Items.OAK_LEAVES, Items.BIRCH_LEAVES, Items.DARK_OAK_LEAVES, Items.CHERRY_LEAVES, Items.FLOWERING_AZALEA_LEAVES, Items.PALE_OAK_LEAVES, Items.MANGROVE_LEAVES, Items.SPRUCE_LEAVES, Items.JUNGLE_LEAVES, Items.WHEAT, Items.BEETROOT, Items.POTATO, Items.BAKED_POTATO, Items.BREAD
-    );
-
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
@@ -173,7 +169,7 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
         this.goalSelector.add(4, new TamableDinosaurFollowingGoal(this, (double)1.0F, 10.0F, 2.0F));
         this.goalSelector.add(3, new TamableDinosaurMateGoal(this, 1.0F));
         this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.HYPSILOPHODON_EGG, 400));
-        this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
+        this.goalSelector.add(4, new TemptGoal(this, 1.05f, HERBIVORE, false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
         this.goalSelector.add(6, new WanderAroundFarGoal(this, (double)1.0F));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
@@ -188,7 +184,7 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return BREEDING_INGREDIENT.test(stack);
+        return HERBIVORE.test(stack);
     }
 
     public static DefaultAttributeContainer.Builder createHypsilophodonAttributes()

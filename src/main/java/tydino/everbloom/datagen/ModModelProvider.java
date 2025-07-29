@@ -34,6 +34,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(ModBlocks.COMPSOGNATHUS_EGG);
         blockStateModelGenerator.registerSimpleState(ModBlocks.ARCHAEOPTERYX_EGG);
         blockStateModelGenerator.registerSimpleState(ModBlocks.PARASAUROLOPHUS_EGG);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.PTERANODON_EGG);
 
         //animal blocks
         Identifier ToadBurrow_empty = TexturedModel.CUBE_ALL.upload(ModBlocks.TOAD_BURROW, blockStateModelGenerator.modelCollector);
@@ -159,6 +160,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.SPAWN_ARCHAEOPTRYX, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPAWN_UNTAMABLE_ARCHAEOPTRYX, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.SPAWN_PTERANODON, Models.GENERATED);
 
         //quadrepeds
         itemModelGenerator.register(ModItems.SPAWN_PARASAUROLOPHUS, Models.GENERATED);

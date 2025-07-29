@@ -21,6 +21,7 @@ import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
 import tydino.everbloom.block.dinosaurs.bipeds.ArchaeopteryxEgg;
 import tydino.everbloom.block.dinosaurs.bipeds.CompsognathusEgg;
 import tydino.everbloom.block.dinosaurs.bipeds.HypsilophodonEgg;
+import tydino.everbloom.block.dinosaurs.bipeds.PteranodonEgg;
 import tydino.everbloom.block.dinosaurs.insectoids.MeganeuraEgg;
 import tydino.everbloom.block.dinosaurs.quadrepeds.ParasaurolophusEgg;
 import tydino.everbloom.block.power.*;
@@ -75,6 +76,8 @@ public class ModBlocks {
     public static final Block COMPSOGNATHUS_EGG = registerBlock("compsognathus_egg", CompsognathusEgg::new);
 
     public static final Block ARCHAEOPTERYX_EGG = registerBlock("archaeopteryx_egg", ArchaeopteryxEgg::new);
+
+    public static final Block PTERANODON_EGG = registerBlock("pteranodon_egg", PteranodonEgg::new);
 
     //quadrepeds
     public static final Block PARASAUROLOPHUS_EGG = registerBlock("parasaurolophus_egg", ParasaurolophusEgg::new);

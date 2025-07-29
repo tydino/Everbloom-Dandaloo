@@ -15,10 +15,13 @@ import tydino.everbloom.entity.client.dinosaurs.bipeds.compsognathus.Compsognath
 import tydino.everbloom.entity.client.dinosaurs.bipeds.compsognathus.CompsognathusRenderer;
 import tydino.everbloom.entity.client.dinosaurs.bipeds.hypsilophodon.HypsilophodonModel;
 import tydino.everbloom.entity.client.dinosaurs.bipeds.hypsilophodon.HypsilophodonRenderer;
+import tydino.everbloom.entity.client.dinosaurs.bipeds.pteranodon.PteranodonModel;
+import tydino.everbloom.entity.client.dinosaurs.bipeds.pteranodon.PteranodonRenderer;
 import tydino.everbloom.entity.client.dinosaurs.insectoids.meganeura.MeganeuraModel;
 import tydino.everbloom.entity.client.dinosaurs.insectoids.meganeura.MeganeuraRenderer;
 import tydino.everbloom.entity.client.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusModel;
 import tydino.everbloom.entity.client.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusRenderer;
+import tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon.PteranodonEntity;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.screen.custom.FrotherScreen;
 import tydino.everbloom.screen.custom.GriddleTierOneScreen;
@@ -85,7 +88,13 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX, ArchaeopteryxRenderer::new);
         EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX_UNTAMABLE, ArchaeopteryxRenderer::new);
 
+        //pteranodon
+        EntityModelLayerRegistry.registerModelLayer(PteranodonModel.PTERANODON, PteranodonModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.PTERANODON, PteranodonRenderer::new);
+
         //quadrepeds
+
+        //parasaurolophus
         EntityModelLayerRegistry.registerModelLayer(ParasaurolophusModel.PARASAUROLOPHUS, ParasaurolophusModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.PARASAUROLOPHUS, ParasaurolophusRenderer::new);
         EntityRendererRegistry.register(ModEntities.PARASAUROLOPHUS_UNTAMABLE, ParasaurolophusRenderer::new);

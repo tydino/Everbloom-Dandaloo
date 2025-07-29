@@ -84,6 +84,8 @@ public class ModItems {
     public static final Item SPAWN_ARCHAEOPTRYX = registerItem("spawn-archaeopteryx", setting -> new SpawnEggItem(ModEntities.ARCHAEOPTERYX, setting));
     public static final Item SPAWN_UNTAMABLE_ARCHAEOPTRYX = registerItem("spawn-untamable_archaeopteryx", setting -> new SpawnEggItem(ModEntities.ARCHAEOPTERYX_UNTAMABLE, setting));
 
+    public static final Item SPAWN_PTERANODON = registerItem("spawn-pteranodon", setting -> new SpawnEggItem(ModEntities.PTERANODON, setting));
+
     //quadrepeds
     public static final Item SPAWN_PARASAUROLOPHUS = registerItem("spawn-parasaurolophus", setting -> new SpawnEggItem(ModEntities.PARASAUROLOPHUS, setting));
     public static final Item SPAWN_UNTAMABLE_PARASAUROLOPHUS = registerItem("spawn-untamable_parasaurolophus", setting -> new SpawnEggItem(ModEntities.PARASAUROLOPHUS_UNTAMABLE, setting));

@@ -30,12 +30,12 @@ import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGo
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurMateGoal;
 import tydino.everbloom.item.ModItems;
-
+//implement FlyingEntity
 public class PteranodonEntity extends TamableDinosaurEntity {
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(PteranodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    protected PteranodonEntity(EntityType<? extends PteranodonEntity> entityType, World world) {
+    public PteranodonEntity(EntityType<? extends PteranodonEntity> entityType, World world) {
         super(entityType, world, ModItems.SILVER_SCARAB);
         this.setTamed(false, false);
     }
@@ -145,10 +145,6 @@ public class PteranodonEntity extends TamableDinosaurEntity {
 
     //operation code
 
-    private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
-            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT, ModItems.MALLARD_MEAT, ModItems.COOKED_MALLARD_MEAT, ModItems.DAGER_STABBER_MEAT, ModItems.COOKED_DAGER_STABBER_MEAT
-    );
-
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
@@ -156,8 +152,8 @@ public class PteranodonEntity extends TamableDinosaurEntity {
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new TamableDinosaurFollowingGoal(this, (double)1.0F, 10.0F, 2.0F));
         this.goalSelector.add(3, new TamableDinosaurMateGoal(this, 1.0F));
-        this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.PTERADON_EGG, 400));
-        this.goalSelector.add(4, new TemptGoal(this, 1.05f, BREEDING_INGREDIENT, false));
+        this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.PTERANODON_EGG, 400));
+        this.goalSelector.add(4, new TemptGoal(this, 1.05f, CARNIVORE, false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
         this.goalSelector.add(6, new WanderAroundFarGoal(this, (double)1.0F));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
@@ -172,7 +168,7 @@ public class PteranodonEntity extends TamableDinosaurEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return BREEDING_INGREDIENT.test(stack);
+        return CARNIVORE.test(stack);
     }
 
     public static DefaultAttributeContainer.Builder createPteradonAttributes()

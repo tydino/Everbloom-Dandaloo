@@ -181,9 +181,6 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
     }
 
     //operational code
-    private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
-            Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT, ModItems.MALLARD_MEAT, ModItems.COOKED_MALLARD_MEAT, ModItems.DAGER_STABBER_MEAT, ModItems.COOKED_DAGER_STABBER_MEAT
-    );
 
     @Override
     protected void initGoals() {
@@ -195,8 +192,9 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.0F, true));
         this.goalSelector.add(7, new TamableDinosaurFollowingGoal(this, 1.0F, 10.0F, 2.0F));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
-        this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(11, new LookAroundGoal(this));
+        this.goalSelector.add(10, new TemptGoal(this, 1.1, CARNIVORE, true));
+        this.goalSelector.add(11, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(12, new LookAroundGoal(this));
         this.targetSelector.add(1, new TamableDinosaurTrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new TamableDinosaurAttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
@@ -233,7 +231,7 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return BREEDING_INGREDIENT.test(stack);
+        return CARNIVORE.test(stack);
     }
 
     public static DefaultAttributeContainer.Builder createCompsognathusAttributes()
