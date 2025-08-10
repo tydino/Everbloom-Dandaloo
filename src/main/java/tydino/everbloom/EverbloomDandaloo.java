@@ -25,10 +25,11 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
 //give parasaurolophus and pteranodon eating animations properly.
+//fix the pteranodon egg to hatch the pteranodon instead of parasaurolophus
 //add a burrowing mob that works like a bees (toad) that drops slime
 //make the way to get the dinosaurs
 //add full scarab list for taming dinos (bronze, silver(has item just needs mob), and gold beatles)
-//add rubber trees
+//add rubber
 //add a craftable book(set) that can allow for easier implementation of how to get most things.
 //make the power storage block actually store power when broken so it can be moved from one place to another while keeping its energy.
 //use this open source mod to make a hideable block set simmilar to carpentersblocks https://github.com/LoremVIpsum/OpenSimpleFrames/tree/main
@@ -36,6 +37,7 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 
 
 //#riplex (expedition)
+//try and get create working https://github.com/Fabricators-of-Create/create-fabric-addon-template/blob/1.20.1/build.gradle
 //for building it https://www.google.com/search?client=opera&q=in+fabricmc+how+to+get+the+mod+im+making+to+be+a+jar&sourceid=opera&ie=UTF-8&oe=UTF-8
 //C:\Users\tydin\Downloads\1.21.7\assets\minecraft\textures\item
 //https://github.com/TechReborn/Energy use for energistic reference
