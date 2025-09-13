@@ -235,7 +235,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new TamableDinosaurMateGoal(this, 1.0F));
         this.goalSelector.add(5, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.ARCHAEOPTERYX_EGG, 600));
-        this.goalSelector.add(6, new MeleeAttackGoal(this, 1.0F, true));
+        this.goalSelector.add(6, new MeleeAttackGoal(this, 1.75F, true));
         this.goalSelector.add(7, new TemptGoal(this, 1.05f, CARNIVORE, false));
         this.goalSelector.add(7, new TamableDinosaurFollowingGoal(this, 1.0F, 10.0F, 2.0F));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
