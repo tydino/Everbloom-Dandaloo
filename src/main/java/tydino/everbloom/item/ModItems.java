@@ -69,6 +69,7 @@ public class ModItems {
 
     //scarabs
     public static final Item SILVER_SCARAB = registerItem("silver_scarab", Item::new);
+    public static final Item BRONZE_SCARAB = registerItem("bronze_scarab", Item::new);
 
     //insectoids
     public static final Item SPAWN_MEGANEURA = registerItem("spawn-meganeura", setting -> new SpawnEggItem(ModEntities.MEGANEURA, setting));

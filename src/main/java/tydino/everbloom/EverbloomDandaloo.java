@@ -27,6 +27,7 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 //give parasaurolophus and pteranodon eating animations properly.
 //fix the pteranodon egg to hatch the pteranodon instead of parasaurolophus
 //finish pteranodon
+//add dinsaur(s) demensions and have them be more continental then land
 //add a burrowing mob that works like a bees (toad) that drops slime
 //make the way to get the dinosaurs
 //add full scarab list for taming dinos (bronze, silver(has item just needs mob), and gold beatles)

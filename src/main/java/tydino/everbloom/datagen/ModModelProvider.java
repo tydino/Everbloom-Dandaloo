@@ -169,5 +169,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         //scarabs
         itemModelGenerator.register(ModItems.SILVER_SCARAB, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_SCARAB, Models.GENERATED);
     }
 }

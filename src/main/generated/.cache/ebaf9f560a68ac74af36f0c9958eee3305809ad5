@@ -27,6 +27,7 @@ b79cf93576aa6d4698f072f31a27383869329e3b assets/everbloom/items/archaeopteryx_eg
 17c1580719abd160b005b0915d43f5483a22cf03 assets/everbloom/items/bronze.json
 850b4ec4eb1c32a3e9176a4b8e82e135e4d7afa6 assets/everbloom/items/bronze_block.json
 ad6468fcd8df9f171dcf25c3eacab4da1482f327 assets/everbloom/items/bronze_conductor.json
+1fe1076580ed8f58a7bdee46f13a7330627a43ae assets/everbloom/items/bronze_scarab.json
 ba27b86253b6800ede839289a5d679daa515b9a4 assets/everbloom/items/butter.json
 bfdce312478b69251987c707039652272bedf39f assets/everbloom/items/butter_melted.json
 5bd92b757b55de42cd382c7a3eafe1f480108f87 assets/everbloom/items/cheese.json
@@ -111,6 +112,7 @@ ec070c9e113ad6641af8e94878da142fc88fa0d9 assets/everbloom/models/block/tomato_bu
 1cff4c45d1a8594303476b82cf6284ed18a4b51e assets/everbloom/models/item/alumium.json
 5222a969dddf0f3c75563c69a1a51f8e34506f8d assets/everbloom/models/item/bronze.json
 d2f66672636cc40e97af55c57207e115182196c5 assets/everbloom/models/item/bronze_conductor.json
+e4b517da64c0c2c0ef0f151be1dbafb1665903b6 assets/everbloom/models/item/bronze_scarab.json
 f366348e2ccac636043f7132b78646b1df04dfc6 assets/everbloom/models/item/butter.json
 0181cbcd0a14a6dce753a844895b89f94c8199a6 assets/everbloom/models/item/butter_melted.json
 06b73ad356c4fd8d209a5c6ac44b3dcecb4e1f2d assets/everbloom/models/item/cheese.json

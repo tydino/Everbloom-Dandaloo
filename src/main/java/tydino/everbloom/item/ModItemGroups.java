@@ -138,6 +138,7 @@ public class ModItemGroups {
 
                         //scarabs
                         entries.add(ModItems.SILVER_SCARAB);
+                        entries.add(ModItems.BRONZE_SCARAB);
 
                         //power
                         entries.add(ModItems.POWER_METER);
