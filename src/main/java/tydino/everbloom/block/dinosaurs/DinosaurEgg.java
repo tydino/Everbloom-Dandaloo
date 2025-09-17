@@ -69,7 +69,7 @@ public class DinosaurEgg extends Block {
         } else {
             world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_SNIFFER_EGG_HATCH, SoundCategory.BLOCKS, 0.7F, 0.9F + random.nextFloat() * 0.2F);
             world.breakBlock(pos, false);
-            TamableDinosaurEntity tortoiseEntity =  tde.create(world, SpawnReason.BREEDING);
+            TamableDinosaurEntity tortoiseEntity =  tde.create(world, SpawnReason.NATURAL);
             if (tortoiseEntity != null) {
                 Vec3d vec3d = pos.toCenterPos();
                 tortoiseEntity.setBaby(true);

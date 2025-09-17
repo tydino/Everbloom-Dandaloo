@@ -2,12 +2,15 @@ package tydino.everbloom;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BeehiveBlockEntity;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +25,8 @@ import tydino.everbloom.recipe.ModRecipes;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
+
+import java.util.UUID;
 
 //todo:
 //fix the pteranodon egg to hatch the pteranodon instead of parasaurolophus
@@ -96,6 +101,15 @@ public class EverbloomDandaloo implements ModInitializer {
 		//power users
 		EnergyStorage.SIDED.registerForBlockEntity(ItemCompressorTierOneEntity::getEnergyProvider, ModBlockEntities.ITEM_COMPRESSOR_TIER_ONE_BE);
 		EnergyStorage.SIDED.registerForBlockEntity(GrinderEntity::getEnergyProvider, ModBlockEntities.GRINDER_BE);
+
+		/// player
+		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+			ServerPlayerEntity player = handler.player;
+			UUID playerUuid = player.getUuid();
+
+			player.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(80);
+		});
+
 	}
 }
 //https://www.youtube.com/watch?v=5a4DAkWW3JQ try
