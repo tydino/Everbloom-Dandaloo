@@ -24,7 +24,6 @@ import tydino.everbloom.util.ModLootTableModifiers;
 import tydino.everbloom.world.gen.ModWorldGeneration;
 
 //todo:
-//give parasaurolophus and pteranodon eating animations properly.
 //fix the pteranodon egg to hatch the pteranodon instead of parasaurolophus
 //finish pteranodon
 //add dinsaur(s) demensions and have them be more continental then land

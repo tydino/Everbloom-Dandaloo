@@ -6,6 +6,7 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon.PteranodonVaria
 
 public class PteranodonRenderState extends LivingEntityRenderState {
     public final AnimationState idleAnimationState = new AnimationState();
+    public final AnimationState eatAnimationState = new AnimationState();
     public final AnimationState flyAnimationState = new AnimationState();
     public final AnimationState sitAnimationState = new AnimationState();
     public final AnimationState sittingdownAnimationState = new AnimationState();

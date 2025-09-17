@@ -18,6 +18,8 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -41,6 +43,9 @@ public class PteranodonEntity extends TamableDinosaurEntity {
     }
 
     //animation code
+    public final AnimationState eatAnimationState = new AnimationState();
+    private int EatAnimationTimeout = 0;
+
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
@@ -70,6 +75,12 @@ public class PteranodonEntity extends TamableDinosaurEntity {
             } else {
                 --this.idleAnimationTimeout;
             }
+        }
+
+        if(EatAnimationTimeout > 0){
+            --EatAnimationTimeout;
+        }else{
+            eatAnimationState.stop();
         }
 
         setUpSitting();
@@ -217,5 +228,15 @@ public class PteranodonEntity extends TamableDinosaurEntity {
         PteranodonVariant variant = Util.getRandom(PteranodonVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
+    }
+    @Override/// is all that is needed to check whether it is eating
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+
+        if(this.isFoodIngredient(itemStack, true)){/// swap is carnivore if carnivore
+            this.eatAnimationState.start(this.age);
+            this.EatAnimationTimeout = 40;
+        }
+        return super.interactMob(player, hand);
     }
 }

@@ -54,6 +54,7 @@ public class PteranodonRenderer extends MobEntityRenderer<PteranodonEntity, Pter
     public void updateRenderState(PteranodonEntity livingEntity, PteranodonRenderState livingEntityRenderState, float f) {
         super.updateRenderState(livingEntity, livingEntityRenderState, f);
         livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
+        livingEntityRenderState.eatAnimationState.copyFrom(livingEntity.eatAnimationState);
         livingEntityRenderState.flyAnimationState.copyFrom(livingEntity.flyAnimationState);
         livingEntityRenderState.sitAnimationState.copyFrom(livingEntity.sitAnimationState);
         livingEntityRenderState.sittingdownAnimationState.copyFrom(livingEntity.sittingdownAnimationState);

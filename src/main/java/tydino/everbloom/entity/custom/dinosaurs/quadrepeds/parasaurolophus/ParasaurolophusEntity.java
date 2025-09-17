@@ -1,5 +1,6 @@
 package tydino.everbloom.entity.custom.dinosaurs.quadrepeds.parasaurolophus;
 
+import net.fabricmc.fabric.api.recipe.v1.ingredient.CustomIngredient;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
@@ -13,11 +14,14 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -45,6 +49,7 @@ public class ParasaurolophusEntity extends TamableDinosaurEntity {
     private int idleAnimationTimeout = 0;
 
     public final AnimationState eatAnimationState = new AnimationState();
+    private int EatAnimationTimeout = 0;
 
     boolean isIdle(){
         return !isSitting() && !isInDanger();
@@ -73,6 +78,13 @@ public class ParasaurolophusEntity extends TamableDinosaurEntity {
                 --this.idleAnimationTimeout;
             }
         }
+
+        if(EatAnimationTimeout > 0){
+            --EatAnimationTimeout;
+        }else{
+            eatAnimationState.stop();
+        }
+
         if (isInDanger()) {
             if (this.runAnimationTimeout <= 0) {
                 this.runAnimationTimeout = 20;//animation time in seconds *20
@@ -233,5 +245,16 @@ public class ParasaurolophusEntity extends TamableDinosaurEntity {
         ParasaurolophusVariant variant = Util.getRandom(ParasaurolophusVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData);
+    }
+
+    @Override/// is all that is needed to check whether it is eating
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+
+        if(this.isFoodIngredient(itemStack, false)){/// swap is carnivore if carnivore
+            this.eatAnimationState.start(this.age);
+            this.EatAnimationTimeout = 40;
+        }
+        return super.interactMob(player, hand);
     }
 }

@@ -70,6 +70,7 @@ public class PteranodonModel extends EntityModel<PteranodonRenderState> {
 
 		this.animateWalking(ModAnimations.PTERANODON_ANIMATIONS.walk, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
 		this.animate(state.idleAnimationState, ModAnimations.PTERANODON_ANIMATIONS.idle, state.age, 1f);
+		this.animate(state.eatAnimationState, ModAnimations.PTERANODON_ANIMATIONS.eat, state.age, 1f);
 		this.animate(state.flyAnimationState, ModAnimations.PTERANODON_ANIMATIONS.fly, state.age, 1f);
 		this.animate(state.sitAnimationState, ModAnimations.PTERANODON_ANIMATIONS.sit, state.age, 1f);
 		this.animate(state.sittingdownAnimationState, ModAnimations.PTERANODON_ANIMATIONS.sittingdown, state.age, 1f);
