@@ -27,11 +27,11 @@ import net.minecraft.world.event.GameEvent;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 
 public class DinosaurEgg extends Block {
-    public static MapCodec<?> CODEC;
+    public MapCodec<?> CODEC;
     public static final IntProperty HATCH = Properties.HATCH;
-    private static int HATCHING_TIME;
-    public static VoxelShape SHAPE;
-    public static EntityType<? extends TamableDinosaurEntity> tde;
+    private int HATCHING_TIME;
+    public VoxelShape SHAPE;
+    public EntityType<? extends TamableDinosaurEntity> tde;
 
     public MapCodec<? extends DinosaurEgg> getCodec() {
         return (MapCodec<? extends DinosaurEgg>) CODEC;
