@@ -54,6 +54,7 @@ public class DinosaurClient {
         //pteranodon
         EntityModelLayerRegistry.registerModelLayer(PteranodonModel.PTERANODON, PteranodonModel::getTexturedModelData);
         EntityRendererRegistry.register(DinosaurEntities.PTERANODON, PteranodonRenderer::new);
+        EntityRendererRegistry.register(DinosaurEntities.PTERANODON_UNTAMABLE, PteranodonRenderer::new);
 
         //quadrepeds
 

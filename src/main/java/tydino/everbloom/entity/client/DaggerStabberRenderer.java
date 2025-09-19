@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.custom.DaggerStabberEntity;
+import tydino.everbloom.entity.custom.unsorted.DaggerStabberEntity;
 
 public class DaggerStabberRenderer extends MobEntityRenderer<DaggerStabberEntity, DaggerStabberRenderState, DaggerStabberModel> {
     private static final Identifier TEXTURE = Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dagger-stabber.png");

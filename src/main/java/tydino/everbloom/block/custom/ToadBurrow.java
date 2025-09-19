@@ -10,7 +10,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import tydino.everbloom.entity.custom.ToadEntity;
 
 public class ToadBurrow extends Block {
     public static final BooleanProperty FILLED = BooleanProperty.of("filled");

@@ -17,6 +17,7 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	maven{url "https://maven.kyrptonaught.dev"}
+	maven{url = "https://cursemaven.com"}
 }
 
 fabricApi {
@@ -38,6 +39,8 @@ dependencies {
 	include 'net.kyrptonaught:customportalapi:<version>'
 
 	include modApi("teamreborn:energy:${project.energy_version}")
+	//modImplementation "curse.maven:techreborn-233564:6664381"
+	//modImplementation "curse.maven:reborncore-237903:6664380"
 }
 
 processResources {

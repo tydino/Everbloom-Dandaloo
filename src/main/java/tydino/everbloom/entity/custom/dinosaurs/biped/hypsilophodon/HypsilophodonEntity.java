@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
@@ -37,7 +38,7 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
             DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public HypsilophodonEntity(EntityType<? extends HypsilophodonEntity> entityType, World world) {
-        super(entityType, world, ModItems.SILVER_SCARAB);///set to gold as it is from cretaceous
+        super(entityType, world, DinosaurItems.SILVER_SCARAB);///set to gold as it is from cretaceous
         this.setTamed(false, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 10.0F);
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, 15.0F);

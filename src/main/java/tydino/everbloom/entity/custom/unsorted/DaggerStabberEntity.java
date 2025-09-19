@@ -1,7 +1,6 @@
-package tydino.everbloom.entity.custom;
+package tydino.everbloom.entity.custom.unsorted;
 
 import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.*;

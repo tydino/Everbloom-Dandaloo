@@ -30,6 +30,7 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
@@ -42,7 +43,7 @@ public class ParasaurolophusEntity extends TamableDinosaurEntity {
             DataTracker.registerData(ParasaurolophusEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public ParasaurolophusEntity(EntityType<? extends ParasaurolophusEntity> entityType, World world) {
-        super(entityType, world, ModItems.SILVER_SCARAB);///switch to gold for cretaceous
+        super(entityType, world, DinosaurItems.SILVER_SCARAB);///switch to gold for cretaceous
         this.setTamed(false, false);
     }
     //animation code

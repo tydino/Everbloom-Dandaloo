@@ -1,7 +1,6 @@
-package tydino.everbloom.entity.custom;
+package tydino.everbloom.entity.custom.unsorted;
 
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.TurtleEggBlock;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
@@ -17,7 +16,6 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.passive.TurtleEntity;//base
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -33,9 +31,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
-import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 

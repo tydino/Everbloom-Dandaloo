@@ -16,6 +16,7 @@ import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.Compsognathu
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.NontamableCompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.NontamableHypsilophodonEntity;
+import tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon.AggressivePteranodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon.PteranodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveMeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
@@ -107,6 +108,13 @@ public class DinosaurEntities {
                             RegistryKey.of(RegistryKeys.ENTITY_TYPE,
                             Identifier.of(EverbloomDandaloo.MOD_ID, "pteranodon"))));
 
+    public static EntityType<AggressivePteranodonEntity> PTERANODON_UNTAMABLE = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "pteranodon_untamable"),
+            EntityType.Builder.create(AggressivePteranodonEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.5f, 0.75f).build(
+                            RegistryKey.of(RegistryKeys.ENTITY_TYPE,
+                                    Identifier.of(EverbloomDandaloo.MOD_ID, "pteranodon_untamable"))));
+
     //quadreped
 
     //parasaurolophus
@@ -153,6 +161,7 @@ public class DinosaurEntities {
 
         //pteranodon
         FabricDefaultAttributeRegistry.register(PTERANODON, PteranodonEntity.createPteradonAttributes());
+        FabricDefaultAttributeRegistry.register(PTERANODON_UNTAMABLE, AggressivePteranodonEntity.createPteradonAttributes());
 
         //quadrepeds
 

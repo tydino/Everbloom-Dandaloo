@@ -1,4 +1,4 @@
-package tydino.everbloom.entity.custom;
+package tydino.everbloom.entity.custom.unsorted;
 
 import java.util.Arrays;
 import java.util.Comparator;

@@ -2,10 +2,8 @@ package tydino.everbloom.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.passive.SnifferEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
@@ -24,7 +22,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.entity.custom.TortoiseEntity;
+import tydino.everbloom.entity.custom.unsorted.TortoiseEntity;
 
 public class TortoiseEgg extends Block {
     public static final MapCodec<TortoiseEgg> CODEC = createCodec(TortoiseEgg::new);

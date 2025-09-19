@@ -10,6 +10,7 @@ import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 
 import java.util.function.Function;
 
@@ -66,32 +67,6 @@ public class ModItems {
     //toad
     public static final Item SPAWN_TOAD = registerItem("spawn-toad", setting -> new SpawnEggItem(ModEntities.TOAD, setting));
 
-    //dinosaurs
-
-    //scarabs
-    public static final Item BRONZE_SCARAB = registerItem("bronze_scarab", setting -> new SpawnEggItem(DinosaurEntities.BRONZE_SCARAB, setting));
-    public static final Item SILVER_SCARAB = registerItem("silver_scarab", Item::new);
-
-    //insectoids
-    public static final Item SPAWN_MEGANEURA = registerItem("spawn-meganeura", setting -> new SpawnEggItem(DinosaurEntities.MEGANEURA, setting));
-    public static final Item SPAWN_AGGRESSIVE_MEGANEURA = registerItem("spawn-aggressive_meganeura", setting -> new SpawnEggItem(DinosaurEntities.AGGRESSIVE_MEGANEURA, setting));
-
-    //bipeds
-    public static final Item SPAWN_HYPSILOPHODON = registerItem("spawn-hypsilophodon", setting -> new SpawnEggItem(DinosaurEntities.HYPSILOPHODON, setting));
-    public static final Item SPAWN_UNTAMABLE_HYPSILOPHODON = registerItem("spawn-untamable_hypsilophodon", setting -> new SpawnEggItem(DinosaurEntities.HYPSILOPHODON_UNTAMABLE, setting));
-
-    public static final Item SPAWN_COPSOGNATHUS = registerItem("spawn-compsognathus", setting -> new SpawnEggItem(DinosaurEntities.COMPSOGNATHUS, setting));
-    public static final Item SPAWN_UNTAMABLE_COPSOGNATHUS = registerItem("spawn-untamable_compsognathus", setting -> new SpawnEggItem(DinosaurEntities.COMPSOGNATHUS_UNTAMABLE, setting));
-
-    public static final Item SPAWN_ARCHAEOPTRYX = registerItem("spawn-archaeopteryx", setting -> new SpawnEggItem(DinosaurEntities.ARCHAEOPTERYX, setting));
-    public static final Item SPAWN_UNTAMABLE_ARCHAEOPTRYX = registerItem("spawn-untamable_archaeopteryx", setting -> new SpawnEggItem(DinosaurEntities.ARCHAEOPTERYX_UNTAMABLE, setting));
-
-    public static final Item SPAWN_PTERANODON = registerItem("spawn-pteranodon", setting -> new SpawnEggItem(DinosaurEntities.PTERANODON, setting));
-
-    //quadrepeds
-    public static final Item SPAWN_PARASAUROLOPHUS = registerItem("spawn-parasaurolophus", setting -> new SpawnEggItem(DinosaurEntities.PARASAUROLOPHUS, setting));
-    public static final Item SPAWN_UNTAMABLE_PARASAUROLOPHUS = registerItem("spawn-untamable_parasaurolophus", setting -> new SpawnEggItem(DinosaurEntities.PARASAUROLOPHUS_UNTAMABLE, setting));
-
     //ores
 
     //alumium
@@ -141,5 +116,6 @@ public class ModItems {
 
     public static void registerModItems() {
         EverbloomDandaloo.LOGGER.info("Registering Items");
+        DinosaurItems.registerDinosaurItems();
     }
 }

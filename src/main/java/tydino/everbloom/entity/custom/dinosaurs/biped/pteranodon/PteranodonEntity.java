@@ -28,18 +28,19 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
+import tydino.everbloom.entity.custom.dinosaurs.FlyingTamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
-import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
-import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
-import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurMateGoal;
+import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
+import tydino.everbloom.entity.custom.dinosaurs.goals.*;
 import tydino.everbloom.item.ModItems;
 //implement FlyingEntity
-public class PteranodonEntity extends TamableDinosaurEntity {
+public class PteranodonEntity extends FlyingTamableDinosaurEntity {
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(PteranodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public PteranodonEntity(EntityType<? extends PteranodonEntity> entityType, World world) {
-        super(entityType, world, ModItems.SILVER_SCARAB);
+        super(entityType, world, DinosaurItems.SILVER_SCARAB, 20, 1.0f);
         this.setTamed(false, false);
     }
 
@@ -54,9 +55,6 @@ public class PteranodonEntity extends TamableDinosaurEntity {
         return !isSitting() /*&& !isInDanger()replace with is flying*/;
     }
 
-    public final AnimationState flyAnimationState = new AnimationState();
-    private int flyAnimationTimeout = 0;
-
     public final AnimationState sitAnimationState = new AnimationState();
     private int sitAnimationTimeout = 0;
     boolean properlySitting;
@@ -69,7 +67,7 @@ public class PteranodonEntity extends TamableDinosaurEntity {
 
     private void setupAnimationStates() {
         if (isIdle()) {
-            if (this.idleAnimationTimeout <= 0) {
+            if (this.idleAnimationTimeout <= 0 && this.isOnGround()) {
                 this.idleAnimationTimeout = 160;//animation time in seconds *20
                 this.idleAnimationState.start(this.age);
                 this.flyAnimationState.stop();
@@ -160,16 +158,22 @@ public class PteranodonEntity extends TamableDinosaurEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
-        this.goalSelector.add(3, new SitGoal(this));
-        this.goalSelector.add(4, new TamableDinosaurFollowingGoal(this, (double)1.0F, 10.0F, 2.0F));
-        this.goalSelector.add(3, new TamableDinosaurMateGoal(this, 1.0F));
-        this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.PTERANODON_EGG, 400));
-        this.goalSelector.add(4, new TemptGoal(this, 1.05f, CARNIVORE, false));
-        this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
-        this.goalSelector.add(6, new WanderAroundFarGoal(this, (double)1.0F));
-        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(2, new EscapeDangerGoal(this, 1.1f));
+        this.goalSelector.add(3, new MeleeAttackGoal(this, 1.25f, true));
+        this.goalSelector.add(4, new SitGoal(this));
+        this.goalSelector.add(5, new TamableDinosaurFollowingGoal(this, (double)1.0F, 10.0F, 2.0F));
+        this.goalSelector.add(6, new TamableDinosaurMateGoal(this, 1.0F));
+        this.goalSelector.add(7, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.PTERANODON_EGG, 400));
+        this.goalSelector.add(8, new TemptGoal(this, 1.05f, CARNIVORE, false));
+        this.goalSelector.add(9, new FollowParentGoal(this, 1.25F));
+        this.goalSelector.add(10, new WanderAroundFarGoal(this, (double)1.0F));
+        this.goalSelector.add(11, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(12, new LookAtEntityGoal(this, CompsognathusEntity.class, 15.0F));
+        this.goalSelector.add(13, new LookAroundGoal(this));
+
+        this.targetSelector.add(1, new TamableDinosaurTrackOwnerAttackerGoal(this));
+        this.targetSelector.add(2, new TamableDinosaurAttackWithOwnerGoal(this));
+        this.targetSelector.add(3, new ActiveTargetGoal(this, CompsognathusEntity.class, true));
 
     }
 
@@ -187,7 +191,9 @@ public class PteranodonEntity extends TamableDinosaurEntity {
     {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 20)
-                .add(EntityAttributes.MOVEMENT_SPEED, .25f)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.5f)
+                .add(EntityAttributes.FLYING_SPEED, .25f)
+                .add(EntityAttributes.ATTACK_DAMAGE, 10)
                 .add(EntityAttributes.TEMPT_RANGE, 15);
 
     }

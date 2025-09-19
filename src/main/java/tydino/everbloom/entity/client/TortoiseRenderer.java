@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.custom.TortoiseEntity;
+import tydino.everbloom.entity.custom.unsorted.TortoiseEntity;
 
 public class TortoiseRenderer extends MobEntityRenderer<TortoiseEntity, TortoiseRenderState, TortoiseModel> {
     private static final Identifier TEXTURE = Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/tortoise.png");

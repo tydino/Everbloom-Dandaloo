@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.custom.ToadBurrow;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 import tydino.everbloom.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -148,27 +149,28 @@ public class ModModelProvider extends FabricModelProvider {
         //dinosaurs
 
         //insectoids
-        itemModelGenerator.register(ModItems.SPAWN_MEGANEURA, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPAWN_AGGRESSIVE_MEGANEURA, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_MEGANEURA, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_AGGRESSIVE_MEGANEURA, Models.GENERATED);
 
         //bipeds
-        itemModelGenerator.register(ModItems.SPAWN_HYPSILOPHODON, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPAWN_UNTAMABLE_HYPSILOPHODON, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_HYPSILOPHODON, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_UNTAMABLE_HYPSILOPHODON, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.SPAWN_COPSOGNATHUS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPAWN_UNTAMABLE_COPSOGNATHUS, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_COPSOGNATHUS, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_UNTAMABLE_COPSOGNATHUS, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.SPAWN_ARCHAEOPTRYX, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPAWN_UNTAMABLE_ARCHAEOPTRYX, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_ARCHAEOPTRYX, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_UNTAMABLE_ARCHAEOPTRYX, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.SPAWN_PTERANODON, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_PTERANODON, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_UNTAMABLE_PTERANODON, Models.GENERATED);
 
         //quadrepeds
-        itemModelGenerator.register(ModItems.SPAWN_PARASAUROLOPHUS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPAWN_UNTAMABLE_PARASAUROLOPHUS, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_PARASAUROLOPHUS, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SPAWN_UNTAMABLE_PARASAUROLOPHUS, Models.GENERATED);
 
         //scarabs
-        itemModelGenerator.register(ModItems.SILVER_SCARAB, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BRONZE_SCARAB, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.SILVER_SCARAB, Models.GENERATED);
+        itemModelGenerator.register(DinosaurItems.BRONZE_SCARAB, Models.GENERATED);
     }
 }

@@ -4,13 +4,12 @@ import com.google.common.collect.Maps;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.state.EntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.custom.MallardEntity;
-import tydino.everbloom.entity.custom.MallardVariant;
+import tydino.everbloom.entity.custom.unsorted.MallardEntity;
+import tydino.everbloom.entity.custom.unsorted.MallardVariant;
 
 import java.util.Map;
 

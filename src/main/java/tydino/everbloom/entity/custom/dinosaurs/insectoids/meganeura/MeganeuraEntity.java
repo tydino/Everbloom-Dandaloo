@@ -70,7 +70,7 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
 
     public MeganeuraEntity(EntityType<? extends MeganeuraEntity> entityType, World world){
         super(entityType, world);
-        this.moveControl = new FlightMoveControl(this, 20, true);
+        this.moveControl = new FlightMoveControl(this, 20, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, -1.0F);
         this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
         this.setPathfindingPenalty(PathNodeType.WATER_BORDER, 16.0F);

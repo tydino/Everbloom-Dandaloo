@@ -1,4 +1,4 @@
-package tydino.everbloom.entity.custom;
+package tydino.everbloom.entity.custom.unsorted;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
@@ -27,9 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
 import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.item.ModItems;
 import org.jetbrains.annotations.Nullable;//solve issues
 
 //https://youtu.be/wgVnkqqBGFs?list=PLKGarocXCE1EO43Dlf5JGh7Yk-kRAXUEJ

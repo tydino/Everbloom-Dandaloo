@@ -1,4 +1,4 @@
-package tydino.everbloom.entity.custom;
+package tydino.everbloom.entity.custom.unsorted;
 
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -10,7 +10,6 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.CamelEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;

@@ -9,6 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 
 public class ModItemGroups {
     public static final ItemGroup EverBloomDandalooItemGroup = Registry.register(Registries.ITEM_GROUP,
@@ -123,22 +124,23 @@ public class ModItemGroups {
                         entries.add(ModItems.SPAWN_TOAD);
                         //dinosaur spawn eggs
                         //docile
-                        entries.add(ModItems.SPAWN_MEGANEURA);
-                        entries.add(ModItems.SPAWN_HYPSILOPHODON);
-                        entries.add(ModItems.SPAWN_COPSOGNATHUS);
-                        entries.add(ModItems.SPAWN_ARCHAEOPTRYX);
-                        entries.add(ModItems.SPAWN_PARASAUROLOPHUS);
-                        entries.add(ModItems.SPAWN_PTERANODON);
+                        entries.add(DinosaurItems.SPAWN_MEGANEURA);
+                        entries.add(DinosaurItems.SPAWN_HYPSILOPHODON);
+                        entries.add(DinosaurItems.SPAWN_COPSOGNATHUS);
+                        entries.add(DinosaurItems.SPAWN_ARCHAEOPTRYX);
+                        entries.add(DinosaurItems.SPAWN_PARASAUROLOPHUS);
+                        entries.add(DinosaurItems.SPAWN_PTERANODON);
                         //nondocile
-                        entries.add(ModItems.SPAWN_AGGRESSIVE_MEGANEURA);
-                        entries.add(ModItems.SPAWN_UNTAMABLE_HYPSILOPHODON);
-                        entries.add(ModItems.SPAWN_UNTAMABLE_COPSOGNATHUS);
-                        entries.add(ModItems.SPAWN_UNTAMABLE_ARCHAEOPTRYX);
-                        entries.add(ModItems.SPAWN_UNTAMABLE_PARASAUROLOPHUS);
+                        entries.add(DinosaurItems.SPAWN_AGGRESSIVE_MEGANEURA);
+                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_HYPSILOPHODON);
+                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_COPSOGNATHUS);
+                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_ARCHAEOPTRYX);
+                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_PARASAUROLOPHUS);
+                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_PTERANODON);
 
                         //scarabs
-                        entries.add(ModItems.SILVER_SCARAB);
-                        entries.add(ModItems.BRONZE_SCARAB);
+                        entries.add(DinosaurItems.BRONZE_SCARAB);
+                        entries.add(DinosaurItems.SILVER_SCARAB);
 
                         //power
                         entries.add(ModItems.POWER_METER);

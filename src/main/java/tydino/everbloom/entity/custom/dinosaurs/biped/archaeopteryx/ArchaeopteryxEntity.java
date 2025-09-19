@@ -44,6 +44,7 @@ import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusVariant;
@@ -66,7 +67,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
             DataTracker.registerData(ArchaeopteryxEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public ArchaeopteryxEntity(EntityType<? extends ArchaeopteryxEntity> entityType, World world) {
-        super(entityType, world, ModItems.SILVER_SCARAB);
+        super(entityType, world, DinosaurItems.SILVER_SCARAB);
         this.setTamed(false, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 10.0F);
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, 5.0F);
@@ -242,6 +243,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(11, new LookAroundGoal(this));
+
         this.targetSelector.add(1, new TamableDinosaurTrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new TamableDinosaurAttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));

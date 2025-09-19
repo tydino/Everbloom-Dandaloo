@@ -39,6 +39,7 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.goals.*;
@@ -57,7 +58,7 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
             DataTracker.registerData(CompsognathusEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public CompsognathusEntity(EntityType<? extends CompsognathusEntity> entityType, World world) {
-        super(entityType, world, ModItems.SILVER_SCARAB);
+        super(entityType, world, DinosaurItems.SILVER_SCARAB);
         this.setTamed(false, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 10.0F);
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, 10.0F);

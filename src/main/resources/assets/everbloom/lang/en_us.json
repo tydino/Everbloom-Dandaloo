@@ -71,7 +71,9 @@
   "item.everbloom.spawn-untamable_archaeopteryx": "Untamable Archaeopteryx Spawn Egg",
 
   "entity.everbloom.pteranodon": "Pteranodon",
+  "entity.everbloom.pteranodon_untamable": "Pteranodon",
   "item.everbloom.spawn-pteranodon": "Pteranodon Spawn Egg",
+  "item.everbloom.spawn-untamable_pteranodon": "Untamable Pteranodon Spawn Egg",
 
 
   "entity.everbloom.parasaurolophus": "Parasaurolophus",
