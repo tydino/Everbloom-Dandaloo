@@ -25,6 +25,7 @@ import tydino.everbloom.block.dinosaurs.bipeds.PteranodonEgg;
 import tydino.everbloom.block.dinosaurs.insectoids.MeganeuraEgg;
 import tydino.everbloom.block.dinosaurs.quadrepeds.ParasaurolophusEgg;
 import tydino.everbloom.block.power.*;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
 
 import java.util.function.Function;
 
@@ -65,23 +66,6 @@ public class ModBlocks {
 
     //eggs
     public static final Block TORTOISE_EGG = registerBlock("tortoise_egg", TortoiseEgg::new);
-    //dinosaurs
-
-    //insectoids
-    public static final Block MEGANEURA_EGG = registerBlock("meganeura_egg", MeganeuraEgg::new);
-
-    //bipeds
-    public static final Block HYPSILOPHODON_EGG = registerBlock("hypsilophodon_egg", HypsilophodonEgg::new);
-
-    public static final Block COMPSOGNATHUS_EGG = registerBlock("compsognathus_egg", CompsognathusEgg::new);
-
-    public static final Block ARCHAEOPTERYX_EGG = registerBlock("archaeopteryx_egg", ArchaeopteryxEgg::new);
-
-    public static final Block PTERANODON_EGG = registerBlock("pteranodon_egg", PteranodonEgg::new);
-
-    //quadrepeds
-    public static final Block PARASAUROLOPHUS_EGG = registerBlock("parasaurolophus_egg", ParasaurolophusEgg::new);
-
     //cooking blocks
     public static final Block GRIDDLE_TIER_ONE = registerBlock("griddle_tier_one", GriddleTierOne::new);
 
@@ -134,5 +118,6 @@ public class ModBlocks {
 
     public static void registerModBlocks(){
         EverbloomDandaloo.LOGGER.info("registering blocks");
+        DinosaurBlocks.DinoBlocks();
     }
 }

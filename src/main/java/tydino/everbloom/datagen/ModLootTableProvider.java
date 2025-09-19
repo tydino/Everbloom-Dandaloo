@@ -19,6 +19,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
 import tydino.everbloom.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -66,12 +67,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         //eggs
         addDrop(ModBlocks.TORTOISE_EGG);
-        addDrop(ModBlocks.MEGANEURA_EGG);
-        addDrop(ModBlocks.HYPSILOPHODON_EGG);
-        addDrop(ModBlocks.COMPSOGNATHUS_EGG);
-        addDrop(ModBlocks.ARCHAEOPTERYX_EGG);
-        addDrop(ModBlocks.PARASAUROLOPHUS_EGG);
-        addDrop(ModBlocks.PTERANODON_EGG);
+        addDrop(DinosaurBlocks.MEGANEURA_EGG);
+        addDrop(DinosaurBlocks.HYPSILOPHODON_EGG);
+        addDrop(DinosaurBlocks.COMPSOGNATHUS_EGG);
+        addDrop(DinosaurBlocks.ARCHAEOPTERYX_EGG);
+        addDrop(DinosaurBlocks.PARASAUROLOPHUS_EGG);
+        addDrop(DinosaurBlocks.PTERANODON_EGG);
 
         //cooking
         addDrop(ModBlocks.GRIDDLE_TIER_ONE);

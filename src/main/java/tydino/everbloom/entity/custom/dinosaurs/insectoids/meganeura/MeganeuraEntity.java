@@ -32,6 +32,7 @@ import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 
 public class MeganeuraEntity extends AnimalEntity implements Flutterer {
@@ -271,7 +272,7 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
                 } else if (this.entity.eggLayingCounter > this.getTickCount(600)) {
                     World world = this.entity.getWorld();
                     world.playSound((PlayerEntity)null, blockPos, SoundEvents.ENTITY_TURTLE_LAY_EGG, SoundCategory.BLOCKS, 0.3F, 0.9F + world.random.nextFloat() * 0.2F);
-                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), ModBlocks.MEGANEURA_EGG.getDefaultState());
+                    world.setBlockState(BlockPos.ofFloored(this.entity.getPos()), DinosaurBlocks.MEGANEURA_EGG.getDefaultState());
                     this.entity.setHasEgg(false);
                     this.entity.setDiggingSand(false);
                     this.entity.setLoveTicks(600);

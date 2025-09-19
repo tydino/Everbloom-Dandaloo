@@ -117,7 +117,7 @@
   "item.everbloom.silicon_conductor": "Silicon Conductor",
   "item.everbloom.solar_cell": "Solar Cell",
   "item.everbloom.solar_sheet": "Solar Sheet",
-
+"comment": "does this work",
   "item.everbloom.bronze_conductor": "Bronze Conductor",
 
   "item.everbloom.wire": "Basic Wire",
@@ -139,5 +139,6 @@
 
   "block.everbloom.grinder": "Grinder",
 
-  "itemgroup.everbloom.item_group": "Everbloom Items"
+  "itemgroup.everbloom.dino_item_group": "Everbloom Dinosaurs",
+  "itemgroup.everbloom.item_group": "basic Everbloom Items"
 }

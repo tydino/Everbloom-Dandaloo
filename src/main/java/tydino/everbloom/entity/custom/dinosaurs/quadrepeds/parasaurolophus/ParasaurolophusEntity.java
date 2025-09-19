@@ -29,6 +29,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
@@ -182,7 +183,7 @@ public class ParasaurolophusEntity extends TamableDinosaurEntity {
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new TamableDinosaurFollowingGoal(this, (double)1.0F, 10.0F, 2.0F));
         this.goalSelector.add(3, new TamableDinosaurMateGoal(this, 1.0F));
-        this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.PARASAUROLOPHUS_EGG, 400));//needs done
+        this.goalSelector.add(3, new TamableDinosaurLayEggGoal(this, 1.0F, DinosaurBlocks.PARASAUROLOPHUS_EGG, 400));//needs done
         this.goalSelector.add(4, new TemptGoal(this, 1.05f, HERBIVORE, false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.25F));
         this.goalSelector.add(6, new WanderAroundFarGoal(this, (double)1.0F));

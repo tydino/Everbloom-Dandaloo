@@ -38,6 +38,7 @@ import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
@@ -190,7 +191,7 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
         this.goalSelector.add(2, new EscapeDangerGoal(this, 1.5f));
         this.goalSelector.add(3, new SitGoal(this));
         this.goalSelector.add(4, new TamableDinosaurMateGoal(this, 1.0F));
-        this.goalSelector.add(5, new TamableDinosaurLayEggGoal(this, 1.0F, ModBlocks.COMPSOGNATHUS_EGG, 400));
+        this.goalSelector.add(5, new TamableDinosaurLayEggGoal(this, 1.0F, DinosaurBlocks.COMPSOGNATHUS_EGG, 400));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.5F, false));
         this.goalSelector.add(7, new TamableDinosaurFollowingGoal(this, 1.0F, 10.0F, 2.0F));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 1.0F));

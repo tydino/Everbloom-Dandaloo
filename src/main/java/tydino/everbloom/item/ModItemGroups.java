@@ -9,12 +9,13 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurItemGroup;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 
 public class ModItemGroups {
     public static final ItemGroup EverBloomDandalooItemGroup = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(EverbloomDandaloo.MOD_ID, "item_group"),
-            FabricItemGroup.builder().icon(()-> new ItemStack(ModItems.DAGER_STABBER_MEAT))
+            FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.DAGER_STABBER_MEAT))
                     .displayName(Text.translatable("itemgroup.everbloom.item_group"))
                     .entries((displayContext, entries) -> {
 
@@ -111,36 +112,12 @@ public class ModItemGroups {
                         //eggs
 
                         entries.add(ModBlocks.TORTOISE_EGG);
-                        entries.add(ModBlocks.MEGANEURA_EGG);
-                        entries.add(ModBlocks.HYPSILOPHODON_EGG);
-                        entries.add(ModBlocks.COMPSOGNATHUS_EGG);
-                        entries.add(ModBlocks.ARCHAEOPTERYX_EGG);
-                        entries.add(ModBlocks.PARASAUROLOPHUS_EGG);
 
                         //spawn eggs
                         entries.add(ModItems.SPAWN_MALLARD_EGG);
                         entries.add(ModItems.SPAWN_DAGGER_STABBER);
                         entries.add(ModItems.SPAWN_TORTOISE);
                         entries.add(ModItems.SPAWN_TOAD);
-                        //dinosaur spawn eggs
-                        //docile
-                        entries.add(DinosaurItems.SPAWN_MEGANEURA);
-                        entries.add(DinosaurItems.SPAWN_HYPSILOPHODON);
-                        entries.add(DinosaurItems.SPAWN_COPSOGNATHUS);
-                        entries.add(DinosaurItems.SPAWN_ARCHAEOPTRYX);
-                        entries.add(DinosaurItems.SPAWN_PARASAUROLOPHUS);
-                        entries.add(DinosaurItems.SPAWN_PTERANODON);
-                        //nondocile
-                        entries.add(DinosaurItems.SPAWN_AGGRESSIVE_MEGANEURA);
-                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_HYPSILOPHODON);
-                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_COPSOGNATHUS);
-                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_ARCHAEOPTRYX);
-                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_PARASAUROLOPHUS);
-                        entries.add(DinosaurItems.SPAWN_UNTAMABLE_PTERANODON);
-
-                        //scarabs
-                        entries.add(DinosaurItems.BRONZE_SCARAB);
-                        entries.add(DinosaurItems.SILVER_SCARAB);
 
                         //power
                         entries.add(ModItems.POWER_METER);
@@ -153,7 +130,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GRINDER);
                     }).build());
 
-    public static void registerItemGroups(){
-        EverbloomDandaloo.LOGGER.info("registering item group");
+    public static void registerItemGroups() {
+        EverbloomDandaloo.LOGGER.info("registering item groups");
+        DinosaurItemGroup.dinoItemGroup();
     }
 }

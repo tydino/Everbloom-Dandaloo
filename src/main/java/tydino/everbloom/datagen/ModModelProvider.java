@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.custom.ToadBurrow;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
 import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
 import tydino.everbloom.item.ModItems;
 
@@ -30,12 +31,12 @@ public class ModModelProvider extends FabricModelProvider {
 
         //eggs
         blockStateModelGenerator.registerSimpleState(ModBlocks.TORTOISE_EGG);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.MEGANEURA_EGG);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.HYPSILOPHODON_EGG);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.COMPSOGNATHUS_EGG);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.ARCHAEOPTERYX_EGG);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.PARASAUROLOPHUS_EGG);
-        blockStateModelGenerator.registerSimpleState(ModBlocks.PTERANODON_EGG);
+        blockStateModelGenerator.registerSimpleState(DinosaurBlocks.MEGANEURA_EGG);
+        blockStateModelGenerator.registerSimpleState(DinosaurBlocks.HYPSILOPHODON_EGG);
+        blockStateModelGenerator.registerSimpleState(DinosaurBlocks.COMPSOGNATHUS_EGG);
+        blockStateModelGenerator.registerSimpleState(DinosaurBlocks.ARCHAEOPTERYX_EGG);
+        blockStateModelGenerator.registerSimpleState(DinosaurBlocks.PARASAUROLOPHUS_EGG);
+        blockStateModelGenerator.registerSimpleState(DinosaurBlocks.PTERANODON_EGG);
 
         //animal blocks
         Identifier ToadBurrow_empty = TexturedModel.CUBE_ALL.upload(ModBlocks.TOAD_BURROW, blockStateModelGenerator.modelCollector);
