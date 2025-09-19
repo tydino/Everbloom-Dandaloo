@@ -27,6 +27,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
@@ -174,7 +175,7 @@ public class PteranodonEntity extends TamableDinosaurEntity {
 
     @Nullable
     public PteranodonEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.PTERANODON.create(world, SpawnReason.BREEDING);
+        return DinosaurEntities.PTERANODON.create(world, SpawnReason.BREEDING);
     }
 
     @Override

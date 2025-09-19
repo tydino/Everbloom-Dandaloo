@@ -43,6 +43,7 @@ import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusVariant;
@@ -272,7 +273,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
 
     @Nullable
     public ArchaeopteryxEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.ARCHAEOPTERYX.create(world, SpawnReason.BREEDING);
+        return DinosaurEntities.ARCHAEOPTERYX.create(world, SpawnReason.BREEDING);
     }
 
     @Override

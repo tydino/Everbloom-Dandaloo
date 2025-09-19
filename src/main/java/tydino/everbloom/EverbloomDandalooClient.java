@@ -23,6 +23,8 @@ import tydino.everbloom.entity.client.dinosaurs.quadrepeds.parasaurolophus.Paras
 import tydino.everbloom.entity.client.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusRenderer;
 import tydino.everbloom.entity.client.dinosaurs.scarabs.bronze.BronzeScarabModel;
 import tydino.everbloom.entity.client.dinosaurs.scarabs.bronze.BronzeScarabRenderer;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurClient;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 import tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon.PteranodonEntity;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.screen.custom.FrotherScreen;
@@ -33,6 +35,7 @@ import tydino.everbloom.screen.power.itemCompressor.ItemCompressorTierOneScreen;
 public class EverbloomDandalooClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        EverbloomDandaloo.LOGGER.info("Registering client things");
 
         //power
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POWER_STORAGE_TIER_ONE, RenderLayer.getCutout());
@@ -64,46 +67,7 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ToadModel.TOAD, ToadModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TOAD, ToadRenderer::new);
 
-        //dinosaurs
-
-        //scarabs
-        EntityModelLayerRegistry.registerModelLayer(BronzeScarabModel.SCARAB, BronzeScarabModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.BRONZE_SCARAB, BronzeScarabRenderer::new);
-
-        //insectoids
-
-        //meganeura
-        EntityModelLayerRegistry.registerModelLayer(MeganeuraModel.MEGANEURA, MeganeuraModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.MEGANEURA, MeganeuraRenderer::new);
-        EntityRendererRegistry.register(ModEntities.AGGRESSIVE_MEGANEURA, MeganeuraRenderer::new);
-
-        //bipeds
-
-        //hypsilophodon
-        EntityModelLayerRegistry.registerModelLayer(HypsilophodonModel.HYPSILOPHODON, HypsilophodonModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.HYPSILOPHODON, HypsilophodonRenderer::new);
-        EntityRendererRegistry.register(ModEntities.HYPSILOPHODON_UNTAMABLE, HypsilophodonRenderer::new);
-
-        //compsognathus
-        EntityModelLayerRegistry.registerModelLayer(CompsognathusModel.COMPSOGNATHUS, CompsognathusModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.COMPSOGNATHUS, CompsognathusRenderer::new);
-        EntityRendererRegistry.register(ModEntities.COMPSOGNATHUS_UNTAMABLE, CompsognathusRenderer::new);
-
-        //archaeopteryx
-        EntityModelLayerRegistry.registerModelLayer(ArchaeopteryxModel.ARCHAEOPTERYX, ArchaeopteryxModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX, ArchaeopteryxRenderer::new);
-        EntityRendererRegistry.register(ModEntities.ARCHAEOPTERYX_UNTAMABLE, ArchaeopteryxRenderer::new);
-
-        //pteranodon
-        EntityModelLayerRegistry.registerModelLayer(PteranodonModel.PTERANODON, PteranodonModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.PTERANODON, PteranodonRenderer::new);
-
-        //quadrepeds
-
-        //parasaurolophus
-        EntityModelLayerRegistry.registerModelLayer(ParasaurolophusModel.PARASAUROLOPHUS, ParasaurolophusModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.PARASAUROLOPHUS, ParasaurolophusRenderer::new);
-        EntityRendererRegistry.register(ModEntities.PARASAUROLOPHUS_UNTAMABLE, ParasaurolophusRenderer::new);
+        DinosaurClient.clientDino();
 
         //entities
 

@@ -38,6 +38,7 @@ import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.biped.hypsilophodon.HypsilophodonEntity;
 import tydino.everbloom.entity.custom.dinosaurs.goals.*;
@@ -226,7 +227,7 @@ public class CompsognathusEntity extends TamableDinosaurEntity implements Angera
 
     @Nullable
     public CompsognathusEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.COMPSOGNATHUS.create(world, SpawnReason.BREEDING);
+        return DinosaurEntities.COMPSOGNATHUS.create(world, SpawnReason.BREEDING);
     }
 
     @Override

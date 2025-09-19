@@ -24,6 +24,7 @@ import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurFollowingGoal;
 import tydino.everbloom.entity.custom.dinosaurs.goals.TamableDinosaurLayEggGoal;
@@ -179,7 +180,7 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
 
     @Nullable
     public HypsilophodonEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.HYPSILOPHODON.create(world, SpawnReason.BREEDING);
+        return DinosaurEntities.HYPSILOPHODON.create(world, SpawnReason.BREEDING);
     }
 
     @Override

@@ -14,6 +14,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 
 public class AggressiveMeganeuraEntity extends MeganeuraEntity {
 
@@ -61,6 +62,6 @@ public class AggressiveMeganeuraEntity extends MeganeuraEntity {
 
     @Override
     public @Nullable MeganeuraEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.AGGRESSIVE_MEGANEURA.create(world, SpawnReason.BREEDING);
+        return DinosaurEntities.AGGRESSIVE_MEGANEURA.create(world, SpawnReason.BREEDING);
     }
 }

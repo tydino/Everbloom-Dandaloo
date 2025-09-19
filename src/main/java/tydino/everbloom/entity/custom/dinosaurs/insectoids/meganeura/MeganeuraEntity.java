@@ -32,6 +32,7 @@ import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
+import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
 
 public class MeganeuraEntity extends AnimalEntity implements Flutterer {
 
@@ -133,7 +134,7 @@ public class MeganeuraEntity extends AnimalEntity implements Flutterer {
 
     @Nullable
     public MeganeuraEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        return ModEntities.MEGANEURA.create(world, SpawnReason.BREEDING);
+        return DinosaurEntities.MEGANEURA.create(world, SpawnReason.BREEDING);
     }
 
     @Override
