@@ -28,6 +28,7 @@ import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.AggressiveM
 import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
 import tydino.everbloom.entity.custom.dinosaurs.quadrepeds.parasaurolophus.NontamableParasaurolophusEntity;
 import tydino.everbloom.entity.custom.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusEntity;
+import tydino.everbloom.entity.custom.dinosaurs.scarab.BronzeScarabEntity;
 
 public class ModEntities {
 
@@ -38,6 +39,10 @@ public class ModEntities {
     //register keys for mobs
 
     //dinosaurs
+
+    //scarabs
+    static final RegistryKey<EntityType<?>> BRONZE_SCARAB_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(EverbloomDandaloo.MOD_ID, "bronze_scarab"));
 
     //insectoids
 
@@ -114,6 +119,12 @@ public class ModEntities {
                                     Identifier.of(EverbloomDandaloo.MOD_ID, "toad"))));
 
     //dinosaurs
+
+    //scarabs
+    public static final EntityType<BronzeScarabEntity> BRONZE_SCARAB = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(EverbloomDandaloo.MOD_ID, "bronze_scarab"),
+            EntityType.Builder.create(BronzeScarabEntity::new, SpawnGroup.MONSTER)
+                    .dimensions(0.5f, 0.25f).build(BRONZE_SCARAB_KEY));
 
     //insectoids
 
@@ -198,6 +209,9 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(ModEntities.TOAD, ToadEntity.createToadAttributes());
 
         //dinosaurs
+
+        //Scarabs
+        FabricDefaultAttributeRegistry.register(ModEntities.BRONZE_SCARAB, BronzeScarabEntity.createBronzeScarabAttributes());
 
         //insectoids
 

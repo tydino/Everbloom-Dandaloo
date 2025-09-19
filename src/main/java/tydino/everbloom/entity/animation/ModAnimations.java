@@ -10,6 +10,7 @@ import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.Hypsilophodo
 import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.PteranodonAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.insectoids.MeganeuraAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.quadrepeds.ParasaurolophusAnimations;
+import tydino.everbloom.entity.animation.animations.dinosaur.scarabs.BronzeScarabAnimations;
 
 public class ModAnimations {
     public static MallardAnimations MALLARD_ANIMATIONS;
@@ -18,6 +19,9 @@ public class ModAnimations {
     public static ToadAnimations TOAD_ANIMATIONS;
 
     //dinosaurs
+
+    //scarabs
+    public static BronzeScarabAnimations BRONZE_SCARAB_ANIMATIONS;
 
     //insectoids
     public static MeganeuraAnimations MEGANEURA_ANIMATIONS;

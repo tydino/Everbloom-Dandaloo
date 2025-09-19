@@ -80,8 +80,9 @@
   "item.everbloom.spawn-untamable_parasaurolophus": "Untamable Parasaurolophus Spawn Egg",
 
 
-  "item.everbloom.silver_scarab": "Silver Scarab",
   "item.everbloom.bronze_scarab": "Bronze Scarab",
+  "entity.everbloom.bronze_scarab": "Bronze Scarab",
+  "item.everbloom.silver_scarab": "Silver Scarab",
 
 
   "item.everbloom.raw_alumium": "Raw Aluminum",

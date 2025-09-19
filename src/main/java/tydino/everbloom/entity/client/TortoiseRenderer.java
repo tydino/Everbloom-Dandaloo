@@ -6,7 +6,6 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.custom.DaggerStabberEntity;
 import tydino.everbloom.entity.custom.TortoiseEntity;
 
 public class TortoiseRenderer extends MobEntityRenderer<TortoiseEntity, TortoiseRenderState, TortoiseModel> {

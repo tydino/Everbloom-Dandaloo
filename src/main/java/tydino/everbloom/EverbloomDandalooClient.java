@@ -21,6 +21,8 @@ import tydino.everbloom.entity.client.dinosaurs.insectoids.meganeura.MeganeuraMo
 import tydino.everbloom.entity.client.dinosaurs.insectoids.meganeura.MeganeuraRenderer;
 import tydino.everbloom.entity.client.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusModel;
 import tydino.everbloom.entity.client.dinosaurs.quadrepeds.parasaurolophus.ParasaurolophusRenderer;
+import tydino.everbloom.entity.client.dinosaurs.scarabs.bronze.BronzeScarabModel;
+import tydino.everbloom.entity.client.dinosaurs.scarabs.bronze.BronzeScarabRenderer;
 import tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon.PteranodonEntity;
 import tydino.everbloom.screen.ModScreenHandler;
 import tydino.everbloom.screen.custom.FrotherScreen;
@@ -63,6 +65,10 @@ public class EverbloomDandalooClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.TOAD, ToadRenderer::new);
 
         //dinosaurs
+
+        //scarabs
+        EntityModelLayerRegistry.registerModelLayer(BronzeScarabModel.SCARAB, BronzeScarabModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.BRONZE_SCARAB, BronzeScarabRenderer::new);
 
         //insectoids
 
