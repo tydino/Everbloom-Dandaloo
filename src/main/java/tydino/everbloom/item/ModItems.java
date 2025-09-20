@@ -9,8 +9,7 @@ import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
+import tydino.everbloom.entity.dinosaurs.DinosaurItems;
 
 import java.util.function.Function;
 

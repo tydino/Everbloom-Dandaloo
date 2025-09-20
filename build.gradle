@@ -36,7 +36,6 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta68-1.21.4'
-	include 'net.kyrptonaught:customportalapi:<version>'
 
 	include modApi("teamreborn:energy:${project.energy_version}")
 	//modImplementation "curse.maven:techreborn-233564:6664381"

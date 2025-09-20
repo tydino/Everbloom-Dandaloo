@@ -2,7 +2,7 @@ package tydino.everbloom.entity.client;
 
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.entity.AnimationState;
-import tydino.everbloom.entity.custom.unsorted.ToadVariant;
+import tydino.everbloom.entity.unsorted.ToadVariant;
 
 public class ToadRenderState extends LivingEntityRenderState {
     public final AnimationState sleepingTransitionAnimationState = new AnimationState();

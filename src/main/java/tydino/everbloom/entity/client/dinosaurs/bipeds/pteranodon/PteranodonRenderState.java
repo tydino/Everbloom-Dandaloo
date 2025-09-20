@@ -2,7 +2,7 @@ package tydino.everbloom.entity.client.dinosaurs.bipeds.pteranodon;
 
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.entity.AnimationState;
-import tydino.everbloom.entity.custom.dinosaurs.biped.pteranodon.PteranodonVariant;
+import tydino.everbloom.entity.dinosaurs.biped.pteranodon.PteranodonVariant;
 
 public class PteranodonRenderState extends LivingEntityRenderState {
     public final AnimationState idleAnimationState = new AnimationState();

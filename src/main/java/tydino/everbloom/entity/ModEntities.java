@@ -9,11 +9,11 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.custom.unsorted.DaggerStabberEntity;
-import tydino.everbloom.entity.custom.unsorted.MallardEntity;
-import tydino.everbloom.entity.custom.unsorted.ToadEntity;
-import tydino.everbloom.entity.custom.unsorted.TortoiseEntity;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.unsorted.DaggerStabberEntity;
+import tydino.everbloom.entity.unsorted.MallardEntity;
+import tydino.everbloom.entity.unsorted.ToadEntity;
+import tydino.everbloom.entity.unsorted.TortoiseEntity;
+import tydino.everbloom.entity.dinosaurs.DinosaurEntities;
 
 public class ModEntities {
 

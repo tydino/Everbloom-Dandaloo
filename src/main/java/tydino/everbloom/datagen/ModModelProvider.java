@@ -7,8 +7,8 @@ import net.minecraft.util.Identifier;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.custom.ToadBurrow;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
+import tydino.everbloom.entity.dinosaurs.DinosaurBlocks;
+import tydino.everbloom.entity.dinosaurs.DinosaurItems;
 import tydino.everbloom.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {

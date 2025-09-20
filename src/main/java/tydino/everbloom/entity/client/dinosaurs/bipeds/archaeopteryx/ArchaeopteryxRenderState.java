@@ -2,7 +2,7 @@ package tydino.everbloom.entity.client.dinosaurs.bipeds.archaeopteryx;
 
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.entity.AnimationState;
-import tydino.everbloom.entity.custom.dinosaurs.biped.archaeopteryx.ArchaeopteryxVariant;
+import tydino.everbloom.entity.dinosaurs.biped.archaeopteryx.ArchaeopteryxVariant;
 
 public class ArchaeopteryxRenderState extends LivingEntityRenderState {
     public final AnimationState idleAnimationState = new AnimationState();

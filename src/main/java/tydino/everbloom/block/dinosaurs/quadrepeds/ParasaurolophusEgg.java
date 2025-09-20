@@ -2,8 +2,7 @@ package tydino.everbloom.block.dinosaurs.quadrepeds;
 
 import com.mojang.serialization.MapCodec;
 import tydino.everbloom.block.dinosaurs.DinosaurEgg;
-import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.dinosaurs.DinosaurEntities;
 
 public class ParasaurolophusEgg extends DinosaurEgg {
     public static final MapCodec<ParasaurolophusEgg> CODEC = createCodec(ParasaurolophusEgg::new);

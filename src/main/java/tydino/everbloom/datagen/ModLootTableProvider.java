@@ -19,7 +19,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
+import tydino.everbloom.entity.dinosaurs.DinosaurBlocks;
 import tydino.everbloom.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;

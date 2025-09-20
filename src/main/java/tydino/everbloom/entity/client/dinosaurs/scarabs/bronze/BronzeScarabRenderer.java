@@ -1,13 +1,10 @@
 package tydino.everbloom.entity.client.dinosaurs.scarabs.bronze;
 
-import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.client.DaggerStabberRenderState;
-import tydino.everbloom.entity.custom.dinosaurs.scarab.BronzeScarabEntity;
+import tydino.everbloom.entity.dinosaurs.scarab.BronzeScarabEntity;
 
 public class BronzeScarabRenderer extends MobEntityRenderer<BronzeScarabEntity, BronzeScarabRenderState, BronzeScarabModel> {
     private static final Identifier TEXTURE = Identifier.of(EverbloomDandaloo.MOD_ID, "textures/entity/dinosaurs/scarabs/bronze_scarab.png");

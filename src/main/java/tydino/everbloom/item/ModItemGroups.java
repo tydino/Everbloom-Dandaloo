@@ -9,8 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandaloo;
 import tydino.everbloom.block.ModBlocks;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurItemGroup;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurItems;
+import tydino.everbloom.entity.dinosaurs.DinosaurItemGroup;
 
 public class ModItemGroups {
     public static final ItemGroup EverBloomDandalooItemGroup = Registry.register(Registries.ITEM_GROUP,

@@ -24,9 +24,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurEntities;
-import tydino.everbloom.entity.custom.dinosaurs.insectoids.meganeura.MeganeuraEntity;
+import tydino.everbloom.entity.dinosaurs.DinosaurEntities;
+import tydino.everbloom.entity.dinosaurs.insectoids.meganeura.MeganeuraEntity;
 
 public class MeganeuraEgg extends Block {
     public static final MapCodec<MeganeuraEgg> CODEC = createCodec(MeganeuraEgg::new);

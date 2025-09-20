@@ -24,7 +24,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import tydino.everbloom.entity.custom.dinosaurs.TamableDinosaurEntity;
+import tydino.everbloom.entity.dinosaurs.TamableDinosaurEntity;
 
 public class DinosaurEgg extends Block {
     public MapCodec<?> CODEC;

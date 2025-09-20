@@ -8,8 +8,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.custom.unsorted.MallardEntity;
-import tydino.everbloom.entity.custom.unsorted.MallardVariant;
+import tydino.everbloom.entity.unsorted.MallardEntity;
+import tydino.everbloom.entity.unsorted.MallardVariant;
 
 import java.util.Map;
 

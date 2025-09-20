@@ -8,8 +8,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusEntity;
-import tydino.everbloom.entity.custom.dinosaurs.biped.compsognathus.CompsognathusVariant;
+import tydino.everbloom.entity.dinosaurs.biped.compsognathus.CompsognathusEntity;
+import tydino.everbloom.entity.dinosaurs.biped.compsognathus.CompsognathusVariant;
 
 import java.util.Map;
 

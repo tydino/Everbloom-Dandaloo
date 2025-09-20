@@ -18,14 +18,8 @@ import tydino.everbloom.block.custom.GriddleTierOne;
 import tydino.everbloom.block.custom.ToadBurrow;
 import tydino.everbloom.block.custom.TortoiseEgg;
 import tydino.everbloom.block.custom.bushes.TomatoBushBlock;
-import tydino.everbloom.block.dinosaurs.bipeds.ArchaeopteryxEgg;
-import tydino.everbloom.block.dinosaurs.bipeds.CompsognathusEgg;
-import tydino.everbloom.block.dinosaurs.bipeds.HypsilophodonEgg;
-import tydino.everbloom.block.dinosaurs.bipeds.PteranodonEgg;
-import tydino.everbloom.block.dinosaurs.insectoids.MeganeuraEgg;
-import tydino.everbloom.block.dinosaurs.quadrepeds.ParasaurolophusEgg;
 import tydino.everbloom.block.power.*;
-import tydino.everbloom.entity.custom.dinosaurs.DinosaurBlocks;
+import tydino.everbloom.entity.dinosaurs.DinosaurBlocks;
 
 import java.util.function.Function;
 
