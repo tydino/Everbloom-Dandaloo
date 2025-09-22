@@ -25,6 +25,8 @@ import tydino.everbloom.item.ModItems;
 
 public class TamableDinosaurEntity extends TameableEntity {
 
+    public static final int TicksInDay = 24000;///24000
+
     public static final Ingredient CARNIVORE = Ingredient.ofItems(
             Items.PORKCHOP, Items.COOKED_PORKCHOP, Items.BEEF, Items.COOKED_BEEF, Items.CHICKEN, Items.COOKED_CHICKEN, Items.MUTTON, Items.COOKED_MUTTON, Items.RABBIT, Items.COOKED_RABBIT, ModItems.MALLARD_MEAT, ModItems.COOKED_MALLARD_MEAT, ModItems.DAGER_STABBER_MEAT, ModItems.COOKED_DAGER_STABBER_MEAT
     );
@@ -98,11 +100,18 @@ public class TamableDinosaurEntity extends TameableEntity {
     public static final TrackedData<Boolean> WANDERING =
             DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
+    public static final TrackedData<Integer> AGE =
+            DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    public static final TrackedData<Integer> AgeTicks =
+            DataTracker.registerData(TamableDinosaurEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    public int MaxAge;
+
     public Item Scarab;
 
-    protected TamableDinosaurEntity(EntityType<? extends TameableEntity> entityType, World world, Item scarab) {
+    protected TamableDinosaurEntity(EntityType<? extends TameableEntity> entityType, World world, Item scarab, int maxAge) {
         super(entityType, world);
         this.Scarab = scarab;
+        this.MaxAge = maxAge;
     }
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
@@ -185,6 +194,8 @@ public class TamableDinosaurEntity extends TameableEntity {
         this.setSittingDown(nbt.getBoolean("Sitting"));
         this.setWandering(nbt.getBoolean("Wandering"));
         this.setFollowing(nbt.getBoolean("Following"));
+        this.setAge(nbt.getInt("Age"));
+        this.setAgeTicks(nbt.getInt("AgeTicks"));
     }
 
     @Override
@@ -194,6 +205,8 @@ public class TamableDinosaurEntity extends TameableEntity {
         nbt.putBoolean("Sitting", this.isSittingDownNow());
         nbt.putBoolean("Wandering", this.isWandering());
         nbt.putBoolean("Following", this.isFollowing());
+        nbt.putInt("Age", this.whatAge());
+        nbt.putInt("AgeTicks", this.whatAgeTicks());
     }
 
     public void setSittingDown(boolean sitting) {
@@ -212,6 +225,14 @@ public class TamableDinosaurEntity extends TameableEntity {
 
     public boolean isFollowing(){return (Boolean)this.dataTracker.get(FOLLOWING);}
 
+    public void setAge(int age){this.dataTracker.set(AGE, age);}
+
+    public int whatAge(){return (int) this.dataTracker.get(AGE);}
+
+    public void setAgeTicks(int tick){this.dataTracker.set(AgeTicks, tick);}
+
+    public int whatAgeTicks(){return (int) this.dataTracker.get(AgeTicks);}
+
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
@@ -220,6 +241,8 @@ public class TamableDinosaurEntity extends TameableEntity {
         builder.add(SITTING, false);
         builder.add(FOLLOWING, false);
         builder.add(WANDERING, true);
+        builder.add(AGE, 1);
+        builder.add(AgeTicks, 1);
     }
 
     public boolean IsEating() {
@@ -255,5 +278,18 @@ public class TamableDinosaurEntity extends TameableEntity {
     @Override
     public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return null;
+    }
+
+    @Override
+    protected void mobTick(ServerWorld world) {
+        super.mobTick(world);
+        if(whatAge() < MaxAge) {
+            if (whatAgeTicks() < TicksInDay) {
+                setAgeTicks(whatAgeTicks() + 1);
+            } else {
+                setAge(whatAge() + 1);
+                setAgeTicks(0);
+            }
+        }
     }
 }

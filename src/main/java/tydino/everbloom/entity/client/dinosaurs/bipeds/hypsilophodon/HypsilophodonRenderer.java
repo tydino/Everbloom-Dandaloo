@@ -39,10 +39,16 @@ public class HypsilophodonRenderer extends MobEntityRenderer<HypsilophodonEntity
 
     @Override
     public void render(HypsilophodonRenderState state, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
-        if(state.baby){
+        if(state.DinoAge <= 2){
             matrixStack.scale(0.5f, 0.5f, 0.5f);
-        }else{
-            matrixStack.scale(1f,1f,1f);
+        }else if(state.DinoAge <= 4){
+            matrixStack.scale(0.6f, 0.6f, 0.6f);
+        }else if(state.DinoAge <= 6){
+            matrixStack.scale(0.7f, 0.7f, 0.7f);
+        }else if(state.DinoAge <= 8){
+            matrixStack.scale(0.85f, 0.85f, 0.85f);
+        }else if(state.DinoAge >= 10){
+            matrixStack.scale(1f, 1f, 1f);
         }
 
         super.render(state, matrixStack, vertexConsumerProvider, i);

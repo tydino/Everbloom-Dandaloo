@@ -37,7 +37,7 @@ public class ParasaurolophusEntity extends TamableDinosaurEntity {
             DataTracker.registerData(ParasaurolophusEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public ParasaurolophusEntity(EntityType<? extends ParasaurolophusEntity> entityType, World world) {
-        super(entityType, world, DinosaurItems.SILVER_SCARAB);///switch to gold for cretaceous
+        super(entityType, world, DinosaurItems.SILVER_SCARAB, 60);///switch to gold for cretaceous
         this.setTamed(false, false);
     }
     //animation code

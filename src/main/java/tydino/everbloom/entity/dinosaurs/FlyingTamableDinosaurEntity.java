@@ -24,8 +24,8 @@ public class FlyingTamableDinosaurEntity extends TamableDinosaurEntity{
     int minTired;
     int maxTired;
 
-    protected FlyingTamableDinosaurEntity(EntityType<? extends TameableEntity> entityType, World world, Item scarab, int maxPitchChange, float flapSpeed, int maxTimeInAir, int minTiredCooldown, int maxTiredCooldown) {
-        super(entityType, world, scarab);
+    protected FlyingTamableDinosaurEntity(EntityType<? extends TameableEntity> entityType, World world, Item scarab, int maxPitchChange, float flapSpeed, int maxTimeInAir, int minTiredCooldown, int maxTiredCooldown, int maxAge) {
+        super(entityType, world, scarab, maxAge);
         this.moveControl = new FlightMoveControl(this, maxPitchChange, true);
         this.flapSpeed = flapSpeed;
         this.flyingTime = 0;

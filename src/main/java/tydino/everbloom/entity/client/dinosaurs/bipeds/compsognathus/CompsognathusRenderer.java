@@ -37,9 +37,15 @@ public class CompsognathusRenderer extends MobEntityRenderer<CompsognathusEntity
 
     @Override
     public void render(CompsognathusRenderState state, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
-        if (state.baby) {
+        if (state.DinoAge == 1) {
             matrixStack.scale(0.5f, 0.5f, 0.5f);
-        } else {
+        } else if(state.DinoAge == 2){
+            matrixStack.scale(0.6f, 0.6f, 0.6f);
+        }else if(state.DinoAge == 3){
+            matrixStack.scale(0.7f, 0.7f, 0.7f);
+        }else if(state.DinoAge == 4){
+            matrixStack.scale(0.85f, 0.85f, 0.85f);
+        }else if(state.DinoAge >= 5){
             matrixStack.scale(1f, 1f, 1f);
         }
 

@@ -46,7 +46,7 @@ public class ArchaeopteryxEntity  extends TamableDinosaurEntity implements Anger
             DataTracker.registerData(ArchaeopteryxEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public ArchaeopteryxEntity(EntityType<? extends ArchaeopteryxEntity> entityType, World world) {
-        super(entityType, world, DinosaurItems.SILVER_SCARAB);
+        super(entityType, world, DinosaurItems.SILVER_SCARAB, 5);
         this.setTamed(false, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 10.0F);
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, 5.0F);

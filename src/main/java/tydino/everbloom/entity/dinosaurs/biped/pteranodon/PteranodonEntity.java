@@ -33,7 +33,7 @@ public class PteranodonEntity extends FlyingTamableDinosaurEntity {
             DataTracker.registerData(PteranodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public PteranodonEntity(EntityType<? extends PteranodonEntity> entityType, World world) {
-        super(entityType, world, DinosaurItems.SILVER_SCARAB, 10, 0.8f, 600, 60, 120);
+        super(entityType, world, DinosaurItems.SILVER_SCARAB, 10, 0.8f, 600, 60, 120, 20);
         this.setTamed(false, false);
     }
 

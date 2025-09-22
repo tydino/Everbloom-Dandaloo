@@ -37,10 +37,18 @@ public class ParasaurolophusRenderer extends MobEntityRenderer<ParasaurolophusEn
 
     @Override
     public void render(ParasaurolophusRenderState state, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
-        if(state.baby){
+        if(state.DinoAge <= 10){
             matrixStack.scale(0.5f, 0.5f, 0.5f);
-        }else{
-            matrixStack.scale(1f,1f,1f);
+        }else if(state.DinoAge <= 20){
+            matrixStack.scale(0.6f, 0.6f, 0.6f);
+        }else if(state.DinoAge <= 30){
+            matrixStack.scale(0.7f, 0.7f, 0.7f);
+        }else if(state.DinoAge <= 40){
+            matrixStack.scale(0.8f, 0.8f, 0.8f);
+        }else if(state.DinoAge <= 50){
+            matrixStack.scale(0.9f, 0.9f, 0.9f);
+        }else if(state.DinoAge >= 60){
+            matrixStack.scale(1f, 1f, 1f);
         }
 
         super.render(state, matrixStack, vertexConsumerProvider, i);

@@ -19,7 +19,7 @@ public class TamableDinosaurMateGoal extends AnimalMateGoal {
     }
 
     public boolean canStart() {
-        return super.canStart() && !this.entity.hasEgg() && entity.isTamed();
+        return super.canStart() && !this.entity.hasEgg() && entity.isTamed() && this.entity.whatAge() >= this.entity.MaxAge - 1;
     }
 
     protected void breed() {

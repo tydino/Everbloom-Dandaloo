@@ -29,8 +29,7 @@ import tydino.everbloom.world.gen.ModWorldGeneration;
 import java.util.UUID;
 
 //todo:
-//have it so the pteranodon will swoop down and attack instead of slowly coming down
-
+//make dinosaurs that sleep
 //add dinsaur(s) demensions and have them be more continental then land
 //add a burrowing mob that works like a bees (toad) that drops slime
 //make the way to get the dinosaurs

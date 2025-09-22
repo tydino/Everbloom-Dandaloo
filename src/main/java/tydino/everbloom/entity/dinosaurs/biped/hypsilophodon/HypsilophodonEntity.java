@@ -31,7 +31,7 @@ public class HypsilophodonEntity extends TamableDinosaurEntity {
             DataTracker.registerData(HypsilophodonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public HypsilophodonEntity(EntityType<? extends HypsilophodonEntity> entityType, World world) {
-        super(entityType, world, DinosaurItems.SILVER_SCARAB);///set to gold as it is from cretaceous
+        super(entityType, world, DinosaurItems.SILVER_SCARAB, 10);///set to gold as it is from cretaceous
         this.setTamed(false, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 10.0F);
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, 15.0F);

@@ -36,10 +36,21 @@ public class PteranodonRenderer extends MobEntityRenderer<PteranodonEntity, Pter
     @Override
     public void render(PteranodonRenderState state, MatrixStack matrixStack, VertexConsumerProvider
             vertexConsumerProvider, int i) {
-        if (state.baby) {
-            matrixStack.scale(0.5f, 0.5f, 0.5f);
-        } else {
-            matrixStack.scale(1f, 1f, 1f);
+        /// for testing purposes
+        if (state.DinoAge <= 3) {
+            matrixStack.scale(0.4f, 0.4f, 0.4f);
+        }else if(state.DinoAge <= 6){
+            matrixStack.scale(0.5f, 0.5f,0.5f);
+        }else if(state.DinoAge <= 10){
+            matrixStack.scale(0.6f, 0.6f,0.6f);
+        }else if(state.DinoAge <= 15){
+            matrixStack.scale(0.7f, 0.7f,0.7f);
+        }else if(state.DinoAge <= 18){
+            matrixStack.scale(0.8f, 0.8f,0.8f);
+        }else if(state.DinoAge <= 19){
+            matrixStack.scale(0.9f, 0.9f,0.9f);
+        }else if(state.DinoAge >= 20){
+            matrixStack.scale(1f, 1f,1f);
         }
 
         super.render(state, matrixStack, vertexConsumerProvider, i);
@@ -52,6 +63,7 @@ public class PteranodonRenderer extends MobEntityRenderer<PteranodonEntity, Pter
 
     @Override
     public void updateRenderState(PteranodonEntity livingEntity, PteranodonRenderState livingEntityRenderState, float f) {
+        livingEntityRenderState.DinoAge = livingEntity.whatAge();
         super.updateRenderState(livingEntity, livingEntityRenderState, f);
         livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
         livingEntityRenderState.eatAnimationState.copyFrom(livingEntity.eatAnimationState);
