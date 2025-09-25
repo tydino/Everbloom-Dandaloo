@@ -8,6 +8,9 @@ import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.Archaeoptery
 import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.CompsognathusAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.HypsilophodonAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.bipeds.PteranodonAnimations;
+import tydino.everbloom.entity.animation.animations.dinosaur.insectoids.ArthropleuraBodyAnimations;
+import tydino.everbloom.entity.animation.animations.dinosaur.insectoids.ArthropleuraButtAnimations;
+import tydino.everbloom.entity.animation.animations.dinosaur.insectoids.ArthropleuraHeadAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.insectoids.MeganeuraAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.quadrepeds.ParasaurolophusAnimations;
 import tydino.everbloom.entity.animation.animations.dinosaur.scarabs.BronzeScarabAnimations;
@@ -26,10 +29,17 @@ public class ModAnimations {
     //insectoids
     public static MeganeuraAnimations MEGANEURA_ANIMATIONS;
 
+    public static ArthropleuraHeadAnimations ARTHROPLEURA_HEAD_ANIMATIONS;
+    public static ArthropleuraBodyAnimations ARTHROPLEURA_BODY_ANIMATION;
+    public static ArthropleuraButtAnimations ARTHROPLEURA_BUTT_ANIMATION;
+
     //bipeds
     public static HypsilophodonAnimations HYPSILOPHODON_ANIMATIONS;
+
     public static CompsognathusAnimations COMPSOGNATHUS_ANIMATIONS;
+
     public static ArchaeopteryxAnimations ARCHAEOPTERYX_ANIMATIONS;
+
 
     public static PteranodonAnimations PTERANODON_ANIMATIONS;
 
