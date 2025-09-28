@@ -23,9 +23,6 @@
 		],
 		"client": [
 			"tydino.everbloom.EverbloomDandalooClient"
-		],
-		"rei_client": [
-			"tydino.everbloom.compat.EverbloomREIClient"
 		]
 	},
 	"mixins": [

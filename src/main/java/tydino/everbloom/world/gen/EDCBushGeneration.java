@@ -1,6 +1,6 @@
 package tydino.everbloom.world.gen;
 
-public class ModBushGeneration {
+public class EDCBushGeneration {
     public static void generateBushes() {
 
     }

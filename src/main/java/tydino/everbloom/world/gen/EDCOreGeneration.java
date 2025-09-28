@@ -1,6 +1,6 @@
 package tydino.everbloom.world.gen;
 
-public class ModOreGeneration {
+public class EDCOreGeneration {
     public static void generateOres() {
 
     }

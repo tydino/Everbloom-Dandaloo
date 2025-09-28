@@ -11,7 +11,7 @@ import tydino.everbloom.EverbloomDandalooCore;
 
 import java.util.List;
 
-public class ModPlacedFeatures {
+public class EDCPlacedFeatures {
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);

@@ -2,14 +2,14 @@ package tydino.everbloom.world.gen;
 
 import tydino.everbloom.EverbloomDandalooCore;
 
-public class ModWorldGeneration {
+public class EDCWorldGeneration {
     public static void generateWorldGen(){
         EverbloomDandalooCore.LOGGER.info("registering world generation");
-        ModOreGeneration.generateOres();
+        EDCOreGeneration.generateOres();
 
         //ModTreeGeneration.generateTrees();
-        ModBushGeneration.generateBushes();
+        EDCBushGeneration.generateBushes();
 
-        ModEntitySpawns.addSpawns();
+        EDCEntitySpawns.addSpawns();
     }
 }

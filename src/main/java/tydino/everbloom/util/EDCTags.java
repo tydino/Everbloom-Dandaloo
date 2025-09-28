@@ -7,7 +7,7 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandalooCore;
 
-public class ModTags {
+public class EDCTags {
     public static class Blocks {
 
         private static TagKey<Block> createTag(String name) {

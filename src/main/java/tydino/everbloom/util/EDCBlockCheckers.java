@@ -4,7 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockCheckers {
+public class EDCBlockCheckers {
     public static boolean hasNoBlocksAbove(World world, BlockPos blockEntityPos) {
         for (int y = blockEntityPos.getY() + 1; y < 380; y++) {
             BlockPos currentPos = new BlockPos(blockEntityPos.getX(), y, blockEntityPos.getZ());

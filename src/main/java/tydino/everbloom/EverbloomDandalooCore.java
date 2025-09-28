@@ -8,14 +8,12 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tydino.everbloom.block.ModBlocks;
-import tydino.everbloom.entity.ModEntities;
-import tydino.everbloom.item.ModItems;
-import tydino.everbloom.recipe.ModRecipes;
-import tydino.everbloom.screen.ModScreenHandler;
-import tydino.everbloom.util.ModLootTableModifiers;
-import tydino.everbloom.world.gen.ModWorldGeneration;
-
-import java.util.UUID;
+import tydino.everbloom.entity.EDCEntities;
+import tydino.everbloom.item.EDCItems;
+import tydino.everbloom.recipe.EDCRecipes;
+import tydino.everbloom.screen.EDCScreenHandler;
+import tydino.everbloom.util.EDCLootTableModifiers;
+import tydino.everbloom.world.gen.EDCWorldGeneration;
 
 public class EverbloomDandalooCore implements ModInitializer {
 	public static final String MOD_ID = "everbloom";
@@ -26,17 +24,17 @@ public class EverbloomDandalooCore implements ModInitializer {
 		LOGGER.info("applying everbloom dandaloo content to minecraft");
 
 		ModBlocks.registerModBlocks();
-		ModItems.registerModItems();
+		EDCItems.registerModItems();
 
-		ModWorldGeneration.generateWorldGen();
+		EDCWorldGeneration.generateWorldGen();
 
-		ModEntities.registerModEntities();
+		EDCEntities.registerModEntities();
 
-		ModLootTableModifiers.modifyLootTables();
+		EDCLootTableModifiers.modifyLootTables();
 
-		ModScreenHandler.registerScreenHandlers();
+		EDCScreenHandler.registerScreenHandlers();
 
-		ModRecipes.registerRecipes();
+		EDCRecipes.registerRecipes();
 		/// player
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
 			ServerPlayerEntity player = handler.player;
