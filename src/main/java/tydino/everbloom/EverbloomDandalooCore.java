@@ -15,6 +15,8 @@ import tydino.everbloom.screen.EDCScreenHandler;
 import tydino.everbloom.util.EDCLootTableModifiers;
 import tydino.everbloom.world.gen.EDCWorldGeneration;
 
+//use if using reborn https://github.com/TechReborn/TechReborn
+
 public class EverbloomDandalooCore implements ModInitializer {
 	public static final String MOD_ID = "everbloom";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
