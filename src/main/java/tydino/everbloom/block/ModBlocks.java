@@ -10,6 +10,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import tydino.everbloom.EverbloomDandalooCore;
+import tydino.everbloom.block.bushes.EDCBushBlocks;
 
 import java.util.function.Function;
 
@@ -17,18 +18,18 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
-    private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
+    public static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
         Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(EverbloomDandalooCore.MOD_ID, name))));
         registerBlockItem(name, toRegister);
         return Registry.register(Registries.BLOCK, Identifier.of(EverbloomDandalooCore.MOD_ID, name), toRegister);
     }
 
-    private static Block registerBlockWithoutBlockItem(String name, Function<AbstractBlock.Settings, Block> function) {
+    public static Block registerBlockWithoutBlockItem(String name, Function<AbstractBlock.Settings, Block> function) {
         return Registry.register(Registries.BLOCK, Identifier.of(EverbloomDandalooCore.MOD_ID, name),
                 function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(EverbloomDandalooCore.MOD_ID, name)))));
     }
 
-    private static void registerBlockItem(String name, Block block) {
+    public static void registerBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(EverbloomDandalooCore.MOD_ID, name),
                 new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey()
                         .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(EverbloomDandalooCore.MOD_ID, name)))));
@@ -36,5 +37,6 @@ public class ModBlocks {
 
     public static void registerModBlocks(){
         EverbloomDandalooCore.LOGGER.info("registering blocks");
+        EDCBushBlocks.registerModBlocks();
     }
 }

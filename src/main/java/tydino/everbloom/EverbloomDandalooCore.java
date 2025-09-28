@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tydino.everbloom.block.ModBlocks;
 import tydino.everbloom.entity.EDCEntities;
+import tydino.everbloom.item.EDCItemGroup;
 import tydino.everbloom.item.EDCItems;
 import tydino.everbloom.recipe.EDCRecipes;
 import tydino.everbloom.screen.EDCScreenHandler;
@@ -18,7 +19,7 @@ import tydino.everbloom.world.gen.EDCWorldGeneration;
 //use if using reborn https://github.com/TechReborn/TechReborn
 
 public class EverbloomDandalooCore implements ModInitializer {
-	public static final String MOD_ID = "everbloom";
+	public static final String MOD_ID = "everbloom_core";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
@@ -37,6 +38,8 @@ public class EverbloomDandalooCore implements ModInitializer {
 		EDCScreenHandler.registerScreenHandlers();
 
 		EDCRecipes.registerRecipes();
+
+		EDCItemGroup.registerItemGroup();
 		/// player
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
 			ServerPlayerEntity player = handler.player;

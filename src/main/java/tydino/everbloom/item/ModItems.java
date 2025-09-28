@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 public class ModItems {
 
-    static Item registerItem(String name, Function<Item.Settings, Item> function) {
+    public static Item registerItem(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(EverbloomDandalooCore.MOD_ID, name),
                 function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(EverbloomDandalooCore.MOD_ID, name)))));
     }
