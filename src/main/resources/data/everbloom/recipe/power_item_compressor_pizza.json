@@ -1,8 +1,0 @@
-{
-  "type": "everbloom:item_compressor",
-  "ingredient": "everbloom:dough",
-  "pressure": "everbloom:metal_sheet",
-  "result": {
-    "id": "everbloom:pizza_dough"
-  }
-}

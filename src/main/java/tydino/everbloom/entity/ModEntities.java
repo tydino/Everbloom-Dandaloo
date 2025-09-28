@@ -1,78 +1,12 @@
 package tydino.everbloom.entity;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
-import tydino.everbloom.EverbloomDandaloo;
-import tydino.everbloom.entity.unsorted.DaggerStabberEntity;
-import tydino.everbloom.entity.unsorted.MallardEntity;
-import tydino.everbloom.entity.unsorted.ToadEntity;
-import tydino.everbloom.entity.unsorted.TortoiseEntity;
-import tydino.everbloom.entity.dinosaurs.DinosaurEntities;
+import tydino.everbloom.EverbloomDandalooCore;
 
 public class ModEntities {
 
-    //mallard
 
-    public static final EntityType<MallardEntity> MALLARD = Registry.register(Registries.ENTITY_TYPE,
-            Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"),
-            EntityType.Builder.create(MallardEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.375f, 0.75f).build(//this sets hit box size
-                            RegistryKey.of(RegistryKeys.ENTITY_TYPE,
-                                    Identifier.of(EverbloomDandaloo.MOD_ID, "mallard"))));
-
-    //dagger stabber
-    public static final EntityType<DaggerStabberEntity> DAGGER_STABBER = Registry.register(Registries.ENTITY_TYPE,
-            Identifier.of(EverbloomDandaloo.MOD_ID, "dagger_stabber"),
-            EntityType.Builder.create(DaggerStabberEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.375f, 1.75f).build(
-                            RegistryKey.of(RegistryKeys.ENTITY_TYPE,
-                                    Identifier.of(EverbloomDandaloo.MOD_ID, "dagger_stabber"))));
-
-    //tortoise
-
-    public static final EntityType<TortoiseEntity> TORTOISE = Registry.register(Registries.ENTITY_TYPE,
-            Identifier.of(EverbloomDandaloo.MOD_ID, "tortoise"),
-            EntityType.Builder.create(TortoiseEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.5f, 0.5f).build(RegistryKey.of(
-                            RegistryKeys.ENTITY_TYPE,
-                            Identifier.of(EverbloomDandaloo.MOD_ID, "tortoise"))));
-
-    //toad
-    public static final EntityType<ToadEntity> TOAD = Registry.register(Registries.ENTITY_TYPE,
-            Identifier.of(EverbloomDandaloo.MOD_ID, "toad"),
-            EntityType.Builder.create(ToadEntity::new, SpawnGroup.CREATURE)
-                    .dimensions(0.625f, 0.5f).build(
-                            RegistryKey.of(RegistryKeys.ENTITY_TYPE,
-                                    Identifier.of(EverbloomDandaloo.MOD_ID, "toad"))));
-
-    /// END OF BASIC MOB VARIBLES///
 
     public static void registerModEntities() {
-        EverbloomDandaloo.LOGGER.info("Registering Mod Entities");
-
-        //mallard
-
-        FabricDefaultAttributeRegistry.register(ModEntities.MALLARD, MallardEntity.createMallardAttributes());
-
-        //dagger stabber
-
-        FabricDefaultAttributeRegistry.register(ModEntities.DAGGER_STABBER, DaggerStabberEntity.createStabberDaggerAttributes());
-
-        //tortoise
-
-        FabricDefaultAttributeRegistry.register(ModEntities.TORTOISE, TortoiseEntity.createTortoiseAttributes());
-
-        //toad
-
-        FabricDefaultAttributeRegistry.register(ModEntities.TOAD, ToadEntity.createToadAttributes());
-
-        //register outer mobs
-        DinosaurEntities.registerDinosaurs();
+        EverbloomDandalooCore.LOGGER.info("Registering Mod Entities");
     }
 }

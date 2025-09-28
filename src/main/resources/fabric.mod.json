@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"tydino.everbloom.EverbloomDandaloo"
+			"tydino.everbloom.EverbloomDandalooCore"
 		],
 		"fabric-datagen": [
 			"tydino.everbloom.EverbloomDandalooDataGenerator"

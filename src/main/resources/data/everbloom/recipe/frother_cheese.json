@@ -1,7 +1,0 @@
-{
-  "type": "everbloom:frother",
-  "ingredient": "everbloom:butter_melted",
-  "result": {
-    "id": "everbloom:cheese"
-  }
-}

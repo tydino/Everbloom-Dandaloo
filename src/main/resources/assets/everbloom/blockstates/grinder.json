@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "everbloom:block/grinder" },
-    "facing=east":  { "model": "everbloom:block/grinder", "y": 90 },
-    "facing=south": { "model": "everbloom:block/grinder", "y": 180 },
-    "facing=west":  { "model": "everbloom:block/grinder", "y": 270 }
-  }
-}

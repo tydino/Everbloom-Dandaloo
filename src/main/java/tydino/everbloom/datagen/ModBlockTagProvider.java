@@ -16,38 +16,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                //alumium
-                .add(ModBlocks.ALUMIUM_BLOCK)
-                .add(ModBlocks.ALUMIUM_ORE)
-                .add(ModBlocks.DEEPSLATE_ALUMIUM_ORE)
-
-                //tin
-                .add(ModBlocks.TIN_BLOCK)
-                .add(ModBlocks.TIN_ORE)
-                .add(ModBlocks.DEEPSLATE_TIN_ORE)
-
-                //silicon
-                .add(ModBlocks.SILICON_BLOCK)
-                .add(ModBlocks.SILICON_ORE)
-
-                //alloys
-
-                //bronze
-                .add(ModBlocks.BRONZE_BLOCK)
         ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                //tin
-                .add(ModBlocks.DEEPSLATE_TIN_ORE)
-                .add(ModBlocks.TIN_ORE)
         ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
-                //alumium
-                .add(ModBlocks.DEEPSLATE_ALUMIUM_ORE)
-                .add(ModBlocks.ALUMIUM_ORE)
-                //silicon
-                .add(ModBlocks.SILICON_ORE)
         ;
     }
 }
