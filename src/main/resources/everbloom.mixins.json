@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "tydino.everbloom.mixin",
+	"package": "tydino.everbloomcore.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"EDCMixin"
