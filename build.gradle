@@ -19,6 +19,7 @@ repositories {
 	maven {
 		url "https://jitpack.io"
 	}
+	maven {url "https://maven.shedaniel.me"}
 }
 
 fabricApi {
@@ -38,6 +39,14 @@ dependencies {
 
 	// Tech Reborn 5.12.9 from GitHub via JitPack
 	modImplementation "com.github.TechReborn:TechReborn:5.12.9"
+
+	//REI via shedaniel
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:18.0.808"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:18.0.808"
+
+	//API
+	modApi "dev.architectury:architectury-fabric:15.0.3"
+	modApi "me.shedaniel.cloth:cloth-config-fabric:17.0.144"
 }
 
 processResources {
