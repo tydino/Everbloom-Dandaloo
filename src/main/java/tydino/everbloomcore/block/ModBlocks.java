@@ -36,7 +36,7 @@ public class ModBlocks {
     }
 
     public static void registerModBlocks(){
-        EverbloomDandalooCore.LOGGER.info("registering blocks");
+        EverbloomDandalooCore.LOGGER.info("Registering Blocks");
         EDCBushBlocks.registerModBlocks();
     }
 }

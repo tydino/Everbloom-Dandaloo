@@ -14,6 +14,6 @@ public class EDCBushBlocks extends ModBlocks{
                     .noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).pistonBehavior(PistonBehavior.DESTROY)));
 
     public static void registerModBlocks(){
-        EverbloomDandalooCore.LOGGER.info("registering bush blocks");
+        EverbloomDandalooCore.LOGGER.info("Registering Bush Blocks");
     }
 }
