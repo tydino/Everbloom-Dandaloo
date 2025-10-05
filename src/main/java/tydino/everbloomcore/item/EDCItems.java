@@ -13,7 +13,9 @@ import java.util.function.Function;
 
 public class EDCItems {
 
-    public Item registerItem(String name, Function<Item.Settings, Item> function) {
+    public static final Item POWER_METER = registerItem("power_meter", Item::new);
+
+    protected static Item registerItem(String name, Function<Item.Settings, Item> function) {
         return Registry.register(Registries.ITEM, Identifier.of(EverbloomDandalooCore.MOD_ID, name),
                 function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(EverbloomDandalooCore.MOD_ID, name)))));
     }

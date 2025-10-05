@@ -7,7 +7,12 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import team.reborn.energy.api.EnergyStorage;
 import tydino.everbloomcore.block.ModBlocks;
+import tydino.everbloomcore.block.entity.EDCBlockEntities;
+import tydino.everbloomcore.block.powered.EDCPowerBlocks;
+import tydino.everbloomcore.block.powered.shredder.ShredderBlock;
+import tydino.everbloomcore.block.powered.shredder.ShredderBlockEntitiy;
 import tydino.everbloomcore.entity.EDCEntities;
 import tydino.everbloomcore.item.EDCItemGroup;
 import tydino.everbloomcore.item.EDCItems;
@@ -46,6 +51,9 @@ public class EverbloomDandalooCore implements ModInitializer {
 
 			player.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(80);
 		});
+
+		/// power
+		EnergyStorage.SIDED.registerForBlockEntity(ShredderBlockEntitiy::getEnergyProvider, EDCBlockEntities.SHREDDER);
 
 	}
 }

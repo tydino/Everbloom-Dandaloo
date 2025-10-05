@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.*;
 import tydino.everbloomcore.block.bushes.EDCBushBlocks;
 import tydino.everbloomcore.block.bushes.TomatoBushBlock;
+import tydino.everbloomcore.item.EDCItems;
 
 public class EDCModelProvider extends FabricModelProvider {
     public EDCModelProvider(FabricDataOutput output) {
@@ -20,5 +21,6 @@ public class EDCModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(EDCItems.POWER_METER, Models.GENERATED);
     }
 }

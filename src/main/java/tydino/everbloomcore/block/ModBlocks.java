@@ -11,6 +11,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import tydino.everbloomcore.EverbloomDandalooCore;
 import tydino.everbloomcore.block.bushes.EDCBushBlocks;
+import tydino.everbloomcore.block.powered.EDCPowerBlocks;
 
 import java.util.function.Function;
 
@@ -38,5 +39,7 @@ public class ModBlocks {
     public static void registerModBlocks(){
         EverbloomDandalooCore.LOGGER.info("Registering Blocks");
         EDCBushBlocks.registerModBlocks();
+
+        EDCPowerBlocks.registerModBlocks();
     }
 }
