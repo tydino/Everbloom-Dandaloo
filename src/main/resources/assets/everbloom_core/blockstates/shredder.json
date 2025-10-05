@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "everbloom_core:block/shredder" },
+    "facing=east":  { "model": "everbloom_core:block/shredder", "y": 90 },
+    "facing=south": { "model": "everbloom_core:block/shredder", "y": 180 },
+    "facing=west":  { "model": "everbloom_core:block/shredder", "y": 270 }
+  }
+}

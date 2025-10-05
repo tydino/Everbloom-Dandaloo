@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brown_stained_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:brown_stained_glass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_copper_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "techreborn:copper_plate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_electronic_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": "techreborn:electronic_circuit"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lightning_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:lightning_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:brown_stained_glass_power_meter_recipe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lightning_rod",
+      "has_copper_plate",
+      "has_brown_stained_glass",
+      "has_electronic_circuit"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:brown_stained_glass_power_meter_recipe"
+    ]
+  }
+}

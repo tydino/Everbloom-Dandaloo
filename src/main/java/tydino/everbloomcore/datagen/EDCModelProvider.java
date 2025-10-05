@@ -6,6 +6,7 @@ import net.minecraft.client.data.*;
 import tydino.everbloomcore.block.bushes.EDCBushBlocks;
 import tydino.everbloomcore.block.bushes.TomatoBushBlock;
 import tydino.everbloomcore.item.EDCItems;
+import tydino.everbloomcore.item.food.EDCFoodItems;
 
 public class EDCModelProvider extends FabricModelProvider {
     public EDCModelProvider(FabricDataOutput output) {
@@ -21,6 +22,10 @@ public class EDCModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        //power
         itemModelGenerator.register(EDCItems.POWER_METER, Models.GENERATED);
+
+        //grinder
+        itemModelGenerator.register(EDCFoodItems.TOMATO_SAUCE, Models.GENERATED);
     }
 }

@@ -8,6 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import tydino.everbloomcore.EverbloomDandalooCore;
+import tydino.everbloomcore.block.powered.EDCPowerBlocks;
 import tydino.everbloomcore.item.food.EDCFoodItems;
 
 public class EDCItemGroup {
@@ -18,6 +19,9 @@ public class EDCItemGroup {
                     .entries((displayContext, entries) -> {
 
                         entries.add(EDCFoodItems.TOMATO);
+                        entries.add(EDCFoodItems.TOMATO_SAUCE);
+                        entries.add(EDCItems.POWER_METER);
+                        entries.add(EDCPowerBlocks.SHREDDER);
 
                     }).build());
 

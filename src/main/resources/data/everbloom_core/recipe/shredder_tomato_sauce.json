@@ -1,0 +1,8 @@
+{
+  "type": "everbloom_core:shredder",
+  "ingredient": "everbloom_core:tomato",
+  "output": "minecraft:glass_bottle",
+  "result": {
+    "id": "everbloom_core:tomato_sauce"
+  }
+}

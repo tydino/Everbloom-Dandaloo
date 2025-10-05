@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "c": "techreborn:electronic_circuit",
+    "g": "minecraft:gray_stained_glass",
+    "m": "techreborn:copper_plate",
+    "s": "minecraft:lightning_rod"
+  },
+  "pattern": [
+    " s ",
+    "mgm",
+    "mcm"
+  ],
+  "result": {
+    "count": 1,
+    "id": "everbloom_core:power_meter"
+  }
+}

@@ -1,6 +1,10 @@
 {
+  "item.everbloom_core.power_meter": "Power Meter",
+
   "item.everbloom_core.tomato": "Tomato",
   "block.everbloom_core.tomato_bush": "Tomato Bush",
+
+  "item.everbloom_core.tomato_sauce": "Tomato Sauce",
 
   "block.everbloom_core.shredder": "Shredder",
 
