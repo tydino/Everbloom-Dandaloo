@@ -21,21 +21,11 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EDTamableEntity extends TameableEntity {
 
     public boolean isEating;
-
-    public ArrayList<Item> Food_Items;
-
-    public boolean isFoodIngredient(ItemStack itemStack){
-        for(Item ingredient : Food_Items){
-            if(itemStack.getItem() == ingredient){
-                return true;
-            }
-        }
-        return false;
-    }
 
     public Item TameItem;
 
@@ -48,10 +38,9 @@ public class EDTamableEntity extends TameableEntity {
     public static final TrackedData<Boolean> WANDERING =
             DataTracker.registerData(EDTamableEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
-    public EDTamableEntity(EntityType<? extends TameableEntity> entityType, World world, Item tameItem, ArrayList<Item> foodList, int chanceOfTame){
+    public EDTamableEntity(EntityType<? extends TameableEntity> entityType, World world, Item tameItem, int chanceOfTame){
         super(entityType, world);
         this.TameItem = tameItem;
-        this.Food_Items.addAll(foodList);
         this.ChanceOfTame = chanceOfTame;
     }
 
