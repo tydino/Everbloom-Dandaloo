@@ -25,6 +25,15 @@ public class EDCItemGroup {
 
                     }).build());
 
+    public static final ItemGroup EverbloomDandalooCoreAnimalsItemGroup = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(EverbloomDandalooCore.MOD_ID, "core_animals"),
+            FabricItemGroup.builder().icon(() -> new ItemStack(EDCAnimalItems.MANED_WOLF))
+                    .displayName(Text.translatable("itemgroup.everbloom_core.animal_group"))
+                    .entries((displayContext, entries) -> {
+
+                        entries.add(EDCAnimalItems.MANED_WOLF);
+                    }).build());
+
     public static void registerItemGroup(){
         EverbloomDandalooCore.LOGGER.info("Registering Item Groups");
         EverbloomDandalooCore.LOGGER.info("Registering Core Item Group");

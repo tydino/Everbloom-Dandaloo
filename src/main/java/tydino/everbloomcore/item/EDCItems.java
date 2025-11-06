@@ -23,5 +23,6 @@ public class EDCItems {
     public static void registerModItems() {
         EverbloomDandalooCore.LOGGER.info("Registering Items");
         EDCFoodItems.registerModItems();
+        EDCAnimalItems.registerModItems();
     }
 }
