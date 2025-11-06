@@ -98,6 +98,9 @@ public class ManedWolfModel extends EntityModel<ManedWolfRenderState> {
 
 		this.animateWalking(EDC_ANIMATIONS.ManedWolfAnimations.WALKING, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
 		this.animate(state.idleAnimationState, EDC_ANIMATIONS.ManedWolfAnimations.IDLE, state.age, 1f);
+		this.animate(state.sitAnimationState, EDC_ANIMATIONS.ManedWolfAnimations.SIT, state.age, 1f);
+		this.animate(state.sittingAnimationState, EDC_ANIMATIONS.ManedWolfAnimations.SITTING, state.age, 1f);
+		this.animate(state.standingAnimationState, EDC_ANIMATIONS.ManedWolfAnimations.STANDING, state.age, 1f);
 	}
 	private void setHeadAngles(float headYaw, float headPitch){
 		headYaw = MathHelper.clamp(headYaw, -30f, 30f);

@@ -48,13 +48,13 @@ public class ManedWolfEntity extends EDTamableEntity {
 
     public final AnimationState sitAnimationState = new AnimationState();
     private int sitAnimationTimeout = 0;
-    boolean properlySitting;
+    boolean properlySitting = false;
     public final AnimationState sittingdownAnimationState = new AnimationState();
     private int sittingAnimationTimeout = 0;
-    boolean isSittingDown;
+    boolean isSittingDown = false;
     public final AnimationState standingupAnimationState = new AnimationState();
     private int standingAnimationTimeout = 0;
-    boolean isStandingUp;
+    boolean isStandingUp = false;
 
     void setupAnimationStates() {
         if (this.idleAnimationTimeout <= 0) {
@@ -72,6 +72,9 @@ public class ManedWolfEntity extends EDTamableEntity {
             } else {
                 --this.sitAnimationTimeout;
             }
+        }else{
+            sitAnimationState.stop();
+            sitAnimationTimeout = 0;
         }
         if (isSittingDown && isSittingDownNow()) {
             if (this.sittingAnimationTimeout <= 0) {
@@ -86,12 +89,15 @@ public class ManedWolfEntity extends EDTamableEntity {
         }
         if (isStandingUp) {
             if (this.standingAnimationTimeout <= 0) {
-                this.standingAnimationTimeout = 20;//animation time in seconds *20
+                this.standingAnimationTimeout = 10;//animation time in seconds *20
                 this.standingupAnimationState.start(this.age);
                 this.sitAnimationState.stop();
             } else {
                 --this.standingAnimationTimeout;
             }
+        }else{
+            this.standingupAnimationState.stop();
+            this.standingAnimationTimeout = 0;
         }
 
     }
@@ -142,7 +148,7 @@ public class ManedWolfEntity extends EDTamableEntity {
         this.goalSelector.add(3, new EscapeDangerGoal(this, 1.5f));
         this.goalSelector.add(4, new EDTamableEntity_FollowingGoal(this, (double)1.0f, 10.0f, 2.0f));
         this.goalSelector.add(5, new AnimalMateGoal(this, (double)1.0f));
-        this.goalSelector.add(6, new AnimalMateGoal(this, (double)1.0f));
+        this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0f));
         this.goalSelector.add(7, new TemptGoal(this, 1.05f, Food, true));
         this.goalSelector.add(8, new FollowParentGoal(this, 1.25f));
         this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));

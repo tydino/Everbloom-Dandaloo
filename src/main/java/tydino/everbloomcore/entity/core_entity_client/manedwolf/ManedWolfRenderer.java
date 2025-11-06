@@ -40,5 +40,8 @@ public class ManedWolfRenderer extends MobEntityRenderer<ManedWolfEntity, ManedW
     public void updateRenderState(ManedWolfEntity livingEntity, ManedWolfRenderState livingEntityRenderState, float f) {
         super.updateRenderState(livingEntity, livingEntityRenderState, f);
         livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
+        livingEntityRenderState.sittingAnimationState.copyFrom(livingEntity.sittingdownAnimationState);
+        livingEntityRenderState.sitAnimationState.copyFrom(livingEntity.sitAnimationState);
+        livingEntityRenderState.standingAnimationState.copyFrom(livingEntity.standingupAnimationState);
     }
 }
