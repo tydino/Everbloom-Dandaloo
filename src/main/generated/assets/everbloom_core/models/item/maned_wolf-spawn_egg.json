@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "everbloom_core:item/maned_wolf-spawn_egg"
+  }
+}

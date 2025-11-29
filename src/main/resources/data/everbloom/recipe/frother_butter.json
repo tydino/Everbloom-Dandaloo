@@ -1,7 +1,0 @@
-{
-  "type": "everbloom:frother",
-  "ingredient": "minecraft:milk_bucket",
-  "result": {
-    "id": "everbloom:butter"
-  }
-}

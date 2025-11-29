@@ -1,11 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_circuit_board_inscribed": {
+    "has_copper_plate": {
       "conditions": {
         "items": [
           {
-            "items": "everbloom:circuit_board_inscribed"
+            "items": "techreborn:copper_plate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_electronic_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": "techreborn:electronic_circuit"
           }
         ]
       },
@@ -21,11 +31,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_metal_sheet": {
+    "has_lightning_rod": {
       "conditions": {
         "items": [
           {
-            "items": "everbloom:metal_sheet"
+            "items": "minecraft:lightning_rod"
           }
         ]
       },
@@ -36,25 +46,15 @@
         "recipe": "minecraft:glass_power_meter_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_tin_stick": {
-      "conditions": {
-        "items": [
-          {
-            "items": "everbloom:tin_stick"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_tin_stick",
-      "has_metal_sheet",
+      "has_lightning_rod",
+      "has_copper_plate",
       "has_glass",
-      "has_circuit_board_inscribed"
+      "has_electronic_circuit"
     ]
   ],
   "rewards": {

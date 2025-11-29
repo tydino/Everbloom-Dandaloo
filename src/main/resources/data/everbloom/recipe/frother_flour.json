@@ -1,7 +1,0 @@
-{
-  "type": "everbloom:frother",
-  "ingredient": "minecraft:wheat",
-  "result": {
-    "id": "everbloom:flour"
-  }
-}

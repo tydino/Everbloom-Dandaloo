@@ -1,0 +1,16 @@
+{
+  "item.everbloom_core.power_meter": "Power Meter",
+
+  "item.everbloom_core.tomato": "Tomato",
+  "block.everbloom_core.tomato_bush": "Tomato Bush",
+
+  "item.everbloom_core.tomato_sauce": "Tomato Sauce",
+
+  "block.everbloom_core.shredder": "Shredder",
+
+  "entity.everbloom_core.maned_wolf": "Maned Wolf",
+  "item.everbloom_core.maned_wolf-spawn_egg": "Maned Wolf Spawn",
+
+  "itemgroup.everbloom_core.animal_group": "Everbloom Core Animal Items",
+  "itemgroup.everbloom_core.item_group": "Everbloom Core Miscellaneous Items"
+}

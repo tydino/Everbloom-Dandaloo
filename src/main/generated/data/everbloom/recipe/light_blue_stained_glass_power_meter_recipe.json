@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "c": "everbloom:circuit_board_inscribed",
+    "c": "techreborn:electronic_circuit",
     "g": "minecraft:light_blue_stained_glass",
-    "m": "everbloom:metal_sheet",
-    "s": "everbloom:tin_stick"
+    "m": "techreborn:copper_plate",
+    "s": "minecraft:lightning_rod"
   },
   "pattern": [
     " s ",
@@ -14,6 +14,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "everbloom:power_meter"
+    "id": "everbloom_core:power_meter"
   }
 }

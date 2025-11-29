@@ -16,16 +16,16 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"tydino.everbloom.EverbloomDandaloo"
+			"tydino.everbloomcore.EverbloomDandalooCore"
 		],
 		"fabric-datagen": [
-			"tydino.everbloom.EverbloomDandalooDataGenerator"
+			"tydino.everbloomcore.EverbloomDandalooDataGenerator"
 		],
 		"client": [
-			"tydino.everbloom.EverbloomDandalooClient"
+			"tydino.everbloomcore.EverbloomDandalooClient"
 		],
 		"rei_client": [
-			"tydino.everbloom.compat.EverbloomREIClient"
+			"tydino.everbloomcore.compat.EDCREIClient"
 		]
 	},
 	"mixins": [
